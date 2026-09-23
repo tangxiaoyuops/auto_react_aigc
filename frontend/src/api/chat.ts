@@ -18,7 +18,16 @@ export function cacheSessionId(sid: string) {
 
 export async function ensureSession(model = 'Qwen3.5-397b-a17b'): Promise<string> {
   const cached = getCachedSessionId();
-  if (cached) return cached;
+  // 缓存存在时先验证其仍有效（后端可能重建/清理，避免用失效 id 触发 404）
+  if (cached) {
+    try {
+      await http.get(`/sessions/${cached}`);
+      return cached;
+    } catch {
+      // 缓存 session 已失效，清除并重建
+      localStorage.removeItem(SESSION_KEY);
+    }
+  }
 
   const { data } = await http.post('/sessions', { title: 'Agent 调试会话', model });
   setSessionId(data.id);

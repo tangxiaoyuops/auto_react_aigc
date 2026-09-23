@@ -1,6 +1,6 @@
-INFO:     Will watch for changes in these directories: ['D:\\projects\\react_demo\\control-plane']
+INFO:     Will watch for changes in these directories: ['D:\\projects\\react_demo\\auto_react_aigc\\control-plane']
 INFO:     Uvicorn running on http://0.0.0.0:8080 (Press CTRL+C to quit)
-INFO:     Started reloader process [25056] using StatReload
-INFO:     Started server process [21080]
+INFO:     Started reloader process [2316] using StatReload
+INFO:     Started server process [11028]
 INFO:     Waiting for application startup.
 INFO:     Application startup complete.

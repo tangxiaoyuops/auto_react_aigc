@@ -16,6 +16,7 @@ import {
   XCircle,
 } from 'lucide-react';
 import { mockReply, nextMsgId, type Step } from '../../utils/mockChat';
+import { ensureSession, startRun, streamRun } from '../../api/chat';
 import Resizer from '../layout/Resizer';
 
 interface Msg {
@@ -66,7 +67,7 @@ export default function DebugPanel({ agentName, agentModel }: DebugPanelProps) {
     []
   );
 
-  const send = (e: React.FormEvent) => {
+  const send = async (e: React.FormEvent) => {
     e.preventDefault();
     const content = input.trim();
     if (!content || sending) return;
@@ -93,44 +94,96 @@ export default function DebugPanel({ agentName, agentModel }: DebugPanelProps) {
     setInput('');
     setSending(true);
 
-    const reply = mockReply(content);
-    const steps = reply.steps;
-    let stepIndex = 0;
+    // 尝试走后端 SSE；仅当"无法建立后端连接"时回退到 mock（离线演示）
+    const steps: Step[] = [];
+    let finalContent = '';
 
-    const timer = setInterval(() => {
-      stepIndex += 1;
-      setMessages((prev) =>
-        prev.map((m) =>
-          m.id === botMsgId
-            ? {
-                ...m,
-                steps: steps.slice(0, stepIndex).map((st, i) => ({
-                  ...st,
-                  status: i < stepIndex - 1 ? ('success' as const) : ('running' as const),
-                })),
-              }
-            : m
-        )
-      );
+    try {
+      const sessionId = await ensureSession(agentModel);
+      await startRun(sessionId, content, { id: agentName, name: agentName });
+
+      // 单条消息内聚合并实时更新 steps
+      const updateSteps = (newSteps: Step[]) => {
+        setMessages((prev) =>
+          prev.map((m) => (m.id === botMsgId ? { ...m, steps: newSteps, content: finalContent } : m))
+        );
+      };
+
+      const appendStep = (step: Step) => {
+        const last = steps[steps.length - 1];
+        if (last && last.status === 'running' && step.status === 'running') {
+          steps[steps.length - 1] = step;
+        } else {
+          steps.push(step);
+        }
+        updateSteps([...steps]);
+      };
 
       // 执行过程中实时联动详情面板
-      const currentSteps = steps.slice(0, stepIndex).map((st, i) => ({
-        ...st,
-        status: i < stepIndex - 1 ? ('success' as const) : ('running' as const),
-      }));
-      setActiveSteps({ msgId: botMsgId, steps: currentSteps });
+      const syncActive = () => {
+        setActiveSteps({ msgId: botMsgId, steps: [...steps] });
+      };
 
-      if (stepIndex >= steps.length) {
-        clearInterval(timer);
+      await streamRun(sessionId, (type, step) => {
+        if (type === 'run_start') return;
+        if (type === 'thought') {
+          appendStep({ nodeType: 'THOUGHT', nodeName: step.nodeName || '思考', title: step.title || '思考', detail: step.detail || '', status: 'success' });
+        } else if (type === 'tool_call_start') {
+          appendStep({ nodeType: 'TOOL', nodeName: step.nodeName || step.title || '工具', title: `调用 ${step.nodeName || step.title || '工具'}`, input: step.input || '', status: 'running' });
+        } else if (type === 'tool_call_end') {
+          appendStep({ nodeType: 'TOOL', nodeName: step.nodeName || '工具', title: `${step.nodeName || '工具'} 完成`, result: step.result || '', duration: step.duration, status: 'success' });
+        } else if (type === 'result') {
+          if (step.detail || step.title) {
+            finalContent = step.detail || step.title || '';
+            appendStep({ nodeType: 'RESULT', nodeName: step.nodeName || '结果', title: step.title || '完成', detail: step.detail || '', status: 'success' });
+          }
+        } else if (type === 'error') {
+          appendStep({ nodeType: 'ERROR', nodeName: '错误', title: step.title || '执行出错', detail: step.detail || '', status: 'error' });
+        }
+        syncActive();
+      });
+    } catch (err) {
+      // 后端连接失败，回退 mock（模拟执行链路）
+      const reply = mockReply(content);
+      const msteps = reply.steps;
+      let stepIndex = 0;
+
+      const timer = setInterval(() => {
+        stepIndex += 1;
+        const sliced = msteps.slice(0, stepIndex).map((st, i) => ({
+          ...st,
+          status: i < stepIndex - 1 ? ('success' as const) : ('running' as const),
+        }));
         setMessages((prev) =>
           prev.map((m) =>
-            m.id === botMsgId ? { ...m, content: reply.content, streaming: false, steps } : m
+            m.id === botMsgId ? { ...m, steps: sliced } : m
           )
         );
-        setActiveSteps({ msgId: botMsgId, steps });
-        setSending(false);
-      }
-    }, 550);
+        setActiveSteps({ msgId: botMsgId, steps: sliced });
+
+        if (stepIndex >= msteps.length) {
+          clearInterval(timer);
+          setMessages((prev) =>
+            prev.map((m) =>
+              m.id === botMsgId ? { ...m, content: reply.content, streaming: false, steps: msteps } : m
+            )
+          );
+          setActiveSteps({ msgId: botMsgId, steps: msteps });
+          setSending(false);
+        }
+      }, 550);
+      return;
+    }
+
+    // 后端路径收尾
+    await new Promise((r) => setTimeout(r, 200));
+    setMessages((prev) =>
+      prev.map((m) =>
+        m.id === botMsgId ? { ...m, content: finalContent || m.content, streaming: false, steps: steps.length ? steps : m.steps } : m
+      )
+    );
+    setActiveSteps({ msgId: botMsgId, steps });
+    setSending(false);
   };
 
   return (

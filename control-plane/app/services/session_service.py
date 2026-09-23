@@ -246,8 +246,15 @@ class SessionService:
                 output_json=data.get("result", data.get("content", "")),
                 duration_ms=int(data.get("duration_ms", 0) or 0),
             )
-        if event_type in ("TEXT_MESSAGE_START", "TEXT_MESSAGE_CONTENT", "TEXT_MESSAGE_END"):
-            return result_event(content=data.get("content", ""))
+        if event_type == "TEXT_MESSAGE_CONTENT":
+            content = data.get("content", "") or ""
+            if content:
+                return result_event(content=content)
+            # 无内容则不产生 result 事件（避免空 detail 覆盖真正结果）
+            return {"type": "noop", "content": {}}
+        if event_type in ("TEXT_MESSAGE_START", "TEXT_MESSAGE_END"):
+            # 生命周期标记，不含正文，忽略（防止产生空 result）
+            return {"type": "noop", "content": {}}
         if event_type == "RUN_END":
             return run_end_event(
                 run_id=data.get("run_id", ""),
