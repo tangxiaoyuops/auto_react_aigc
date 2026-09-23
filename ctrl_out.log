@@ -1,0 +1,1615 @@
+Initializing database...
+2026-09-22 16:18:52,708 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 16:18:52,708 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("sessions")
+2026-09-22 16:18:52,709 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-09-22 16:18:52,710 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("messages")
+2026-09-22 16:18:52,710 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-09-22 16:18:52,711 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("runs")
+2026-09-22 16:18:52,711 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-09-22 16:18:52,712 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("run_events")
+2026-09-22 16:18:52,712 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-09-22 16:18:52,713 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("users")
+2026-09-22 16:18:52,714 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-09-22 16:18:52,715 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("agents")
+2026-09-22 16:18:52,715 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-09-22 16:18:52,716 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("agent_versions")
+2026-09-22 16:18:52,716 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-09-22 16:18:52,717 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("resources")
+2026-09-22 16:18:52,717 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-09-22 16:18:52,718 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("spaces")
+2026-09-22 16:18:52,718 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-09-22 16:18:52,719 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("space_members")
+2026-09-22 16:18:52,719 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-09-22 16:18:52,719 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("eval_datasets")
+2026-09-22 16:18:52,720 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-09-22 16:18:52,720 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("eval_cases")
+2026-09-22 16:18:52,720 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-09-22 16:18:52,721 INFO sqlalchemy.engine.Engine PRAGMA main.table_info("eval_tasks")
+2026-09-22 16:18:52,721 INFO sqlalchemy.engine.Engine [raw sql] ()
+2026-09-22 16:18:52,722 INFO sqlalchemy.engine.Engine COMMIT
+Database initialized
+Redis not available, using mock: Error Multiple exceptions: [Errno 10061] Connect call failed ('::1', 6379, 0, 0), [Errno 10061] Connect call failed ('127.0.0.1', 6379) connecting to localhost:6379.
+INFO:     127.0.0.1:56790 - "GET /health HTTP/1.1" 200 OK
+2026-09-22 16:21:56,098 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 16:21:56,108 INFO sqlalchemy.engine.Engine SELECT users.id, users.email, users.username, users.password_hash, users.roles, users.is_active, users.created_at, users.updated_at 
+FROM users 
+WHERE users.email = ?
+2026-09-22 16:21:56,109 INFO sqlalchemy.engine.Engine [generated in 0.00053s] ('test@example.com',)
+2026-09-22 16:21:56,337 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:57489 - "POST /api/v1/auth/login HTTP/1.1" 401 Unauthorized
+INFO:     127.0.0.1:57489 - "GET /api/v1/sessions HTTP/1.1" 401 Unauthorized
+INFO:     127.0.0.1:57489 - "POST /api/v1/sessions HTTP/1.1" 401 Unauthorized
+INFO:     127.0.0.1:57489 - "POST /api/v1/sessions/None/runs HTTP/1.1" 401 Unauthorized
+INFO:     127.0.0.1:57489 - "GET /api/v1/sessions/None/stream?run_id= HTTP/1.1" 401 Unauthorized
+2026-09-22 16:22:17,843 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 16:22:17,844 INFO sqlalchemy.engine.Engine SELECT users.id, users.email, users.username, users.password_hash, users.roles, users.is_active, users.created_at, users.updated_at 
+FROM users 
+WHERE users.email = ?
+2026-09-22 16:22:17,844 INFO sqlalchemy.engine.Engine [cached since 21.73s ago] ('test@example.com',)
+2026-09-22 16:22:18,052 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:57604 - "POST /api/v1/auth/login HTTP/1.1" 200 OK
+2026-09-22 16:22:18,099 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 16:22:18,101 INFO sqlalchemy.engine.Engine SELECT sessions.id, sessions.user_id, sessions.title, sessions.model, sessions.tools, sessions.skills, sessions.system_prompt, sessions.status, sessions.extra_data, sessions.created_at, sessions.updated_at 
+FROM sessions 
+WHERE sessions.user_id = ? AND sessions.status != ? ORDER BY sessions.created_at DESC
+ LIMIT ? OFFSET ?
+2026-09-22 16:22:18,101 INFO sqlalchemy.engine.Engine [generated in 0.00032s] ('9494bee9-52f9-4594-ad31-334f1a2b60ec', 'deleted', 20, 0)
+2026-09-22 16:22:18,103 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:57604 - "GET /api/v1/sessions HTTP/1.1" 200 OK
+2026-09-22 16:22:18,116 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 16:22:18,117 INFO sqlalchemy.engine.Engine INSERT INTO sessions (id, user_id, title, model, tools, skills, system_prompt, status, extra_data, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2026-09-22 16:22:18,117 INFO sqlalchemy.engine.Engine [generated in 0.00031s] ('64bbb74e-8df9-4719-88f1-f3705a277d9b', '9494bee9-52f9-4594-ad31-334f1a2b60ec', 't', 'gpt-4o', '[]', '[]', None, 'active', '{}', '2026-09-22 08:22:18.116598', None)
+2026-09-22 16:22:18,119 INFO sqlalchemy.engine.Engine COMMIT
+2026-09-22 16:22:18,123 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 16:22:18,124 INFO sqlalchemy.engine.Engine SELECT sessions.id, sessions.user_id, sessions.title, sessions.model, sessions.tools, sessions.skills, sessions.system_prompt, sessions.status, sessions.extra_data, sessions.created_at, sessions.updated_at 
+FROM sessions 
+WHERE sessions.id = ?
+2026-09-22 16:22:18,125 INFO sqlalchemy.engine.Engine [generated in 0.00027s] ('64bbb74e-8df9-4719-88f1-f3705a277d9b',)
+2026-09-22 16:22:18,126 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:57604 - "POST /api/v1/sessions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57604 - "POST /api/v1/sessions/64bbb74e-8df9-4719-88f1-f3705a277d9b/runs HTTP/1.1" 422 Unprocessable Entity
+2026-09-22 16:22:18,140 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 16:22:18,140 INFO sqlalchemy.engine.Engine SELECT sessions.id, sessions.user_id, sessions.title, sessions.model, sessions.tools, sessions.skills, sessions.system_prompt, sessions.status, sessions.extra_data, sessions.created_at, sessions.updated_at 
+FROM sessions 
+WHERE sessions.id = ?
+2026-09-22 16:22:18,140 INFO sqlalchemy.engine.Engine [generated in 0.00023s] ('64bbb74e-8df9-4719-88f1-f3705a277d9b',)
+2026-09-22 16:22:18,143 INFO sqlalchemy.engine.Engine SELECT runs.id, runs.session_id, runs.user_id, runs.status, runs.model, runs.total_tokens, runs.total_cost, runs.tool_calls_count, runs.reasoning_steps, runs.error_message, runs.extra_data, runs.started_at, runs.completed_at, runs.created_at 
+FROM runs 
+WHERE runs.session_id = ? ORDER BY runs.created_at DESC
+ LIMIT ? OFFSET ?
+2026-09-22 16:22:18,144 INFO sqlalchemy.engine.Engine [generated in 0.00023s] ('64bbb74e-8df9-4719-88f1-f3705a277d9b', 1, 0)
+2026-09-22 16:22:18,145 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:57604 - "GET /api/v1/sessions/64bbb74e-8df9-4719-88f1-f3705a277d9b/stream?run_id= HTTP/1.1" 404 Not Found
+2026-09-22 16:22:34,537 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 16:22:34,538 INFO sqlalchemy.engine.Engine SELECT users.id, users.email, users.username, users.password_hash, users.roles, users.is_active, users.created_at, users.updated_at 
+FROM users 
+WHERE users.email = ?
+2026-09-22 16:22:34,538 INFO sqlalchemy.engine.Engine [cached since 38.43s ago] ('test@example.com',)
+2026-09-22 16:22:34,743 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:57725 - "POST /api/v1/auth/login HTTP/1.1" 200 OK
+2026-09-22 16:22:52,667 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 16:22:52,668 INFO sqlalchemy.engine.Engine SELECT users.id, users.email, users.username, users.password_hash, users.roles, users.is_active, users.created_at, users.updated_at 
+FROM users 
+WHERE users.email = ?
+2026-09-22 16:22:52,668 INFO sqlalchemy.engine.Engine [cached since 56.56s ago] ('test@example.com',)
+2026-09-22 16:22:52,879 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:57788 - "POST /api/v1/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57788 - "POST /api/v1/sessions/64bbb74e-8df9-4719-88f1-f3705a277d9b/runs HTTP/1.1" 422 Unprocessable Entity
+2026-09-22 16:23:13,202 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 16:23:13,203 INFO sqlalchemy.engine.Engine SELECT users.id, users.email, users.username, users.password_hash, users.roles, users.is_active, users.created_at, users.updated_at 
+FROM users 
+WHERE users.email = ?
+2026-09-22 16:23:13,204 INFO sqlalchemy.engine.Engine [cached since 77.09s ago] ('test@example.com',)
+2026-09-22 16:23:13,414 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:57875 - "POST /api/v1/auth/login HTTP/1.1" 200 OK
+2026-09-22 16:23:13,427 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 16:23:13,428 INFO sqlalchemy.engine.Engine SELECT sessions.id, sessions.user_id, sessions.title, sessions.model, sessions.tools, sessions.skills, sessions.system_prompt, sessions.status, sessions.extra_data, sessions.created_at, sessions.updated_at 
+FROM sessions 
+WHERE sessions.id = ?
+2026-09-22 16:23:13,428 INFO sqlalchemy.engine.Engine [cached since 55.28s ago] ('64bbb74e-8df9-4719-88f1-f3705a277d9b',)
+2026-09-22 16:23:13,431 INFO sqlalchemy.engine.Engine INSERT INTO messages (id, session_id, role, content, model, tokens_used, extra_data, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+2026-09-22 16:23:13,431 INFO sqlalchemy.engine.Engine [generated in 0.00030s] ('8b646aba-7b34-46e4-8594-888b5481f211', '64bbb74e-8df9-4719-88f1-f3705a277d9b', 'user', '分析近三个月销售并给出环比建议', None, None, '{}', '2026-09-22 08:23:13.429119')
+2026-09-22 16:23:13,433 INFO sqlalchemy.engine.Engine INSERT INTO runs (id, session_id, user_id, status, model, total_tokens, total_cost, tool_calls_count, reasoning_steps, error_message, extra_data, started_at, completed_at, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2026-09-22 16:23:13,433 INFO sqlalchemy.engine.Engine [generated in 0.00042s] ('c419ef89-02fb-4c81-8114-71760e484ddd', '64bbb74e-8df9-4719-88f1-f3705a277d9b', '9494bee9-52f9-4594-ad31-334f1a2b60ec', 'running', 'gpt-4o', 0, 0.0, 0, 0, None, '{"agent": {"model": "gpt-4o", "tools": [], "system_prompt": ""}}', '2026-09-22 08:23:13.429119', None, '2026-09-22 08:23:13.429119')
+2026-09-22 16:23:13,434 INFO sqlalchemy.engine.Engine COMMIT
+2026-09-22 16:23:13,438 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 16:23:13,438 INFO sqlalchemy.engine.Engine SELECT runs.id, runs.session_id, runs.user_id, runs.status, runs.model, runs.total_tokens, runs.total_cost, runs.tool_calls_count, runs.reasoning_steps, runs.error_message, runs.extra_data, runs.started_at, runs.completed_at, runs.created_at 
+FROM runs 
+WHERE runs.id = ?
+2026-09-22 16:23:13,439 INFO sqlalchemy.engine.Engine [generated in 0.00023s] ('c419ef89-02fb-4c81-8114-71760e484ddd',)
+2026-09-22 16:23:13,440 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:57875 - "POST /api/v1/sessions/64bbb74e-8df9-4719-88f1-f3705a277d9b/runs HTTP/1.1" 200 OK
+2026-09-22 16:23:13,442 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 16:23:13,443 INFO sqlalchemy.engine.Engine SELECT runs.id, runs.session_id, runs.user_id, runs.status, runs.model, runs.total_tokens, runs.total_cost, runs.tool_calls_count, runs.reasoning_steps, runs.error_message, runs.extra_data, runs.started_at, runs.completed_at, runs.created_at 
+FROM runs 
+WHERE runs.id = ?
+2026-09-22 16:23:13,443 INFO sqlalchemy.engine.Engine [generated in 0.00029s] ('c419ef89-02fb-4c81-8114-71760e484ddd',)
+2026-09-22 16:23:13,444 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 16:23:13,445 INFO sqlalchemy.engine.Engine SELECT sessions.id, sessions.user_id, sessions.title, sessions.model, sessions.tools, sessions.skills, sessions.system_prompt, sessions.status, sessions.extra_data, sessions.created_at, sessions.updated_at 
+FROM sessions 
+WHERE sessions.id = ?
+2026-09-22 16:23:13,445 INFO sqlalchemy.engine.Engine [cached since 55.3s ago] ('64bbb74e-8df9-4719-88f1-f3705a277d9b',)
+2026-09-22 16:23:13,447 INFO sqlalchemy.engine.Engine SELECT messages.id, messages.session_id, messages.role, messages.content, messages.model, messages.tokens_used, messages.extra_data, messages.created_at 
+FROM messages 
+WHERE messages.id = ?
+2026-09-22 16:23:13,447 INFO sqlalchemy.engine.Engine [generated in 0.00025s] ('8b646aba-7b34-46e4-8594-888b5481f211',)
+2026-09-22 16:23:13,448 INFO sqlalchemy.engine.Engine SELECT runs.id, runs.session_id, runs.user_id, runs.status, runs.model, runs.total_tokens, runs.total_cost, runs.tool_calls_count, runs.reasoning_steps, runs.error_message, runs.extra_data, runs.started_at, runs.completed_at, runs.created_at 
+FROM runs 
+WHERE runs.session_id = ? ORDER BY runs.created_at DESC
+ LIMIT ? OFFSET ?
+2026-09-22 16:23:13,448 INFO sqlalchemy.engine.Engine [cached since 55.3s ago] ('64bbb74e-8df9-4719-88f1-f3705a277d9b', 1, 0)
+2026-09-22 16:23:13,448 INFO sqlalchemy.engine.Engine SELECT sessions.id, sessions.user_id, sessions.title, sessions.model, sessions.tools, sessions.skills, sessions.system_prompt, sessions.status, sessions.extra_data, sessions.created_at, sessions.updated_at 
+FROM sessions 
+WHERE sessions.id = ?
+2026-09-22 16:23:13,448 INFO sqlalchemy.engine.Engine [cached since 55.3s ago] ('64bbb74e-8df9-4719-88f1-f3705a277d9b',)
+2026-09-22 16:23:13,449 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:57875 - "GET /api/v1/sessions/64bbb74e-8df9-4719-88f1-f3705a277d9b/stream?run_id=c419ef89-02fb-4c81-8114-71760e484ddd HTTP/1.1" 200 OK
+2026-09-22 16:23:13,452 INFO sqlalchemy.engine.Engine SELECT max(run_events.sequence) AS max_1 
+FROM run_events 
+WHERE run_events.run_id = ?
+2026-09-22 16:23:13,452 INFO sqlalchemy.engine.Engine [generated in 0.00024s] ('c419ef89-02fb-4c81-8114-71760e484ddd',)
+2026-09-22 16:23:13,454 INFO sqlalchemy.engine.Engine INSERT INTO run_events (id, run_id, session_id, event_type, content, sequence, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)
+2026-09-22 16:23:13,454 INFO sqlalchemy.engine.Engine [generated in 0.00025s] ('50c20710-4c66-4ece-9a15-9b48aa23e6ca', 'c419ef89-02fb-4c81-8114-71760e484ddd', '64bbb74e-8df9-4719-88f1-f3705a277d9b', 'run_start', '{"run_id": "c419ef89-02fb-4c81-8114-71760e484ddd", "session_id": "64bbb74e-8df9-4719-88f1-f3705a277d9b"}', 1, '2026-09-22 08:23:13.453921')
+2026-09-22 16:23:13,456 INFO sqlalchemy.engine.Engine COMMIT
+2026-09-22 16:23:13,460 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 16:23:13,461 INFO sqlalchemy.engine.Engine SELECT run_events.id, run_events.run_id, run_events.session_id, run_events.event_type, run_events.content, run_events.sequence, run_events.created_at 
+FROM run_events 
+WHERE run_events.id = ?
+2026-09-22 16:23:13,461 INFO sqlalchemy.engine.Engine [generated in 0.00025s] ('50c20710-4c66-4ece-9a15-9b48aa23e6ca',)
+2026-09-22 16:23:13,741 INFO sqlalchemy.engine.Engine SELECT max(run_events.sequence) AS max_1 
+FROM run_events 
+WHERE run_events.run_id = ?
+2026-09-22 16:23:13,741 INFO sqlalchemy.engine.Engine [cached since 0.2888s ago] ('c419ef89-02fb-4c81-8114-71760e484ddd',)
+2026-09-22 16:23:13,743 INFO sqlalchemy.engine.Engine INSERT INTO run_events (id, run_id, session_id, event_type, content, sequence, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)
+2026-09-22 16:23:13,743 INFO sqlalchemy.engine.Engine [cached since 0.2889s ago] ('0267c1cb-77d3-4620-9796-556d9747e006', 'c419ef89-02fb-4c81-8114-71760e484ddd', '64bbb74e-8df9-4719-88f1-f3705a277d9b', 'thought', '{"nodeType": "THOUGHT", "nodeName": "\\u4efb\\u52a1\\u7406\\u89e3", "title": "\\u601d\\u8003\\u4e2d...", "detail": "\\u89e3\\u6790\\u7528\\u6237\\u61 ... (190 characters truncated) ... 9\\u4e2a\\u6708\\u9500\\u552e\\u8868\\u73b0\\u5206\\u6790 + \\u73af\\u6bd4\\u89e3\\u8bfb + \\u4e0b\\u4e00\\u6b65\\u5efa\\u8bae", "status": "success"}', 2, '2026-09-22 08:23:13.743323')
+2026-09-22 16:23:13,745 INFO sqlalchemy.engine.Engine COMMIT
+2026-09-22 16:23:13,749 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 16:23:13,750 INFO sqlalchemy.engine.Engine SELECT run_events.id, run_events.run_id, run_events.session_id, run_events.event_type, run_events.content, run_events.sequence, run_events.created_at 
+FROM run_events 
+WHERE run_events.id = ?
+2026-09-22 16:23:13,751 INFO sqlalchemy.engine.Engine [cached since 0.2894s ago] ('0267c1cb-77d3-4620-9796-556d9747e006',)
+2026-09-22 16:23:13,752 INFO sqlalchemy.engine.Engine SELECT max(run_events.sequence) AS max_1 
+FROM run_events 
+WHERE run_events.run_id = ?
+2026-09-22 16:23:13,752 INFO sqlalchemy.engine.Engine [cached since 0.2995s ago] ('c419ef89-02fb-4c81-8114-71760e484ddd',)
+2026-09-22 16:23:13,753 INFO sqlalchemy.engine.Engine INSERT INTO run_events (id, run_id, session_id, event_type, content, sequence, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)
+2026-09-22 16:23:13,753 INFO sqlalchemy.engine.Engine [cached since 0.2987s ago] ('9946132a-de32-4f74-a607-07f9ad9a13c5', 'c419ef89-02fb-4c81-8114-71760e484ddd', '64bbb74e-8df9-4719-88f1-f3705a277d9b', 'thought', '{"nodeType": "THOUGHT", "nodeName": "\\u65b9\\u6848\\u89c4\\u5212", "title": "\\u601d\\u8003\\u4e2d...", "detail": "\\u8be5\\u76ee\\u6807\\u5c5e\\u4e ... (298 characters truncated) ... \\u5f0f\\uff1a\\u5148\\u91cf\\u5316\\uff0c\\u518d\\u5f52\\u56e0\\uff0c\\u6700\\u540e\\u7ed9\\u884c\\u52a8\\u5efa\\u8bae\\u3002", "status": "success"}', 3, '2026-09-22 08:23:13.753165')
+2026-09-22 16:23:13,754 INFO sqlalchemy.engine.Engine COMMIT
+2026-09-22 16:23:13,759 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 16:23:13,760 INFO sqlalchemy.engine.Engine SELECT run_events.id, run_events.run_id, run_events.session_id, run_events.event_type, run_events.content, run_events.sequence, run_events.created_at 
+FROM run_events 
+WHERE run_events.id = ?
+2026-09-22 16:23:13,760 INFO sqlalchemy.engine.Engine [cached since 0.2994s ago] ('9946132a-de32-4f74-a607-07f9ad9a13c5',)
+2026-09-22 16:23:13,762 INFO sqlalchemy.engine.Engine SELECT max(run_events.sequence) AS max_1 
+FROM run_events 
+WHERE run_events.run_id = ?
+2026-09-22 16:23:13,762 INFO sqlalchemy.engine.Engine [cached since 0.3097s ago] ('c419ef89-02fb-4c81-8114-71760e484ddd',)
+2026-09-22 16:23:13,764 INFO sqlalchemy.engine.Engine INSERT INTO run_events (id, run_id, session_id, event_type, content, sequence, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)
+2026-09-22 16:23:13,764 INFO sqlalchemy.engine.Engine [cached since 0.3091s ago] ('17abf783-c5c0-440e-b413-e132f64af04a', 'c419ef89-02fb-4c81-8114-71760e484ddd', '64bbb74e-8df9-4719-88f1-f3705a277d9b', 'thought', '{"nodeType": "THOUGHT", "nodeName": "\\u65b9\\u6848\\u62c6\\u89e3", "title": "\\u601d\\u8003\\u4e2d...", "detail": "\\u6211\\u8ba1\\u5212\\u6309\\u4e ... (315 characters truncated) ... a\\u4f4d\\u9a71\\u52a8\\u56e0\\u5b50\\n4. \\u6c47\\u603b\\u7ed3\\u8bba\\u5e76\\u8f93\\u51fa\\u53ef\\u6267\\u884c\\u5efa\\u8bae", "status": "success"}', 4, '2026-09-22 08:23:13.763520')
+2026-09-22 16:23:13,765 INFO sqlalchemy.engine.Engine COMMIT
+2026-09-22 16:23:13,769 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 16:23:13,769 INFO sqlalchemy.engine.Engine SELECT run_events.id, run_events.run_id, run_events.session_id, run_events.event_type, run_events.content, run_events.sequence, run_events.created_at 
+FROM run_events 
+WHERE run_events.id = ?
+2026-09-22 16:23:13,769 INFO sqlalchemy.engine.Engine [cached since 0.3086s ago] ('17abf783-c5c0-440e-b413-e132f64af04a',)
+2026-09-22 16:23:13,771 INFO sqlalchemy.engine.Engine SELECT max(run_events.sequence) AS max_1 
+FROM run_events 
+WHERE run_events.run_id = ?
+2026-09-22 16:23:13,771 INFO sqlalchemy.engine.Engine [cached since 0.3186s ago] ('c419ef89-02fb-4c81-8114-71760e484ddd',)
+2026-09-22 16:23:13,772 INFO sqlalchemy.engine.Engine INSERT INTO run_events (id, run_id, session_id, event_type, content, sequence, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)
+2026-09-22 16:23:13,773 INFO sqlalchemy.engine.Engine [cached since 0.318s ago] ('10a08462-d457-41b8-ab74-f68129ee4c26', 'c419ef89-02fb-4c81-8114-71760e484ddd', '64bbb74e-8df9-4719-88f1-f3705a277d9b', 'thought', '{"nodeType": "THOUGHT", "nodeName": "\\u7b2c 1 \\u6b65 \\u00b7 \\u63a8\\u7406", "title": "\\u601d\\u8003\\u4e2d...", "detail": "\\u9996\\u5148\\u83b7 ... (70 characters truncated) ... \\uff0c\\u6309\\u5468\\u805a\\u5408\\uff0c\\u624d\\u80fd\\u89c2\\u5bdf\\u5230\\u8d8b\\u52bf\\u4e0e\\u5f02\\u5e38\\u70b9\\u3002", "status": "success"}', 5, '2026-09-22 08:23:13.772573')
+2026-09-22 16:23:13,774 INFO sqlalchemy.engine.Engine COMMIT
+2026-09-22 16:23:13,778 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 16:23:13,779 INFO sqlalchemy.engine.Engine SELECT run_events.id, run_events.run_id, run_events.session_id, run_events.event_type, run_events.content, run_events.sequence, run_events.created_at 
+FROM run_events 
+WHERE run_events.id = ?
+2026-09-22 16:23:13,779 INFO sqlalchemy.engine.Engine [cached since 0.3178s ago] ('10a08462-d457-41b8-ab74-f68129ee4c26',)
+2026-09-22 16:23:13,781 INFO sqlalchemy.engine.Engine SELECT max(run_events.sequence) AS max_1 
+FROM run_events 
+WHERE run_events.run_id = ?
+2026-09-22 16:23:13,781 INFO sqlalchemy.engine.Engine [cached since 0.3283s ago] ('c419ef89-02fb-4c81-8114-71760e484ddd',)
+2026-09-22 16:23:13,782 INFO sqlalchemy.engine.Engine INSERT INTO run_events (id, run_id, session_id, event_type, content, sequence, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)
+2026-09-22 16:23:13,782 INFO sqlalchemy.engine.Engine [cached since 0.3276s ago] ('bf87bf85-7477-41e4-9b74-9ff26283c428', 'c419ef89-02fb-4c81-8114-71760e484ddd', '64bbb74e-8df9-4719-88f1-f3705a277d9b', 'tool_call_start', '{"nodeType": "TOOL", "nodeName": "query_sales", "title": "\\u6b63\\u5728\\u8c03\\u7528 query_sales...", "input": "{\\n  \\"range\\": \\"\\u8fd1\\u4e09\\u4e2a\\u6708\\",\\n  \\"granularity\\": \\"\\u6309\\u5468\\"\\n}", "status": "running"}', 6, '2026-09-22 08:23:13.781750')
+2026-09-22 16:23:13,783 INFO sqlalchemy.engine.Engine COMMIT
+2026-09-22 16:23:13,786 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 16:23:13,787 INFO sqlalchemy.engine.Engine SELECT run_events.id, run_events.run_id, run_events.session_id, run_events.event_type, run_events.content, run_events.sequence, run_events.created_at 
+FROM run_events 
+WHERE run_events.id = ?
+2026-09-22 16:23:13,787 INFO sqlalchemy.engine.Engine [cached since 0.3261s ago] ('bf87bf85-7477-41e4-9b74-9ff26283c428',)
+2026-09-22 16:23:14,144 INFO sqlalchemy.engine.Engine SELECT max(run_events.sequence) AS max_1 
+FROM run_events 
+WHERE run_events.run_id = ?
+2026-09-22 16:23:14,145 INFO sqlalchemy.engine.Engine [cached since 0.6923s ago] ('c419ef89-02fb-4c81-8114-71760e484ddd',)
+2026-09-22 16:23:14,146 INFO sqlalchemy.engine.Engine INSERT INTO run_events (id, run_id, session_id, event_type, content, sequence, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)
+2026-09-22 16:23:14,146 INFO sqlalchemy.engine.Engine [cached since 0.6919s ago] ('824c6fbc-ed3f-488b-aa01-d028bdb9ba80', 'c419ef89-02fb-4c81-8114-71760e484ddd', '64bbb74e-8df9-4719-88f1-f3705a277d9b', 'tool_call_end', '{"nodeType": "TOOL", "nodeName": "query_sales", "title": "query_sales \\u6267\\u884c\\u5b8c\\u6210", "result": "\\u8fd4\\u56de 1,286 \\u6761\\u9500\\ ... (95 characters truncated) ... 6 12 \\u4e2a\\u533a\\u57df / 3 \\u6761\\u4ea7\\u54c1\\u7ebf\\n\\u603b\\u9500\\u552e\\u989d\\u7ea6 \\uffe54.2M", "duration": 627, "status": "success"}', 7, '2026-09-22 08:23:14.146449')
+2026-09-22 16:23:14,148 INFO sqlalchemy.engine.Engine COMMIT
+2026-09-22 16:23:14,151 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 16:23:14,151 INFO sqlalchemy.engine.Engine SELECT run_events.id, run_events.run_id, run_events.session_id, run_events.event_type, run_events.content, run_events.sequence, run_events.created_at 
+FROM run_events 
+WHERE run_events.id = ?
+2026-09-22 16:23:14,152 INFO sqlalchemy.engine.Engine [cached since 0.6907s ago] ('824c6fbc-ed3f-488b-aa01-d028bdb9ba80',)
+2026-09-22 16:23:14,153 INFO sqlalchemy.engine.Engine SELECT max(run_events.sequence) AS max_1 
+FROM run_events 
+WHERE run_events.run_id = ?
+2026-09-22 16:23:14,154 INFO sqlalchemy.engine.Engine [cached since 0.7009s ago] ('c419ef89-02fb-4c81-8114-71760e484ddd',)
+2026-09-22 16:23:14,155 INFO sqlalchemy.engine.Engine INSERT INTO run_events (id, run_id, session_id, event_type, content, sequence, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)
+2026-09-22 16:23:14,155 INFO sqlalchemy.engine.Engine [cached since 0.7005s ago] ('bbec8bdc-305d-4755-8ca9-503134e2ecf9', 'c419ef89-02fb-4c81-8114-71760e484ddd', '64bbb74e-8df9-4719-88f1-f3705a277d9b', 'thought', '{"nodeType": "THOUGHT", "nodeName": "\\u7b2c 1 \\u6b65 \\u00b7 \\u53cd\\u601d", "title": "\\u601d\\u8003\\u4e2d...", "detail": "\\u6570\\u636e\\u603b ... (131 characters truncated) ... \\u4e09\\u4e2a\\u6708\\u505a\\u5bf9\\u6bd4\\uff0c\\u56e0\\u6b64\\u7ee7\\u7eed\\u8ba1\\u7b97\\u73af\\u6bd4\\u6307\\u6807\\u3002", "status": "success"}', 8, '2026-09-22 08:23:14.155051')
+2026-09-22 16:23:14,156 INFO sqlalchemy.engine.Engine COMMIT
+2026-09-22 16:23:14,161 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 16:23:14,161 INFO sqlalchemy.engine.Engine SELECT run_events.id, run_events.run_id, run_events.session_id, run_events.event_type, run_events.content, run_events.sequence, run_events.created_at 
+FROM run_events 
+WHERE run_events.id = ?
+2026-09-22 16:23:14,161 INFO sqlalchemy.engine.Engine [cached since 0.7s ago] ('bbec8bdc-305d-4755-8ca9-503134e2ecf9',)
+2026-09-22 16:23:14,163 INFO sqlalchemy.engine.Engine SELECT max(run_events.sequence) AS max_1 
+FROM run_events 
+WHERE run_events.run_id = ?
+2026-09-22 16:23:14,163 INFO sqlalchemy.engine.Engine [cached since 0.7103s ago] ('c419ef89-02fb-4c81-8114-71760e484ddd',)
+2026-09-22 16:23:14,164 INFO sqlalchemy.engine.Engine INSERT INTO run_events (id, run_id, session_id, event_type, content, sequence, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)
+2026-09-22 16:23:14,164 INFO sqlalchemy.engine.Engine [cached since 0.7098s ago] ('d1a38764-3815-4b1a-9494-edc2a5aaebaf', 'c419ef89-02fb-4c81-8114-71760e484ddd', '64bbb74e-8df9-4719-88f1-f3705a277d9b', 'thought', '{"nodeType": "THOUGHT", "nodeName": "\\u7b2c 2 \\u6b65 \\u00b7 \\u63a8\\u7406", "title": "\\u601d\\u8003\\u4e2d...", "detail": "\\u5df2\\u6709\\u660e ... (70 characters truncated) ... \\u73af\\u6bd4\\u3001\\u540c\\u6bd4\\u3001\\u590d\\u8d2d\\u7387\\uff0c\\u5e76\\u5b9a\\u4f4d\\u9a71\\u52a8\\u56e0\\u5b50\\u3002", "status": "success"}', 9, '2026-09-22 08:23:14.164222')
+2026-09-22 16:23:14,166 INFO sqlalchemy.engine.Engine COMMIT
+2026-09-22 16:23:14,169 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 16:23:14,170 INFO sqlalchemy.engine.Engine SELECT run_events.id, run_events.run_id, run_events.session_id, run_events.event_type, run_events.content, run_events.sequence, run_events.created_at 
+FROM run_events 
+WHERE run_events.id = ?
+2026-09-22 16:23:14,170 INFO sqlalchemy.engine.Engine [cached since 0.7085s ago] ('d1a38764-3815-4b1a-9494-edc2a5aaebaf',)
+2026-09-22 16:23:14,171 INFO sqlalchemy.engine.Engine SELECT max(run_events.sequence) AS max_1 
+FROM run_events 
+WHERE run_events.run_id = ?
+2026-09-22 16:23:14,171 INFO sqlalchemy.engine.Engine [cached since 0.7185s ago] ('c419ef89-02fb-4c81-8114-71760e484ddd',)
+2026-09-22 16:23:14,172 INFO sqlalchemy.engine.Engine INSERT INTO run_events (id, run_id, session_id, event_type, content, sequence, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)
+2026-09-22 16:23:14,172 INFO sqlalchemy.engine.Engine [cached since 0.7179s ago] ('24bb4357-12ed-431f-9083-19666514b7ea', 'c419ef89-02fb-4c81-8114-71760e484ddd', '64bbb74e-8df9-4719-88f1-f3705a277d9b', 'tool_call_start', '{"nodeType": "TOOL", "nodeName": "compute_metrics", "title": "\\u6b63\\u5728\\u8c03\\u7528 compute_metrics...", "input": "{\\n  \\"metric\\": [\\n    ... (16 characters truncated) ... d4\\",\\n    \\"\\u540c\\u6bd4\\",\\n    \\"\\u590d\\u8d2d\\"\\n  ],\\n  \\"compare\\": \\"\\u4e0a\\u4e00\\u5468\\u671f\\"\\n}", "status": "running"}', 10, '2026-09-22 08:23:14.172122')
+2026-09-22 16:23:14,174 INFO sqlalchemy.engine.Engine COMMIT
+2026-09-22 16:23:14,178 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 16:23:14,178 INFO sqlalchemy.engine.Engine SELECT run_events.id, run_events.run_id, run_events.session_id, run_events.event_type, run_events.content, run_events.sequence, run_events.created_at 
+FROM run_events 
+WHERE run_events.id = ?
+2026-09-22 16:23:14,178 INFO sqlalchemy.engine.Engine [cached since 0.7171s ago] ('24bb4357-12ed-431f-9083-19666514b7ea',)
+2026-09-22 16:23:14,545 INFO sqlalchemy.engine.Engine SELECT max(run_events.sequence) AS max_1 
+FROM run_events 
+WHERE run_events.run_id = ?
+2026-09-22 16:23:14,545 INFO sqlalchemy.engine.Engine [cached since 1.093s ago] ('c419ef89-02fb-4c81-8114-71760e484ddd',)
+2026-09-22 16:23:14,547 INFO sqlalchemy.engine.Engine INSERT INTO run_events (id, run_id, session_id, event_type, content, sequence, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)
+2026-09-22 16:23:14,547 INFO sqlalchemy.engine.Engine [cached since 1.092s ago] ('0c4a0d7b-a0ea-4a4d-830a-35b592a4769e', 'c419ef89-02fb-4c81-8114-71760e484ddd', '64bbb74e-8df9-4719-88f1-f3705a277d9b', 'tool_call_end', '{"nodeType": "TOOL", "nodeName": "compute_metrics", "title": "compute_metrics \\u6267\\u884c\\u5b8c\\u6210", "result": "\\u73af\\u6bd4 +12.4%\\uff5c\ ... (60 characters truncated) ... d8\\u4ef7\\u503c\\u5ba2\\u6237\\u8d21\\u732e\\u5360\\u6bd4\\u5347\\u81f3 42%\\uff08\\u4e0a\\u6708 30%\\uff09", "duration": 1147, "status": "success"}', 11, '2026-09-22 08:23:14.546229')
+2026-09-22 16:23:14,548 INFO sqlalchemy.engine.Engine COMMIT
+2026-09-22 16:23:14,552 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 16:23:14,552 INFO sqlalchemy.engine.Engine SELECT run_events.id, run_events.run_id, run_events.session_id, run_events.event_type, run_events.content, run_events.sequence, run_events.created_at 
+FROM run_events 
+WHERE run_events.id = ?
+2026-09-22 16:23:14,552 INFO sqlalchemy.engine.Engine [cached since 1.091s ago] ('0c4a0d7b-a0ea-4a4d-830a-35b592a4769e',)
+2026-09-22 16:23:14,554 INFO sqlalchemy.engine.Engine SELECT max(run_events.sequence) AS max_1 
+FROM run_events 
+WHERE run_events.run_id = ?
+2026-09-22 16:23:14,554 INFO sqlalchemy.engine.Engine [cached since 1.102s ago] ('c419ef89-02fb-4c81-8114-71760e484ddd',)
+2026-09-22 16:23:14,556 INFO sqlalchemy.engine.Engine INSERT INTO run_events (id, run_id, session_id, event_type, content, sequence, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)
+2026-09-22 16:23:14,556 INFO sqlalchemy.engine.Engine [cached since 1.101s ago] ('68195a5b-17de-4e21-98a0-f78f4838d1e7', 'c419ef89-02fb-4c81-8114-71760e484ddd', '64bbb74e-8df9-4719-88f1-f3705a277d9b', 'thought', '{"nodeType": "THOUGHT", "nodeName": "\\u7b2c 2 \\u6b65 \\u00b7 \\u53cd\\u601d", "title": "\\u601d\\u8003\\u4e2d...", "detail": "\\u73af\\u6bd4 +12.4% ... (140 characters truncated) ... \\u800c\\u975e\\u5168\\u91cf\\u589e\\u957f\\uff0c\\u9700\\u8fdb\\u4e00\\u6b65\\u7ec6\\u5206\\u5ba2\\u7fa4\\u786e\\u8ba4\\u3002", "status": "success"}', 12, '2026-09-22 08:23:14.555601')
+2026-09-22 16:23:14,557 INFO sqlalchemy.engine.Engine COMMIT
+2026-09-22 16:23:14,563 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 16:23:14,563 INFO sqlalchemy.engine.Engine SELECT run_events.id, run_events.run_id, run_events.session_id, run_events.event_type, run_events.content, run_events.sequence, run_events.created_at 
+FROM run_events 
+WHERE run_events.id = ?
+2026-09-22 16:23:14,564 INFO sqlalchemy.engine.Engine [cached since 1.103s ago] ('68195a5b-17de-4e21-98a0-f78f4838d1e7',)
+2026-09-22 16:23:14,565 INFO sqlalchemy.engine.Engine SELECT max(run_events.sequence) AS max_1 
+FROM run_events 
+WHERE run_events.run_id = ?
+2026-09-22 16:23:14,565 INFO sqlalchemy.engine.Engine [cached since 1.113s ago] ('c419ef89-02fb-4c81-8114-71760e484ddd',)
+2026-09-22 16:23:14,567 INFO sqlalchemy.engine.Engine INSERT INTO run_events (id, run_id, session_id, event_type, content, sequence, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)
+2026-09-22 16:23:14,567 INFO sqlalchemy.engine.Engine [cached since 1.112s ago] ('c1a73425-0e36-411c-957b-61a3fbc35094', 'c419ef89-02fb-4c81-8114-71760e484ddd', '64bbb74e-8df9-4719-88f1-f3705a277d9b', 'thought', '{"nodeType": "THOUGHT", "nodeName": "\\u7b2c 3 \\u6b65 \\u00b7 \\u63a8\\u7406", "title": "\\u601d\\u8003\\u4e2d...", "detail": "\\u9a71\\u52a8\\u56e0 ... (65 characters truncated) ... u5206\\u9ad8/\\u4e2d/\\u6d41\\u5931\\u4e09\\u5c42\\uff0c\\u5b9a\\u4f4d\\u589e\\u957f\\u4e0e\\u98ce\\u9669\\u6765\\u6e90\\u3002", "status": "success"}', 13, '2026-09-22 08:23:14.566851')
+2026-09-22 16:23:14,568 INFO sqlalchemy.engine.Engine COMMIT
+2026-09-22 16:23:14,572 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 16:23:14,573 INFO sqlalchemy.engine.Engine SELECT run_events.id, run_events.run_id, run_events.session_id, run_events.event_type, run_events.content, run_events.sequence, run_events.created_at 
+FROM run_events 
+WHERE run_events.id = ?
+2026-09-22 16:23:14,573 INFO sqlalchemy.engine.Engine [cached since 1.112s ago] ('c1a73425-0e36-411c-957b-61a3fbc35094',)
+2026-09-22 16:23:14,574 INFO sqlalchemy.engine.Engine SELECT max(run_events.sequence) AS max_1 
+FROM run_events 
+WHERE run_events.run_id = ?
+2026-09-22 16:23:14,574 INFO sqlalchemy.engine.Engine [cached since 1.122s ago] ('c419ef89-02fb-4c81-8114-71760e484ddd',)
+2026-09-22 16:23:14,576 INFO sqlalchemy.engine.Engine INSERT INTO run_events (id, run_id, session_id, event_type, content, sequence, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)
+2026-09-22 16:23:14,577 INFO sqlalchemy.engine.Engine [cached since 1.122s ago] ('a3043093-69df-4cce-a4a0-ed898389132a', 'c419ef89-02fb-4c81-8114-71760e484ddd', '64bbb74e-8df9-4719-88f1-f3705a277d9b', 'tool_call_start', '{"nodeType": "TOOL", "nodeName": "segment_analysis", "title": "\\u6b63\\u5728\\u8c03\\u7528 segment_analysis...", "input": "{\\n  \\"dimension\\": \\ ... (44 characters truncated) ... \",\\n  \\"by\\": [\\n    \\"\\u9ad8\\u4ef7\\u503c\\",\\n    \\"\\u4e2d\\u4ef7\\u503c\\",\\n    \\"\\u6d41\\u5931\\"\\n  ]\\n}", "status": "running"}', 14, '2026-09-22 08:23:14.576529')
+2026-09-22 16:23:14,578 INFO sqlalchemy.engine.Engine COMMIT
+2026-09-22 16:23:14,582 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 16:23:14,582 INFO sqlalchemy.engine.Engine SELECT run_events.id, run_events.run_id, run_events.session_id, run_events.event_type, run_events.content, run_events.sequence, run_events.created_at 
+FROM run_events 
+WHERE run_events.id = ?
+2026-09-22 16:23:14,582 INFO sqlalchemy.engine.Engine [cached since 1.122s ago] ('a3043093-69df-4cce-a4a0-ed898389132a',)
+2026-09-22 16:23:14,944 INFO sqlalchemy.engine.Engine SELECT max(run_events.sequence) AS max_1 
+FROM run_events 
+WHERE run_events.run_id = ?
+2026-09-22 16:23:14,945 INFO sqlalchemy.engine.Engine [cached since 1.493s ago] ('c419ef89-02fb-4c81-8114-71760e484ddd',)
+2026-09-22 16:23:14,947 INFO sqlalchemy.engine.Engine INSERT INTO run_events (id, run_id, session_id, event_type, content, sequence, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)
+2026-09-22 16:23:14,947 INFO sqlalchemy.engine.Engine [cached since 1.493s ago] ('45cede11-cb76-4223-9431-1ecd9ad1bdfe', 'c419ef89-02fb-4c81-8114-71760e484ddd', '64bbb74e-8df9-4719-88f1-f3705a277d9b', 'tool_call_end', '{"nodeType": "TOOL", "nodeName": "segment_analysis", "title": "segment_analysis \\u6267\\u884c\\u5b8c\\u6210", "result": "\\u9ad8\\u4ef7\\u503c\\u5ba ... (73 characters truncated) ... 931\\u5ba2\\u7fa4\\u73af\\u6bd4 -8%\\uff0c\\u591a\\u4e3a\\u9759\\u9ed8 60 \\u5929\\u4ee5\\u4e0a\\u7528\\u6237", "duration": 805, "status": "success"}', 15, '2026-09-22 08:23:14.946725')
+2026-09-22 16:23:14,949 INFO sqlalchemy.engine.Engine COMMIT
+2026-09-22 16:23:14,952 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 16:23:14,953 INFO sqlalchemy.engine.Engine SELECT run_events.id, run_events.run_id, run_events.session_id, run_events.event_type, run_events.content, run_events.sequence, run_events.created_at 
+FROM run_events 
+WHERE run_events.id = ?
+2026-09-22 16:23:14,953 INFO sqlalchemy.engine.Engine [cached since 1.492s ago] ('45cede11-cb76-4223-9431-1ecd9ad1bdfe',)
+2026-09-22 16:23:14,955 INFO sqlalchemy.engine.Engine SELECT max(run_events.sequence) AS max_1 
+FROM run_events 
+WHERE run_events.run_id = ?
+2026-09-22 16:23:14,955 INFO sqlalchemy.engine.Engine [cached since 1.502s ago] ('c419ef89-02fb-4c81-8114-71760e484ddd',)
+2026-09-22 16:23:14,956 INFO sqlalchemy.engine.Engine INSERT INTO run_events (id, run_id, session_id, event_type, content, sequence, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)
+2026-09-22 16:23:14,956 INFO sqlalchemy.engine.Engine [cached since 1.502s ago] ('6c18b922-b17e-413b-b70f-6fca2363d332', 'c419ef89-02fb-4c81-8114-71760e484ddd', '64bbb74e-8df9-4719-88f1-f3705a277d9b', 'run_end', '{"run_id": "", "total_duration": 0}', 16, '2026-09-22 08:23:14.956186')
+2026-09-22 16:23:14,957 INFO sqlalchemy.engine.Engine COMMIT
+2026-09-22 16:23:14,962 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 16:23:14,962 INFO sqlalchemy.engine.Engine SELECT run_events.id, run_events.run_id, run_events.session_id, run_events.event_type, run_events.content, run_events.sequence, run_events.created_at 
+FROM run_events 
+WHERE run_events.id = ?
+2026-09-22 16:23:14,962 INFO sqlalchemy.engine.Engine [cached since 1.501s ago] ('6c18b922-b17e-413b-b70f-6fca2363d332',)
+2026-09-22 16:23:14,965 INFO sqlalchemy.engine.Engine UPDATE runs SET status=?, completed_at=? WHERE runs.id = ?
+2026-09-22 16:23:14,965 INFO sqlalchemy.engine.Engine [generated in 0.00031s] ('completed', '2026-09-22 08:23:14.964356', 'c419ef89-02fb-4c81-8114-71760e484ddd')
+2026-09-22 16:23:14,967 INFO sqlalchemy.engine.Engine COMMIT
+2026-09-22 16:23:57,079 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 16:23:57,082 INFO sqlalchemy.engine.Engine SELECT agents.id, agents.user_id, agents.space_id, agents.name, agents.description, agents.model, agents.system_prompt, agents.avatar_color, agents.status, agents.version, agents.temperature, agents.max_iterations, agents.timeout, agents.greeting, agents.suggestion_questions, agents.knowledge_ids, agents.ontology_ids, agents.skill_ids, agents.extra_data, agents.created_at, agents.updated_at 
+FROM agents 
+WHERE agents.user_id = ? ORDER BY agents.created_at DESC
+ LIMIT ? OFFSET ?
+2026-09-22 16:23:57,082 INFO sqlalchemy.engine.Engine [generated in 0.00028s] ('9494bee9-52f9-4594-ad31-334f1a2b60ec', 20, 0)
+2026-09-22 16:23:57,084 INFO sqlalchemy.engine.Engine SELECT agents.id, agents.user_id, agents.space_id, agents.name, agents.description, agents.model, agents.system_prompt, agents.avatar_color, agents.status, agents.version, agents.temperature, agents.max_iterations, agents.timeout, agents.greeting, agents.suggestion_questions, agents.knowledge_ids, agents.ontology_ids, agents.skill_ids, agents.extra_data, agents.created_at, agents.updated_at 
+FROM agents 
+WHERE agents.user_id = ?
+2026-09-22 16:23:57,084 INFO sqlalchemy.engine.Engine [generated in 0.00023s] ('9494bee9-52f9-4594-ad31-334f1a2b60ec',)
+2026-09-22 16:23:57,085 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:58039 - "GET /api/v1/agents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58039 - "OPTIONS /api/v1/sessions/0f4626d5-b79b-4f01-a8bf-d213d17b60d4/runs HTTP/1.1" 200 OK
+2026-09-22 16:24:01,136 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 16:24:01,137 INFO sqlalchemy.engine.Engine SELECT sessions.id, sessions.user_id, sessions.title, sessions.model, sessions.tools, sessions.skills, sessions.system_prompt, sessions.status, sessions.extra_data, sessions.created_at, sessions.updated_at 
+FROM sessions 
+WHERE sessions.id = ?
+2026-09-22 16:24:01,137 INFO sqlalchemy.engine.Engine [cached since 103s ago] ('0f4626d5-b79b-4f01-a8bf-d213d17b60d4',)
+2026-09-22 16:24:01,138 INFO sqlalchemy.engine.Engine INSERT INTO messages (id, session_id, role, content, model, tokens_used, extra_data, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+2026-09-22 16:24:01,139 INFO sqlalchemy.engine.Engine [cached since 47.71s ago] ('c14725e9-a921-4bd1-a32c-3504d50c6dd5', '0f4626d5-b79b-4f01-a8bf-d213d17b60d4', 'user', '帮我分析一下最近的销售数据', None, None, '{}', '2026-09-22 08:24:01.138664')
+2026-09-22 16:24:01,140 INFO sqlalchemy.engine.Engine INSERT INTO runs (id, session_id, user_id, status, model, total_tokens, total_cost, tool_calls_count, reasoning_steps, error_message, extra_data, started_at, completed_at, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2026-09-22 16:24:01,141 INFO sqlalchemy.engine.Engine [cached since 47.7s ago] ('b2668203-3e69-4d35-b4d7-dbc6be4c8b58', '0f4626d5-b79b-4f01-a8bf-d213d17b60d4', '9494bee9-52f9-4594-ad31-334f1a2b60ec', 'running', 'claude-3-5-sonnet', 0, 0.0, 0, 0, None, '{}', '2026-09-22 08:24:01.138664', None, '2026-09-22 08:24:01.138664')
+2026-09-22 16:24:01,141 INFO sqlalchemy.engine.Engine COMMIT
+2026-09-22 16:24:01,146 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 16:24:01,147 INFO sqlalchemy.engine.Engine SELECT runs.id, runs.session_id, runs.user_id, runs.status, runs.model, runs.total_tokens, runs.total_cost, runs.tool_calls_count, runs.reasoning_steps, runs.error_message, runs.extra_data, runs.started_at, runs.completed_at, runs.created_at 
+FROM runs 
+WHERE runs.id = ?
+2026-09-22 16:24:01,147 INFO sqlalchemy.engine.Engine [cached since 47.71s ago] ('b2668203-3e69-4d35-b4d7-dbc6be4c8b58',)
+2026-09-22 16:24:01,149 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 16:24:01,149 INFO sqlalchemy.engine.Engine SELECT runs.id, runs.session_id, runs.user_id, runs.status, runs.model, runs.total_tokens, runs.total_cost, runs.tool_calls_count, runs.reasoning_steps, runs.error_message, runs.extra_data, runs.started_at, runs.completed_at, runs.created_at 
+FROM runs 
+WHERE runs.id = ?
+2026-09-22 16:24:01,149 INFO sqlalchemy.engine.Engine [cached since 47.7s ago] ('b2668203-3e69-4d35-b4d7-dbc6be4c8b58',)
+2026-09-22 16:24:01,149 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:58041 - "POST /api/v1/sessions/0f4626d5-b79b-4f01-a8bf-d213d17b60d4/runs HTTP/1.1" 200 OK
+2026-09-22 16:24:01,151 INFO sqlalchemy.engine.Engine SELECT messages.id, messages.session_id, messages.role, messages.content, messages.model, messages.tokens_used, messages.extra_data, messages.created_at 
+FROM messages 
+WHERE messages.id = ?
+2026-09-22 16:24:01,151 INFO sqlalchemy.engine.Engine [cached since 47.7s ago] ('c14725e9-a921-4bd1-a32c-3504d50c6dd5',)
+INFO:     127.0.0.1:58041 - "OPTIONS /api/v1/sessions/0f4626d5-b79b-4f01-a8bf-d213d17b60d4/stream HTTP/1.1" 200 OK
+2026-09-22 16:24:01,154 INFO sqlalchemy.engine.Engine SELECT sessions.id, sessions.user_id, sessions.title, sessions.model, sessions.tools, sessions.skills, sessions.system_prompt, sessions.status, sessions.extra_data, sessions.created_at, sessions.updated_at 
+FROM sessions 
+WHERE sessions.id = ?
+2026-09-22 16:24:01,154 INFO sqlalchemy.engine.Engine [cached since 103s ago] ('0f4626d5-b79b-4f01-a8bf-d213d17b60d4',)
+2026-09-22 16:24:01,155 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 16:24:01,155 INFO sqlalchemy.engine.Engine SELECT sessions.id, sessions.user_id, sessions.title, sessions.model, sessions.tools, sessions.skills, sessions.system_prompt, sessions.status, sessions.extra_data, sessions.created_at, sessions.updated_at 
+FROM sessions 
+WHERE sessions.id = ?
+2026-09-22 16:24:01,155 INFO sqlalchemy.engine.Engine [cached since 103s ago] ('0f4626d5-b79b-4f01-a8bf-d213d17b60d4',)
+2026-09-22 16:24:01,156 INFO sqlalchemy.engine.Engine SELECT max(run_events.sequence) AS max_1 
+FROM run_events 
+WHERE run_events.run_id = ?
+2026-09-22 16:24:01,156 INFO sqlalchemy.engine.Engine [cached since 47.7s ago] ('b2668203-3e69-4d35-b4d7-dbc6be4c8b58',)
+2026-09-22 16:24:01,157 INFO sqlalchemy.engine.Engine SELECT runs.id, runs.session_id, runs.user_id, runs.status, runs.model, runs.total_tokens, runs.total_cost, runs.tool_calls_count, runs.reasoning_steps, runs.error_message, runs.extra_data, runs.started_at, runs.completed_at, runs.created_at 
+FROM runs 
+WHERE runs.session_id = ? ORDER BY runs.created_at DESC
+ LIMIT ? OFFSET ?
+2026-09-22 16:24:01,157 INFO sqlalchemy.engine.Engine [cached since 103s ago] ('0f4626d5-b79b-4f01-a8bf-d213d17b60d4', 1, 0)
+2026-09-22 16:24:01,158 INFO sqlalchemy.engine.Engine INSERT INTO run_events (id, run_id, session_id, event_type, content, sequence, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)
+2026-09-22 16:24:01,158 INFO sqlalchemy.engine.Engine [cached since 47.7s ago] ('c0d44133-d241-408e-9e86-4533fcc516e6', 'b2668203-3e69-4d35-b4d7-dbc6be4c8b58', '0f4626d5-b79b-4f01-a8bf-d213d17b60d4', 'run_start', '{"run_id": "b2668203-3e69-4d35-b4d7-dbc6be4c8b58", "session_id": "0f4626d5-b79b-4f01-a8bf-d213d17b60d4"}', 1, '2026-09-22 08:24:01.158714')
+2026-09-22 16:24:01,159 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:58041 - "GET /api/v1/sessions/0f4626d5-b79b-4f01-a8bf-d213d17b60d4/stream HTTP/1.1" 200 OK
+2026-09-22 16:24:01,161 INFO sqlalchemy.engine.Engine COMMIT
+2026-09-22 16:24:01,164 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 16:24:01,165 INFO sqlalchemy.engine.Engine SELECT run_events.id, run_events.run_id, run_events.session_id, run_events.event_type, run_events.content, run_events.sequence, run_events.created_at 
+FROM run_events 
+WHERE run_events.id = ?
+2026-09-22 16:24:01,165 INFO sqlalchemy.engine.Engine [cached since 47.7s ago] ('c0d44133-d241-408e-9e86-4533fcc516e6',)
+2026-09-22 16:24:01,450 INFO sqlalchemy.engine.Engine SELECT max(run_events.sequence) AS max_1 
+FROM run_events 
+WHERE run_events.run_id = ?
+2026-09-22 16:24:01,451 INFO sqlalchemy.engine.Engine [cached since 48s ago] ('b2668203-3e69-4d35-b4d7-dbc6be4c8b58',)
+2026-09-22 16:24:01,452 INFO sqlalchemy.engine.Engine INSERT INTO run_events (id, run_id, session_id, event_type, content, sequence, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)
+2026-09-22 16:24:01,452 INFO sqlalchemy.engine.Engine [cached since 48s ago] ('e12a6bb2-c401-4c29-bbc2-27d950d4a471', 'b2668203-3e69-4d35-b4d7-dbc6be4c8b58', '0f4626d5-b79b-4f01-a8bf-d213d17b60d4', 'thought', '{"nodeType": "THOUGHT", "nodeName": "\\u4efb\\u52a1\\u7406\\u89e3", "title": "\\u601d\\u8003\\u4e2d...", "detail": "\\u89e3\\u6790\\u7528\\u6237\\u61 ... (176 characters truncated) ... 9\\u4e2a\\u6708\\u9500\\u552e\\u8868\\u73b0\\u5206\\u6790 + \\u73af\\u6bd4\\u89e3\\u8bfb + \\u4e0b\\u4e00\\u6b65\\u5efa\\u8bae", "status": "success"}', 2, '2026-09-22 08:24:01.452656')
+2026-09-22 16:24:01,454 INFO sqlalchemy.engine.Engine COMMIT
+2026-09-22 16:24:01,458 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 16:24:01,459 INFO sqlalchemy.engine.Engine SELECT run_events.id, run_events.run_id, run_events.session_id, run_events.event_type, run_events.content, run_events.sequence, run_events.created_at 
+FROM run_events 
+WHERE run_events.id = ?
+2026-09-22 16:24:01,459 INFO sqlalchemy.engine.Engine [cached since 47.99s ago] ('e12a6bb2-c401-4c29-bbc2-27d950d4a471',)
+2026-09-22 16:24:01,460 INFO sqlalchemy.engine.Engine SELECT max(run_events.sequence) AS max_1 
+FROM run_events 
+WHERE run_events.run_id = ?
+2026-09-22 16:24:01,460 INFO sqlalchemy.engine.Engine [cached since 48s ago] ('b2668203-3e69-4d35-b4d7-dbc6be4c8b58',)
+2026-09-22 16:24:01,462 INFO sqlalchemy.engine.Engine INSERT INTO run_events (id, run_id, session_id, event_type, content, sequence, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)
+2026-09-22 16:24:01,463 INFO sqlalchemy.engine.Engine [cached since 48s ago] ('be65613b-fcc5-447d-9d46-573014c05307', 'b2668203-3e69-4d35-b4d7-dbc6be4c8b58', '0f4626d5-b79b-4f01-a8bf-d213d17b60d4', 'thought', '{"nodeType": "THOUGHT", "nodeName": "\\u65b9\\u6848\\u89c4\\u5212", "title": "\\u601d\\u8003\\u4e2d...", "detail": "\\u8be5\\u76ee\\u6807\\u5c5e\\u4e ... (298 characters truncated) ... \\u5f0f\\uff1a\\u5148\\u91cf\\u5316\\uff0c\\u518d\\u5f52\\u56e0\\uff0c\\u6700\\u540e\\u7ed9\\u884c\\u52a8\\u5efa\\u8bae\\u3002", "status": "success"}', 3, '2026-09-22 08:24:01.462047')
+2026-09-22 16:24:01,466 INFO sqlalchemy.engine.Engine COMMIT
+2026-09-22 16:24:01,470 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 16:24:01,471 INFO sqlalchemy.engine.Engine SELECT run_events.id, run_events.run_id, run_events.session_id, run_events.event_type, run_events.content, run_events.sequence, run_events.created_at 
+FROM run_events 
+WHERE run_events.id = ?
+2026-09-22 16:24:01,471 INFO sqlalchemy.engine.Engine [cached since 48.01s ago] ('be65613b-fcc5-447d-9d46-573014c05307',)
+2026-09-22 16:24:01,472 INFO sqlalchemy.engine.Engine SELECT max(run_events.sequence) AS max_1 
+FROM run_events 
+WHERE run_events.run_id = ?
+2026-09-22 16:24:01,473 INFO sqlalchemy.engine.Engine [cached since 48.02s ago] ('b2668203-3e69-4d35-b4d7-dbc6be4c8b58',)
+2026-09-22 16:24:01,474 INFO sqlalchemy.engine.Engine INSERT INTO run_events (id, run_id, session_id, event_type, content, sequence, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)
+2026-09-22 16:24:01,474 INFO sqlalchemy.engine.Engine [cached since 48.02s ago] ('8c2e7a3c-cc5f-4019-9dcb-ac187b45bce0', 'b2668203-3e69-4d35-b4d7-dbc6be4c8b58', '0f4626d5-b79b-4f01-a8bf-d213d17b60d4', 'thought', '{"nodeType": "THOUGHT", "nodeName": "\\u65b9\\u6848\\u62c6\\u89e3", "title": "\\u601d\\u8003\\u4e2d...", "detail": "\\u6211\\u8ba1\\u5212\\u6309\\u4e ... (315 characters truncated) ... a\\u4f4d\\u9a71\\u52a8\\u56e0\\u5b50\\n4. \\u6c47\\u603b\\u7ed3\\u8bba\\u5e76\\u8f93\\u51fa\\u53ef\\u6267\\u884c\\u5efa\\u8bae", "status": "success"}', 4, '2026-09-22 08:24:01.474020')
+2026-09-22 16:24:01,476 INFO sqlalchemy.engine.Engine COMMIT
+2026-09-22 16:24:01,481 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 16:24:01,481 INFO sqlalchemy.engine.Engine SELECT run_events.id, run_events.run_id, run_events.session_id, run_events.event_type, run_events.content, run_events.sequence, run_events.created_at 
+FROM run_events 
+WHERE run_events.id = ?
+2026-09-22 16:24:01,481 INFO sqlalchemy.engine.Engine [cached since 48.02s ago] ('8c2e7a3c-cc5f-4019-9dcb-ac187b45bce0',)
+2026-09-22 16:24:01,483 INFO sqlalchemy.engine.Engine SELECT max(run_events.sequence) AS max_1 
+FROM run_events 
+WHERE run_events.run_id = ?
+2026-09-22 16:24:01,483 INFO sqlalchemy.engine.Engine [cached since 48.03s ago] ('b2668203-3e69-4d35-b4d7-dbc6be4c8b58',)
+2026-09-22 16:24:01,484 INFO sqlalchemy.engine.Engine INSERT INTO run_events (id, run_id, session_id, event_type, content, sequence, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)
+2026-09-22 16:24:01,485 INFO sqlalchemy.engine.Engine [cached since 48.03s ago] ('75c15f71-55dc-4e31-984c-9403147bc352', 'b2668203-3e69-4d35-b4d7-dbc6be4c8b58', '0f4626d5-b79b-4f01-a8bf-d213d17b60d4', 'thought', '{"nodeType": "THOUGHT", "nodeName": "\\u7b2c 1 \\u6b65 \\u00b7 \\u63a8\\u7406", "title": "\\u601d\\u8003\\u4e2d...", "detail": "\\u9996\\u5148\\u83b7 ... (70 characters truncated) ... \\uff0c\\u6309\\u5468\\u805a\\u5408\\uff0c\\u624d\\u80fd\\u89c2\\u5bdf\\u5230\\u8d8b\\u52bf\\u4e0e\\u5f02\\u5e38\\u70b9\\u3002", "status": "success"}', 5, '2026-09-22 08:24:01.484718')
+2026-09-22 16:24:01,486 INFO sqlalchemy.engine.Engine COMMIT
+2026-09-22 16:24:01,490 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 16:24:01,490 INFO sqlalchemy.engine.Engine SELECT run_events.id, run_events.run_id, run_events.session_id, run_events.event_type, run_events.content, run_events.sequence, run_events.created_at 
+FROM run_events 
+WHERE run_events.id = ?
+2026-09-22 16:24:01,490 INFO sqlalchemy.engine.Engine [cached since 48.03s ago] ('75c15f71-55dc-4e31-984c-9403147bc352',)
+2026-09-22 16:24:01,491 INFO sqlalchemy.engine.Engine SELECT max(run_events.sequence) AS max_1 
+FROM run_events 
+WHERE run_events.run_id = ?
+2026-09-22 16:24:01,492 INFO sqlalchemy.engine.Engine [cached since 48.04s ago] ('b2668203-3e69-4d35-b4d7-dbc6be4c8b58',)
+2026-09-22 16:24:01,493 INFO sqlalchemy.engine.Engine INSERT INTO run_events (id, run_id, session_id, event_type, content, sequence, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)
+2026-09-22 16:24:01,493 INFO sqlalchemy.engine.Engine [cached since 48.04s ago] ('9546d5d1-db2c-42a6-9119-c1721be97a2d', 'b2668203-3e69-4d35-b4d7-dbc6be4c8b58', '0f4626d5-b79b-4f01-a8bf-d213d17b60d4', 'tool_call_start', '{"nodeType": "TOOL", "nodeName": "query_sales", "title": "\\u6b63\\u5728\\u8c03\\u7528 query_sales...", "input": "{\\n  \\"range\\": \\"\\u8fd1\\u4e09\\u4e2a\\u6708\\",\\n  \\"granularity\\": \\"\\u6309\\u5468\\"\\n}", "status": "running"}', 6, '2026-09-22 08:24:01.493426')
+2026-09-22 16:24:01,495 INFO sqlalchemy.engine.Engine COMMIT
+2026-09-22 16:24:01,499 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 16:24:01,500 INFO sqlalchemy.engine.Engine SELECT run_events.id, run_events.run_id, run_events.session_id, run_events.event_type, run_events.content, run_events.sequence, run_events.created_at 
+FROM run_events 
+WHERE run_events.id = ?
+2026-09-22 16:24:01,500 INFO sqlalchemy.engine.Engine [cached since 48.04s ago] ('9546d5d1-db2c-42a6-9119-c1721be97a2d',)
+2026-09-22 16:24:01,837 INFO sqlalchemy.engine.Engine SELECT max(run_events.sequence) AS max_1 
+FROM run_events 
+WHERE run_events.run_id = ?
+2026-09-22 16:24:01,837 INFO sqlalchemy.engine.Engine [cached since 48.38s ago] ('b2668203-3e69-4d35-b4d7-dbc6be4c8b58',)
+2026-09-22 16:24:01,838 INFO sqlalchemy.engine.Engine INSERT INTO run_events (id, run_id, session_id, event_type, content, sequence, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)
+2026-09-22 16:24:01,838 INFO sqlalchemy.engine.Engine [cached since 48.38s ago] ('73204ea7-8d89-4079-ab9f-74d5b0f2ae7d', 'b2668203-3e69-4d35-b4d7-dbc6be4c8b58', '0f4626d5-b79b-4f01-a8bf-d213d17b60d4', 'tool_call_end', '{"nodeType": "TOOL", "nodeName": "query_sales", "title": "query_sales \\u6267\\u884c\\u5b8c\\u6210", "result": "\\u8fd4\\u56de 1,286 \\u6761\\u9500\\ ... (95 characters truncated) ... 6 12 \\u4e2a\\u533a\\u57df / 3 \\u6761\\u4ea7\\u54c1\\u7ebf\\n\\u603b\\u9500\\u552e\\u989d\\u7ea6 \\uffe54.2M", "duration": 627, "status": "success"}', 7, '2026-09-22 08:24:01.838203')
+2026-09-22 16:24:01,840 INFO sqlalchemy.engine.Engine COMMIT
+2026-09-22 16:24:01,844 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 16:24:01,845 INFO sqlalchemy.engine.Engine SELECT run_events.id, run_events.run_id, run_events.session_id, run_events.event_type, run_events.content, run_events.sequence, run_events.created_at 
+FROM run_events 
+WHERE run_events.id = ?
+2026-09-22 16:24:01,845 INFO sqlalchemy.engine.Engine [cached since 48.38s ago] ('73204ea7-8d89-4079-ab9f-74d5b0f2ae7d',)
+2026-09-22 16:24:01,847 INFO sqlalchemy.engine.Engine SELECT max(run_events.sequence) AS max_1 
+FROM run_events 
+WHERE run_events.run_id = ?
+2026-09-22 16:24:01,847 INFO sqlalchemy.engine.Engine [cached since 48.39s ago] ('b2668203-3e69-4d35-b4d7-dbc6be4c8b58',)
+2026-09-22 16:24:01,849 INFO sqlalchemy.engine.Engine INSERT INTO run_events (id, run_id, session_id, event_type, content, sequence, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)
+2026-09-22 16:24:01,849 INFO sqlalchemy.engine.Engine [cached since 48.39s ago] ('554ad111-86fb-414e-ad61-e845b0563a87', 'b2668203-3e69-4d35-b4d7-dbc6be4c8b58', '0f4626d5-b79b-4f01-a8bf-d213d17b60d4', 'thought', '{"nodeType": "THOUGHT", "nodeName": "\\u7b2c 1 \\u6b65 \\u00b7 \\u53cd\\u601d", "title": "\\u601d\\u8003\\u4e2d...", "detail": "\\u6570\\u636e\\u603b ... (131 characters truncated) ... \\u4e09\\u4e2a\\u6708\\u505a\\u5bf9\\u6bd4\\uff0c\\u56e0\\u6b64\\u7ee7\\u7eed\\u8ba1\\u7b97\\u73af\\u6bd4\\u6307\\u6807\\u3002", "status": "success"}', 8, '2026-09-22 08:24:01.848837')
+2026-09-22 16:24:01,850 INFO sqlalchemy.engine.Engine COMMIT
+2026-09-22 16:24:01,855 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 16:24:01,855 INFO sqlalchemy.engine.Engine SELECT run_events.id, run_events.run_id, run_events.session_id, run_events.event_type, run_events.content, run_events.sequence, run_events.created_at 
+FROM run_events 
+WHERE run_events.id = ?
+2026-09-22 16:24:01,856 INFO sqlalchemy.engine.Engine [cached since 48.39s ago] ('554ad111-86fb-414e-ad61-e845b0563a87',)
+2026-09-22 16:24:01,857 INFO sqlalchemy.engine.Engine SELECT max(run_events.sequence) AS max_1 
+FROM run_events 
+WHERE run_events.run_id = ?
+2026-09-22 16:24:01,857 INFO sqlalchemy.engine.Engine [cached since 48.4s ago] ('b2668203-3e69-4d35-b4d7-dbc6be4c8b58',)
+2026-09-22 16:24:01,858 INFO sqlalchemy.engine.Engine INSERT INTO run_events (id, run_id, session_id, event_type, content, sequence, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)
+2026-09-22 16:24:01,858 INFO sqlalchemy.engine.Engine [cached since 48.4s ago] ('2f0b2cda-46a9-429c-bd3e-7b6bae27695e', 'b2668203-3e69-4d35-b4d7-dbc6be4c8b58', '0f4626d5-b79b-4f01-a8bf-d213d17b60d4', 'thought', '{"nodeType": "THOUGHT", "nodeName": "\\u7b2c 2 \\u6b65 \\u00b7 \\u63a8\\u7406", "title": "\\u601d\\u8003\\u4e2d...", "detail": "\\u5df2\\u6709\\u660e ... (70 characters truncated) ... \\u73af\\u6bd4\\u3001\\u540c\\u6bd4\\u3001\\u590d\\u8d2d\\u7387\\uff0c\\u5e76\\u5b9a\\u4f4d\\u9a71\\u52a8\\u56e0\\u5b50\\u3002", "status": "success"}', 9, '2026-09-22 08:24:01.858461')
+2026-09-22 16:24:01,860 INFO sqlalchemy.engine.Engine COMMIT
+2026-09-22 16:24:01,864 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 16:24:01,864 INFO sqlalchemy.engine.Engine SELECT run_events.id, run_events.run_id, run_events.session_id, run_events.event_type, run_events.content, run_events.sequence, run_events.created_at 
+FROM run_events 
+WHERE run_events.id = ?
+2026-09-22 16:24:01,865 INFO sqlalchemy.engine.Engine [cached since 48.4s ago] ('2f0b2cda-46a9-429c-bd3e-7b6bae27695e',)
+2026-09-22 16:24:01,867 INFO sqlalchemy.engine.Engine SELECT max(run_events.sequence) AS max_1 
+FROM run_events 
+WHERE run_events.run_id = ?
+2026-09-22 16:24:01,867 INFO sqlalchemy.engine.Engine [cached since 48.41s ago] ('b2668203-3e69-4d35-b4d7-dbc6be4c8b58',)
+2026-09-22 16:24:01,868 INFO sqlalchemy.engine.Engine INSERT INTO run_events (id, run_id, session_id, event_type, content, sequence, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)
+2026-09-22 16:24:01,868 INFO sqlalchemy.engine.Engine [cached since 48.41s ago] ('c890c0ea-1869-4634-b9ba-65d4d89c3a49', 'b2668203-3e69-4d35-b4d7-dbc6be4c8b58', '0f4626d5-b79b-4f01-a8bf-d213d17b60d4', 'tool_call_start', '{"nodeType": "TOOL", "nodeName": "compute_metrics", "title": "\\u6b63\\u5728\\u8c03\\u7528 compute_metrics...", "input": "{\\n  \\"metric\\": [\\n    ... (16 characters truncated) ... d4\\",\\n    \\"\\u540c\\u6bd4\\",\\n    \\"\\u590d\\u8d2d\\"\\n  ],\\n  \\"compare\\": \\"\\u4e0a\\u4e00\\u5468\\u671f\\"\\n}", "status": "running"}', 10, '2026-09-22 08:24:01.868094')
+2026-09-22 16:24:01,870 INFO sqlalchemy.engine.Engine COMMIT
+2026-09-22 16:24:01,873 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 16:24:01,874 INFO sqlalchemy.engine.Engine SELECT run_events.id, run_events.run_id, run_events.session_id, run_events.event_type, run_events.content, run_events.sequence, run_events.created_at 
+FROM run_events 
+WHERE run_events.id = ?
+2026-09-22 16:24:01,874 INFO sqlalchemy.engine.Engine [cached since 48.41s ago] ('c890c0ea-1869-4634-b9ba-65d4d89c3a49',)
+2026-09-22 16:24:02,253 INFO sqlalchemy.engine.Engine SELECT max(run_events.sequence) AS max_1 
+FROM run_events 
+WHERE run_events.run_id = ?
+2026-09-22 16:24:02,254 INFO sqlalchemy.engine.Engine [cached since 48.8s ago] ('b2668203-3e69-4d35-b4d7-dbc6be4c8b58',)
+2026-09-22 16:24:02,259 INFO sqlalchemy.engine.Engine INSERT INTO run_events (id, run_id, session_id, event_type, content, sequence, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)
+2026-09-22 16:24:02,259 INFO sqlalchemy.engine.Engine [cached since 48.8s ago] ('3c830bd3-ad8b-4112-add2-beea334dc211', 'b2668203-3e69-4d35-b4d7-dbc6be4c8b58', '0f4626d5-b79b-4f01-a8bf-d213d17b60d4', 'tool_call_end', '{"nodeType": "TOOL", "nodeName": "compute_metrics", "title": "compute_metrics \\u6267\\u884c\\u5b8c\\u6210", "result": "\\u73af\\u6bd4 +12.4%\\uff5c\ ... (60 characters truncated) ... d8\\u4ef7\\u503c\\u5ba2\\u6237\\u8d21\\u732e\\u5360\\u6bd4\\u5347\\u81f3 42%\\uff08\\u4e0a\\u6708 30%\\uff09", "duration": 1147, "status": "success"}', 11, '2026-09-22 08:24:02.258936')
+2026-09-22 16:24:02,262 INFO sqlalchemy.engine.Engine COMMIT
+2026-09-22 16:24:02,270 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 16:24:02,271 INFO sqlalchemy.engine.Engine SELECT run_events.id, run_events.run_id, run_events.session_id, run_events.event_type, run_events.content, run_events.sequence, run_events.created_at 
+FROM run_events 
+WHERE run_events.id = ?
+2026-09-22 16:24:02,271 INFO sqlalchemy.engine.Engine [cached since 48.81s ago] ('3c830bd3-ad8b-4112-add2-beea334dc211',)
+2026-09-22 16:24:02,273 INFO sqlalchemy.engine.Engine SELECT max(run_events.sequence) AS max_1 
+FROM run_events 
+WHERE run_events.run_id = ?
+2026-09-22 16:24:02,273 INFO sqlalchemy.engine.Engine [cached since 48.82s ago] ('b2668203-3e69-4d35-b4d7-dbc6be4c8b58',)
+2026-09-22 16:24:02,275 INFO sqlalchemy.engine.Engine INSERT INTO run_events (id, run_id, session_id, event_type, content, sequence, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)
+2026-09-22 16:24:02,275 INFO sqlalchemy.engine.Engine [cached since 48.82s ago] ('5df6794c-7063-43b8-83a3-42ca757cfc5f', 'b2668203-3e69-4d35-b4d7-dbc6be4c8b58', '0f4626d5-b79b-4f01-a8bf-d213d17b60d4', 'thought', '{"nodeType": "THOUGHT", "nodeName": "\\u7b2c 2 \\u6b65 \\u00b7 \\u53cd\\u601d", "title": "\\u601d\\u8003\\u4e2d...", "detail": "\\u73af\\u6bd4 +12.4% ... (140 characters truncated) ... \\u800c\\u975e\\u5168\\u91cf\\u589e\\u957f\\uff0c\\u9700\\u8fdb\\u4e00\\u6b65\\u7ec6\\u5206\\u5ba2\\u7fa4\\u786e\\u8ba4\\u3002", "status": "success"}', 12, '2026-09-22 08:24:02.274506')
+2026-09-22 16:24:02,276 INFO sqlalchemy.engine.Engine COMMIT
+2026-09-22 16:24:02,280 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 16:24:02,281 INFO sqlalchemy.engine.Engine SELECT run_events.id, run_events.run_id, run_events.session_id, run_events.event_type, run_events.content, run_events.sequence, run_events.created_at 
+FROM run_events 
+WHERE run_events.id = ?
+2026-09-22 16:24:02,281 INFO sqlalchemy.engine.Engine [cached since 48.82s ago] ('5df6794c-7063-43b8-83a3-42ca757cfc5f',)
+2026-09-22 16:24:02,283 INFO sqlalchemy.engine.Engine SELECT max(run_events.sequence) AS max_1 
+FROM run_events 
+WHERE run_events.run_id = ?
+2026-09-22 16:24:02,283 INFO sqlalchemy.engine.Engine [cached since 48.83s ago] ('b2668203-3e69-4d35-b4d7-dbc6be4c8b58',)
+2026-09-22 16:24:02,284 INFO sqlalchemy.engine.Engine INSERT INTO run_events (id, run_id, session_id, event_type, content, sequence, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)
+2026-09-22 16:24:02,285 INFO sqlalchemy.engine.Engine [cached since 48.83s ago] ('14362234-f795-4d1a-bd64-db2cd3bfa26b', 'b2668203-3e69-4d35-b4d7-dbc6be4c8b58', '0f4626d5-b79b-4f01-a8bf-d213d17b60d4', 'thought', '{"nodeType": "THOUGHT", "nodeName": "\\u7b2c 3 \\u6b65 \\u00b7 \\u63a8\\u7406", "title": "\\u601d\\u8003\\u4e2d...", "detail": "\\u9a71\\u52a8\\u56e0 ... (65 characters truncated) ... u5206\\u9ad8/\\u4e2d/\\u6d41\\u5931\\u4e09\\u5c42\\uff0c\\u5b9a\\u4f4d\\u589e\\u957f\\u4e0e\\u98ce\\u9669\\u6765\\u6e90\\u3002", "status": "success"}', 13, '2026-09-22 08:24:02.284731')
+2026-09-22 16:24:02,286 INFO sqlalchemy.engine.Engine COMMIT
+2026-09-22 16:24:02,290 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 16:24:02,290 INFO sqlalchemy.engine.Engine SELECT run_events.id, run_events.run_id, run_events.session_id, run_events.event_type, run_events.content, run_events.sequence, run_events.created_at 
+FROM run_events 
+WHERE run_events.id = ?
+2026-09-22 16:24:02,291 INFO sqlalchemy.engine.Engine [cached since 48.83s ago] ('14362234-f795-4d1a-bd64-db2cd3bfa26b',)
+2026-09-22 16:24:02,292 INFO sqlalchemy.engine.Engine SELECT max(run_events.sequence) AS max_1 
+FROM run_events 
+WHERE run_events.run_id = ?
+2026-09-22 16:24:02,292 INFO sqlalchemy.engine.Engine [cached since 48.84s ago] ('b2668203-3e69-4d35-b4d7-dbc6be4c8b58',)
+2026-09-22 16:24:02,293 INFO sqlalchemy.engine.Engine INSERT INTO run_events (id, run_id, session_id, event_type, content, sequence, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)
+2026-09-22 16:24:02,293 INFO sqlalchemy.engine.Engine [cached since 48.84s ago] ('5c5fb2aa-95f9-4f9c-a6e7-9a6503af02e1', 'b2668203-3e69-4d35-b4d7-dbc6be4c8b58', '0f4626d5-b79b-4f01-a8bf-d213d17b60d4', 'tool_call_start', '{"nodeType": "TOOL", "nodeName": "segment_analysis", "title": "\\u6b63\\u5728\\u8c03\\u7528 segment_analysis...", "input": "{\\n  \\"dimension\\": \\ ... (44 characters truncated) ... \",\\n  \\"by\\": [\\n    \\"\\u9ad8\\u4ef7\\u503c\\",\\n    \\"\\u4e2d\\u4ef7\\u503c\\",\\n    \\"\\u6d41\\u5931\\"\\n  ]\\n}", "status": "running"}', 14, '2026-09-22 08:24:02.293175')
+2026-09-22 16:24:02,295 INFO sqlalchemy.engine.Engine COMMIT
+2026-09-22 16:24:02,299 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 16:24:02,299 INFO sqlalchemy.engine.Engine SELECT run_events.id, run_events.run_id, run_events.session_id, run_events.event_type, run_events.content, run_events.sequence, run_events.created_at 
+FROM run_events 
+WHERE run_events.id = ?
+2026-09-22 16:24:02,300 INFO sqlalchemy.engine.Engine [cached since 48.84s ago] ('5c5fb2aa-95f9-4f9c-a6e7-9a6503af02e1',)
+2026-09-22 16:24:02,652 INFO sqlalchemy.engine.Engine SELECT max(run_events.sequence) AS max_1 
+FROM run_events 
+WHERE run_events.run_id = ?
+2026-09-22 16:24:02,653 INFO sqlalchemy.engine.Engine [cached since 49.2s ago] ('b2668203-3e69-4d35-b4d7-dbc6be4c8b58',)
+2026-09-22 16:24:02,654 INFO sqlalchemy.engine.Engine INSERT INTO run_events (id, run_id, session_id, event_type, content, sequence, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)
+2026-09-22 16:24:02,654 INFO sqlalchemy.engine.Engine [cached since 49.2s ago] ('04033ed5-c432-4e1f-82c4-480bfe8fa8eb', 'b2668203-3e69-4d35-b4d7-dbc6be4c8b58', '0f4626d5-b79b-4f01-a8bf-d213d17b60d4', 'tool_call_end', '{"nodeType": "TOOL", "nodeName": "segment_analysis", "title": "segment_analysis \\u6267\\u884c\\u5b8c\\u6210", "result": "\\u9ad8\\u4ef7\\u503c\\u5ba ... (73 characters truncated) ... 931\\u5ba2\\u7fa4\\u73af\\u6bd4 -8%\\uff0c\\u591a\\u4e3a\\u9759\\u9ed8 60 \\u5929\\u4ee5\\u4e0a\\u7528\\u6237", "duration": 805, "status": "success"}', 15, '2026-09-22 08:24:02.654790')
+2026-09-22 16:24:02,656 INFO sqlalchemy.engine.Engine COMMIT
+2026-09-22 16:24:02,660 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 16:24:02,660 INFO sqlalchemy.engine.Engine SELECT run_events.id, run_events.run_id, run_events.session_id, run_events.event_type, run_events.content, run_events.sequence, run_events.created_at 
+FROM run_events 
+WHERE run_events.id = ?
+2026-09-22 16:24:02,660 INFO sqlalchemy.engine.Engine [cached since 49.2s ago] ('04033ed5-c432-4e1f-82c4-480bfe8fa8eb',)
+2026-09-22 16:24:02,663 INFO sqlalchemy.engine.Engine SELECT max(run_events.sequence) AS max_1 
+FROM run_events 
+WHERE run_events.run_id = ?
+2026-09-22 16:24:02,663 INFO sqlalchemy.engine.Engine [cached since 49.21s ago] ('b2668203-3e69-4d35-b4d7-dbc6be4c8b58',)
+2026-09-22 16:24:02,665 INFO sqlalchemy.engine.Engine INSERT INTO run_events (id, run_id, session_id, event_type, content, sequence, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)
+2026-09-22 16:24:02,666 INFO sqlalchemy.engine.Engine [cached since 49.21s ago] ('dad33744-b28d-4ea5-b215-e95fd597e91e', 'b2668203-3e69-4d35-b4d7-dbc6be4c8b58', '0f4626d5-b79b-4f01-a8bf-d213d17b60d4', 'run_end', '{"run_id": "", "total_duration": 0}', 16, '2026-09-22 08:24:02.665207')
+2026-09-22 16:24:02,668 INFO sqlalchemy.engine.Engine COMMIT
+2026-09-22 16:24:02,673 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 16:24:02,674 INFO sqlalchemy.engine.Engine SELECT run_events.id, run_events.run_id, run_events.session_id, run_events.event_type, run_events.content, run_events.sequence, run_events.created_at 
+FROM run_events 
+WHERE run_events.id = ?
+2026-09-22 16:24:02,674 INFO sqlalchemy.engine.Engine [cached since 49.21s ago] ('dad33744-b28d-4ea5-b215-e95fd597e91e',)
+2026-09-22 16:24:02,677 INFO sqlalchemy.engine.Engine UPDATE runs SET status=?, completed_at=? WHERE runs.id = ?
+2026-09-22 16:24:02,677 INFO sqlalchemy.engine.Engine [cached since 47.71s ago] ('completed', '2026-09-22 08:24:02.676550', 'b2668203-3e69-4d35-b4d7-dbc6be4c8b58')
+2026-09-22 16:24:02,679 INFO sqlalchemy.engine.Engine COMMIT
+INFO:     127.0.0.1:63779 - "OPTIONS /api/v1/agents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63779 - "GET /api/v1/agents HTTP/1.1" 401 Unauthorized
+INFO:     127.0.0.1:64813 - "GET /health HTTP/1.1" 200 OK
+2026-09-22 17:04:57,930 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 17:04:57,931 INFO sqlalchemy.engine.Engine SELECT users.id, users.email, users.username, users.password_hash, users.roles, users.is_active, users.created_at, users.updated_at 
+FROM users 
+WHERE users.email = ?
+2026-09-22 17:04:57,932 INFO sqlalchemy.engine.Engine [cached since 2582s ago] ('test@example.com',)
+2026-09-22 17:04:58,142 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:64867 - "POST /api/v1/auth/login HTTP/1.1" 200 OK
+2026-09-22 17:04:58,156 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 17:04:58,157 INFO sqlalchemy.engine.Engine SELECT sessions.id, sessions.user_id, sessions.title, sessions.model, sessions.tools, sessions.skills, sessions.system_prompt, sessions.status, sessions.extra_data, sessions.created_at, sessions.updated_at 
+FROM sessions 
+WHERE sessions.user_id = ? AND sessions.status != ? ORDER BY sessions.created_at DESC
+ LIMIT ? OFFSET ?
+2026-09-22 17:04:58,157 INFO sqlalchemy.engine.Engine [cached since 2560s ago] ('9494bee9-52f9-4594-ad31-334f1a2b60ec', 'deleted', 20, 0)
+2026-09-22 17:04:58,158 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:64867 - "GET /api/v1/sessions HTTP/1.1" 200 OK
+2026-09-22 17:04:58,171 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 17:04:58,172 INFO sqlalchemy.engine.Engine INSERT INTO sessions (id, user_id, title, model, tools, skills, system_prompt, status, extra_data, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2026-09-22 17:04:58,172 INFO sqlalchemy.engine.Engine [cached since 2560s ago] ('e6156d4a-1637-441f-9718-fd061d7141a7', '9494bee9-52f9-4594-ad31-334f1a2b60ec', 't', 'qwen3-5-397b-a17b', '[]', '[]', None, 'active', '{}', '2026-09-22 09:04:58.171261', None)
+2026-09-22 17:04:58,173 INFO sqlalchemy.engine.Engine COMMIT
+2026-09-22 17:04:58,179 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 17:04:58,179 INFO sqlalchemy.engine.Engine SELECT sessions.id, sessions.user_id, sessions.title, sessions.model, sessions.tools, sessions.skills, sessions.system_prompt, sessions.status, sessions.extra_data, sessions.created_at, sessions.updated_at 
+FROM sessions 
+WHERE sessions.id = ?
+2026-09-22 17:04:58,180 INFO sqlalchemy.engine.Engine [cached since 2560s ago] ('e6156d4a-1637-441f-9718-fd061d7141a7',)
+2026-09-22 17:04:58,181 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:64867 - "POST /api/v1/sessions HTTP/1.1" 200 OK
+2026-09-22 17:04:58,192 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 17:04:58,192 INFO sqlalchemy.engine.Engine SELECT sessions.id, sessions.user_id, sessions.title, sessions.model, sessions.tools, sessions.skills, sessions.system_prompt, sessions.status, sessions.extra_data, sessions.created_at, sessions.updated_at 
+FROM sessions 
+WHERE sessions.id = ?
+2026-09-22 17:04:58,193 INFO sqlalchemy.engine.Engine [cached since 2560s ago] ('e6156d4a-1637-441f-9718-fd061d7141a7',)
+2026-09-22 17:04:58,194 INFO sqlalchemy.engine.Engine INSERT INTO messages (id, session_id, role, content, model, tokens_used, extra_data, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+2026-09-22 17:04:58,194 INFO sqlalchemy.engine.Engine [cached since 2505s ago] ('4df6a768-a893-45d4-8c14-39f5d631ce9e', 'e6156d4a-1637-441f-9718-fd061d7141a7', 'user', '帮我分析最近三个月销售，找环比变化并给运营建议', None, None, '{}', '2026-09-22 09:04:58.194817')
+2026-09-22 17:04:58,196 INFO sqlalchemy.engine.Engine INSERT INTO runs (id, session_id, user_id, status, model, total_tokens, total_cost, tool_calls_count, reasoning_steps, error_message, extra_data, started_at, completed_at, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2026-09-22 17:04:58,196 INFO sqlalchemy.engine.Engine [cached since 2505s ago] ('11a5db56-84d6-4566-a12b-877091107d24', 'e6156d4a-1637-441f-9718-fd061d7141a7', '9494bee9-52f9-4594-ad31-334f1a2b60ec', 'running', 'qwen3-5-397b-a17b', 0, 0.0, 0, 0, None, '{}', '2026-09-22 09:04:58.194817', None, '2026-09-22 09:04:58.194817')
+2026-09-22 17:04:58,197 INFO sqlalchemy.engine.Engine COMMIT
+2026-09-22 17:04:58,202 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 17:04:58,203 INFO sqlalchemy.engine.Engine SELECT runs.id, runs.session_id, runs.user_id, runs.status, runs.model, runs.total_tokens, runs.total_cost, runs.tool_calls_count, runs.reasoning_steps, runs.error_message, runs.extra_data, runs.started_at, runs.completed_at, runs.created_at 
+FROM runs 
+WHERE runs.id = ?
+2026-09-22 17:04:58,203 INFO sqlalchemy.engine.Engine [cached since 2505s ago] ('11a5db56-84d6-4566-a12b-877091107d24',)
+2026-09-22 17:04:58,205 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 17:04:58,205 INFO sqlalchemy.engine.Engine SELECT runs.id, runs.session_id, runs.user_id, runs.status, runs.model, runs.total_tokens, runs.total_cost, runs.tool_calls_count, runs.reasoning_steps, runs.error_message, runs.extra_data, runs.started_at, runs.completed_at, runs.created_at 
+FROM runs 
+WHERE runs.id = ?
+2026-09-22 17:04:58,205 INFO sqlalchemy.engine.Engine [cached since 2505s ago] ('11a5db56-84d6-4566-a12b-877091107d24',)
+2026-09-22 17:04:58,205 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:64867 - "POST /api/v1/sessions/e6156d4a-1637-441f-9718-fd061d7141a7/runs HTTP/1.1" 200 OK
+2026-09-22 17:04:58,207 INFO sqlalchemy.engine.Engine SELECT messages.id, messages.session_id, messages.role, messages.content, messages.model, messages.tokens_used, messages.extra_data, messages.created_at 
+FROM messages 
+WHERE messages.id = ?
+2026-09-22 17:04:58,207 INFO sqlalchemy.engine.Engine [cached since 2505s ago] ('4df6a768-a893-45d4-8c14-39f5d631ce9e',)
+2026-09-22 17:04:58,208 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 17:04:58,209 INFO sqlalchemy.engine.Engine SELECT sessions.id, sessions.user_id, sessions.title, sessions.model, sessions.tools, sessions.skills, sessions.system_prompt, sessions.status, sessions.extra_data, sessions.created_at, sessions.updated_at 
+FROM sessions 
+WHERE sessions.id = ?
+2026-09-22 17:04:58,209 INFO sqlalchemy.engine.Engine [cached since 2560s ago] ('e6156d4a-1637-441f-9718-fd061d7141a7',)
+2026-09-22 17:04:58,210 INFO sqlalchemy.engine.Engine SELECT sessions.id, sessions.user_id, sessions.title, sessions.model, sessions.tools, sessions.skills, sessions.system_prompt, sessions.status, sessions.extra_data, sessions.created_at, sessions.updated_at 
+FROM sessions 
+WHERE sessions.id = ?
+2026-09-22 17:04:58,210 INFO sqlalchemy.engine.Engine [cached since 2560s ago] ('e6156d4a-1637-441f-9718-fd061d7141a7',)
+2026-09-22 17:04:58,211 INFO sqlalchemy.engine.Engine SELECT runs.id, runs.session_id, runs.user_id, runs.status, runs.model, runs.total_tokens, runs.total_cost, runs.tool_calls_count, runs.reasoning_steps, runs.error_message, runs.extra_data, runs.started_at, runs.completed_at, runs.created_at 
+FROM runs 
+WHERE runs.session_id = ? ORDER BY runs.created_at DESC
+ LIMIT ? OFFSET ?
+2026-09-22 17:04:58,211 INFO sqlalchemy.engine.Engine [cached since 2560s ago] ('e6156d4a-1637-441f-9718-fd061d7141a7', 1, 0)
+2026-09-22 17:04:58,212 INFO sqlalchemy.engine.Engine SELECT max(run_events.sequence) AS max_1 
+FROM run_events 
+WHERE run_events.run_id = ?
+2026-09-22 17:04:58,212 INFO sqlalchemy.engine.Engine [cached since 2505s ago] ('11a5db56-84d6-4566-a12b-877091107d24',)
+2026-09-22 17:04:58,212 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:64867 - "GET /api/v1/sessions/e6156d4a-1637-441f-9718-fd061d7141a7/stream?run_id=11a5db56-84d6-4566-a12b-877091107d24 HTTP/1.1" 200 OK
+2026-09-22 17:04:58,214 INFO sqlalchemy.engine.Engine INSERT INTO run_events (id, run_id, session_id, event_type, content, sequence, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)
+2026-09-22 17:04:58,214 INFO sqlalchemy.engine.Engine [cached since 2505s ago] ('b6113a68-f90b-4338-befa-87639cf831dc', '11a5db56-84d6-4566-a12b-877091107d24', 'e6156d4a-1637-441f-9718-fd061d7141a7', 'run_start', '{"run_id": "11a5db56-84d6-4566-a12b-877091107d24", "session_id": "e6156d4a-1637-441f-9718-fd061d7141a7"}', 1, '2026-09-22 09:04:58.213297')
+2026-09-22 17:04:58,215 INFO sqlalchemy.engine.Engine COMMIT
+2026-09-22 17:04:58,221 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 17:04:58,222 INFO sqlalchemy.engine.Engine SELECT run_events.id, run_events.run_id, run_events.session_id, run_events.event_type, run_events.content, run_events.sequence, run_events.created_at 
+FROM run_events 
+WHERE run_events.id = ?
+2026-09-22 17:04:58,222 INFO sqlalchemy.engine.Engine [cached since 2505s ago] ('b6113a68-f90b-4338-befa-87639cf831dc',)
+2026-09-22 17:04:58,489 INFO sqlalchemy.engine.Engine SELECT max(run_events.sequence) AS max_1 
+FROM run_events 
+WHERE run_events.run_id = ?
+2026-09-22 17:04:58,490 INFO sqlalchemy.engine.Engine [cached since 2505s ago] ('11a5db56-84d6-4566-a12b-877091107d24',)
+2026-09-22 17:04:58,491 INFO sqlalchemy.engine.Engine INSERT INTO run_events (id, run_id, session_id, event_type, content, sequence, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)
+2026-09-22 17:04:58,492 INFO sqlalchemy.engine.Engine [cached since 2505s ago] ('2c5bb8ba-6348-488b-b071-2fdcc7059b1c', '11a5db56-84d6-4566-a12b-877091107d24', 'e6156d4a-1637-441f-9718-fd061d7141a7', 'thought', '{"nodeType": "THOUGHT", "nodeName": "\\u601d\\u8003", "title": "\\u601d\\u8003\\u4e2d...", "detail": "", "status": "success"}', 2, '2026-09-22 09:04:58.490750')
+2026-09-22 17:04:58,494 INFO sqlalchemy.engine.Engine COMMIT
+2026-09-22 17:04:58,500 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 17:04:58,500 INFO sqlalchemy.engine.Engine SELECT run_events.id, run_events.run_id, run_events.session_id, run_events.event_type, run_events.content, run_events.sequence, run_events.created_at 
+FROM run_events 
+WHERE run_events.id = ?
+2026-09-22 17:04:58,500 INFO sqlalchemy.engine.Engine [cached since 2505s ago] ('2c5bb8ba-6348-488b-b071-2fdcc7059b1c',)
+2026-09-22 17:05:07,399 INFO sqlalchemy.engine.Engine SELECT max(run_events.sequence) AS max_1 
+FROM run_events 
+WHERE run_events.run_id = ?
+2026-09-22 17:05:07,401 INFO sqlalchemy.engine.Engine [cached since 2514s ago] ('11a5db56-84d6-4566-a12b-877091107d24',)
+2026-09-22 17:05:07,405 INFO sqlalchemy.engine.Engine INSERT INTO run_events (id, run_id, session_id, event_type, content, sequence, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)
+2026-09-22 17:05:07,406 INFO sqlalchemy.engine.Engine [cached since 2514s ago] ('481d7aeb-685c-4a87-8c00-0cc14de60a7e', '11a5db56-84d6-4566-a12b-877091107d24', 'e6156d4a-1637-441f-9718-fd061d7141a7', 'thought', '{"nodeType": "THOUGHT", "nodeName": "\\u601d\\u8003", "title": "\\u601d\\u8003\\u4e2d...", "detail": "\\u60a8\\u597d\\uff01\\u7531\\u4e8e\\u60a8**\\u ... (5856 characters truncated) ... u636e\\uff0c\\u6211\\u5c06\\u7acb\\u523b\\u4e3a\\u60a8\\u751f\\u6210\\u8be6\\u7ec6\\u7684\\u5206\\u6790\\u62a5\\u544a\\uff01**", "status": "success"}', 3, '2026-09-22 09:05:07.404100')
+2026-09-22 17:05:07,409 INFO sqlalchemy.engine.Engine COMMIT
+2026-09-22 17:05:07,417 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 17:05:07,418 INFO sqlalchemy.engine.Engine SELECT run_events.id, run_events.run_id, run_events.session_id, run_events.event_type, run_events.content, run_events.sequence, run_events.created_at 
+FROM run_events 
+WHERE run_events.id = ?
+2026-09-22 17:05:07,419 INFO sqlalchemy.engine.Engine [cached since 2514s ago] ('481d7aeb-685c-4a87-8c00-0cc14de60a7e',)
+2026-09-22 17:05:07,426 INFO sqlalchemy.engine.Engine SELECT max(run_events.sequence) AS max_1 
+FROM run_events 
+WHERE run_events.run_id = ?
+2026-09-22 17:05:07,426 INFO sqlalchemy.engine.Engine [cached since 2514s ago] ('11a5db56-84d6-4566-a12b-877091107d24',)
+2026-09-22 17:05:07,428 INFO sqlalchemy.engine.Engine INSERT INTO run_events (id, run_id, session_id, event_type, content, sequence, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)
+2026-09-22 17:05:07,428 INFO sqlalchemy.engine.Engine [cached since 2514s ago] ('a14ad66a-748b-4cb5-bdcc-5529812065a4', '11a5db56-84d6-4566-a12b-877091107d24', 'e6156d4a-1637-441f-9718-fd061d7141a7', 'thought', '{"nodeType": "THOUGHT", "nodeName": "\\u601d\\u8003", "title": "\\u601d\\u8003\\u4e2d...", "detail": "", "status": "success"}', 4, '2026-09-22 09:05:07.427840')
+2026-09-22 17:05:07,432 INFO sqlalchemy.engine.Engine COMMIT
+2026-09-22 17:05:07,438 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 17:05:07,439 INFO sqlalchemy.engine.Engine SELECT run_events.id, run_events.run_id, run_events.session_id, run_events.event_type, run_events.content, run_events.sequence, run_events.created_at 
+FROM run_events 
+WHERE run_events.id = ?
+2026-09-22 17:05:07,439 INFO sqlalchemy.engine.Engine [cached since 2514s ago] ('a14ad66a-748b-4cb5-bdcc-5529812065a4',)
+2026-09-22 17:05:07,441 INFO sqlalchemy.engine.Engine SELECT max(run_events.sequence) AS max_1 
+FROM run_events 
+WHERE run_events.run_id = ?
+2026-09-22 17:05:07,441 INFO sqlalchemy.engine.Engine [cached since 2514s ago] ('11a5db56-84d6-4566-a12b-877091107d24',)
+2026-09-22 17:05:07,442 INFO sqlalchemy.engine.Engine INSERT INTO run_events (id, run_id, session_id, event_type, content, sequence, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)
+2026-09-22 17:05:07,442 INFO sqlalchemy.engine.Engine [cached since 2514s ago] ('474cc500-06c9-4e58-8e22-c3ae9cac33f4', '11a5db56-84d6-4566-a12b-877091107d24', 'e6156d4a-1637-441f-9718-fd061d7141a7', 'result', '{"nodeType": "RESULT", "nodeName": "\\u7ed3\\u679c\\u751f\\u6210", "title": "\\u751f\\u6210\\u6700\\u7ec8\\u56de\\u7b54", "detail": "", "status": "success"}', 5, '2026-09-22 09:05:07.442363')
+2026-09-22 17:05:07,444 INFO sqlalchemy.engine.Engine COMMIT
+2026-09-22 17:05:07,450 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 17:05:07,451 INFO sqlalchemy.engine.Engine SELECT run_events.id, run_events.run_id, run_events.session_id, run_events.event_type, run_events.content, run_events.sequence, run_events.created_at 
+FROM run_events 
+WHERE run_events.id = ?
+2026-09-22 17:05:07,451 INFO sqlalchemy.engine.Engine [cached since 2514s ago] ('474cc500-06c9-4e58-8e22-c3ae9cac33f4',)
+2026-09-22 17:05:07,452 INFO sqlalchemy.engine.Engine SELECT max(run_events.sequence) AS max_1 
+FROM run_events 
+WHERE run_events.run_id = ?
+2026-09-22 17:05:07,452 INFO sqlalchemy.engine.Engine [cached since 2514s ago] ('11a5db56-84d6-4566-a12b-877091107d24',)
+2026-09-22 17:05:07,454 INFO sqlalchemy.engine.Engine INSERT INTO run_events (id, run_id, session_id, event_type, content, sequence, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)
+2026-09-22 17:05:07,454 INFO sqlalchemy.engine.Engine [cached since 2514s ago] ('a1c4ff55-ab14-4527-aa7c-77b10af7f498', '11a5db56-84d6-4566-a12b-877091107d24', 'e6156d4a-1637-441f-9718-fd061d7141a7', 'result', '{"nodeType": "RESULT", "nodeName": "\\u7ed3\\u679c\\u751f\\u6210", "title": "\\u751f\\u6210\\u6700\\u7ec8\\u56de\\u7b54", "detail": "\\u60a8\\u597d\\ ... (5887 characters truncated) ... u636e\\uff0c\\u6211\\u5c06\\u7acb\\u523b\\u4e3a\\u60a8\\u751f\\u6210\\u8be6\\u7ec6\\u7684\\u5206\\u6790\\u62a5\\u544a\\uff01**", "status": "success"}', 6, '2026-09-22 09:05:07.454190')
+2026-09-22 17:05:07,456 INFO sqlalchemy.engine.Engine COMMIT
+2026-09-22 17:05:07,461 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 17:05:07,461 INFO sqlalchemy.engine.Engine SELECT run_events.id, run_events.run_id, run_events.session_id, run_events.event_type, run_events.content, run_events.sequence, run_events.created_at 
+FROM run_events 
+WHERE run_events.id = ?
+2026-09-22 17:05:07,461 INFO sqlalchemy.engine.Engine [cached since 2514s ago] ('a1c4ff55-ab14-4527-aa7c-77b10af7f498',)
+2026-09-22 17:05:07,462 INFO sqlalchemy.engine.Engine SELECT max(run_events.sequence) AS max_1 
+FROM run_events 
+WHERE run_events.run_id = ?
+2026-09-22 17:05:07,463 INFO sqlalchemy.engine.Engine [cached since 2514s ago] ('11a5db56-84d6-4566-a12b-877091107d24',)
+2026-09-22 17:05:07,464 INFO sqlalchemy.engine.Engine INSERT INTO run_events (id, run_id, session_id, event_type, content, sequence, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)
+2026-09-22 17:05:07,464 INFO sqlalchemy.engine.Engine [cached since 2514s ago] ('cda1a309-3da3-4d71-b890-65b8ab6127c6', '11a5db56-84d6-4566-a12b-877091107d24', 'e6156d4a-1637-441f-9718-fd061d7141a7', 'result', '{"nodeType": "RESULT", "nodeName": "\\u7ed3\\u679c\\u751f\\u6210", "title": "\\u751f\\u6210\\u6700\\u7ec8\\u56de\\u7b54", "detail": "", "status": "success"}', 7, '2026-09-22 09:05:07.464017')
+2026-09-22 17:05:07,465 INFO sqlalchemy.engine.Engine COMMIT
+2026-09-22 17:05:07,470 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 17:05:07,471 INFO sqlalchemy.engine.Engine SELECT run_events.id, run_events.run_id, run_events.session_id, run_events.event_type, run_events.content, run_events.sequence, run_events.created_at 
+FROM run_events 
+WHERE run_events.id = ?
+2026-09-22 17:05:07,471 INFO sqlalchemy.engine.Engine [cached since 2514s ago] ('cda1a309-3da3-4d71-b890-65b8ab6127c6',)
+2026-09-22 17:05:07,923 INFO sqlalchemy.engine.Engine SELECT max(run_events.sequence) AS max_1 
+FROM run_events 
+WHERE run_events.run_id = ?
+2026-09-22 17:05:07,924 INFO sqlalchemy.engine.Engine [cached since 2514s ago] ('11a5db56-84d6-4566-a12b-877091107d24',)
+2026-09-22 17:05:07,926 INFO sqlalchemy.engine.Engine INSERT INTO run_events (id, run_id, session_id, event_type, content, sequence, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)
+2026-09-22 17:05:07,926 INFO sqlalchemy.engine.Engine [cached since 2514s ago] ('e9894311-91a5-401e-a3b0-1eaa42ac72dc', '11a5db56-84d6-4566-a12b-877091107d24', 'e6156d4a-1637-441f-9718-fd061d7141a7', 'run_end', '{"run_id": "", "total_duration": 0}', 8, '2026-09-22 09:05:07.925735')
+2026-09-22 17:05:07,928 INFO sqlalchemy.engine.Engine COMMIT
+2026-09-22 17:05:07,934 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 17:05:07,935 INFO sqlalchemy.engine.Engine SELECT run_events.id, run_events.run_id, run_events.session_id, run_events.event_type, run_events.content, run_events.sequence, run_events.created_at 
+FROM run_events 
+WHERE run_events.id = ?
+2026-09-22 17:05:07,936 INFO sqlalchemy.engine.Engine [cached since 2514s ago] ('e9894311-91a5-401e-a3b0-1eaa42ac72dc',)
+2026-09-22 17:05:07,942 INFO sqlalchemy.engine.Engine UPDATE runs SET status=?, completed_at=? WHERE runs.id = ?
+2026-09-22 17:05:07,944 INFO sqlalchemy.engine.Engine [cached since 2513s ago] ('completed', '2026-09-22 09:05:07.942377', '11a5db56-84d6-4566-a12b-877091107d24')
+2026-09-22 17:05:07,948 INFO sqlalchemy.engine.Engine COMMIT
+INFO:     127.0.0.1:65134 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49352 - "OPTIONS /api/v1/auth/register HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49352 - "POST /api/v1/auth/register HTTP/1.1" 422 Unprocessable Entity
+INFO:     127.0.0.1:49352 - "OPTIONS /api/v1/auth/login HTTP/1.1" 200 OK
+2026-09-22 17:09:34,084 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 17:09:34,084 INFO sqlalchemy.engine.Engine SELECT users.id, users.email, users.username, users.password_hash, users.roles, users.is_active, users.created_at, users.updated_at 
+FROM users 
+WHERE users.email = ?
+2026-09-22 17:09:34,084 INFO sqlalchemy.engine.Engine [cached since 2858s ago] ('test@example.com',)
+2026-09-22 17:09:34,291 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:49352 - "POST /api/v1/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49359 - "OPTIONS /api/v1/sessions/0f4626d5-b79b-4f01-a8bf-d213d17b60d4/runs HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49362 - "POST /api/v1/sessions/0f4626d5-b79b-4f01-a8bf-d213d17b60d4/runs HTTP/1.1" 401 Unauthorized
+INFO:     127.0.0.1:49568 - "GET /api/v1/health HTTP/1.1" 404 Not Found
+2026-09-22 17:10:44,489 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 17:10:44,490 INFO sqlalchemy.engine.Engine SELECT users.id, users.email, users.username, users.password_hash, users.roles, users.is_active, users.created_at, users.updated_at 
+FROM users 
+WHERE users.email = ?
+2026-09-22 17:10:44,490 INFO sqlalchemy.engine.Engine [cached since 2928s ago] ('test@example.com',)
+2026-09-22 17:10:44,695 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:49568 - "POST /api/v1/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49568 - "OPTIONS /api/v1/sessions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49568 - "GET /api/v1/sessions HTTP/1.1" 401 Unauthorized
+2026-09-22 17:11:41,834 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 17:11:41,835 INFO sqlalchemy.engine.Engine SELECT users.id, users.email, users.username, users.password_hash, users.roles, users.is_active, users.created_at, users.updated_at 
+FROM users 
+WHERE users.email = ?
+2026-09-22 17:11:41,835 INFO sqlalchemy.engine.Engine [cached since 2986s ago] ('test@example.com',)
+2026-09-22 17:11:42,056 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:49569 - "POST /api/v1/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49569 - "OPTIONS /api/v1/agents HTTP/1.1" 200 OK
+2026-09-22 17:11:42,322 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 17:11:42,323 INFO sqlalchemy.engine.Engine SELECT agents.id, agents.user_id, agents.space_id, agents.name, agents.description, agents.model, agents.system_prompt, agents.avatar_color, agents.status, agents.version, agents.temperature, agents.max_iterations, agents.timeout, agents.greeting, agents.suggestion_questions, agents.knowledge_ids, agents.ontology_ids, agents.skill_ids, agents.extra_data, agents.created_at, agents.updated_at 
+FROM agents 
+WHERE agents.user_id = ? ORDER BY agents.created_at DESC
+ LIMIT ? OFFSET ?
+2026-09-22 17:11:42,324 INFO sqlalchemy.engine.Engine [cached since 2865s ago] ('9494bee9-52f9-4594-ad31-334f1a2b60ec', 20, 0)
+2026-09-22 17:11:42,327 INFO sqlalchemy.engine.Engine SELECT agents.id, agents.user_id, agents.space_id, agents.name, agents.description, agents.model, agents.system_prompt, agents.avatar_color, agents.status, agents.version, agents.temperature, agents.max_iterations, agents.timeout, agents.greeting, agents.suggestion_questions, agents.knowledge_ids, agents.ontology_ids, agents.skill_ids, agents.extra_data, agents.created_at, agents.updated_at 
+FROM agents 
+WHERE agents.user_id = ?
+2026-09-22 17:11:42,327 INFO sqlalchemy.engine.Engine [cached since 2865s ago] ('9494bee9-52f9-4594-ad31-334f1a2b60ec',)
+2026-09-22 17:11:42,329 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:49569 - "GET /api/v1/agents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49815 - "OPTIONS /api/v1/sessions HTTP/1.1" 200 OK
+2026-09-22 17:11:47,849 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 17:11:47,849 INFO sqlalchemy.engine.Engine INSERT INTO sessions (id, user_id, title, model, tools, skills, system_prompt, status, extra_data, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2026-09-22 17:11:47,849 INFO sqlalchemy.engine.Engine [cached since 2970s ago] ('1f39d41a-bf79-4b43-88a0-c6816e6e4d39', '9494bee9-52f9-4594-ad31-334f1a2b60ec', 'Agent 调试会话', 'claude-3-5-sonnet', '[]', '[]', None, 'active', '{}', '2026-09-22 09:11:47.848218', None)
+2026-09-22 17:11:47,851 INFO sqlalchemy.engine.Engine COMMIT
+2026-09-22 17:11:47,855 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 17:11:47,855 INFO sqlalchemy.engine.Engine SELECT sessions.id, sessions.user_id, sessions.title, sessions.model, sessions.tools, sessions.skills, sessions.system_prompt, sessions.status, sessions.extra_data, sessions.created_at, sessions.updated_at 
+FROM sessions 
+WHERE sessions.id = ?
+2026-09-22 17:11:47,855 INFO sqlalchemy.engine.Engine [cached since 2970s ago] ('1f39d41a-bf79-4b43-88a0-c6816e6e4d39',)
+2026-09-22 17:11:47,857 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:49815 - "POST /api/v1/sessions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49815 - "OPTIONS /api/v1/sessions/1f39d41a-bf79-4b43-88a0-c6816e6e4d39/runs HTTP/1.1" 200 OK
+2026-09-22 17:11:47,871 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 17:11:47,871 INFO sqlalchemy.engine.Engine SELECT sessions.id, sessions.user_id, sessions.title, sessions.model, sessions.tools, sessions.skills, sessions.system_prompt, sessions.status, sessions.extra_data, sessions.created_at, sessions.updated_at 
+FROM sessions 
+WHERE sessions.id = ?
+2026-09-22 17:11:47,871 INFO sqlalchemy.engine.Engine [cached since 2970s ago] ('1f39d41a-bf79-4b43-88a0-c6816e6e4d39',)
+2026-09-22 17:11:47,873 INFO sqlalchemy.engine.Engine INSERT INTO messages (id, session_id, role, content, model, tokens_used, extra_data, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+2026-09-22 17:11:47,873 INFO sqlalchemy.engine.Engine [cached since 2914s ago] ('c657da8e-1729-4272-8f32-711bca4cd6a7', '1f39d41a-bf79-4b43-88a0-c6816e6e4d39', 'user', '请用简短两句话介绍如何分析销售趋势', None, None, '{}', '2026-09-22 09:11:47.873056')
+2026-09-22 17:11:47,876 INFO sqlalchemy.engine.Engine INSERT INTO runs (id, session_id, user_id, status, model, total_tokens, total_cost, tool_calls_count, reasoning_steps, error_message, extra_data, started_at, completed_at, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2026-09-22 17:11:47,876 INFO sqlalchemy.engine.Engine [cached since 2914s ago] ('298be700-4c85-4389-af09-caf16733e7aa', '1f39d41a-bf79-4b43-88a0-c6816e6e4d39', '9494bee9-52f9-4594-ad31-334f1a2b60ec', 'running', 'claude-3-5-sonnet', 0, 0.0, 0, 0, None, '{}', '2026-09-22 09:11:47.873056', None, '2026-09-22 09:11:47.873056')
+2026-09-22 17:11:47,877 INFO sqlalchemy.engine.Engine COMMIT
+2026-09-22 17:11:47,880 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 17:11:47,881 INFO sqlalchemy.engine.Engine SELECT runs.id, runs.session_id, runs.user_id, runs.status, runs.model, runs.total_tokens, runs.total_cost, runs.tool_calls_count, runs.reasoning_steps, runs.error_message, runs.extra_data, runs.started_at, runs.completed_at, runs.created_at 
+FROM runs 
+WHERE runs.id = ?
+2026-09-22 17:11:47,882 INFO sqlalchemy.engine.Engine [cached since 2914s ago] ('298be700-4c85-4389-af09-caf16733e7aa',)
+2026-09-22 17:11:47,883 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 17:11:47,883 INFO sqlalchemy.engine.Engine SELECT runs.id, runs.session_id, runs.user_id, runs.status, runs.model, runs.total_tokens, runs.total_cost, runs.tool_calls_count, runs.reasoning_steps, runs.error_message, runs.extra_data, runs.started_at, runs.completed_at, runs.created_at 
+FROM runs 
+WHERE runs.id = ?
+2026-09-22 17:11:47,884 INFO sqlalchemy.engine.Engine [cached since 2914s ago] ('298be700-4c85-4389-af09-caf16733e7aa',)
+2026-09-22 17:11:47,884 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:49815 - "POST /api/v1/sessions/1f39d41a-bf79-4b43-88a0-c6816e6e4d39/runs HTTP/1.1" 200 OK
+2026-09-22 17:11:47,885 INFO sqlalchemy.engine.Engine SELECT messages.id, messages.session_id, messages.role, messages.content, messages.model, messages.tokens_used, messages.extra_data, messages.created_at 
+FROM messages 
+WHERE messages.id = ?
+2026-09-22 17:11:47,886 INFO sqlalchemy.engine.Engine [cached since 2914s ago] ('c657da8e-1729-4272-8f32-711bca4cd6a7',)
+INFO:     127.0.0.1:49815 - "OPTIONS /api/v1/sessions/1f39d41a-bf79-4b43-88a0-c6816e6e4d39/stream HTTP/1.1" 200 OK
+2026-09-22 17:11:47,887 INFO sqlalchemy.engine.Engine SELECT sessions.id, sessions.user_id, sessions.title, sessions.model, sessions.tools, sessions.skills, sessions.system_prompt, sessions.status, sessions.extra_data, sessions.created_at, sessions.updated_at 
+FROM sessions 
+WHERE sessions.id = ?
+2026-09-22 17:11:47,888 INFO sqlalchemy.engine.Engine [cached since 2970s ago] ('1f39d41a-bf79-4b43-88a0-c6816e6e4d39',)
+2026-09-22 17:11:47,889 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 17:11:47,890 INFO sqlalchemy.engine.Engine SELECT sessions.id, sessions.user_id, sessions.title, sessions.model, sessions.tools, sessions.skills, sessions.system_prompt, sessions.status, sessions.extra_data, sessions.created_at, sessions.updated_at 
+FROM sessions 
+WHERE sessions.id = ?
+2026-09-22 17:11:47,890 INFO sqlalchemy.engine.Engine [cached since 2970s ago] ('1f39d41a-bf79-4b43-88a0-c6816e6e4d39',)
+2026-09-22 17:11:47,891 INFO sqlalchemy.engine.Engine SELECT max(run_events.sequence) AS max_1 
+FROM run_events 
+WHERE run_events.run_id = ?
+2026-09-22 17:11:47,891 INFO sqlalchemy.engine.Engine [cached since 2914s ago] ('298be700-4c85-4389-af09-caf16733e7aa',)
+2026-09-22 17:11:47,892 INFO sqlalchemy.engine.Engine SELECT runs.id, runs.session_id, runs.user_id, runs.status, runs.model, runs.total_tokens, runs.total_cost, runs.tool_calls_count, runs.reasoning_steps, runs.error_message, runs.extra_data, runs.started_at, runs.completed_at, runs.created_at 
+FROM runs 
+WHERE runs.session_id = ? ORDER BY runs.created_at DESC
+ LIMIT ? OFFSET ?
+2026-09-22 17:11:47,892 INFO sqlalchemy.engine.Engine [cached since 2970s ago] ('1f39d41a-bf79-4b43-88a0-c6816e6e4d39', 1, 0)
+2026-09-22 17:11:47,893 INFO sqlalchemy.engine.Engine INSERT INTO run_events (id, run_id, session_id, event_type, content, sequence, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)
+2026-09-22 17:11:47,894 INFO sqlalchemy.engine.Engine [cached since 2914s ago] ('4b593d80-cc34-4acd-aedd-39baf2db0186', '298be700-4c85-4389-af09-caf16733e7aa', '1f39d41a-bf79-4b43-88a0-c6816e6e4d39', 'run_start', '{"run_id": "298be700-4c85-4389-af09-caf16733e7aa", "session_id": "1f39d41a-bf79-4b43-88a0-c6816e6e4d39"}', 1, '2026-09-22 09:11:47.893145')
+2026-09-22 17:11:47,894 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-09-22 17:11:47,895 INFO sqlalchemy.engine.Engine COMMIT
+INFO:     127.0.0.1:49815 - "GET /api/v1/sessions/1f39d41a-bf79-4b43-88a0-c6816e6e4d39/stream HTTP/1.1" 200 OK
+2026-09-22 17:11:47,899 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 17:11:47,899 INFO sqlalchemy.engine.Engine SELECT run_events.id, run_events.run_id, run_events.session_id, run_events.event_type, run_events.content, run_events.sequence, run_events.created_at 
+FROM run_events 
+WHERE run_events.id = ?
+2026-09-22 17:11:47,900 INFO sqlalchemy.engine.Engine [cached since 2914s ago] ('4b593d80-cc34-4acd-aedd-39baf2db0186',)
+2026-09-22 17:11:48,183 INFO sqlalchemy.engine.Engine SELECT max(run_events.sequence) AS max_1 
+FROM run_events 
+WHERE run_events.run_id = ?
+2026-09-22 17:11:48,183 INFO sqlalchemy.engine.Engine [cached since 2915s ago] ('298be700-4c85-4389-af09-caf16733e7aa',)
+2026-09-22 17:11:48,184 INFO sqlalchemy.engine.Engine INSERT INTO run_events (id, run_id, session_id, event_type, content, sequence, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)
+2026-09-22 17:11:48,184 INFO sqlalchemy.engine.Engine [cached since 2915s ago] ('eba0ace4-3bdd-4b8f-96b9-cfd89773e7b4', '298be700-4c85-4389-af09-caf16733e7aa', '1f39d41a-bf79-4b43-88a0-c6816e6e4d39', 'thought', '{"nodeType": "THOUGHT", "nodeName": "\\u601d\\u8003", "title": "\\u601d\\u8003\\u4e2d...", "detail": "", "status": "success"}', 2, '2026-09-22 09:11:48.184781')
+2026-09-22 17:11:48,187 INFO sqlalchemy.engine.Engine COMMIT
+2026-09-22 17:11:48,195 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 17:11:48,195 INFO sqlalchemy.engine.Engine SELECT run_events.id, run_events.run_id, run_events.session_id, run_events.event_type, run_events.content, run_events.sequence, run_events.created_at 
+FROM run_events 
+WHERE run_events.id = ?
+2026-09-22 17:11:48,196 INFO sqlalchemy.engine.Engine [cached since 2915s ago] ('eba0ace4-3bdd-4b8f-96b9-cfd89773e7b4',)
+2026-09-22 17:11:49,012 INFO sqlalchemy.engine.Engine SELECT max(run_events.sequence) AS max_1 
+FROM run_events 
+WHERE run_events.run_id = ?
+2026-09-22 17:11:49,013 INFO sqlalchemy.engine.Engine [cached since 2916s ago] ('298be700-4c85-4389-af09-caf16733e7aa',)
+2026-09-22 17:11:49,015 INFO sqlalchemy.engine.Engine INSERT INTO run_events (id, run_id, session_id, event_type, content, sequence, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)
+2026-09-22 17:11:49,015 INFO sqlalchemy.engine.Engine [cached since 2916s ago] ('271bc53f-579a-439b-8a17-d025561aa1cc', '298be700-4c85-4389-af09-caf16733e7aa', '1f39d41a-bf79-4b43-88a0-c6816e6e4d39', 'thought', '{"nodeType": "THOUGHT", "nodeName": "\\u601d\\u8003", "title": "\\u601d\\u8003\\u4e2d...", "detail": "\\u9996\\u5148\\uff0c\\u6574\\u5408\\u5386\\u53 ... (460 characters truncated) ... \\u6790\\uff0c\\u4ece\\u800c\\u5224\\u65ad\\u8d8b\\u52bf\\u6210\\u56e0\\u5e76\\u9884\\u6d4b\\u672a\\u6765\\u8d70\\u5411\\u3002", "status": "success"}', 3, '2026-09-22 09:11:49.015119')
+2026-09-22 17:11:49,017 INFO sqlalchemy.engine.Engine COMMIT
+2026-09-22 17:11:49,020 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 17:11:49,020 INFO sqlalchemy.engine.Engine SELECT run_events.id, run_events.run_id, run_events.session_id, run_events.event_type, run_events.content, run_events.sequence, run_events.created_at 
+FROM run_events 
+WHERE run_events.id = ?
+2026-09-22 17:11:49,021 INFO sqlalchemy.engine.Engine [cached since 2916s ago] ('271bc53f-579a-439b-8a17-d025561aa1cc',)
+2026-09-22 17:11:49,022 INFO sqlalchemy.engine.Engine SELECT max(run_events.sequence) AS max_1 
+FROM run_events 
+WHERE run_events.run_id = ?
+2026-09-22 17:11:49,023 INFO sqlalchemy.engine.Engine [cached since 2916s ago] ('298be700-4c85-4389-af09-caf16733e7aa',)
+2026-09-22 17:11:49,024 INFO sqlalchemy.engine.Engine INSERT INTO run_events (id, run_id, session_id, event_type, content, sequence, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)
+2026-09-22 17:11:49,024 INFO sqlalchemy.engine.Engine [cached since 2916s ago] ('547952a5-e1bc-4d78-ab6f-a6e91b370ca1', '298be700-4c85-4389-af09-caf16733e7aa', '1f39d41a-bf79-4b43-88a0-c6816e6e4d39', 'thought', '{"nodeType": "THOUGHT", "nodeName": "\\u601d\\u8003", "title": "\\u601d\\u8003\\u4e2d...", "detail": "", "status": "success"}', 4, '2026-09-22 09:11:49.024438')
+2026-09-22 17:11:49,026 INFO sqlalchemy.engine.Engine COMMIT
+2026-09-22 17:11:49,029 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 17:11:49,030 INFO sqlalchemy.engine.Engine SELECT run_events.id, run_events.run_id, run_events.session_id, run_events.event_type, run_events.content, run_events.sequence, run_events.created_at 
+FROM run_events 
+WHERE run_events.id = ?
+2026-09-22 17:11:49,030 INFO sqlalchemy.engine.Engine [cached since 2916s ago] ('547952a5-e1bc-4d78-ab6f-a6e91b370ca1',)
+2026-09-22 17:11:49,032 INFO sqlalchemy.engine.Engine SELECT max(run_events.sequence) AS max_1 
+FROM run_events 
+WHERE run_events.run_id = ?
+2026-09-22 17:11:49,032 INFO sqlalchemy.engine.Engine [cached since 2916s ago] ('298be700-4c85-4389-af09-caf16733e7aa',)
+2026-09-22 17:11:49,033 INFO sqlalchemy.engine.Engine INSERT INTO run_events (id, run_id, session_id, event_type, content, sequence, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)
+2026-09-22 17:11:49,033 INFO sqlalchemy.engine.Engine [cached since 2916s ago] ('78d382fc-d822-4217-a3fb-788f9aa66cad', '298be700-4c85-4389-af09-caf16733e7aa', '1f39d41a-bf79-4b43-88a0-c6816e6e4d39', 'result', '{"nodeType": "RESULT", "nodeName": "\\u7ed3\\u679c\\u751f\\u6210", "title": "\\u751f\\u6210\\u6700\\u7ec8\\u56de\\u7b54", "detail": "", "status": "success"}', 5, '2026-09-22 09:11:49.033138')
+2026-09-22 17:11:49,034 INFO sqlalchemy.engine.Engine COMMIT
+2026-09-22 17:11:49,038 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 17:11:49,038 INFO sqlalchemy.engine.Engine SELECT run_events.id, run_events.run_id, run_events.session_id, run_events.event_type, run_events.content, run_events.sequence, run_events.created_at 
+FROM run_events 
+WHERE run_events.id = ?
+2026-09-22 17:11:49,039 INFO sqlalchemy.engine.Engine [cached since 2916s ago] ('78d382fc-d822-4217-a3fb-788f9aa66cad',)
+2026-09-22 17:11:49,040 INFO sqlalchemy.engine.Engine SELECT max(run_events.sequence) AS max_1 
+FROM run_events 
+WHERE run_events.run_id = ?
+2026-09-22 17:11:49,041 INFO sqlalchemy.engine.Engine [cached since 2916s ago] ('298be700-4c85-4389-af09-caf16733e7aa',)
+2026-09-22 17:11:49,042 INFO sqlalchemy.engine.Engine INSERT INTO run_events (id, run_id, session_id, event_type, content, sequence, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)
+2026-09-22 17:11:49,042 INFO sqlalchemy.engine.Engine [cached since 2916s ago] ('9cbc56e5-7341-4baa-8c52-2423ac2a54e0', '298be700-4c85-4389-af09-caf16733e7aa', '1f39d41a-bf79-4b43-88a0-c6816e6e4d39', 'result', '{"nodeType": "RESULT", "nodeName": "\\u7ed3\\u679c\\u751f\\u6210", "title": "\\u751f\\u6210\\u6700\\u7ec8\\u56de\\u7b54", "detail": "\\u9996\\u5148\\ ... (491 characters truncated) ... \\u6790\\uff0c\\u4ece\\u800c\\u5224\\u65ad\\u8d8b\\u52bf\\u6210\\u56e0\\u5e76\\u9884\\u6d4b\\u672a\\u6765\\u8d70\\u5411\\u3002", "status": "success"}', 6, '2026-09-22 09:11:49.041631')
+2026-09-22 17:11:49,043 INFO sqlalchemy.engine.Engine COMMIT
+2026-09-22 17:11:49,047 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 17:11:49,047 INFO sqlalchemy.engine.Engine SELECT run_events.id, run_events.run_id, run_events.session_id, run_events.event_type, run_events.content, run_events.sequence, run_events.created_at 
+FROM run_events 
+WHERE run_events.id = ?
+2026-09-22 17:11:49,048 INFO sqlalchemy.engine.Engine [cached since 2916s ago] ('9cbc56e5-7341-4baa-8c52-2423ac2a54e0',)
+2026-09-22 17:11:49,049 INFO sqlalchemy.engine.Engine SELECT max(run_events.sequence) AS max_1 
+FROM run_events 
+WHERE run_events.run_id = ?
+2026-09-22 17:11:49,049 INFO sqlalchemy.engine.Engine [cached since 2916s ago] ('298be700-4c85-4389-af09-caf16733e7aa',)
+2026-09-22 17:11:49,050 INFO sqlalchemy.engine.Engine INSERT INTO run_events (id, run_id, session_id, event_type, content, sequence, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)
+2026-09-22 17:11:49,050 INFO sqlalchemy.engine.Engine [cached since 2916s ago] ('de292317-6b2c-4c1c-af5d-54f164939c1f', '298be700-4c85-4389-af09-caf16733e7aa', '1f39d41a-bf79-4b43-88a0-c6816e6e4d39', 'result', '{"nodeType": "RESULT", "nodeName": "\\u7ed3\\u679c\\u751f\\u6210", "title": "\\u751f\\u6210\\u6700\\u7ec8\\u56de\\u7b54", "detail": "", "status": "success"}', 7, '2026-09-22 09:11:49.050171')
+2026-09-22 17:11:49,052 INFO sqlalchemy.engine.Engine COMMIT
+2026-09-22 17:11:49,094 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 17:11:49,094 INFO sqlalchemy.engine.Engine SELECT run_events.id, run_events.run_id, run_events.session_id, run_events.event_type, run_events.content, run_events.sequence, run_events.created_at 
+FROM run_events 
+WHERE run_events.id = ?
+2026-09-22 17:11:49,094 INFO sqlalchemy.engine.Engine [cached since 2916s ago] ('de292317-6b2c-4c1c-af5d-54f164939c1f',)
+2026-09-22 17:11:49,508 INFO sqlalchemy.engine.Engine SELECT max(run_events.sequence) AS max_1 
+FROM run_events 
+WHERE run_events.run_id = ?
+2026-09-22 17:11:49,509 INFO sqlalchemy.engine.Engine [cached since 2916s ago] ('298be700-4c85-4389-af09-caf16733e7aa',)
+2026-09-22 17:11:49,510 INFO sqlalchemy.engine.Engine INSERT INTO run_events (id, run_id, session_id, event_type, content, sequence, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)
+2026-09-22 17:11:49,510 INFO sqlalchemy.engine.Engine [cached since 2916s ago] ('79dca1a2-d2f0-4351-b706-44eb0ec4f0cd', '298be700-4c85-4389-af09-caf16733e7aa', '1f39d41a-bf79-4b43-88a0-c6816e6e4d39', 'run_end', '{"run_id": "", "total_duration": 0}', 8, '2026-09-22 09:11:49.510240')
+2026-09-22 17:11:49,512 INFO sqlalchemy.engine.Engine COMMIT
+2026-09-22 17:11:49,515 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 17:11:49,516 INFO sqlalchemy.engine.Engine SELECT run_events.id, run_events.run_id, run_events.session_id, run_events.event_type, run_events.content, run_events.sequence, run_events.created_at 
+FROM run_events 
+WHERE run_events.id = ?
+2026-09-22 17:11:49,516 INFO sqlalchemy.engine.Engine [cached since 2916s ago] ('79dca1a2-d2f0-4351-b706-44eb0ec4f0cd',)
+2026-09-22 17:11:49,518 INFO sqlalchemy.engine.Engine UPDATE runs SET status=?, completed_at=? WHERE runs.id = ?
+2026-09-22 17:11:49,518 INFO sqlalchemy.engine.Engine [cached since 2915s ago] ('completed', '2026-09-22 09:11:49.518143', '298be700-4c85-4389-af09-caf16733e7aa')
+2026-09-22 17:11:49,519 INFO sqlalchemy.engine.Engine COMMIT
+2026-09-22 17:12:26,797 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 17:12:26,799 INFO sqlalchemy.engine.Engine SELECT agents.id, agents.user_id, agents.space_id, agents.name, agents.description, agents.model, agents.system_prompt, agents.avatar_color, agents.status, agents.version, agents.temperature, agents.max_iterations, agents.timeout, agents.greeting, agents.suggestion_questions, agents.knowledge_ids, agents.ontology_ids, agents.skill_ids, agents.extra_data, agents.created_at, agents.updated_at 
+FROM agents 
+WHERE agents.user_id = ? ORDER BY agents.created_at DESC
+ LIMIT ? OFFSET ?
+2026-09-22 17:12:26,799 INFO sqlalchemy.engine.Engine [cached since 2910s ago] ('9494bee9-52f9-4594-ad31-334f1a2b60ec', 20, 0)
+2026-09-22 17:12:26,801 INFO sqlalchemy.engine.Engine SELECT agents.id, agents.user_id, agents.space_id, agents.name, agents.description, agents.model, agents.system_prompt, agents.avatar_color, agents.status, agents.version, agents.temperature, agents.max_iterations, agents.timeout, agents.greeting, agents.suggestion_questions, agents.knowledge_ids, agents.ontology_ids, agents.skill_ids, agents.extra_data, agents.created_at, agents.updated_at 
+FROM agents 
+WHERE agents.user_id = ?
+2026-09-22 17:12:26,802 INFO sqlalchemy.engine.Engine [cached since 2910s ago] ('9494bee9-52f9-4594-ad31-334f1a2b60ec',)
+2026-09-22 17:12:26,803 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:49819 - "GET /api/v1/agents HTTP/1.1" 200 OK
+2026-09-22 17:12:27,112 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 17:12:27,112 INFO sqlalchemy.engine.Engine SELECT agents.id, agents.user_id, agents.space_id, agents.name, agents.description, agents.model, agents.system_prompt, agents.avatar_color, agents.status, agents.version, agents.temperature, agents.max_iterations, agents.timeout, agents.greeting, agents.suggestion_questions, agents.knowledge_ids, agents.ontology_ids, agents.skill_ids, agents.extra_data, agents.created_at, agents.updated_at 
+FROM agents 
+WHERE agents.user_id = ? ORDER BY agents.created_at DESC
+ LIMIT ? OFFSET ?
+2026-09-22 17:12:27,113 INFO sqlalchemy.engine.Engine [cached since 2910s ago] ('9494bee9-52f9-4594-ad31-334f1a2b60ec', 20, 0)
+2026-09-22 17:12:27,115 INFO sqlalchemy.engine.Engine SELECT agents.id, agents.user_id, agents.space_id, agents.name, agents.description, agents.model, agents.system_prompt, agents.avatar_color, agents.status, agents.version, agents.temperature, agents.max_iterations, agents.timeout, agents.greeting, agents.suggestion_questions, agents.knowledge_ids, agents.ontology_ids, agents.skill_ids, agents.extra_data, agents.created_at, agents.updated_at 
+FROM agents 
+WHERE agents.user_id = ?
+2026-09-22 17:12:27,115 INFO sqlalchemy.engine.Engine [cached since 2910s ago] ('9494bee9-52f9-4594-ad31-334f1a2b60ec',)
+2026-09-22 17:12:27,117 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:49946 - "OPTIONS /api/v1/agents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49945 - "OPTIONS /api/v1/agents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49819 - "GET /api/v1/agents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49947 - "OPTIONS /api/v1/agents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49945 - "GET /api/v1/agents HTTP/1.1" 401 Unauthorized
+INFO:     127.0.0.1:49945 - "GET /api/v1/agents HTTP/1.1" 401 Unauthorized
+2026-09-22 17:12:27,123 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 17:12:27,123 INFO sqlalchemy.engine.Engine SELECT agents.id, agents.user_id, agents.space_id, agents.name, agents.description, agents.model, agents.system_prompt, agents.avatar_color, agents.status, agents.version, agents.temperature, agents.max_iterations, agents.timeout, agents.greeting, agents.suggestion_questions, agents.knowledge_ids, agents.ontology_ids, agents.skill_ids, agents.extra_data, agents.created_at, agents.updated_at 
+FROM agents 
+WHERE agents.user_id = ? ORDER BY agents.created_at DESC
+ LIMIT ? OFFSET ?
+2026-09-22 17:12:27,124 INFO sqlalchemy.engine.Engine [cached since 2910s ago] ('9494bee9-52f9-4594-ad31-334f1a2b60ec', 20, 0)
+INFO:     127.0.0.1:49945 - "GET /api/v1/agents HTTP/1.1" 401 Unauthorized
+2026-09-22 17:12:27,127 INFO sqlalchemy.engine.Engine SELECT agents.id, agents.user_id, agents.space_id, agents.name, agents.description, agents.model, agents.system_prompt, agents.avatar_color, agents.status, agents.version, agents.temperature, agents.max_iterations, agents.timeout, agents.greeting, agents.suggestion_questions, agents.knowledge_ids, agents.ontology_ids, agents.skill_ids, agents.extra_data, agents.created_at, agents.updated_at 
+FROM agents 
+WHERE agents.user_id = ?
+2026-09-22 17:12:27,127 INFO sqlalchemy.engine.Engine [cached since 2910s ago] ('9494bee9-52f9-4594-ad31-334f1a2b60ec',)
+INFO:     127.0.0.1:49945 - "GET /api/v1/agents HTTP/1.1" 401 Unauthorized
+INFO:     127.0.0.1:49945 - "GET /api/v1/agents HTTP/1.1" 401 Unauthorized
+2026-09-22 17:12:27,130 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:49945 - "GET /api/v1/agents HTTP/1.1" 401 Unauthorized
+INFO:     127.0.0.1:49819 - "GET /api/v1/agents HTTP/1.1" 200 OK
+2026-09-22 17:12:27,134 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 17:12:27,135 INFO sqlalchemy.engine.Engine SELECT agents.id, agents.user_id, agents.space_id, agents.name, agents.description, agents.model, agents.system_prompt, agents.avatar_color, agents.status, agents.version, agents.temperature, agents.max_iterations, agents.timeout, agents.greeting, agents.suggestion_questions, agents.knowledge_ids, agents.ontology_ids, agents.skill_ids, agents.extra_data, agents.created_at, agents.updated_at 
+FROM agents 
+WHERE agents.user_id = ? ORDER BY agents.created_at DESC
+ LIMIT ? OFFSET ?
+2026-09-22 17:12:27,135 INFO sqlalchemy.engine.Engine [cached since 2910s ago] ('9494bee9-52f9-4594-ad31-334f1a2b60ec', 20, 0)
+2026-09-22 17:12:27,136 INFO sqlalchemy.engine.Engine SELECT agents.id, agents.user_id, agents.space_id, agents.name, agents.description, agents.model, agents.system_prompt, agents.avatar_color, agents.status, agents.version, agents.temperature, agents.max_iterations, agents.timeout, agents.greeting, agents.suggestion_questions, agents.knowledge_ids, agents.ontology_ids, agents.skill_ids, agents.extra_data, agents.created_at, agents.updated_at 
+FROM agents 
+WHERE agents.user_id = ?
+2026-09-22 17:12:27,136 INFO sqlalchemy.engine.Engine [cached since 2910s ago] ('9494bee9-52f9-4594-ad31-334f1a2b60ec',)
+2026-09-22 17:12:27,137 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:49819 - "GET /api/v1/agents HTTP/1.1" 200 OK
+2026-09-22 17:12:27,140 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 17:12:27,141 INFO sqlalchemy.engine.Engine SELECT agents.id, agents.user_id, agents.space_id, agents.name, agents.description, agents.model, agents.system_prompt, agents.avatar_color, agents.status, agents.version, agents.temperature, agents.max_iterations, agents.timeout, agents.greeting, agents.suggestion_questions, agents.knowledge_ids, agents.ontology_ids, agents.skill_ids, agents.extra_data, agents.created_at, agents.updated_at 
+FROM agents 
+WHERE agents.user_id = ? ORDER BY agents.created_at DESC
+ LIMIT ? OFFSET ?
+2026-09-22 17:12:27,141 INFO sqlalchemy.engine.Engine [cached since 2910s ago] ('9494bee9-52f9-4594-ad31-334f1a2b60ec', 20, 0)
+2026-09-22 17:12:27,142 INFO sqlalchemy.engine.Engine SELECT agents.id, agents.user_id, agents.space_id, agents.name, agents.description, agents.model, agents.system_prompt, agents.avatar_color, agents.status, agents.version, agents.temperature, agents.max_iterations, agents.timeout, agents.greeting, agents.suggestion_questions, agents.knowledge_ids, agents.ontology_ids, agents.skill_ids, agents.extra_data, agents.created_at, agents.updated_at 
+FROM agents 
+WHERE agents.user_id = ?
+2026-09-22 17:12:27,142 INFO sqlalchemy.engine.Engine [cached since 2910s ago] ('9494bee9-52f9-4594-ad31-334f1a2b60ec',)
+2026-09-22 17:12:27,144 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:49819 - "GET /api/v1/agents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49950 - "OPTIONS /api/v1/auth/login HTTP/1.1" 200 OK
+2026-09-22 17:12:27,429 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 17:12:27,429 INFO sqlalchemy.engine.Engine SELECT users.id, users.email, users.username, users.password_hash, users.roles, users.is_active, users.created_at, users.updated_at 
+FROM users 
+WHERE users.email = ?
+2026-09-22 17:12:27,429 INFO sqlalchemy.engine.Engine [cached since 3031s ago] ('test@example.com',)
+2026-09-22 17:12:27,638 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:49950 - "POST /api/v1/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49950 - "OPTIONS /api/v1/agents HTTP/1.1" 200 OK
+2026-09-22 17:12:27,649 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 17:12:27,650 INFO sqlalchemy.engine.Engine SELECT agents.id, agents.user_id, agents.space_id, agents.name, agents.description, agents.model, agents.system_prompt, agents.avatar_color, agents.status, agents.version, agents.temperature, agents.max_iterations, agents.timeout, agents.greeting, agents.suggestion_questions, agents.knowledge_ids, agents.ontology_ids, agents.skill_ids, agents.extra_data, agents.created_at, agents.updated_at 
+FROM agents 
+WHERE agents.user_id = ? ORDER BY agents.created_at DESC
+ LIMIT ? OFFSET ?
+2026-09-22 17:12:27,650 INFO sqlalchemy.engine.Engine [cached since 2911s ago] ('9494bee9-52f9-4594-ad31-334f1a2b60ec', 20, 0)
+2026-09-22 17:12:27,651 INFO sqlalchemy.engine.Engine SELECT agents.id, agents.user_id, agents.space_id, agents.name, agents.description, agents.model, agents.system_prompt, agents.avatar_color, agents.status, agents.version, agents.temperature, agents.max_iterations, agents.timeout, agents.greeting, agents.suggestion_questions, agents.knowledge_ids, agents.ontology_ids, agents.skill_ids, agents.extra_data, agents.created_at, agents.updated_at 
+FROM agents 
+WHERE agents.user_id = ?
+2026-09-22 17:12:27,652 INFO sqlalchemy.engine.Engine [cached since 2911s ago] ('9494bee9-52f9-4594-ad31-334f1a2b60ec',)
+2026-09-22 17:12:27,653 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:49950 - "GET /api/v1/agents HTTP/1.1" 200 OK
+2026-09-22 17:12:50,315 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 17:12:50,316 INFO sqlalchemy.engine.Engine SELECT users.id, users.email, users.username, users.password_hash, users.roles, users.is_active, users.created_at, users.updated_at 
+FROM users 
+WHERE users.email = ?
+2026-09-22 17:12:50,316 INFO sqlalchemy.engine.Engine [cached since 3054s ago] ('test@example.com',)
+2026-09-22 17:12:50,317 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 17:12:50,317 INFO sqlalchemy.engine.Engine SELECT users.id, users.email, users.username, users.password_hash, users.roles, users.is_active, users.created_at, users.updated_at 
+FROM users 
+WHERE users.email = ?
+2026-09-22 17:12:50,317 INFO sqlalchemy.engine.Engine [cached since 3054s ago] ('test@example.com',)
+2026-09-22 17:12:50,736 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-09-22 17:12:50,736 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:50104 - "POST /api/v1/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50105 - "POST /api/v1/auth/login HTTP/1.1" 200 OK
+2026-09-22 17:12:50,742 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 17:12:50,742 INFO sqlalchemy.engine.Engine SELECT agents.id, agents.user_id, agents.space_id, agents.name, agents.description, agents.model, agents.system_prompt, agents.avatar_color, agents.status, agents.version, agents.temperature, agents.max_iterations, agents.timeout, agents.greeting, agents.suggestion_questions, agents.knowledge_ids, agents.ontology_ids, agents.skill_ids, agents.extra_data, agents.created_at, agents.updated_at 
+FROM agents 
+WHERE agents.user_id = ? ORDER BY agents.created_at DESC
+ LIMIT ? OFFSET ?
+2026-09-22 17:12:50,742 INFO sqlalchemy.engine.Engine [cached since 2934s ago] ('9494bee9-52f9-4594-ad31-334f1a2b60ec', 20, 0)
+2026-09-22 17:12:50,744 INFO sqlalchemy.engine.Engine SELECT agents.id, agents.user_id, agents.space_id, agents.name, agents.description, agents.model, agents.system_prompt, agents.avatar_color, agents.status, agents.version, agents.temperature, agents.max_iterations, agents.timeout, agents.greeting, agents.suggestion_questions, agents.knowledge_ids, agents.ontology_ids, agents.skill_ids, agents.extra_data, agents.created_at, agents.updated_at 
+FROM agents 
+WHERE agents.user_id = ?
+2026-09-22 17:12:50,744 INFO sqlalchemy.engine.Engine [cached since 2934s ago] ('9494bee9-52f9-4594-ad31-334f1a2b60ec',)
+2026-09-22 17:12:50,745 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:50105 - "GET /api/v1/agents HTTP/1.1" 200 OK
+2026-09-22 17:12:56,249 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 17:12:56,250 INFO sqlalchemy.engine.Engine INSERT INTO sessions (id, user_id, title, model, tools, skills, system_prompt, status, extra_data, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2026-09-22 17:12:56,250 INFO sqlalchemy.engine.Engine [cached since 3038s ago] ('9a18b19b-cf2b-4198-b869-5f87452ef643', '9494bee9-52f9-4594-ad31-334f1a2b60ec', 'Agent 调试会话', 'claude-3-5-sonnet', '[]', '[]', None, 'active', '{}', '2026-09-22 09:12:56.249410', None)
+2026-09-22 17:12:56,253 INFO sqlalchemy.engine.Engine COMMIT
+2026-09-22 17:12:56,256 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 17:12:56,256 INFO sqlalchemy.engine.Engine SELECT sessions.id, sessions.user_id, sessions.title, sessions.model, sessions.tools, sessions.skills, sessions.system_prompt, sessions.status, sessions.extra_data, sessions.created_at, sessions.updated_at 
+FROM sessions 
+WHERE sessions.id = ?
+2026-09-22 17:12:56,257 INFO sqlalchemy.engine.Engine [cached since 3038s ago] ('9a18b19b-cf2b-4198-b869-5f87452ef643',)
+2026-09-22 17:12:56,258 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:50107 - "POST /api/v1/sessions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50107 - "OPTIONS /api/v1/sessions/9a18b19b-cf2b-4198-b869-5f87452ef643/runs HTTP/1.1" 200 OK
+2026-09-22 17:12:56,272 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 17:12:56,272 INFO sqlalchemy.engine.Engine SELECT sessions.id, sessions.user_id, sessions.title, sessions.model, sessions.tools, sessions.skills, sessions.system_prompt, sessions.status, sessions.extra_data, sessions.created_at, sessions.updated_at 
+FROM sessions 
+WHERE sessions.id = ?
+2026-09-22 17:12:56,272 INFO sqlalchemy.engine.Engine [cached since 3038s ago] ('9a18b19b-cf2b-4198-b869-5f87452ef643',)
+2026-09-22 17:12:56,273 INFO sqlalchemy.engine.Engine INSERT INTO messages (id, session_id, role, content, model, tokens_used, extra_data, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+2026-09-22 17:12:56,274 INFO sqlalchemy.engine.Engine [cached since 2983s ago] ('6a19165e-4302-450c-997a-c726d4c3e392', '9a18b19b-cf2b-4198-b869-5f87452ef643', 'user', '用短短几句话总结销售趋势分析方法', None, None, '{}', '2026-09-22 09:12:56.273175')
+2026-09-22 17:12:56,276 INFO sqlalchemy.engine.Engine INSERT INTO runs (id, session_id, user_id, status, model, total_tokens, total_cost, tool_calls_count, reasoning_steps, error_message, extra_data, started_at, completed_at, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2026-09-22 17:12:56,276 INFO sqlalchemy.engine.Engine [cached since 2983s ago] ('5f4f8cb6-2ee0-4f01-85b4-807e0283932c', '9a18b19b-cf2b-4198-b869-5f87452ef643', '9494bee9-52f9-4594-ad31-334f1a2b60ec', 'running', 'claude-3-5-sonnet', 0, 0.0, 0, 0, None, '{}', '2026-09-22 09:12:56.273175', None, '2026-09-22 09:12:56.273175')
+2026-09-22 17:12:56,277 INFO sqlalchemy.engine.Engine COMMIT
+2026-09-22 17:12:56,280 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 17:12:56,281 INFO sqlalchemy.engine.Engine SELECT runs.id, runs.session_id, runs.user_id, runs.status, runs.model, runs.total_tokens, runs.total_cost, runs.tool_calls_count, runs.reasoning_steps, runs.error_message, runs.extra_data, runs.started_at, runs.completed_at, runs.created_at 
+FROM runs 
+WHERE runs.id = ?
+2026-09-22 17:12:56,281 INFO sqlalchemy.engine.Engine [cached since 2983s ago] ('5f4f8cb6-2ee0-4f01-85b4-807e0283932c',)
+2026-09-22 17:12:56,283 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 17:12:56,283 INFO sqlalchemy.engine.Engine SELECT runs.id, runs.session_id, runs.user_id, runs.status, runs.model, runs.total_tokens, runs.total_cost, runs.tool_calls_count, runs.reasoning_steps, runs.error_message, runs.extra_data, runs.started_at, runs.completed_at, runs.created_at 
+FROM runs 
+WHERE runs.id = ?
+2026-09-22 17:12:56,283 INFO sqlalchemy.engine.Engine [cached since 2983s ago] ('5f4f8cb6-2ee0-4f01-85b4-807e0283932c',)
+2026-09-22 17:12:56,283 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:50107 - "POST /api/v1/sessions/9a18b19b-cf2b-4198-b869-5f87452ef643/runs HTTP/1.1" 200 OK
+2026-09-22 17:12:56,285 INFO sqlalchemy.engine.Engine SELECT messages.id, messages.session_id, messages.role, messages.content, messages.model, messages.tokens_used, messages.extra_data, messages.created_at 
+FROM messages 
+WHERE messages.id = ?
+2026-09-22 17:12:56,285 INFO sqlalchemy.engine.Engine [cached since 2983s ago] ('6a19165e-4302-450c-997a-c726d4c3e392',)
+INFO:     127.0.0.1:50107 - "OPTIONS /api/v1/sessions/9a18b19b-cf2b-4198-b869-5f87452ef643/stream HTTP/1.1" 200 OK
+2026-09-22 17:12:56,286 INFO sqlalchemy.engine.Engine SELECT sessions.id, sessions.user_id, sessions.title, sessions.model, sessions.tools, sessions.skills, sessions.system_prompt, sessions.status, sessions.extra_data, sessions.created_at, sessions.updated_at 
+FROM sessions 
+WHERE sessions.id = ?
+2026-09-22 17:12:56,286 INFO sqlalchemy.engine.Engine [cached since 3038s ago] ('9a18b19b-cf2b-4198-b869-5f87452ef643',)
+2026-09-22 17:12:56,288 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 17:12:56,288 INFO sqlalchemy.engine.Engine SELECT sessions.id, sessions.user_id, sessions.title, sessions.model, sessions.tools, sessions.skills, sessions.system_prompt, sessions.status, sessions.extra_data, sessions.created_at, sessions.updated_at 
+FROM sessions 
+WHERE sessions.id = ?
+2026-09-22 17:12:56,288 INFO sqlalchemy.engine.Engine [cached since 3038s ago] ('9a18b19b-cf2b-4198-b869-5f87452ef643',)
+2026-09-22 17:12:56,289 INFO sqlalchemy.engine.Engine SELECT max(run_events.sequence) AS max_1 
+FROM run_events 
+WHERE run_events.run_id = ?
+2026-09-22 17:12:56,289 INFO sqlalchemy.engine.Engine [cached since 2983s ago] ('5f4f8cb6-2ee0-4f01-85b4-807e0283932c',)
+2026-09-22 17:12:56,290 INFO sqlalchemy.engine.Engine SELECT runs.id, runs.session_id, runs.user_id, runs.status, runs.model, runs.total_tokens, runs.total_cost, runs.tool_calls_count, runs.reasoning_steps, runs.error_message, runs.extra_data, runs.started_at, runs.completed_at, runs.created_at 
+FROM runs 
+WHERE runs.session_id = ? ORDER BY runs.created_at DESC
+ LIMIT ? OFFSET ?
+2026-09-22 17:12:56,290 INFO sqlalchemy.engine.Engine [cached since 3038s ago] ('9a18b19b-cf2b-4198-b869-5f87452ef643', 1, 0)
+2026-09-22 17:12:56,291 INFO sqlalchemy.engine.Engine INSERT INTO run_events (id, run_id, session_id, event_type, content, sequence, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)
+2026-09-22 17:12:56,291 INFO sqlalchemy.engine.Engine [cached since 2983s ago] ('e3291b57-abd2-495a-aa96-0c2f372d3cd4', '5f4f8cb6-2ee0-4f01-85b4-807e0283932c', '9a18b19b-cf2b-4198-b869-5f87452ef643', 'run_start', '{"run_id": "5f4f8cb6-2ee0-4f01-85b4-807e0283932c", "session_id": "9a18b19b-cf2b-4198-b869-5f87452ef643"}', 1, '2026-09-22 09:12:56.291726')
+2026-09-22 17:12:56,293 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-09-22 17:12:56,294 INFO sqlalchemy.engine.Engine COMMIT
+INFO:     127.0.0.1:50107 - "GET /api/v1/sessions/9a18b19b-cf2b-4198-b869-5f87452ef643/stream HTTP/1.1" 200 OK
+2026-09-22 17:12:56,297 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 17:12:56,298 INFO sqlalchemy.engine.Engine SELECT run_events.id, run_events.run_id, run_events.session_id, run_events.event_type, run_events.content, run_events.sequence, run_events.created_at 
+FROM run_events 
+WHERE run_events.id = ?
+2026-09-22 17:12:56,299 INFO sqlalchemy.engine.Engine [cached since 2983s ago] ('e3291b57-abd2-495a-aa96-0c2f372d3cd4',)
+2026-09-22 17:12:56,572 INFO sqlalchemy.engine.Engine SELECT max(run_events.sequence) AS max_1 
+FROM run_events 
+WHERE run_events.run_id = ?
+2026-09-22 17:12:56,573 INFO sqlalchemy.engine.Engine [cached since 2983s ago] ('5f4f8cb6-2ee0-4f01-85b4-807e0283932c',)
+2026-09-22 17:12:56,574 INFO sqlalchemy.engine.Engine INSERT INTO run_events (id, run_id, session_id, event_type, content, sequence, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)
+2026-09-22 17:12:56,574 INFO sqlalchemy.engine.Engine [cached since 2983s ago] ('de2bd83b-49de-4d2f-97aa-6137de357cae', '5f4f8cb6-2ee0-4f01-85b4-807e0283932c', '9a18b19b-cf2b-4198-b869-5f87452ef643', 'thought', '{"nodeType": "THOUGHT", "nodeName": "\\u601d\\u8003", "title": "\\u601d\\u8003\\u4e2d...", "detail": "", "status": "success"}', 2, '2026-09-22 09:12:56.574011')
+2026-09-22 17:12:56,577 INFO sqlalchemy.engine.Engine COMMIT
+2026-09-22 17:12:56,581 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 17:12:56,582 INFO sqlalchemy.engine.Engine SELECT run_events.id, run_events.run_id, run_events.session_id, run_events.event_type, run_events.content, run_events.sequence, run_events.created_at 
+FROM run_events 
+WHERE run_events.id = ?
+2026-09-22 17:12:56,582 INFO sqlalchemy.engine.Engine [cached since 2983s ago] ('de2bd83b-49de-4d2f-97aa-6137de357cae',)
+2026-09-22 17:12:57,432 INFO sqlalchemy.engine.Engine SELECT max(run_events.sequence) AS max_1 
+FROM run_events 
+WHERE run_events.run_id = ?
+2026-09-22 17:12:57,433 INFO sqlalchemy.engine.Engine [cached since 2984s ago] ('5f4f8cb6-2ee0-4f01-85b4-807e0283932c',)
+2026-09-22 17:12:57,434 INFO sqlalchemy.engine.Engine INSERT INTO run_events (id, run_id, session_id, event_type, content, sequence, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)
+2026-09-22 17:12:57,434 INFO sqlalchemy.engine.Engine [cached since 2984s ago] ('388acdd0-856e-4544-964f-342cb3f58e3d', '5f4f8cb6-2ee0-4f01-85b4-807e0283932c', '9a18b19b-cf2b-4198-b869-5f87452ef643', 'thought', '{"nodeType": "THOUGHT", "nodeName": "\\u601d\\u8003", "title": "\\u601d\\u8003\\u4e2d...", "detail": "\\u9500\\u552e\\u8d8b\\u52bf\\u5206\\u6790\\u4e ... (711 characters truncated) ... \\u800c\\u6307\\u5bfc\\u5e93\\u5b58\\u7ba1\\u7406\\u3001\\u8425\\u9500\\u7b56\\u7565\\u53ca\\u76ee\\u6807\\u5236\\u5b9a\\u3002", "status": "success"}', 3, '2026-09-22 09:12:57.433383')
+2026-09-22 17:12:57,436 INFO sqlalchemy.engine.Engine COMMIT
+2026-09-22 17:12:57,440 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 17:12:57,440 INFO sqlalchemy.engine.Engine SELECT run_events.id, run_events.run_id, run_events.session_id, run_events.event_type, run_events.content, run_events.sequence, run_events.created_at 
+FROM run_events 
+WHERE run_events.id = ?
+2026-09-22 17:12:57,440 INFO sqlalchemy.engine.Engine [cached since 2984s ago] ('388acdd0-856e-4544-964f-342cb3f58e3d',)
+2026-09-22 17:12:57,442 INFO sqlalchemy.engine.Engine SELECT max(run_events.sequence) AS max_1 
+FROM run_events 
+WHERE run_events.run_id = ?
+2026-09-22 17:12:57,443 INFO sqlalchemy.engine.Engine [cached since 2984s ago] ('5f4f8cb6-2ee0-4f01-85b4-807e0283932c',)
+2026-09-22 17:12:57,444 INFO sqlalchemy.engine.Engine INSERT INTO run_events (id, run_id, session_id, event_type, content, sequence, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)
+2026-09-22 17:12:57,445 INFO sqlalchemy.engine.Engine [cached since 2984s ago] ('5ab22952-25a4-40af-85dd-d58341d694f6', '5f4f8cb6-2ee0-4f01-85b4-807e0283932c', '9a18b19b-cf2b-4198-b869-5f87452ef643', 'thought', '{"nodeType": "THOUGHT", "nodeName": "\\u601d\\u8003", "title": "\\u601d\\u8003\\u4e2d...", "detail": "", "status": "success"}', 4, '2026-09-22 09:12:57.444576')
+2026-09-22 17:12:57,446 INFO sqlalchemy.engine.Engine COMMIT
+2026-09-22 17:12:57,451 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 17:12:57,451 INFO sqlalchemy.engine.Engine SELECT run_events.id, run_events.run_id, run_events.session_id, run_events.event_type, run_events.content, run_events.sequence, run_events.created_at 
+FROM run_events 
+WHERE run_events.id = ?
+2026-09-22 17:12:57,452 INFO sqlalchemy.engine.Engine [cached since 2984s ago] ('5ab22952-25a4-40af-85dd-d58341d694f6',)
+2026-09-22 17:12:57,453 INFO sqlalchemy.engine.Engine SELECT max(run_events.sequence) AS max_1 
+FROM run_events 
+WHERE run_events.run_id = ?
+2026-09-22 17:12:57,453 INFO sqlalchemy.engine.Engine [cached since 2984s ago] ('5f4f8cb6-2ee0-4f01-85b4-807e0283932c',)
+2026-09-22 17:12:57,454 INFO sqlalchemy.engine.Engine INSERT INTO run_events (id, run_id, session_id, event_type, content, sequence, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)
+2026-09-22 17:12:57,454 INFO sqlalchemy.engine.Engine [cached since 2984s ago] ('4d8b5637-07e5-4fa0-9b8e-b8333a2442a3', '5f4f8cb6-2ee0-4f01-85b4-807e0283932c', '9a18b19b-cf2b-4198-b869-5f87452ef643', 'result', '{"nodeType": "RESULT", "nodeName": "\\u7ed3\\u679c\\u751f\\u6210", "title": "\\u751f\\u6210\\u6700\\u7ec8\\u56de\\u7b54", "detail": "", "status": "success"}', 5, '2026-09-22 09:12:57.454205')
+2026-09-22 17:12:57,456 INFO sqlalchemy.engine.Engine COMMIT
+2026-09-22 17:12:57,499 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 17:12:57,500 INFO sqlalchemy.engine.Engine SELECT run_events.id, run_events.run_id, run_events.session_id, run_events.event_type, run_events.content, run_events.sequence, run_events.created_at 
+FROM run_events 
+WHERE run_events.id = ?
+2026-09-22 17:12:57,500 INFO sqlalchemy.engine.Engine [cached since 2984s ago] ('4d8b5637-07e5-4fa0-9b8e-b8333a2442a3',)
+2026-09-22 17:12:57,501 INFO sqlalchemy.engine.Engine SELECT max(run_events.sequence) AS max_1 
+FROM run_events 
+WHERE run_events.run_id = ?
+2026-09-22 17:12:57,501 INFO sqlalchemy.engine.Engine [cached since 2984s ago] ('5f4f8cb6-2ee0-4f01-85b4-807e0283932c',)
+2026-09-22 17:12:57,502 INFO sqlalchemy.engine.Engine INSERT INTO run_events (id, run_id, session_id, event_type, content, sequence, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)
+2026-09-22 17:12:57,502 INFO sqlalchemy.engine.Engine [cached since 2984s ago] ('087828b7-5a69-4e1e-a1b7-cd1b52ae6405', '5f4f8cb6-2ee0-4f01-85b4-807e0283932c', '9a18b19b-cf2b-4198-b869-5f87452ef643', 'result', '{"nodeType": "RESULT", "nodeName": "\\u7ed3\\u679c\\u751f\\u6210", "title": "\\u751f\\u6210\\u6700\\u7ec8\\u56de\\u7b54", "detail": "\\u9500\\u552e\\ ... (742 characters truncated) ... \\u800c\\u6307\\u5bfc\\u5e93\\u5b58\\u7ba1\\u7406\\u3001\\u8425\\u9500\\u7b56\\u7565\\u53ca\\u76ee\\u6807\\u5236\\u5b9a\\u3002", "status": "success"}', 6, '2026-09-22 09:12:57.502320')
+2026-09-22 17:12:57,504 INFO sqlalchemy.engine.Engine COMMIT
+2026-09-22 17:12:57,511 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 17:12:57,511 INFO sqlalchemy.engine.Engine SELECT run_events.id, run_events.run_id, run_events.session_id, run_events.event_type, run_events.content, run_events.sequence, run_events.created_at 
+FROM run_events 
+WHERE run_events.id = ?
+2026-09-22 17:12:57,512 INFO sqlalchemy.engine.Engine [cached since 2984s ago] ('087828b7-5a69-4e1e-a1b7-cd1b52ae6405',)
+2026-09-22 17:12:57,513 INFO sqlalchemy.engine.Engine SELECT max(run_events.sequence) AS max_1 
+FROM run_events 
+WHERE run_events.run_id = ?
+2026-09-22 17:12:57,513 INFO sqlalchemy.engine.Engine [cached since 2984s ago] ('5f4f8cb6-2ee0-4f01-85b4-807e0283932c',)
+2026-09-22 17:12:57,515 INFO sqlalchemy.engine.Engine INSERT INTO run_events (id, run_id, session_id, event_type, content, sequence, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)
+2026-09-22 17:12:57,515 INFO sqlalchemy.engine.Engine [cached since 2984s ago] ('fc2e8849-4e4e-490a-8a28-b87d4b1ec8f0', '5f4f8cb6-2ee0-4f01-85b4-807e0283932c', '9a18b19b-cf2b-4198-b869-5f87452ef643', 'result', '{"nodeType": "RESULT", "nodeName": "\\u7ed3\\u679c\\u751f\\u6210", "title": "\\u751f\\u6210\\u6700\\u7ec8\\u56de\\u7b54", "detail": "", "status": "success"}', 7, '2026-09-22 09:12:57.514769')
+2026-09-22 17:12:57,516 INFO sqlalchemy.engine.Engine COMMIT
+2026-09-22 17:12:57,521 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 17:12:57,522 INFO sqlalchemy.engine.Engine SELECT run_events.id, run_events.run_id, run_events.session_id, run_events.event_type, run_events.content, run_events.sequence, run_events.created_at 
+FROM run_events 
+WHERE run_events.id = ?
+2026-09-22 17:12:57,522 INFO sqlalchemy.engine.Engine [cached since 2984s ago] ('fc2e8849-4e4e-490a-8a28-b87d4b1ec8f0',)
+2026-09-22 17:12:57,945 INFO sqlalchemy.engine.Engine SELECT max(run_events.sequence) AS max_1 
+FROM run_events 
+WHERE run_events.run_id = ?
+2026-09-22 17:12:57,945 INFO sqlalchemy.engine.Engine [cached since 2984s ago] ('5f4f8cb6-2ee0-4f01-85b4-807e0283932c',)
+2026-09-22 17:12:57,947 INFO sqlalchemy.engine.Engine INSERT INTO run_events (id, run_id, session_id, event_type, content, sequence, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)
+2026-09-22 17:12:57,948 INFO sqlalchemy.engine.Engine [cached since 2984s ago] ('9a001339-fcf3-430c-83d6-e5493115a09f', '5f4f8cb6-2ee0-4f01-85b4-807e0283932c', '9a18b19b-cf2b-4198-b869-5f87452ef643', 'run_end', '{"run_id": "", "total_duration": 0}', 8, '2026-09-22 09:12:57.947109')
+2026-09-22 17:12:57,949 INFO sqlalchemy.engine.Engine COMMIT
+2026-09-22 17:12:57,956 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 17:12:57,957 INFO sqlalchemy.engine.Engine SELECT run_events.id, run_events.run_id, run_events.session_id, run_events.event_type, run_events.content, run_events.sequence, run_events.created_at 
+FROM run_events 
+WHERE run_events.id = ?
+2026-09-22 17:12:57,957 INFO sqlalchemy.engine.Engine [cached since 2984s ago] ('9a001339-fcf3-430c-83d6-e5493115a09f',)
+2026-09-22 17:12:57,961 INFO sqlalchemy.engine.Engine UPDATE runs SET status=?, completed_at=? WHERE runs.id = ?
+2026-09-22 17:12:57,962 INFO sqlalchemy.engine.Engine [cached since 2983s ago] ('completed', '2026-09-22 09:12:57.961167', '5f4f8cb6-2ee0-4f01-85b4-807e0283932c')
+2026-09-22 17:12:57,963 INFO sqlalchemy.engine.Engine COMMIT
+INFO:     127.0.0.1:54888 - "OPTIONS /api/v1/agents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54888 - "GET /api/v1/agents HTTP/1.1" 401 Unauthorized
+INFO:     127.0.0.1:54888 - "GET /api/v1/agents HTTP/1.1" 401 Unauthorized
+INFO:     127.0.0.1:55481 - "OPTIONS /api/v1/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55482 - "OPTIONS /api/v1/auth/login HTTP/1.1" 200 OK
+2026-09-22 18:07:14,322 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 18:07:14,323 INFO sqlalchemy.engine.Engine SELECT users.id, users.email, users.username, users.password_hash, users.roles, users.is_active, users.created_at, users.updated_at 
+FROM users 
+WHERE users.email = ?
+2026-09-22 18:07:14,323 INFO sqlalchemy.engine.Engine [cached since 6318s ago] ('test@example.com',)
+2026-09-22 18:07:14,324 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 18:07:14,324 INFO sqlalchemy.engine.Engine SELECT users.id, users.email, users.username, users.password_hash, users.roles, users.is_active, users.created_at, users.updated_at 
+FROM users 
+WHERE users.email = ?
+2026-09-22 18:07:14,324 INFO sqlalchemy.engine.Engine [cached since 6318s ago] ('test@example.com',)
+2026-09-22 18:07:14,735 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-09-22 18:07:14,736 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:55482 - "POST /api/v1/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55481 - "POST /api/v1/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55481 - "OPTIONS /api/v1/agents HTTP/1.1" 200 OK
+2026-09-22 18:07:14,745 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 18:07:14,745 INFO sqlalchemy.engine.Engine SELECT agents.id, agents.user_id, agents.space_id, agents.name, agents.description, agents.model, agents.system_prompt, agents.avatar_color, agents.status, agents.version, agents.temperature, agents.max_iterations, agents.timeout, agents.greeting, agents.suggestion_questions, agents.knowledge_ids, agents.ontology_ids, agents.skill_ids, agents.extra_data, agents.created_at, agents.updated_at 
+FROM agents 
+WHERE agents.user_id = ? ORDER BY agents.created_at DESC
+ LIMIT ? OFFSET ?
+2026-09-22 18:07:14,745 INFO sqlalchemy.engine.Engine [cached since 6198s ago] ('9494bee9-52f9-4594-ad31-334f1a2b60ec', 20, 0)
+2026-09-22 18:07:14,747 INFO sqlalchemy.engine.Engine SELECT agents.id, agents.user_id, agents.space_id, agents.name, agents.description, agents.model, agents.system_prompt, agents.avatar_color, agents.status, agents.version, agents.temperature, agents.max_iterations, agents.timeout, agents.greeting, agents.suggestion_questions, agents.knowledge_ids, agents.ontology_ids, agents.skill_ids, agents.extra_data, agents.created_at, agents.updated_at 
+FROM agents 
+WHERE agents.user_id = ?
+2026-09-22 18:07:14,747 INFO sqlalchemy.engine.Engine [cached since 6198s ago] ('9494bee9-52f9-4594-ad31-334f1a2b60ec',)
+2026-09-22 18:07:14,748 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:55481 - "GET /api/v1/agents HTTP/1.1" 200 OK
+2026-09-22 18:07:41,719 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 18:07:41,720 INFO sqlalchemy.engine.Engine SELECT agents.id, agents.user_id, agents.space_id, agents.name, agents.description, agents.model, agents.system_prompt, agents.avatar_color, agents.status, agents.version, agents.temperature, agents.max_iterations, agents.timeout, agents.greeting, agents.suggestion_questions, agents.knowledge_ids, agents.ontology_ids, agents.skill_ids, agents.extra_data, agents.created_at, agents.updated_at 
+FROM agents 
+WHERE agents.user_id = ? ORDER BY agents.created_at DESC
+ LIMIT ? OFFSET ?
+2026-09-22 18:07:41,720 INFO sqlalchemy.engine.Engine [cached since 6225s ago] ('9494bee9-52f9-4594-ad31-334f1a2b60ec', 20, 0)
+2026-09-22 18:07:41,722 INFO sqlalchemy.engine.Engine SELECT agents.id, agents.user_id, agents.space_id, agents.name, agents.description, agents.model, agents.system_prompt, agents.avatar_color, agents.status, agents.version, agents.temperature, agents.max_iterations, agents.timeout, agents.greeting, agents.suggestion_questions, agents.knowledge_ids, agents.ontology_ids, agents.skill_ids, agents.extra_data, agents.created_at, agents.updated_at 
+FROM agents 
+WHERE agents.user_id = ?
+2026-09-22 18:07:41,722 INFO sqlalchemy.engine.Engine [cached since 6225s ago] ('9494bee9-52f9-4594-ad31-334f1a2b60ec',)
+2026-09-22 18:07:41,723 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:55484 - "GET /api/v1/agents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55601 - "OPTIONS /api/v1/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55602 - "OPTIONS /api/v1/auth/login HTTP/1.1" 200 OK
+2026-09-22 18:07:53,109 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 18:07:53,110 INFO sqlalchemy.engine.Engine SELECT users.id, users.email, users.username, users.password_hash, users.roles, users.is_active, users.created_at, users.updated_at 
+FROM users 
+WHERE users.email = ?
+2026-09-22 18:07:53,110 INFO sqlalchemy.engine.Engine [cached since 6357s ago] ('test@example.com',)
+2026-09-22 18:07:53,111 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 18:07:53,111 INFO sqlalchemy.engine.Engine SELECT users.id, users.email, users.username, users.password_hash, users.roles, users.is_active, users.created_at, users.updated_at 
+FROM users 
+WHERE users.email = ?
+2026-09-22 18:07:53,111 INFO sqlalchemy.engine.Engine [cached since 6357s ago] ('test@example.com',)
+2026-09-22 18:07:53,318 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-09-22 18:07:53,526 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:55601 - "POST /api/v1/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55602 - "POST /api/v1/auth/login HTTP/1.1" 200 OK
+2026-09-22 18:07:53,533 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 18:07:53,533 INFO sqlalchemy.engine.Engine SELECT agents.id, agents.user_id, agents.space_id, agents.name, agents.description, agents.model, agents.system_prompt, agents.avatar_color, agents.status, agents.version, agents.temperature, agents.max_iterations, agents.timeout, agents.greeting, agents.suggestion_questions, agents.knowledge_ids, agents.ontology_ids, agents.skill_ids, agents.extra_data, agents.created_at, agents.updated_at 
+FROM agents 
+WHERE agents.user_id = ? ORDER BY agents.created_at DESC
+ LIMIT ? OFFSET ?
+2026-09-22 18:07:53,533 INFO sqlalchemy.engine.Engine [cached since 6236s ago] ('9494bee9-52f9-4594-ad31-334f1a2b60ec', 20, 0)
+2026-09-22 18:07:53,535 INFO sqlalchemy.engine.Engine SELECT agents.id, agents.user_id, agents.space_id, agents.name, agents.description, agents.model, agents.system_prompt, agents.avatar_color, agents.status, agents.version, agents.temperature, agents.max_iterations, agents.timeout, agents.greeting, agents.suggestion_questions, agents.knowledge_ids, agents.ontology_ids, agents.skill_ids, agents.extra_data, agents.created_at, agents.updated_at 
+FROM agents 
+WHERE agents.user_id = ?
+2026-09-22 18:07:53,535 INFO sqlalchemy.engine.Engine [cached since 6236s ago] ('9494bee9-52f9-4594-ad31-334f1a2b60ec',)
+2026-09-22 18:07:53,536 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:55602 - "GET /api/v1/agents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55605 - "OPTIONS /api/v1/sessions HTTP/1.1" 200 OK
+2026-09-22 18:08:04,276 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 18:08:04,277 INFO sqlalchemy.engine.Engine INSERT INTO sessions (id, user_id, title, model, tools, skills, system_prompt, status, extra_data, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2026-09-22 18:08:04,277 INFO sqlalchemy.engine.Engine [cached since 6346s ago] ('9e049fb2-2677-4cb0-84d4-853101026ee3', '9494bee9-52f9-4594-ad31-334f1a2b60ec', 'Agent 调试会话', 'Qwen3.5-397b-a17b', '[]', '[]', None, 'active', '{}', '2026-09-22 10:08:04.276623', None)
+2026-09-22 18:08:04,279 INFO sqlalchemy.engine.Engine COMMIT
+2026-09-22 18:08:04,283 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 18:08:04,284 INFO sqlalchemy.engine.Engine SELECT sessions.id, sessions.user_id, sessions.title, sessions.model, sessions.tools, sessions.skills, sessions.system_prompt, sessions.status, sessions.extra_data, sessions.created_at, sessions.updated_at 
+FROM sessions 
+WHERE sessions.id = ?
+2026-09-22 18:08:04,284 INFO sqlalchemy.engine.Engine [cached since 6346s ago] ('9e049fb2-2677-4cb0-84d4-853101026ee3',)
+2026-09-22 18:08:04,285 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:55606 - "POST /api/v1/sessions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55606 - "OPTIONS /api/v1/sessions/9e049fb2-2677-4cb0-84d4-853101026ee3/runs HTTP/1.1" 200 OK
+2026-09-22 18:08:04,299 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 18:08:04,300 INFO sqlalchemy.engine.Engine SELECT sessions.id, sessions.user_id, sessions.title, sessions.model, sessions.tools, sessions.skills, sessions.system_prompt, sessions.status, sessions.extra_data, sessions.created_at, sessions.updated_at 
+FROM sessions 
+WHERE sessions.id = ?
+2026-09-22 18:08:04,300 INFO sqlalchemy.engine.Engine [cached since 6346s ago] ('9e049fb2-2677-4cb0-84d4-853101026ee3',)
+2026-09-22 18:08:04,301 INFO sqlalchemy.engine.Engine INSERT INTO messages (id, session_id, role, content, model, tokens_used, extra_data, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+2026-09-22 18:08:04,301 INFO sqlalchemy.engine.Engine [cached since 6291s ago] ('5adebfb8-d3d5-4ed4-b4c4-9d335f8b7f09', '9e049fb2-2677-4cb0-84d4-853101026ee3', 'user', '看下法律', None, None, '{}', '2026-09-22 10:08:04.301813')
+2026-09-22 18:08:04,304 INFO sqlalchemy.engine.Engine INSERT INTO runs (id, session_id, user_id, status, model, total_tokens, total_cost, tool_calls_count, reasoning_steps, error_message, extra_data, started_at, completed_at, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2026-09-22 18:08:04,304 INFO sqlalchemy.engine.Engine [cached since 6291s ago] ('4632dbf4-7616-4723-b6cb-d641c01c8f57', '9e049fb2-2677-4cb0-84d4-853101026ee3', '9494bee9-52f9-4594-ad31-334f1a2b60ec', 'running', 'Qwen3.5-397b-a17b', 0, 0.0, 0, 0, None, '{}', '2026-09-22 10:08:04.301813', None, '2026-09-22 10:08:04.301813')
+2026-09-22 18:08:04,305 INFO sqlalchemy.engine.Engine COMMIT
+2026-09-22 18:08:04,309 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 18:08:04,309 INFO sqlalchemy.engine.Engine SELECT runs.id, runs.session_id, runs.user_id, runs.status, runs.model, runs.total_tokens, runs.total_cost, runs.tool_calls_count, runs.reasoning_steps, runs.error_message, runs.extra_data, runs.started_at, runs.completed_at, runs.created_at 
+FROM runs 
+WHERE runs.id = ?
+2026-09-22 18:08:04,309 INFO sqlalchemy.engine.Engine [cached since 6291s ago] ('4632dbf4-7616-4723-b6cb-d641c01c8f57',)
+2026-09-22 18:08:04,311 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 18:08:04,311 INFO sqlalchemy.engine.Engine SELECT runs.id, runs.session_id, runs.user_id, runs.status, runs.model, runs.total_tokens, runs.total_cost, runs.tool_calls_count, runs.reasoning_steps, runs.error_message, runs.extra_data, runs.started_at, runs.completed_at, runs.created_at 
+FROM runs 
+WHERE runs.id = ?
+2026-09-22 18:08:04,311 INFO sqlalchemy.engine.Engine [cached since 6291s ago] ('4632dbf4-7616-4723-b6cb-d641c01c8f57',)
+2026-09-22 18:08:04,312 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:55605 - "POST /api/v1/sessions/9e049fb2-2677-4cb0-84d4-853101026ee3/runs HTTP/1.1" 200 OK
+2026-09-22 18:08:04,313 INFO sqlalchemy.engine.Engine SELECT messages.id, messages.session_id, messages.role, messages.content, messages.model, messages.tokens_used, messages.extra_data, messages.created_at 
+FROM messages 
+WHERE messages.id = ?
+2026-09-22 18:08:04,313 INFO sqlalchemy.engine.Engine [cached since 6291s ago] ('5adebfb8-d3d5-4ed4-b4c4-9d335f8b7f09',)
+INFO:     127.0.0.1:55605 - "OPTIONS /api/v1/sessions/9e049fb2-2677-4cb0-84d4-853101026ee3/stream HTTP/1.1" 200 OK
+2026-09-22 18:08:04,315 INFO sqlalchemy.engine.Engine SELECT sessions.id, sessions.user_id, sessions.title, sessions.model, sessions.tools, sessions.skills, sessions.system_prompt, sessions.status, sessions.extra_data, sessions.created_at, sessions.updated_at 
+FROM sessions 
+WHERE sessions.id = ?
+2026-09-22 18:08:04,315 INFO sqlalchemy.engine.Engine [cached since 6346s ago] ('9e049fb2-2677-4cb0-84d4-853101026ee3',)
+2026-09-22 18:08:04,316 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 18:08:04,317 INFO sqlalchemy.engine.Engine SELECT sessions.id, sessions.user_id, sessions.title, sessions.model, sessions.tools, sessions.skills, sessions.system_prompt, sessions.status, sessions.extra_data, sessions.created_at, sessions.updated_at 
+FROM sessions 
+WHERE sessions.id = ?
+2026-09-22 18:08:04,317 INFO sqlalchemy.engine.Engine [cached since 6346s ago] ('9e049fb2-2677-4cb0-84d4-853101026ee3',)
+2026-09-22 18:08:04,318 INFO sqlalchemy.engine.Engine SELECT max(run_events.sequence) AS max_1 
+FROM run_events 
+WHERE run_events.run_id = ?
+2026-09-22 18:08:04,318 INFO sqlalchemy.engine.Engine [cached since 6291s ago] ('4632dbf4-7616-4723-b6cb-d641c01c8f57',)
+2026-09-22 18:08:04,319 INFO sqlalchemy.engine.Engine SELECT runs.id, runs.session_id, runs.user_id, runs.status, runs.model, runs.total_tokens, runs.total_cost, runs.tool_calls_count, runs.reasoning_steps, runs.error_message, runs.extra_data, runs.started_at, runs.completed_at, runs.created_at 
+FROM runs 
+WHERE runs.session_id = ? ORDER BY runs.created_at DESC
+ LIMIT ? OFFSET ?
+2026-09-22 18:08:04,320 INFO sqlalchemy.engine.Engine [cached since 6346s ago] ('9e049fb2-2677-4cb0-84d4-853101026ee3', 1, 0)
+2026-09-22 18:08:04,321 INFO sqlalchemy.engine.Engine INSERT INTO run_events (id, run_id, session_id, event_type, content, sequence, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)
+2026-09-22 18:08:04,321 INFO sqlalchemy.engine.Engine [cached since 6291s ago] ('094efb73-3f3f-44e8-9d88-3afb8d570080', '4632dbf4-7616-4723-b6cb-d641c01c8f57', '9e049fb2-2677-4cb0-84d4-853101026ee3', 'run_start', '{"run_id": "4632dbf4-7616-4723-b6cb-d641c01c8f57", "session_id": "9e049fb2-2677-4cb0-84d4-853101026ee3"}', 1, '2026-09-22 10:08:04.321374')
+2026-09-22 18:08:04,322 INFO sqlalchemy.engine.Engine ROLLBACK
+2026-09-22 18:08:04,323 INFO sqlalchemy.engine.Engine COMMIT
+INFO:     127.0.0.1:55605 - "GET /api/v1/sessions/9e049fb2-2677-4cb0-84d4-853101026ee3/stream HTTP/1.1" 200 OK
+2026-09-22 18:08:04,327 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 18:08:04,328 INFO sqlalchemy.engine.Engine SELECT run_events.id, run_events.run_id, run_events.session_id, run_events.event_type, run_events.content, run_events.sequence, run_events.created_at 
+FROM run_events 
+WHERE run_events.id = ?
+2026-09-22 18:08:04,328 INFO sqlalchemy.engine.Engine [cached since 6291s ago] ('094efb73-3f3f-44e8-9d88-3afb8d570080',)
+2026-09-22 18:08:04,616 INFO sqlalchemy.engine.Engine SELECT max(run_events.sequence) AS max_1 
+FROM run_events 
+WHERE run_events.run_id = ?
+2026-09-22 18:08:04,617 INFO sqlalchemy.engine.Engine [cached since 6291s ago] ('4632dbf4-7616-4723-b6cb-d641c01c8f57',)
+2026-09-22 18:08:04,618 INFO sqlalchemy.engine.Engine INSERT INTO run_events (id, run_id, session_id, event_type, content, sequence, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)
+2026-09-22 18:08:04,619 INFO sqlalchemy.engine.Engine [cached since 6291s ago] ('f5f78919-ba0e-4967-a519-2d3974ee38e4', '4632dbf4-7616-4723-b6cb-d641c01c8f57', '9e049fb2-2677-4cb0-84d4-853101026ee3', 'thought', '{"nodeType": "THOUGHT", "nodeName": "\\u601d\\u8003", "title": "\\u601d\\u8003\\u4e2d...", "detail": "", "status": "success"}', 2, '2026-09-22 10:08:04.618013')
+2026-09-22 18:08:04,621 INFO sqlalchemy.engine.Engine COMMIT
+2026-09-22 18:08:04,666 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 18:08:04,667 INFO sqlalchemy.engine.Engine SELECT run_events.id, run_events.run_id, run_events.session_id, run_events.event_type, run_events.content, run_events.sequence, run_events.created_at 
+FROM run_events 
+WHERE run_events.id = ?
+2026-09-22 18:08:04,667 INFO sqlalchemy.engine.Engine [cached since 6291s ago] ('f5f78919-ba0e-4967-a519-2d3974ee38e4',)
+2026-09-22 18:08:06,193 INFO sqlalchemy.engine.Engine SELECT max(run_events.sequence) AS max_1 
+FROM run_events 
+WHERE run_events.run_id = ?
+2026-09-22 18:08:06,195 INFO sqlalchemy.engine.Engine [cached since 6293s ago] ('4632dbf4-7616-4723-b6cb-d641c01c8f57',)
+2026-09-22 18:08:06,196 INFO sqlalchemy.engine.Engine INSERT INTO run_events (id, run_id, session_id, event_type, content, sequence, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)
+2026-09-22 18:08:06,196 INFO sqlalchemy.engine.Engine [cached since 6293s ago] ('e67b6972-940a-42ca-bdd8-de705261c6b3', '4632dbf4-7616-4723-b6cb-d641c01c8f57', '9e049fb2-2677-4cb0-84d4-853101026ee3', 'thought', '{"nodeType": "THOUGHT", "nodeName": "\\u601d\\u8003", "title": "\\u601d\\u8003\\u4e2d...", "detail": "\\u60a8\\u597d\\uff01\\u60a8\\u63d0\\u5230\\u20 ... (1552 characters truncated) ... \u5173\\u6cd5\\u5f8b\\u4f9d\\u636e\\u3001\\u5b9e\\u64cd\\u5efa\\u8bae\\u53ca\\u6ce8\\u610f\\u4e8b\\u9879\\uff01 \\u2696\\ufe0f", "status": "success"}', 3, '2026-09-22 10:08:06.195016')
+2026-09-22 18:08:06,197 INFO sqlalchemy.engine.Engine COMMIT
+2026-09-22 18:08:06,204 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 18:08:06,205 INFO sqlalchemy.engine.Engine SELECT run_events.id, run_events.run_id, run_events.session_id, run_events.event_type, run_events.content, run_events.sequence, run_events.created_at 
+FROM run_events 
+WHERE run_events.id = ?
+2026-09-22 18:08:06,206 INFO sqlalchemy.engine.Engine [cached since 6293s ago] ('e67b6972-940a-42ca-bdd8-de705261c6b3',)
+2026-09-22 18:08:06,207 INFO sqlalchemy.engine.Engine SELECT max(run_events.sequence) AS max_1 
+FROM run_events 
+WHERE run_events.run_id = ?
+2026-09-22 18:08:06,207 INFO sqlalchemy.engine.Engine [cached since 6293s ago] ('4632dbf4-7616-4723-b6cb-d641c01c8f57',)
+2026-09-22 18:08:06,209 INFO sqlalchemy.engine.Engine INSERT INTO run_events (id, run_id, session_id, event_type, content, sequence, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)
+2026-09-22 18:08:06,209 INFO sqlalchemy.engine.Engine [cached since 6293s ago] ('fd174604-5685-4751-9720-eae69ee2680e', '4632dbf4-7616-4723-b6cb-d641c01c8f57', '9e049fb2-2677-4cb0-84d4-853101026ee3', 'thought', '{"nodeType": "THOUGHT", "nodeName": "\\u601d\\u8003", "title": "\\u601d\\u8003\\u4e2d...", "detail": "", "status": "success"}', 4, '2026-09-22 10:08:06.209046')
+2026-09-22 18:08:06,210 INFO sqlalchemy.engine.Engine COMMIT
+2026-09-22 18:08:06,214 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 18:08:06,215 INFO sqlalchemy.engine.Engine SELECT run_events.id, run_events.run_id, run_events.session_id, run_events.event_type, run_events.content, run_events.sequence, run_events.created_at 
+FROM run_events 
+WHERE run_events.id = ?
+2026-09-22 18:08:06,215 INFO sqlalchemy.engine.Engine [cached since 6293s ago] ('fd174604-5685-4751-9720-eae69ee2680e',)
+2026-09-22 18:08:06,217 INFO sqlalchemy.engine.Engine SELECT max(run_events.sequence) AS max_1 
+FROM run_events 
+WHERE run_events.run_id = ?
+2026-09-22 18:08:06,217 INFO sqlalchemy.engine.Engine [cached since 6293s ago] ('4632dbf4-7616-4723-b6cb-d641c01c8f57',)
+2026-09-22 18:08:06,218 INFO sqlalchemy.engine.Engine INSERT INTO run_events (id, run_id, session_id, event_type, content, sequence, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)
+2026-09-22 18:08:06,218 INFO sqlalchemy.engine.Engine [cached since 6293s ago] ('0b10b93f-8eec-44a7-8f2d-af327062e071', '4632dbf4-7616-4723-b6cb-d641c01c8f57', '9e049fb2-2677-4cb0-84d4-853101026ee3', 'result', '{"nodeType": "RESULT", "nodeName": "\\u7ed3\\u679c\\u751f\\u6210", "title": "\\u751f\\u6210\\u6700\\u7ec8\\u56de\\u7b54", "detail": "", "status": "success"}', 5, '2026-09-22 10:08:06.218156')
+2026-09-22 18:08:06,220 INFO sqlalchemy.engine.Engine COMMIT
+2026-09-22 18:08:06,225 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 18:08:06,225 INFO sqlalchemy.engine.Engine SELECT run_events.id, run_events.run_id, run_events.session_id, run_events.event_type, run_events.content, run_events.sequence, run_events.created_at 
+FROM run_events 
+WHERE run_events.id = ?
+2026-09-22 18:08:06,225 INFO sqlalchemy.engine.Engine [cached since 6293s ago] ('0b10b93f-8eec-44a7-8f2d-af327062e071',)
+2026-09-22 18:08:06,226 INFO sqlalchemy.engine.Engine SELECT max(run_events.sequence) AS max_1 
+FROM run_events 
+WHERE run_events.run_id = ?
+2026-09-22 18:08:06,227 INFO sqlalchemy.engine.Engine [cached since 6293s ago] ('4632dbf4-7616-4723-b6cb-d641c01c8f57',)
+2026-09-22 18:08:06,228 INFO sqlalchemy.engine.Engine INSERT INTO run_events (id, run_id, session_id, event_type, content, sequence, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)
+2026-09-22 18:08:06,228 INFO sqlalchemy.engine.Engine [cached since 6293s ago] ('e95d6589-1972-4404-a3f7-152a0316a001', '4632dbf4-7616-4723-b6cb-d641c01c8f57', '9e049fb2-2677-4cb0-84d4-853101026ee3', 'result', '{"nodeType": "RESULT", "nodeName": "\\u7ed3\\u679c\\u751f\\u6210", "title": "\\u751f\\u6210\\u6700\\u7ec8\\u56de\\u7b54", "detail": "\\u60a8\\u597d\\ ... (1583 characters truncated) ... \u5173\\u6cd5\\u5f8b\\u4f9d\\u636e\\u3001\\u5b9e\\u64cd\\u5efa\\u8bae\\u53ca\\u6ce8\\u610f\\u4e8b\\u9879\\uff01 \\u2696\\ufe0f", "status": "success"}', 6, '2026-09-22 10:08:06.227657')
+2026-09-22 18:08:06,229 INFO sqlalchemy.engine.Engine COMMIT
+2026-09-22 18:08:06,233 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 18:08:06,234 INFO sqlalchemy.engine.Engine SELECT run_events.id, run_events.run_id, run_events.session_id, run_events.event_type, run_events.content, run_events.sequence, run_events.created_at 
+FROM run_events 
+WHERE run_events.id = ?
+2026-09-22 18:08:06,234 INFO sqlalchemy.engine.Engine [cached since 6293s ago] ('e95d6589-1972-4404-a3f7-152a0316a001',)
+2026-09-22 18:08:06,235 INFO sqlalchemy.engine.Engine SELECT max(run_events.sequence) AS max_1 
+FROM run_events 
+WHERE run_events.run_id = ?
+2026-09-22 18:08:06,236 INFO sqlalchemy.engine.Engine [cached since 6293s ago] ('4632dbf4-7616-4723-b6cb-d641c01c8f57',)
+2026-09-22 18:08:06,237 INFO sqlalchemy.engine.Engine INSERT INTO run_events (id, run_id, session_id, event_type, content, sequence, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)
+2026-09-22 18:08:06,238 INFO sqlalchemy.engine.Engine [cached since 6293s ago] ('64c06c03-7f26-45dc-89db-9ed5cb75918e', '4632dbf4-7616-4723-b6cb-d641c01c8f57', '9e049fb2-2677-4cb0-84d4-853101026ee3', 'result', '{"nodeType": "RESULT", "nodeName": "\\u7ed3\\u679c\\u751f\\u6210", "title": "\\u751f\\u6210\\u6700\\u7ec8\\u56de\\u7b54", "detail": "", "status": "success"}', 7, '2026-09-22 10:08:06.237303')
+2026-09-22 18:08:06,239 INFO sqlalchemy.engine.Engine COMMIT
+2026-09-22 18:08:06,243 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 18:08:06,243 INFO sqlalchemy.engine.Engine SELECT run_events.id, run_events.run_id, run_events.session_id, run_events.event_type, run_events.content, run_events.sequence, run_events.created_at 
+FROM run_events 
+WHERE run_events.id = ?
+2026-09-22 18:08:06,243 INFO sqlalchemy.engine.Engine [cached since 6293s ago] ('64c06c03-7f26-45dc-89db-9ed5cb75918e',)
+2026-09-22 18:08:06,681 INFO sqlalchemy.engine.Engine SELECT max(run_events.sequence) AS max_1 
+FROM run_events 
+WHERE run_events.run_id = ?
+2026-09-22 18:08:06,681 INFO sqlalchemy.engine.Engine [cached since 6293s ago] ('4632dbf4-7616-4723-b6cb-d641c01c8f57',)
+2026-09-22 18:08:06,683 INFO sqlalchemy.engine.Engine INSERT INTO run_events (id, run_id, session_id, event_type, content, sequence, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)
+2026-09-22 18:08:06,683 INFO sqlalchemy.engine.Engine [cached since 6293s ago] ('48e8513a-0390-4ed7-95fb-3e2642fe0430', '4632dbf4-7616-4723-b6cb-d641c01c8f57', '9e049fb2-2677-4cb0-84d4-853101026ee3', 'run_end', '{"run_id": "", "total_duration": 0}', 8, '2026-09-22 10:08:06.683650')
+2026-09-22 18:08:06,685 INFO sqlalchemy.engine.Engine COMMIT
+2026-09-22 18:08:06,689 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 18:08:06,689 INFO sqlalchemy.engine.Engine SELECT run_events.id, run_events.run_id, run_events.session_id, run_events.event_type, run_events.content, run_events.sequence, run_events.created_at 
+FROM run_events 
+WHERE run_events.id = ?
+2026-09-22 18:08:06,689 INFO sqlalchemy.engine.Engine [cached since 6293s ago] ('48e8513a-0390-4ed7-95fb-3e2642fe0430',)
+2026-09-22 18:08:06,692 INFO sqlalchemy.engine.Engine UPDATE runs SET status=?, completed_at=? WHERE runs.id = ?
+2026-09-22 18:08:06,692 INFO sqlalchemy.engine.Engine [cached since 6292s ago] ('completed', '2026-09-22 10:08:06.692005', '4632dbf4-7616-4723-b6cb-d641c01c8f57')
+2026-09-22 18:08:06,694 INFO sqlalchemy.engine.Engine COMMIT
+INFO:     127.0.0.1:55772 - "OPTIONS /api/v1/sessions HTTP/1.1" 200 OK
+2026-09-22 18:09:08,551 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 18:09:08,551 INFO sqlalchemy.engine.Engine INSERT INTO sessions (id, user_id, title, model, tools, skills, system_prompt, status, extra_data, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2026-09-22 18:09:08,551 INFO sqlalchemy.engine.Engine [cached since 6410s ago] ('0d4bfd42-40f8-4256-9f92-766727e63d81', '9494bee9-52f9-4594-ad31-334f1a2b60ec', 'Agent 调试会话', 'Qwen3.5-397b-a17b', '[]', '[]', None, 'active', '{}', '2026-09-22 10:09:08.550184', None)
+2026-09-22 18:09:08,553 INFO sqlalchemy.engine.Engine COMMIT
+2026-09-22 18:09:08,556 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 18:09:08,556 INFO sqlalchemy.engine.Engine SELECT sessions.id, sessions.user_id, sessions.title, sessions.model, sessions.tools, sessions.skills, sessions.system_prompt, sessions.status, sessions.extra_data, sessions.created_at, sessions.updated_at 
+FROM sessions 
+WHERE sessions.id = ?
+2026-09-22 18:09:08,557 INFO sqlalchemy.engine.Engine [cached since 6410s ago] ('0d4bfd42-40f8-4256-9f92-766727e63d81',)
+2026-09-22 18:09:08,558 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:55772 - "POST /api/v1/sessions HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55772 - "OPTIONS /api/v1/sessions/0d4bfd42-40f8-4256-9f92-766727e63d81/runs HTTP/1.1" 200 OK
+2026-09-22 18:09:08,571 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 18:09:08,571 INFO sqlalchemy.engine.Engine SELECT sessions.id, sessions.user_id, sessions.title, sessions.model, sessions.tools, sessions.skills, sessions.system_prompt, sessions.status, sessions.extra_data, sessions.created_at, sessions.updated_at 
+FROM sessions 
+WHERE sessions.id = ?
+2026-09-22 18:09:08,571 INFO sqlalchemy.engine.Engine [cached since 6410s ago] ('0d4bfd42-40f8-4256-9f92-766727e63d81',)
+2026-09-22 18:09:08,573 INFO sqlalchemy.engine.Engine INSERT INTO messages (id, session_id, role, content, model, tokens_used, extra_data, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+2026-09-22 18:09:08,573 INFO sqlalchemy.engine.Engine [cached since 6355s ago] ('6acbf5a3-2475-42c0-90b5-c9ac4095e8ff', '0d4bfd42-40f8-4256-9f92-766727e63d81', 'user', '你会什么?', None, None, '{}', '2026-09-22 10:09:08.572393')
+2026-09-22 18:09:08,574 INFO sqlalchemy.engine.Engine INSERT INTO runs (id, session_id, user_id, status, model, total_tokens, total_cost, tool_calls_count, reasoning_steps, error_message, extra_data, started_at, completed_at, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+2026-09-22 18:09:08,575 INFO sqlalchemy.engine.Engine [cached since 6355s ago] ('c9e46218-ba06-41d1-88c0-7dc0a7c93063', '0d4bfd42-40f8-4256-9f92-766727e63d81', '9494bee9-52f9-4594-ad31-334f1a2b60ec', 'running', 'Qwen3.5-397b-a17b', 0, 0.0, 0, 0, None, '{}', '2026-09-22 10:09:08.572393', None, '2026-09-22 10:09:08.572393')
+2026-09-22 18:09:08,575 INFO sqlalchemy.engine.Engine COMMIT
+2026-09-22 18:09:08,579 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 18:09:08,579 INFO sqlalchemy.engine.Engine SELECT runs.id, runs.session_id, runs.user_id, runs.status, runs.model, runs.total_tokens, runs.total_cost, runs.tool_calls_count, runs.reasoning_steps, runs.error_message, runs.extra_data, runs.started_at, runs.completed_at, runs.created_at 
+FROM runs 
+WHERE runs.id = ?
+2026-09-22 18:09:08,579 INFO sqlalchemy.engine.Engine [cached since 6355s ago] ('c9e46218-ba06-41d1-88c0-7dc0a7c93063',)
+2026-09-22 18:09:08,581 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 18:09:08,581 INFO sqlalchemy.engine.Engine SELECT runs.id, runs.session_id, runs.user_id, runs.status, runs.model, runs.total_tokens, runs.total_cost, runs.tool_calls_count, runs.reasoning_steps, runs.error_message, runs.extra_data, runs.started_at, runs.completed_at, runs.created_at 
+FROM runs 
+WHERE runs.id = ?
+2026-09-22 18:09:08,581 INFO sqlalchemy.engine.Engine [cached since 6355s ago] ('c9e46218-ba06-41d1-88c0-7dc0a7c93063',)
+2026-09-22 18:09:08,581 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:55772 - "POST /api/v1/sessions/0d4bfd42-40f8-4256-9f92-766727e63d81/runs HTTP/1.1" 200 OK
+2026-09-22 18:09:08,583 INFO sqlalchemy.engine.Engine SELECT messages.id, messages.session_id, messages.role, messages.content, messages.model, messages.tokens_used, messages.extra_data, messages.created_at 
+FROM messages 
+WHERE messages.id = ?
+2026-09-22 18:09:08,583 INFO sqlalchemy.engine.Engine [cached since 6355s ago] ('6acbf5a3-2475-42c0-90b5-c9ac4095e8ff',)
+2026-09-22 18:09:08,584 INFO sqlalchemy.engine.Engine SELECT sessions.id, sessions.user_id, sessions.title, sessions.model, sessions.tools, sessions.skills, sessions.system_prompt, sessions.status, sessions.extra_data, sessions.created_at, sessions.updated_at 
+FROM sessions 
+WHERE sessions.id = ?
+2026-09-22 18:09:08,585 INFO sqlalchemy.engine.Engine [cached since 6410s ago] ('0d4bfd42-40f8-4256-9f92-766727e63d81',)
+INFO:     127.0.0.1:55772 - "OPTIONS /api/v1/sessions/0d4bfd42-40f8-4256-9f92-766727e63d81/stream HTTP/1.1" 200 OK
+2026-09-22 18:09:08,586 INFO sqlalchemy.engine.Engine SELECT max(run_events.sequence) AS max_1 
+FROM run_events 
+WHERE run_events.run_id = ?
+2026-09-22 18:09:08,587 INFO sqlalchemy.engine.Engine [cached since 6355s ago] ('c9e46218-ba06-41d1-88c0-7dc0a7c93063',)
+2026-09-22 18:09:08,588 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 18:09:08,588 INFO sqlalchemy.engine.Engine SELECT sessions.id, sessions.user_id, sessions.title, sessions.model, sessions.tools, sessions.skills, sessions.system_prompt, sessions.status, sessions.extra_data, sessions.created_at, sessions.updated_at 
+FROM sessions 
+WHERE sessions.id = ?
+2026-09-22 18:09:08,589 INFO sqlalchemy.engine.Engine [cached since 6410s ago] ('0d4bfd42-40f8-4256-9f92-766727e63d81',)
+2026-09-22 18:09:08,589 INFO sqlalchemy.engine.Engine INSERT INTO run_events (id, run_id, session_id, event_type, content, sequence, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)
+2026-09-22 18:09:08,589 INFO sqlalchemy.engine.Engine [cached since 6355s ago] ('77db4fa3-8358-46d5-a124-9f24cee760d1', 'c9e46218-ba06-41d1-88c0-7dc0a7c93063', '0d4bfd42-40f8-4256-9f92-766727e63d81', 'run_start', '{"run_id": "c9e46218-ba06-41d1-88c0-7dc0a7c93063", "session_id": "0d4bfd42-40f8-4256-9f92-766727e63d81"}', 1, '2026-09-22 10:09:08.589949')
+2026-09-22 18:09:08,591 INFO sqlalchemy.engine.Engine SELECT runs.id, runs.session_id, runs.user_id, runs.status, runs.model, runs.total_tokens, runs.total_cost, runs.tool_calls_count, runs.reasoning_steps, runs.error_message, runs.extra_data, runs.started_at, runs.completed_at, runs.created_at 
+FROM runs 
+WHERE runs.session_id = ? ORDER BY runs.created_at DESC
+ LIMIT ? OFFSET ?
+2026-09-22 18:09:08,591 INFO sqlalchemy.engine.Engine [cached since 6410s ago] ('0d4bfd42-40f8-4256-9f92-766727e63d81', 1, 0)
+2026-09-22 18:09:08,592 INFO sqlalchemy.engine.Engine COMMIT
+2026-09-22 18:09:08,593 INFO sqlalchemy.engine.Engine ROLLBACK
+INFO:     127.0.0.1:55772 - "GET /api/v1/sessions/0d4bfd42-40f8-4256-9f92-766727e63d81/stream HTTP/1.1" 200 OK
+2026-09-22 18:09:08,604 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 18:09:08,604 INFO sqlalchemy.engine.Engine SELECT run_events.id, run_events.run_id, run_events.session_id, run_events.event_type, run_events.content, run_events.sequence, run_events.created_at 
+FROM run_events 
+WHERE run_events.id = ?
+2026-09-22 18:09:08,604 INFO sqlalchemy.engine.Engine [cached since 6355s ago] ('77db4fa3-8358-46d5-a124-9f24cee760d1',)
+2026-09-22 18:09:08,873 INFO sqlalchemy.engine.Engine SELECT max(run_events.sequence) AS max_1 
+FROM run_events 
+WHERE run_events.run_id = ?
+2026-09-22 18:09:08,873 INFO sqlalchemy.engine.Engine [cached since 6355s ago] ('c9e46218-ba06-41d1-88c0-7dc0a7c93063',)
+2026-09-22 18:09:08,875 INFO sqlalchemy.engine.Engine INSERT INTO run_events (id, run_id, session_id, event_type, content, sequence, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)
+2026-09-22 18:09:08,875 INFO sqlalchemy.engine.Engine [cached since 6355s ago] ('5264b120-0cb1-4057-aad6-e1d02fda56b9', 'c9e46218-ba06-41d1-88c0-7dc0a7c93063', '0d4bfd42-40f8-4256-9f92-766727e63d81', 'thought', '{"nodeType": "THOUGHT", "nodeName": "\\u601d\\u8003", "title": "\\u601d\\u8003\\u4e2d...", "detail": "", "status": "success"}', 2, '2026-09-22 10:09:08.875198')
+2026-09-22 18:09:08,877 INFO sqlalchemy.engine.Engine COMMIT
+2026-09-22 18:09:08,881 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 18:09:08,882 INFO sqlalchemy.engine.Engine SELECT run_events.id, run_events.run_id, run_events.session_id, run_events.event_type, run_events.content, run_events.sequence, run_events.created_at 
+FROM run_events 
+WHERE run_events.id = ?
+2026-09-22 18:09:08,882 INFO sqlalchemy.engine.Engine [cached since 6355s ago] ('5264b120-0cb1-4057-aad6-e1d02fda56b9',)
+2026-09-22 18:09:16,046 INFO sqlalchemy.engine.Engine SELECT max(run_events.sequence) AS max_1 
+FROM run_events 
+WHERE run_events.run_id = ?
+2026-09-22 18:09:16,047 INFO sqlalchemy.engine.Engine [cached since 6362s ago] ('c9e46218-ba06-41d1-88c0-7dc0a7c93063',)
+2026-09-22 18:09:16,048 INFO sqlalchemy.engine.Engine INSERT INTO run_events (id, run_id, session_id, event_type, content, sequence, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)
+2026-09-22 18:09:16,048 INFO sqlalchemy.engine.Engine [cached since 6362s ago] ('140dfc8d-b957-4000-864c-d92b2385eb6f', 'c9e46218-ba06-41d1-88c0-7dc0a7c93063', '0d4bfd42-40f8-4256-9f92-766727e63d81', 'thought', '{"nodeType": "THOUGHT", "nodeName": "\\u601d\\u8003", "title": "\\u601d\\u8003\\u4e2d...", "detail": "\\u4f60\\u597d\\uff01\\u6211\\u662f Qwen3.5\\uf ... (6376 characters truncated) ... \u8bc9\\u6211\\u4f60\\u7684\\u9700\\u6c42\\uff0c\\u6211\\u4f1a\\u5b9a\\u5236\\u89e3\\u51b3\\u65b9\\u6848\\uff01 \\ud83d\\ude0a", "status": "success"}', 3, '2026-09-22 10:09:16.048027')
+2026-09-22 18:09:16,049 INFO sqlalchemy.engine.Engine COMMIT
+2026-09-22 18:09:16,057 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 18:09:16,057 INFO sqlalchemy.engine.Engine SELECT run_events.id, run_events.run_id, run_events.session_id, run_events.event_type, run_events.content, run_events.sequence, run_events.created_at 
+FROM run_events 
+WHERE run_events.id = ?
+2026-09-22 18:09:16,058 INFO sqlalchemy.engine.Engine [cached since 6362s ago] ('140dfc8d-b957-4000-864c-d92b2385eb6f',)
+2026-09-22 18:09:16,060 INFO sqlalchemy.engine.Engine SELECT max(run_events.sequence) AS max_1 
+FROM run_events 
+WHERE run_events.run_id = ?
+2026-09-22 18:09:16,060 INFO sqlalchemy.engine.Engine [cached since 6363s ago] ('c9e46218-ba06-41d1-88c0-7dc0a7c93063',)
+2026-09-22 18:09:16,061 INFO sqlalchemy.engine.Engine INSERT INTO run_events (id, run_id, session_id, event_type, content, sequence, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)
+2026-09-22 18:09:16,061 INFO sqlalchemy.engine.Engine [cached since 6363s ago] ('a013e6b9-1ed2-4deb-9e0f-18237e145b2f', 'c9e46218-ba06-41d1-88c0-7dc0a7c93063', '0d4bfd42-40f8-4256-9f92-766727e63d81', 'thought', '{"nodeType": "THOUGHT", "nodeName": "\\u601d\\u8003", "title": "\\u601d\\u8003\\u4e2d...", "detail": "", "status": "success"}', 4, '2026-09-22 10:09:16.061070')
+2026-09-22 18:09:16,063 INFO sqlalchemy.engine.Engine COMMIT
+2026-09-22 18:09:16,068 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 18:09:16,068 INFO sqlalchemy.engine.Engine SELECT run_events.id, run_events.run_id, run_events.session_id, run_events.event_type, run_events.content, run_events.sequence, run_events.created_at 
+FROM run_events 
+WHERE run_events.id = ?
+2026-09-22 18:09:16,068 INFO sqlalchemy.engine.Engine [cached since 6363s ago] ('a013e6b9-1ed2-4deb-9e0f-18237e145b2f',)
+2026-09-22 18:09:16,070 INFO sqlalchemy.engine.Engine SELECT max(run_events.sequence) AS max_1 
+FROM run_events 
+WHERE run_events.run_id = ?
+2026-09-22 18:09:16,070 INFO sqlalchemy.engine.Engine [cached since 6363s ago] ('c9e46218-ba06-41d1-88c0-7dc0a7c93063',)
+2026-09-22 18:09:16,071 INFO sqlalchemy.engine.Engine INSERT INTO run_events (id, run_id, session_id, event_type, content, sequence, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)
+2026-09-22 18:09:16,071 INFO sqlalchemy.engine.Engine [cached since 6363s ago] ('879ea01e-de5d-4e90-b21d-2c90e1979a4a', 'c9e46218-ba06-41d1-88c0-7dc0a7c93063', '0d4bfd42-40f8-4256-9f92-766727e63d81', 'result', '{"nodeType": "RESULT", "nodeName": "\\u7ed3\\u679c\\u751f\\u6210", "title": "\\u751f\\u6210\\u6700\\u7ec8\\u56de\\u7b54", "detail": "", "status": "success"}', 5, '2026-09-22 10:09:16.071338')
+2026-09-22 18:09:16,072 INFO sqlalchemy.engine.Engine COMMIT
+2026-09-22 18:09:16,076 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 18:09:16,076 INFO sqlalchemy.engine.Engine SELECT run_events.id, run_events.run_id, run_events.session_id, run_events.event_type, run_events.content, run_events.sequence, run_events.created_at 
+FROM run_events 
+WHERE run_events.id = ?
+2026-09-22 18:09:16,076 INFO sqlalchemy.engine.Engine [cached since 6363s ago] ('879ea01e-de5d-4e90-b21d-2c90e1979a4a',)
+2026-09-22 18:09:16,078 INFO sqlalchemy.engine.Engine SELECT max(run_events.sequence) AS max_1 
+FROM run_events 
+WHERE run_events.run_id = ?
+2026-09-22 18:09:16,078 INFO sqlalchemy.engine.Engine [cached since 6363s ago] ('c9e46218-ba06-41d1-88c0-7dc0a7c93063',)
+2026-09-22 18:09:16,079 INFO sqlalchemy.engine.Engine INSERT INTO run_events (id, run_id, session_id, event_type, content, sequence, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)
+2026-09-22 18:09:16,079 INFO sqlalchemy.engine.Engine [cached since 6363s ago] ('799eda74-f904-4485-a350-d2467ee41819', 'c9e46218-ba06-41d1-88c0-7dc0a7c93063', '0d4bfd42-40f8-4256-9f92-766727e63d81', 'result', '{"nodeType": "RESULT", "nodeName": "\\u7ed3\\u679c\\u751f\\u6210", "title": "\\u751f\\u6210\\u6700\\u7ec8\\u56de\\u7b54", "detail": "\\u4f60\\u597d\\ ... (6407 characters truncated) ... \u8bc9\\u6211\\u4f60\\u7684\\u9700\\u6c42\\uff0c\\u6211\\u4f1a\\u5b9a\\u5236\\u89e3\\u51b3\\u65b9\\u6848\\uff01 \\ud83d\\ude0a", "status": "success"}', 6, '2026-09-22 10:09:16.079262')
+2026-09-22 18:09:16,080 INFO sqlalchemy.engine.Engine COMMIT
+2026-09-22 18:09:16,084 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 18:09:16,084 INFO sqlalchemy.engine.Engine SELECT run_events.id, run_events.run_id, run_events.session_id, run_events.event_type, run_events.content, run_events.sequence, run_events.created_at 
+FROM run_events 
+WHERE run_events.id = ?
+2026-09-22 18:09:16,085 INFO sqlalchemy.engine.Engine [cached since 6363s ago] ('799eda74-f904-4485-a350-d2467ee41819',)
+2026-09-22 18:09:16,086 INFO sqlalchemy.engine.Engine SELECT max(run_events.sequence) AS max_1 
+FROM run_events 
+WHERE run_events.run_id = ?
+2026-09-22 18:09:16,086 INFO sqlalchemy.engine.Engine [cached since 6363s ago] ('c9e46218-ba06-41d1-88c0-7dc0a7c93063',)
+2026-09-22 18:09:16,087 INFO sqlalchemy.engine.Engine INSERT INTO run_events (id, run_id, session_id, event_type, content, sequence, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)
+2026-09-22 18:09:16,088 INFO sqlalchemy.engine.Engine [cached since 6363s ago] ('f34d2caa-69ea-47da-9b35-5e5f3518f7c6', 'c9e46218-ba06-41d1-88c0-7dc0a7c93063', '0d4bfd42-40f8-4256-9f92-766727e63d81', 'result', '{"nodeType": "RESULT", "nodeName": "\\u7ed3\\u679c\\u751f\\u6210", "title": "\\u751f\\u6210\\u6700\\u7ec8\\u56de\\u7b54", "detail": "", "status": "success"}', 7, '2026-09-22 10:09:16.087920')
+2026-09-22 18:09:16,090 INFO sqlalchemy.engine.Engine COMMIT
+2026-09-22 18:09:16,093 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 18:09:16,094 INFO sqlalchemy.engine.Engine SELECT run_events.id, run_events.run_id, run_events.session_id, run_events.event_type, run_events.content, run_events.sequence, run_events.created_at 
+FROM run_events 
+WHERE run_events.id = ?
+2026-09-22 18:09:16,094 INFO sqlalchemy.engine.Engine [cached since 6363s ago] ('f34d2caa-69ea-47da-9b35-5e5f3518f7c6',)
+2026-09-22 18:09:16,577 INFO sqlalchemy.engine.Engine SELECT max(run_events.sequence) AS max_1 
+FROM run_events 
+WHERE run_events.run_id = ?
+2026-09-22 18:09:16,578 INFO sqlalchemy.engine.Engine [cached since 6363s ago] ('c9e46218-ba06-41d1-88c0-7dc0a7c93063',)
+2026-09-22 18:09:16,580 INFO sqlalchemy.engine.Engine INSERT INTO run_events (id, run_id, session_id, event_type, content, sequence, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)
+2026-09-22 18:09:16,580 INFO sqlalchemy.engine.Engine [cached since 6363s ago] ('c65a3299-3f87-4b7f-9581-6f89efc09752', 'c9e46218-ba06-41d1-88c0-7dc0a7c93063', '0d4bfd42-40f8-4256-9f92-766727e63d81', 'run_end', '{"run_id": "", "total_duration": 0}', 8, '2026-09-22 10:09:16.580107')
+2026-09-22 18:09:16,582 INFO sqlalchemy.engine.Engine COMMIT
+2026-09-22 18:09:16,589 INFO sqlalchemy.engine.Engine BEGIN (implicit)
+2026-09-22 18:09:16,590 INFO sqlalchemy.engine.Engine SELECT run_events.id, run_events.run_id, run_events.session_id, run_events.event_type, run_events.content, run_events.sequence, run_events.created_at 
+FROM run_events 
+WHERE run_events.id = ?
+2026-09-22 18:09:16,590 INFO sqlalchemy.engine.Engine [cached since 6363s ago] ('c65a3299-3f87-4b7f-9581-6f89efc09752',)
+2026-09-22 18:09:16,592 INFO sqlalchemy.engine.Engine UPDATE runs SET status=?, completed_at=? WHERE runs.id = ?
+2026-09-22 18:09:16,592 INFO sqlalchemy.engine.Engine [cached since 6362s ago] ('completed', '2026-09-22 10:09:16.592472', 'c9e46218-ba06-41d1-88c0-7dc0a7c93063')
+2026-09-22 18:09:16,595 INFO sqlalchemy.engine.Engine COMMIT
+INFO:     127.0.0.1:60564 - "OPTIONS /api/v1/agents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60564 - "GET /api/v1/agents HTTP/1.1" 401 Unauthorized
+INFO:     127.0.0.1:60564 - "GET /api/v1/agents HTTP/1.1" 401 Unauthorized

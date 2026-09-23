@@ -1,0 +1,1 @@
+import{am as s}from"./index-DiKrS04Z.js";const n=(e,t)=>s.get(`/spaces/${e}/agents`,{params:t}),r=e=>s.get(`/agents/${e}`),g=e=>s.post(`/spaces/${e.spaceId}/agents`,e),c=(e,t)=>s.put(`/agents/${e}`,t),o=(e,t)=>s.delete(`/agents/${e}/capabilities/${t}`);export{r as a,g as c,n as g,o as r,c as u};

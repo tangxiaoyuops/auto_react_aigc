@@ -1,0 +1,1 @@
+import{am as e}from"./index-DiKrS04Z.js";const r=(t,s)=>e.get(`/spaces/${t}/eval-datasets`,{params:s}),o=t=>e.post("/eval-datasets",t),c=t=>e.post("/eval-tasks",t),l=(t,s)=>e.get(`/spaces/${t}/eval-tasks`,{params:s}),n=t=>e.get(`/eval-tasks/${t}/report`),v=t=>e.delete(`/eval-tasks/${t}`);export{r as a,o as b,c,v as d,n as e,l as g};

@@ -1,0 +1,1793 @@
+
+> agent-platform-frontend@1.0.0 dev
+> vite
+
+
+  VITE v5.4.21  ready in 522 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: use --host to expose
+  ➜  press h + enter to show help
+11:51:56 [vite] hmr update /src/pages/agents/config.tsx, /src/index.css
+11:52:14 [vite] hmr update /src/pages/agents/config.tsx, /src/index.css
+11:52:21 [vite] hmr update /src/pages/agents/config.tsx, /src/index.css
+11:52:30 [vite] hmr update /src/pages/chat/index.tsx, /src/index.css
+11:52:45 [vite] hmr update /src/pages/chat/index.tsx, /src/index.css
+11:56:24 [vite] hmr update /src/index.css, /src/components/agent/DebugPanel.tsx, /src/pages/chat/index.tsx
+11:56:37 [vite] hmr update /src/components/agent/DebugPanel.tsx, /src/index.css
+11:56:44 [vite] hmr update /src/components/agent/DebugPanel.tsx, /src/index.css
+11:57:09 [vite] hmr update /src/components/agent/DebugPanel.tsx, /src/index.css
+11:57:32 [vite] hmr update /src/components/agent/DebugPanel.tsx, /src/index.css
+11:57:32 [vite] hmr invalidate /src/components/agent/DebugPanel.tsx Could not Fast Refresh (new export)
+11:57:32 [vite] hmr update /src/index.css, /src/pages/agents/config.tsx
+11:57:52 [vite] hmr update /src/pages/chat/index.tsx, /src/index.css
+11:58:00 [vite] hmr update /src/pages/chat/index.tsx, /src/index.css
+11:58:19 [vite] hmr update /src/index.css, /src/components/agent/DebugPanel.tsx, /src/pages/chat/index.tsx
+11:58:34 [vite] hmr update /src/components/agent/DebugPanel.tsx, /src/index.css
+11:58:40 [vite] hmr update /src/components/agent/DebugPanel.tsx, /src/index.css
+11:58:55 [vite] hmr update /src/pages/chat/index.tsx, /src/index.css
+11:59:14 [vite] hmr update /src/index.css, /src/components/agent/DebugPanel.tsx, /src/pages/chat/index.tsx
+11:59:51 [vite] hmr update /src/index.css, /src/components/agent/DebugPanel.tsx, /src/pages/chat/index.tsx
+13:48:58 [vite] hmr update /src/pages/agents/config.tsx, /src/index.css
+13:49:47 [vite] hmr update /src/components/agent/DebugPanel.tsx, /src/index.css
+13:49:47 [vite] hmr invalidate /src/components/agent/DebugPanel.tsx Could not Fast Refresh (export removed)
+13:49:47 [vite] hmr update /src/index.css, /src/pages/agents/config.tsx, /src/pages/chat/index.tsx
+13:50:16 [vite] hmr update /src/components/agent/DebugPanel.tsx, /src/index.css
+13:50:16 [vite] hmr invalidate /src/components/agent/DebugPanel.tsx Could not Fast Refresh (new export)
+13:50:16 [vite] hmr update /src/index.css, /src/pages/agents/config.tsx, /src/pages/chat/index.tsx
+13:50:37 [vite] hmr update /src/index.css, /src/components/agent/DebugPanel.tsx, /src/pages/chat/index.tsx
+13:53:41 [vite] hmr update /src/components/agent/DebugPanel.tsx, /src/index.css
+13:53:56 [vite] hmr update /src/components/agent/DebugPanel.tsx, /src/index.css
+13:54:11 [vite] hmr update /src/components/agent/DebugPanel.tsx, /src/index.css
+14:05:00 [vite] hmr update /src/pages/agents/config.tsx, /src/index.css
+14:05:00 [vite] Internal server error: D:\projects\react_demo\frontend\src\pages\agents\config.tsx: Unexpected token, expected "}" (270:6)
+
+  268 |
+  269 | interface CapabilitySectionProps {
+> 270 |   icon: React.ReactNode;
+      |       ^
+  271 |   iconCls: string;
+  272 |   title: string;
+  273 |   desc: string;
+  Plugin: vite:react-babel
+  File: D:/projects/react_demo/frontend/src/pages/agents/config.tsx:270:6
+  281|    icon,
+  282|    iconCls,
+  283|    title,
+     |     ^
+  284|    desc,
+  285|    selected,
+      at constructor (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:369:19)
+      at TypeScriptParserMixin.raise (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:6620:19)
+      at TypeScriptParserMixin.unexpected (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:6640:16)
+      at TypeScriptParserMixin.expect (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:6920:12)
+      at TypeScriptParserMixin.jsxParseExpressionContainer (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:4653:10)
+      at TypeScriptParserMixin.jsxParseElementAt (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:4727:36)
+      at TypeScriptParserMixin.jsxParseElement (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:4765:17)
+      at TypeScriptParserMixin.parseExprAtom (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:4775:19)
+      at TypeScriptParserMixin.parseExprSubscripts (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:11102:23)
+      at TypeScriptParserMixin.parseUpdate (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:11087:21)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:11067:23)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:9858:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10920:61)
+      at TypeScriptParserMixin.parseExprOps (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10925:23)
+      at TypeScriptParserMixin.parseMaybeConditional (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10902:23)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10852:21)
+      at D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:9796:39
+      at TypeScriptParserMixin.tryParse (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:6928:20)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:9796:18)
+      at D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10821:39
+      at TypeScriptParserMixin.allowInAnd (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:12455:12)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10821:17)
+      at TypeScriptParserMixin.parseMaybeAssignAllowInOrVoidPattern (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:12522:17)
+      at TypeScriptParserMixin.parseParenAndDistinguishExpression (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:11701:28)
+      at TypeScriptParserMixin.parseExprAtom (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:11357:23)
+      at TypeScriptParserMixin.parseExprAtom (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:4780:20)
+      at TypeScriptParserMixin.parseExprSubscripts (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:11102:23)
+      at TypeScriptParserMixin.parseUpdate (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:11087:21)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:11067:23)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:9858:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10920:61)
+      at TypeScriptParserMixin.parseExprOps (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10925:23)
+      at TypeScriptParserMixin.parseMaybeConditional (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10902:23)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10852:21)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:9807:20)
+      at TypeScriptParserMixin.parseExpressionBase (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10805:23)
+      at D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10801:39
+      at TypeScriptParserMixin.allowInAnd (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:12450:16)
+      at TypeScriptParserMixin.parseExpression (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10801:17)
+      at TypeScriptParserMixin.parseReturnStatement (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:13171:28)
+      at TypeScriptParserMixin.parseStatementContent (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:12827:21)
+      at TypeScriptParserMixin.parseStatementContent (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:9529:18)
+      at TypeScriptParserMixin.parseStatementLike (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:12796:17)
+      at TypeScriptParserMixin.parseStatementListItem (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:12776:17)
+      at TypeScriptParserMixin.parseBlockOrModuleBlockBody (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:13345:61)
+      at TypeScriptParserMixin.parseBlockBody (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:13338:10)
+      at TypeScriptParserMixin.parseBlock (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:13326:10)
+      at TypeScriptParserMixin.parseFunctionBody (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:12129:24)
+      at TypeScriptParserMixin.parseFunctionBodyAndFinish (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:12115:10)
+      at TypeScriptParserMixin.parseFunctionBodyAndFinish (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:9193:18)
+14:05:00 [vite] Internal server error: D:\projects\react_demo\frontend\src\pages\agents\config.tsx: Unexpected token, expected "}" (270:6)
+
+  268 |
+  269 | interface CapabilitySectionProps {
+> 270 |   icon: React.ReactNode;
+      |       ^
+  271 |   iconCls: string;
+  272 |   title: string;
+  273 |   desc: string;
+  Plugin: vite:react-babel
+  File: D:/projects/react_demo/frontend/src/pages/agents/config.tsx:270:6
+  281|    icon,
+  282|    iconCls,
+  283|    title,
+     |     ^
+  284|    desc,
+  285|    selected,
+      at constructor (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:369:19)
+      at TypeScriptParserMixin.raise (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:6620:19)
+      at TypeScriptParserMixin.unexpected (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:6640:16)
+      at TypeScriptParserMixin.expect (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:6920:12)
+      at TypeScriptParserMixin.jsxParseExpressionContainer (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:4653:10)
+      at TypeScriptParserMixin.jsxParseElementAt (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:4727:36)
+      at TypeScriptParserMixin.jsxParseElement (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:4765:17)
+      at TypeScriptParserMixin.parseExprAtom (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:4775:19)
+      at TypeScriptParserMixin.parseExprSubscripts (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:11102:23)
+      at TypeScriptParserMixin.parseUpdate (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:11087:21)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:11067:23)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:9858:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10920:61)
+      at TypeScriptParserMixin.parseExprOps (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10925:23)
+      at TypeScriptParserMixin.parseMaybeConditional (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10902:23)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10852:21)
+      at D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:9796:39
+      at TypeScriptParserMixin.tryParse (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:6928:20)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:9796:18)
+      at D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10821:39
+      at TypeScriptParserMixin.allowInAnd (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:12455:12)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10821:17)
+      at TypeScriptParserMixin.parseMaybeAssignAllowInOrVoidPattern (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:12522:17)
+      at TypeScriptParserMixin.parseParenAndDistinguishExpression (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:11701:28)
+      at TypeScriptParserMixin.parseExprAtom (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:11357:23)
+      at TypeScriptParserMixin.parseExprAtom (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:4780:20)
+      at TypeScriptParserMixin.parseExprSubscripts (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:11102:23)
+      at TypeScriptParserMixin.parseUpdate (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:11087:21)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:11067:23)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:9858:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10920:61)
+      at TypeScriptParserMixin.parseExprOps (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10925:23)
+      at TypeScriptParserMixin.parseMaybeConditional (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10902:23)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10852:21)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:9807:20)
+      at TypeScriptParserMixin.parseExpressionBase (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10805:23)
+      at D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10801:39
+      at TypeScriptParserMixin.allowInAnd (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:12450:16)
+      at TypeScriptParserMixin.parseExpression (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10801:17)
+      at TypeScriptParserMixin.parseReturnStatement (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:13171:28)
+      at TypeScriptParserMixin.parseStatementContent (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:12827:21)
+      at TypeScriptParserMixin.parseStatementContent (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:9529:18)
+      at TypeScriptParserMixin.parseStatementLike (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:12796:17)
+      at TypeScriptParserMixin.parseStatementListItem (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:12776:17)
+      at TypeScriptParserMixin.parseBlockOrModuleBlockBody (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:13345:61)
+      at TypeScriptParserMixin.parseBlockBody (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:13338:10)
+      at TypeScriptParserMixin.parseBlock (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:13326:10)
+      at TypeScriptParserMixin.parseFunctionBody (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:12129:24)
+      at TypeScriptParserMixin.parseFunctionBodyAndFinish (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:12115:10)
+      at TypeScriptParserMixin.parseFunctionBodyAndFinish (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:9193:18)
+14:05:00 [vite] Internal server error: D:\projects\react_demo\frontend\src\pages\agents\config.tsx: Unexpected token, expected "}" (270:6)
+
+  268 |
+  269 | interface CapabilitySectionProps {
+> 270 |   icon: React.ReactNode;
+      |       ^
+  271 |   iconCls: string;
+  272 |   title: string;
+  273 |   desc: string;
+  Plugin: vite:react-babel
+  File: D:/projects/react_demo/frontend/src/pages/agents/config.tsx:270:6
+  281|    icon,
+  282|    iconCls,
+  283|    title,
+     |     ^
+  284|    desc,
+  285|    selected,
+      at constructor (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:369:19)
+      at TypeScriptParserMixin.raise (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:6620:19)
+      at TypeScriptParserMixin.unexpected (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:6640:16)
+      at TypeScriptParserMixin.expect (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:6920:12)
+      at TypeScriptParserMixin.jsxParseExpressionContainer (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:4653:10)
+      at TypeScriptParserMixin.jsxParseElementAt (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:4727:36)
+      at TypeScriptParserMixin.jsxParseElement (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:4765:17)
+      at TypeScriptParserMixin.parseExprAtom (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:4775:19)
+      at TypeScriptParserMixin.parseExprSubscripts (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:11102:23)
+      at TypeScriptParserMixin.parseUpdate (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:11087:21)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:11067:23)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:9858:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10920:61)
+      at TypeScriptParserMixin.parseExprOps (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10925:23)
+      at TypeScriptParserMixin.parseMaybeConditional (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10902:23)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10852:21)
+      at D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:9796:39
+      at TypeScriptParserMixin.tryParse (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:6928:20)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:9796:18)
+      at D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10821:39
+      at TypeScriptParserMixin.allowInAnd (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:12455:12)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10821:17)
+      at TypeScriptParserMixin.parseMaybeAssignAllowInOrVoidPattern (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:12522:17)
+      at TypeScriptParserMixin.parseParenAndDistinguishExpression (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:11701:28)
+      at TypeScriptParserMixin.parseExprAtom (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:11357:23)
+      at TypeScriptParserMixin.parseExprAtom (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:4780:20)
+      at TypeScriptParserMixin.parseExprSubscripts (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:11102:23)
+      at TypeScriptParserMixin.parseUpdate (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:11087:21)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:11067:23)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:9858:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10920:61)
+      at TypeScriptParserMixin.parseExprOps (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10925:23)
+      at TypeScriptParserMixin.parseMaybeConditional (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10902:23)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10852:21)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:9807:20)
+      at TypeScriptParserMixin.parseExpressionBase (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10805:23)
+      at D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10801:39
+      at TypeScriptParserMixin.allowInAnd (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:12450:16)
+      at TypeScriptParserMixin.parseExpression (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10801:17)
+      at TypeScriptParserMixin.parseReturnStatement (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:13171:28)
+      at TypeScriptParserMixin.parseStatementContent (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:12827:21)
+      at TypeScriptParserMixin.parseStatementContent (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:9529:18)
+      at TypeScriptParserMixin.parseStatementLike (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:12796:17)
+      at TypeScriptParserMixin.parseStatementListItem (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:12776:17)
+      at TypeScriptParserMixin.parseBlockOrModuleBlockBody (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:13345:61)
+      at TypeScriptParserMixin.parseBlockBody (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:13338:10)
+      at TypeScriptParserMixin.parseBlock (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:13326:10)
+      at TypeScriptParserMixin.parseFunctionBody (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:12129:24)
+      at TypeScriptParserMixin.parseFunctionBodyAndFinish (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:12115:10)
+      at TypeScriptParserMixin.parseFunctionBodyAndFinish (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:9193:18)
+14:05:00 [vite] Internal server error: D:\projects\react_demo\frontend\src\pages\agents\config.tsx: Unexpected token, expected "}" (270:6)
+
+  268 |
+  269 | interface CapabilitySectionProps {
+> 270 |   icon: React.ReactNode;
+      |       ^
+  271 |   iconCls: string;
+  272 |   title: string;
+  273 |   desc: string;
+  Plugin: vite:react-babel
+  File: D:/projects/react_demo/frontend/src/pages/agents/config.tsx:270:6
+  281|    icon,
+  282|    iconCls,
+  283|    title,
+     |     ^
+  284|    desc,
+  285|    selected,
+      at constructor (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:369:19)
+      at TypeScriptParserMixin.raise (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:6620:19)
+      at TypeScriptParserMixin.unexpected (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:6640:16)
+      at TypeScriptParserMixin.expect (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:6920:12)
+      at TypeScriptParserMixin.jsxParseExpressionContainer (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:4653:10)
+      at TypeScriptParserMixin.jsxParseElementAt (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:4727:36)
+      at TypeScriptParserMixin.jsxParseElement (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:4765:17)
+      at TypeScriptParserMixin.parseExprAtom (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:4775:19)
+      at TypeScriptParserMixin.parseExprSubscripts (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:11102:23)
+      at TypeScriptParserMixin.parseUpdate (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:11087:21)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:11067:23)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:9858:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10920:61)
+      at TypeScriptParserMixin.parseExprOps (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10925:23)
+      at TypeScriptParserMixin.parseMaybeConditional (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10902:23)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10852:21)
+      at D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:9796:39
+      at TypeScriptParserMixin.tryParse (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:6928:20)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:9796:18)
+      at D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10821:39
+      at TypeScriptParserMixin.allowInAnd (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:12455:12)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10821:17)
+      at TypeScriptParserMixin.parseMaybeAssignAllowInOrVoidPattern (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:12522:17)
+      at TypeScriptParserMixin.parseParenAndDistinguishExpression (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:11701:28)
+      at TypeScriptParserMixin.parseExprAtom (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:11357:23)
+      at TypeScriptParserMixin.parseExprAtom (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:4780:20)
+      at TypeScriptParserMixin.parseExprSubscripts (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:11102:23)
+      at TypeScriptParserMixin.parseUpdate (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:11087:21)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:11067:23)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:9858:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10920:61)
+      at TypeScriptParserMixin.parseExprOps (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10925:23)
+      at TypeScriptParserMixin.parseMaybeConditional (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10902:23)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10852:21)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:9807:20)
+      at TypeScriptParserMixin.parseExpressionBase (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10805:23)
+      at D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10801:39
+      at TypeScriptParserMixin.allowInAnd (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:12450:16)
+      at TypeScriptParserMixin.parseExpression (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10801:17)
+      at TypeScriptParserMixin.parseReturnStatement (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:13171:28)
+      at TypeScriptParserMixin.parseStatementContent (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:12827:21)
+      at TypeScriptParserMixin.parseStatementContent (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:9529:18)
+      at TypeScriptParserMixin.parseStatementLike (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:12796:17)
+      at TypeScriptParserMixin.parseStatementListItem (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:12776:17)
+      at TypeScriptParserMixin.parseBlockOrModuleBlockBody (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:13345:61)
+      at TypeScriptParserMixin.parseBlockBody (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:13338:10)
+      at TypeScriptParserMixin.parseBlock (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:13326:10)
+      at TypeScriptParserMixin.parseFunctionBody (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:12129:24)
+      at TypeScriptParserMixin.parseFunctionBodyAndFinish (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:12115:10)
+      at TypeScriptParserMixin.parseFunctionBodyAndFinish (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:9193:18)
+14:05:23 [vite] hmr update /src/pages/agents/config.tsx, /src/index.css
+14:05:23 [vite] Internal server error: D:\projects\react_demo\frontend\src\pages\agents\config.tsx: Unexpected token, expected "}" (273:6)
+
+  271 |
+  272 | interface CapabilitySectionProps {
+> 273 |   icon: React.ReactNode;
+      |       ^
+  274 |   iconCls: string;
+  275 |   title: string;
+  276 |   desc: string;
+  Plugin: vite:react-babel
+  File: D:/projects/react_demo/frontend/src/pages/agents/config.tsx:273:6
+  284|    icon,
+  285|    iconCls,
+  286|    title,
+     |        ^
+  287|    desc,
+  288|    selected,
+      at constructor (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:369:19)
+      at TypeScriptParserMixin.raise (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:6620:19)
+      at TypeScriptParserMixin.unexpected (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:6640:16)
+      at TypeScriptParserMixin.expect (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:6920:12)
+      at TypeScriptParserMixin.jsxParseExpressionContainer (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:4653:10)
+      at TypeScriptParserMixin.jsxParseElementAt (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:4727:36)
+      at TypeScriptParserMixin.jsxParseElement (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:4765:17)
+      at TypeScriptParserMixin.parseExprAtom (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:4775:19)
+      at TypeScriptParserMixin.parseExprSubscripts (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:11102:23)
+      at TypeScriptParserMixin.parseUpdate (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:11087:21)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:11067:23)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:9858:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10920:61)
+      at TypeScriptParserMixin.parseExprOps (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10925:23)
+      at TypeScriptParserMixin.parseMaybeConditional (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10902:23)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10852:21)
+      at D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:9796:39
+      at TypeScriptParserMixin.tryParse (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:6928:20)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:9796:18)
+      at D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10821:39
+      at TypeScriptParserMixin.allowInAnd (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:12455:12)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10821:17)
+      at TypeScriptParserMixin.parseMaybeAssignAllowInOrVoidPattern (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:12522:17)
+      at TypeScriptParserMixin.parseParenAndDistinguishExpression (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:11701:28)
+      at TypeScriptParserMixin.parseExprAtom (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:11357:23)
+      at TypeScriptParserMixin.parseExprAtom (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:4780:20)
+      at TypeScriptParserMixin.parseExprSubscripts (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:11102:23)
+      at TypeScriptParserMixin.parseUpdate (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:11087:21)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:11067:23)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:9858:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10920:61)
+      at TypeScriptParserMixin.parseExprOps (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10925:23)
+      at TypeScriptParserMixin.parseMaybeConditional (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10902:23)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10852:21)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:9807:20)
+      at TypeScriptParserMixin.parseExpressionBase (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10805:23)
+      at D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10801:39
+      at TypeScriptParserMixin.allowInAnd (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:12450:16)
+      at TypeScriptParserMixin.parseExpression (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10801:17)
+      at TypeScriptParserMixin.parseReturnStatement (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:13171:28)
+      at TypeScriptParserMixin.parseStatementContent (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:12827:21)
+      at TypeScriptParserMixin.parseStatementContent (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:9529:18)
+      at TypeScriptParserMixin.parseStatementLike (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:12796:17)
+      at TypeScriptParserMixin.parseStatementListItem (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:12776:17)
+      at TypeScriptParserMixin.parseBlockOrModuleBlockBody (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:13345:61)
+      at TypeScriptParserMixin.parseBlockBody (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:13338:10)
+      at TypeScriptParserMixin.parseBlock (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:13326:10)
+      at TypeScriptParserMixin.parseFunctionBody (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:12129:24)
+      at TypeScriptParserMixin.parseFunctionBodyAndFinish (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:12115:10)
+      at TypeScriptParserMixin.parseFunctionBodyAndFinish (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:9193:18)
+14:05:23 [vite] Internal server error: D:\projects\react_demo\frontend\src\pages\agents\config.tsx: Unexpected token, expected "}" (273:6)
+
+  271 |
+  272 | interface CapabilitySectionProps {
+> 273 |   icon: React.ReactNode;
+      |       ^
+  274 |   iconCls: string;
+  275 |   title: string;
+  276 |   desc: string;
+  Plugin: vite:react-babel
+  File: D:/projects/react_demo/frontend/src/pages/agents/config.tsx:273:6
+  284|    icon,
+  285|    iconCls,
+  286|    title,
+     |        ^
+  287|    desc,
+  288|    selected,
+      at constructor (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:369:19)
+      at TypeScriptParserMixin.raise (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:6620:19)
+      at TypeScriptParserMixin.unexpected (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:6640:16)
+      at TypeScriptParserMixin.expect (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:6920:12)
+      at TypeScriptParserMixin.jsxParseExpressionContainer (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:4653:10)
+      at TypeScriptParserMixin.jsxParseElementAt (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:4727:36)
+      at TypeScriptParserMixin.jsxParseElement (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:4765:17)
+      at TypeScriptParserMixin.parseExprAtom (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:4775:19)
+      at TypeScriptParserMixin.parseExprSubscripts (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:11102:23)
+      at TypeScriptParserMixin.parseUpdate (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:11087:21)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:11067:23)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:9858:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10920:61)
+      at TypeScriptParserMixin.parseExprOps (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10925:23)
+      at TypeScriptParserMixin.parseMaybeConditional (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10902:23)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10852:21)
+      at D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:9796:39
+      at TypeScriptParserMixin.tryParse (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:6928:20)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:9796:18)
+      at D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10821:39
+      at TypeScriptParserMixin.allowInAnd (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:12455:12)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10821:17)
+      at TypeScriptParserMixin.parseMaybeAssignAllowInOrVoidPattern (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:12522:17)
+      at TypeScriptParserMixin.parseParenAndDistinguishExpression (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:11701:28)
+      at TypeScriptParserMixin.parseExprAtom (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:11357:23)
+      at TypeScriptParserMixin.parseExprAtom (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:4780:20)
+      at TypeScriptParserMixin.parseExprSubscripts (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:11102:23)
+      at TypeScriptParserMixin.parseUpdate (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:11087:21)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:11067:23)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:9858:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10920:61)
+      at TypeScriptParserMixin.parseExprOps (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10925:23)
+      at TypeScriptParserMixin.parseMaybeConditional (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10902:23)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10852:21)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:9807:20)
+      at TypeScriptParserMixin.parseExpressionBase (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10805:23)
+      at D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10801:39
+      at TypeScriptParserMixin.allowInAnd (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:12450:16)
+      at TypeScriptParserMixin.parseExpression (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10801:17)
+      at TypeScriptParserMixin.parseReturnStatement (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:13171:28)
+      at TypeScriptParserMixin.parseStatementContent (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:12827:21)
+      at TypeScriptParserMixin.parseStatementContent (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:9529:18)
+      at TypeScriptParserMixin.parseStatementLike (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:12796:17)
+      at TypeScriptParserMixin.parseStatementListItem (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:12776:17)
+      at TypeScriptParserMixin.parseBlockOrModuleBlockBody (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:13345:61)
+      at TypeScriptParserMixin.parseBlockBody (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:13338:10)
+      at TypeScriptParserMixin.parseBlock (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:13326:10)
+      at TypeScriptParserMixin.parseFunctionBody (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:12129:24)
+      at TypeScriptParserMixin.parseFunctionBodyAndFinish (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:12115:10)
+      at TypeScriptParserMixin.parseFunctionBodyAndFinish (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:9193:18)
+14:05:23 [vite] Internal server error: D:\projects\react_demo\frontend\src\pages\agents\config.tsx: Unexpected token, expected "}" (273:6)
+
+  271 |
+  272 | interface CapabilitySectionProps {
+> 273 |   icon: React.ReactNode;
+      |       ^
+  274 |   iconCls: string;
+  275 |   title: string;
+  276 |   desc: string;
+  Plugin: vite:react-babel
+  File: D:/projects/react_demo/frontend/src/pages/agents/config.tsx:273:6
+  284|    icon,
+  285|    iconCls,
+  286|    title,
+     |        ^
+  287|    desc,
+  288|    selected,
+      at constructor (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:369:19)
+      at TypeScriptParserMixin.raise (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:6620:19)
+      at TypeScriptParserMixin.unexpected (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:6640:16)
+      at TypeScriptParserMixin.expect (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:6920:12)
+      at TypeScriptParserMixin.jsxParseExpressionContainer (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:4653:10)
+      at TypeScriptParserMixin.jsxParseElementAt (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:4727:36)
+      at TypeScriptParserMixin.jsxParseElement (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:4765:17)
+      at TypeScriptParserMixin.parseExprAtom (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:4775:19)
+      at TypeScriptParserMixin.parseExprSubscripts (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:11102:23)
+      at TypeScriptParserMixin.parseUpdate (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:11087:21)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:11067:23)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:9858:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10920:61)
+      at TypeScriptParserMixin.parseExprOps (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10925:23)
+      at TypeScriptParserMixin.parseMaybeConditional (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10902:23)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10852:21)
+      at D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:9796:39
+      at TypeScriptParserMixin.tryParse (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:6928:20)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:9796:18)
+      at D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10821:39
+      at TypeScriptParserMixin.allowInAnd (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:12455:12)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10821:17)
+      at TypeScriptParserMixin.parseMaybeAssignAllowInOrVoidPattern (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:12522:17)
+      at TypeScriptParserMixin.parseParenAndDistinguishExpression (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:11701:28)
+      at TypeScriptParserMixin.parseExprAtom (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:11357:23)
+      at TypeScriptParserMixin.parseExprAtom (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:4780:20)
+      at TypeScriptParserMixin.parseExprSubscripts (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:11102:23)
+      at TypeScriptParserMixin.parseUpdate (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:11087:21)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:11067:23)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:9858:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10920:61)
+      at TypeScriptParserMixin.parseExprOps (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10925:23)
+      at TypeScriptParserMixin.parseMaybeConditional (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10902:23)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10852:21)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:9807:20)
+      at TypeScriptParserMixin.parseExpressionBase (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10805:23)
+      at D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10801:39
+      at TypeScriptParserMixin.allowInAnd (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:12450:16)
+      at TypeScriptParserMixin.parseExpression (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10801:17)
+      at TypeScriptParserMixin.parseReturnStatement (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:13171:28)
+      at TypeScriptParserMixin.parseStatementContent (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:12827:21)
+      at TypeScriptParserMixin.parseStatementContent (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:9529:18)
+      at TypeScriptParserMixin.parseStatementLike (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:12796:17)
+      at TypeScriptParserMixin.parseStatementListItem (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:12776:17)
+      at TypeScriptParserMixin.parseBlockOrModuleBlockBody (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:13345:61)
+      at TypeScriptParserMixin.parseBlockBody (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:13338:10)
+      at TypeScriptParserMixin.parseBlock (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:13326:10)
+      at TypeScriptParserMixin.parseFunctionBody (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:12129:24)
+      at TypeScriptParserMixin.parseFunctionBodyAndFinish (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:12115:10)
+      at TypeScriptParserMixin.parseFunctionBodyAndFinish (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:9193:18)
+14:05:23 [vite] Internal server error: D:\projects\react_demo\frontend\src\pages\agents\config.tsx: Unexpected token, expected "}" (273:6)
+
+  271 |
+  272 | interface CapabilitySectionProps {
+> 273 |   icon: React.ReactNode;
+      |       ^
+  274 |   iconCls: string;
+  275 |   title: string;
+  276 |   desc: string;
+  Plugin: vite:react-babel
+  File: D:/projects/react_demo/frontend/src/pages/agents/config.tsx:273:6
+  284|    icon,
+  285|    iconCls,
+  286|    title,
+     |        ^
+  287|    desc,
+  288|    selected,
+      at constructor (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:369:19)
+      at TypeScriptParserMixin.raise (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:6620:19)
+      at TypeScriptParserMixin.unexpected (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:6640:16)
+      at TypeScriptParserMixin.expect (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:6920:12)
+      at TypeScriptParserMixin.jsxParseExpressionContainer (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:4653:10)
+      at TypeScriptParserMixin.jsxParseElementAt (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:4727:36)
+      at TypeScriptParserMixin.jsxParseElement (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:4765:17)
+      at TypeScriptParserMixin.parseExprAtom (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:4775:19)
+      at TypeScriptParserMixin.parseExprSubscripts (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:11102:23)
+      at TypeScriptParserMixin.parseUpdate (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:11087:21)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:11067:23)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:9858:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10920:61)
+      at TypeScriptParserMixin.parseExprOps (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10925:23)
+      at TypeScriptParserMixin.parseMaybeConditional (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10902:23)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10852:21)
+      at D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:9796:39
+      at TypeScriptParserMixin.tryParse (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:6928:20)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:9796:18)
+      at D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10821:39
+      at TypeScriptParserMixin.allowInAnd (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:12455:12)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10821:17)
+      at TypeScriptParserMixin.parseMaybeAssignAllowInOrVoidPattern (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:12522:17)
+      at TypeScriptParserMixin.parseParenAndDistinguishExpression (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:11701:28)
+      at TypeScriptParserMixin.parseExprAtom (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:11357:23)
+      at TypeScriptParserMixin.parseExprAtom (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:4780:20)
+      at TypeScriptParserMixin.parseExprSubscripts (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:11102:23)
+      at TypeScriptParserMixin.parseUpdate (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:11087:21)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:11067:23)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:9858:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10920:61)
+      at TypeScriptParserMixin.parseExprOps (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10925:23)
+      at TypeScriptParserMixin.parseMaybeConditional (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10902:23)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10852:21)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:9807:20)
+      at TypeScriptParserMixin.parseExpressionBase (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10805:23)
+      at D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10801:39
+      at TypeScriptParserMixin.allowInAnd (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:12450:16)
+      at TypeScriptParserMixin.parseExpression (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10801:17)
+      at TypeScriptParserMixin.parseReturnStatement (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:13171:28)
+      at TypeScriptParserMixin.parseStatementContent (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:12827:21)
+      at TypeScriptParserMixin.parseStatementContent (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:9529:18)
+      at TypeScriptParserMixin.parseStatementLike (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:12796:17)
+      at TypeScriptParserMixin.parseStatementListItem (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:12776:17)
+      at TypeScriptParserMixin.parseBlockOrModuleBlockBody (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:13345:61)
+      at TypeScriptParserMixin.parseBlockBody (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:13338:10)
+      at TypeScriptParserMixin.parseBlock (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:13326:10)
+      at TypeScriptParserMixin.parseFunctionBody (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:12129:24)
+      at TypeScriptParserMixin.parseFunctionBodyAndFinish (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:12115:10)
+      at TypeScriptParserMixin.parseFunctionBodyAndFinish (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:9193:18)
+14:05:43 [vite] hmr update /src/pages/agents/config.tsx, /src/index.css
+14:05:43 [vite] Internal server error: D:\projects\react_demo\frontend\src\pages\agents\config.tsx: Unexpected token, expected "}" (274:6)
+
+  272 |
+  273 | interface CapabilitySectionProps {
+> 274 |   icon: React.ReactNode;
+      |       ^
+  275 |   iconCls: string;
+  276 |   title: string;
+  277 |   desc: string;
+  Plugin: vite:react-babel
+  File: D:/projects/react_demo/frontend/src/pages/agents/config.tsx:274:6
+  285|    icon,
+  286|    iconCls,
+  287|    title,
+     |         ^
+  288|    desc,
+  289|    selected,
+      at constructor (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:369:19)
+      at TypeScriptParserMixin.raise (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:6620:19)
+      at TypeScriptParserMixin.unexpected (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:6640:16)
+      at TypeScriptParserMixin.expect (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:6920:12)
+      at TypeScriptParserMixin.jsxParseExpressionContainer (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:4653:10)
+      at TypeScriptParserMixin.jsxParseElementAt (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:4727:36)
+      at TypeScriptParserMixin.jsxParseElement (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:4765:17)
+      at TypeScriptParserMixin.parseExprAtom (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:4775:19)
+      at TypeScriptParserMixin.parseExprSubscripts (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:11102:23)
+      at TypeScriptParserMixin.parseUpdate (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:11087:21)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:11067:23)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:9858:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10920:61)
+      at TypeScriptParserMixin.parseExprOps (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10925:23)
+      at TypeScriptParserMixin.parseMaybeConditional (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10902:23)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10852:21)
+      at D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:9796:39
+      at TypeScriptParserMixin.tryParse (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:6928:20)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:9796:18)
+      at D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10821:39
+      at TypeScriptParserMixin.allowInAnd (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:12455:12)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10821:17)
+      at TypeScriptParserMixin.parseMaybeAssignAllowInOrVoidPattern (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:12522:17)
+      at TypeScriptParserMixin.parseParenAndDistinguishExpression (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:11701:28)
+      at TypeScriptParserMixin.parseExprAtom (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:11357:23)
+      at TypeScriptParserMixin.parseExprAtom (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:4780:20)
+      at TypeScriptParserMixin.parseExprSubscripts (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:11102:23)
+      at TypeScriptParserMixin.parseUpdate (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:11087:21)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:11067:23)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:9858:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10920:61)
+      at TypeScriptParserMixin.parseExprOps (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10925:23)
+      at TypeScriptParserMixin.parseMaybeConditional (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10902:23)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10852:21)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:9807:20)
+      at TypeScriptParserMixin.parseExpressionBase (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10805:23)
+      at D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10801:39
+      at TypeScriptParserMixin.allowInAnd (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:12450:16)
+      at TypeScriptParserMixin.parseExpression (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10801:17)
+      at TypeScriptParserMixin.parseReturnStatement (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:13171:28)
+      at TypeScriptParserMixin.parseStatementContent (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:12827:21)
+      at TypeScriptParserMixin.parseStatementContent (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:9529:18)
+      at TypeScriptParserMixin.parseStatementLike (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:12796:17)
+      at TypeScriptParserMixin.parseStatementListItem (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:12776:17)
+      at TypeScriptParserMixin.parseBlockOrModuleBlockBody (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:13345:61)
+      at TypeScriptParserMixin.parseBlockBody (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:13338:10)
+      at TypeScriptParserMixin.parseBlock (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:13326:10)
+      at TypeScriptParserMixin.parseFunctionBody (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:12129:24)
+      at TypeScriptParserMixin.parseFunctionBodyAndFinish (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:12115:10)
+      at TypeScriptParserMixin.parseFunctionBodyAndFinish (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:9193:18)
+14:05:43 [vite] Internal server error: D:\projects\react_demo\frontend\src\pages\agents\config.tsx: Unexpected token, expected "}" (274:6)
+
+  272 |
+  273 | interface CapabilitySectionProps {
+> 274 |   icon: React.ReactNode;
+      |       ^
+  275 |   iconCls: string;
+  276 |   title: string;
+  277 |   desc: string;
+  Plugin: vite:react-babel
+  File: D:/projects/react_demo/frontend/src/pages/agents/config.tsx:274:6
+  285|    icon,
+  286|    iconCls,
+  287|    title,
+     |         ^
+  288|    desc,
+  289|    selected,
+      at constructor (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:369:19)
+      at TypeScriptParserMixin.raise (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:6620:19)
+      at TypeScriptParserMixin.unexpected (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:6640:16)
+      at TypeScriptParserMixin.expect (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:6920:12)
+      at TypeScriptParserMixin.jsxParseExpressionContainer (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:4653:10)
+      at TypeScriptParserMixin.jsxParseElementAt (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:4727:36)
+      at TypeScriptParserMixin.jsxParseElement (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:4765:17)
+      at TypeScriptParserMixin.parseExprAtom (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:4775:19)
+      at TypeScriptParserMixin.parseExprSubscripts (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:11102:23)
+      at TypeScriptParserMixin.parseUpdate (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:11087:21)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:11067:23)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:9858:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10920:61)
+      at TypeScriptParserMixin.parseExprOps (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10925:23)
+      at TypeScriptParserMixin.parseMaybeConditional (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10902:23)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10852:21)
+      at D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:9796:39
+      at TypeScriptParserMixin.tryParse (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:6928:20)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:9796:18)
+      at D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10821:39
+      at TypeScriptParserMixin.allowInAnd (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:12455:12)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10821:17)
+      at TypeScriptParserMixin.parseMaybeAssignAllowInOrVoidPattern (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:12522:17)
+      at TypeScriptParserMixin.parseParenAndDistinguishExpression (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:11701:28)
+      at TypeScriptParserMixin.parseExprAtom (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:11357:23)
+      at TypeScriptParserMixin.parseExprAtom (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:4780:20)
+      at TypeScriptParserMixin.parseExprSubscripts (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:11102:23)
+      at TypeScriptParserMixin.parseUpdate (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:11087:21)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:11067:23)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:9858:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10920:61)
+      at TypeScriptParserMixin.parseExprOps (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10925:23)
+      at TypeScriptParserMixin.parseMaybeConditional (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10902:23)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10852:21)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:9807:20)
+      at TypeScriptParserMixin.parseExpressionBase (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10805:23)
+      at D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10801:39
+      at TypeScriptParserMixin.allowInAnd (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:12450:16)
+      at TypeScriptParserMixin.parseExpression (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10801:17)
+      at TypeScriptParserMixin.parseReturnStatement (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:13171:28)
+      at TypeScriptParserMixin.parseStatementContent (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:12827:21)
+      at TypeScriptParserMixin.parseStatementContent (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:9529:18)
+      at TypeScriptParserMixin.parseStatementLike (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:12796:17)
+      at TypeScriptParserMixin.parseStatementListItem (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:12776:17)
+      at TypeScriptParserMixin.parseBlockOrModuleBlockBody (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:13345:61)
+      at TypeScriptParserMixin.parseBlockBody (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:13338:10)
+      at TypeScriptParserMixin.parseBlock (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:13326:10)
+      at TypeScriptParserMixin.parseFunctionBody (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:12129:24)
+      at TypeScriptParserMixin.parseFunctionBodyAndFinish (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:12115:10)
+      at TypeScriptParserMixin.parseFunctionBodyAndFinish (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:9193:18)
+14:05:43 [vite] Internal server error: D:\projects\react_demo\frontend\src\pages\agents\config.tsx: Unexpected token, expected "}" (274:6)
+
+  272 |
+  273 | interface CapabilitySectionProps {
+> 274 |   icon: React.ReactNode;
+      |       ^
+  275 |   iconCls: string;
+  276 |   title: string;
+  277 |   desc: string;
+  Plugin: vite:react-babel
+  File: D:/projects/react_demo/frontend/src/pages/agents/config.tsx:274:6
+  285|    icon,
+  286|    iconCls,
+  287|    title,
+     |         ^
+  288|    desc,
+  289|    selected,
+      at constructor (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:369:19)
+      at TypeScriptParserMixin.raise (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:6620:19)
+      at TypeScriptParserMixin.unexpected (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:6640:16)
+      at TypeScriptParserMixin.expect (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:6920:12)
+      at TypeScriptParserMixin.jsxParseExpressionContainer (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:4653:10)
+      at TypeScriptParserMixin.jsxParseElementAt (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:4727:36)
+      at TypeScriptParserMixin.jsxParseElement (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:4765:17)
+      at TypeScriptParserMixin.parseExprAtom (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:4775:19)
+      at TypeScriptParserMixin.parseExprSubscripts (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:11102:23)
+      at TypeScriptParserMixin.parseUpdate (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:11087:21)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:11067:23)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:9858:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10920:61)
+      at TypeScriptParserMixin.parseExprOps (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10925:23)
+      at TypeScriptParserMixin.parseMaybeConditional (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10902:23)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10852:21)
+      at D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:9796:39
+      at TypeScriptParserMixin.tryParse (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:6928:20)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:9796:18)
+      at D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10821:39
+      at TypeScriptParserMixin.allowInAnd (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:12455:12)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10821:17)
+      at TypeScriptParserMixin.parseMaybeAssignAllowInOrVoidPattern (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:12522:17)
+      at TypeScriptParserMixin.parseParenAndDistinguishExpression (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:11701:28)
+      at TypeScriptParserMixin.parseExprAtom (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:11357:23)
+      at TypeScriptParserMixin.parseExprAtom (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:4780:20)
+      at TypeScriptParserMixin.parseExprSubscripts (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:11102:23)
+      at TypeScriptParserMixin.parseUpdate (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:11087:21)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:11067:23)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:9858:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10920:61)
+      at TypeScriptParserMixin.parseExprOps (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10925:23)
+      at TypeScriptParserMixin.parseMaybeConditional (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10902:23)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10852:21)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:9807:20)
+      at TypeScriptParserMixin.parseExpressionBase (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10805:23)
+      at D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10801:39
+      at TypeScriptParserMixin.allowInAnd (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:12450:16)
+      at TypeScriptParserMixin.parseExpression (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10801:17)
+      at TypeScriptParserMixin.parseReturnStatement (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:13171:28)
+      at TypeScriptParserMixin.parseStatementContent (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:12827:21)
+      at TypeScriptParserMixin.parseStatementContent (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:9529:18)
+      at TypeScriptParserMixin.parseStatementLike (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:12796:17)
+      at TypeScriptParserMixin.parseStatementListItem (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:12776:17)
+      at TypeScriptParserMixin.parseBlockOrModuleBlockBody (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:13345:61)
+      at TypeScriptParserMixin.parseBlockBody (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:13338:10)
+      at TypeScriptParserMixin.parseBlock (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:13326:10)
+      at TypeScriptParserMixin.parseFunctionBody (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:12129:24)
+      at TypeScriptParserMixin.parseFunctionBodyAndFinish (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:12115:10)
+      at TypeScriptParserMixin.parseFunctionBodyAndFinish (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:9193:18)
+14:05:43 [vite] Internal server error: D:\projects\react_demo\frontend\src\pages\agents\config.tsx: Unexpected token, expected "}" (274:6)
+
+  272 |
+  273 | interface CapabilitySectionProps {
+> 274 |   icon: React.ReactNode;
+      |       ^
+  275 |   iconCls: string;
+  276 |   title: string;
+  277 |   desc: string;
+  Plugin: vite:react-babel
+  File: D:/projects/react_demo/frontend/src/pages/agents/config.tsx:274:6
+  285|    icon,
+  286|    iconCls,
+  287|    title,
+     |         ^
+  288|    desc,
+  289|    selected,
+      at constructor (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:369:19)
+      at TypeScriptParserMixin.raise (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:6620:19)
+      at TypeScriptParserMixin.unexpected (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:6640:16)
+      at TypeScriptParserMixin.expect (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:6920:12)
+      at TypeScriptParserMixin.jsxParseExpressionContainer (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:4653:10)
+      at TypeScriptParserMixin.jsxParseElementAt (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:4727:36)
+      at TypeScriptParserMixin.jsxParseElement (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:4765:17)
+      at TypeScriptParserMixin.parseExprAtom (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:4775:19)
+      at TypeScriptParserMixin.parseExprSubscripts (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:11102:23)
+      at TypeScriptParserMixin.parseUpdate (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:11087:21)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:11067:23)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:9858:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10920:61)
+      at TypeScriptParserMixin.parseExprOps (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10925:23)
+      at TypeScriptParserMixin.parseMaybeConditional (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10902:23)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10852:21)
+      at D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:9796:39
+      at TypeScriptParserMixin.tryParse (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:6928:20)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:9796:18)
+      at D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10821:39
+      at TypeScriptParserMixin.allowInAnd (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:12455:12)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10821:17)
+      at TypeScriptParserMixin.parseMaybeAssignAllowInOrVoidPattern (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:12522:17)
+      at TypeScriptParserMixin.parseParenAndDistinguishExpression (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:11701:28)
+      at TypeScriptParserMixin.parseExprAtom (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:11357:23)
+      at TypeScriptParserMixin.parseExprAtom (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:4780:20)
+      at TypeScriptParserMixin.parseExprSubscripts (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:11102:23)
+      at TypeScriptParserMixin.parseUpdate (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:11087:21)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:11067:23)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:9858:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10920:61)
+      at TypeScriptParserMixin.parseExprOps (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10925:23)
+      at TypeScriptParserMixin.parseMaybeConditional (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10902:23)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10852:21)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:9807:20)
+      at TypeScriptParserMixin.parseExpressionBase (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10805:23)
+      at D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10801:39
+      at TypeScriptParserMixin.allowInAnd (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:12450:16)
+      at TypeScriptParserMixin.parseExpression (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10801:17)
+      at TypeScriptParserMixin.parseReturnStatement (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:13171:28)
+      at TypeScriptParserMixin.parseStatementContent (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:12827:21)
+      at TypeScriptParserMixin.parseStatementContent (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:9529:18)
+      at TypeScriptParserMixin.parseStatementLike (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:12796:17)
+      at TypeScriptParserMixin.parseStatementListItem (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:12776:17)
+      at TypeScriptParserMixin.parseBlockOrModuleBlockBody (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:13345:61)
+      at TypeScriptParserMixin.parseBlockBody (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:13338:10)
+      at TypeScriptParserMixin.parseBlock (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:13326:10)
+      at TypeScriptParserMixin.parseFunctionBody (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:12129:24)
+      at TypeScriptParserMixin.parseFunctionBodyAndFinish (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:12115:10)
+      at TypeScriptParserMixin.parseFunctionBodyAndFinish (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:9193:18)
+14:05:57 [vite] hmr update /src/pages/agents/config.tsx, /src/index.css
+14:05:57 [vite] Internal server error: D:\projects\react_demo\frontend\src\pages\agents\config.tsx: Unexpected token, expected "}" (280:6)
+
+  278 |
+  279 | interface CapabilitySectionProps {
+> 280 |   icon: React.ReactNode;
+      |       ^
+  281 |   iconCls: string;
+  282 |   title: string;
+  283 |   desc: string;
+  Plugin: vite:react-babel
+  File: D:/projects/react_demo/frontend/src/pages/agents/config.tsx:280:6
+  292|    iconCls,
+  293|    title,
+  294|    desc,
+     |      ^
+  295|    selected,
+  296|    pool,
+      at constructor (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:369:19)
+      at TypeScriptParserMixin.raise (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:6620:19)
+      at TypeScriptParserMixin.unexpected (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:6640:16)
+      at TypeScriptParserMixin.expect (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:6920:12)
+      at TypeScriptParserMixin.jsxParseExpressionContainer (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:4653:10)
+      at TypeScriptParserMixin.jsxParseElementAt (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:4727:36)
+      at TypeScriptParserMixin.jsxParseElement (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:4765:17)
+      at TypeScriptParserMixin.parseExprAtom (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:4775:19)
+      at TypeScriptParserMixin.parseExprSubscripts (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:11102:23)
+      at TypeScriptParserMixin.parseUpdate (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:11087:21)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:11067:23)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:9858:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10920:61)
+      at TypeScriptParserMixin.parseExprOps (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10925:23)
+      at TypeScriptParserMixin.parseMaybeConditional (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10902:23)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10852:21)
+      at D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:9796:39
+      at TypeScriptParserMixin.tryParse (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:6928:20)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:9796:18)
+      at D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10821:39
+      at TypeScriptParserMixin.allowInAnd (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:12455:12)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10821:17)
+      at TypeScriptParserMixin.parseMaybeAssignAllowInOrVoidPattern (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:12522:17)
+      at TypeScriptParserMixin.parseParenAndDistinguishExpression (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:11701:28)
+      at TypeScriptParserMixin.parseExprAtom (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:11357:23)
+      at TypeScriptParserMixin.parseExprAtom (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:4780:20)
+      at TypeScriptParserMixin.parseExprSubscripts (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:11102:23)
+      at TypeScriptParserMixin.parseUpdate (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:11087:21)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:11067:23)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:9858:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10920:61)
+      at TypeScriptParserMixin.parseExprOps (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10925:23)
+      at TypeScriptParserMixin.parseMaybeConditional (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10902:23)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10852:21)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:9807:20)
+      at TypeScriptParserMixin.parseExpressionBase (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10805:23)
+      at D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10801:39
+      at TypeScriptParserMixin.allowInAnd (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:12450:16)
+      at TypeScriptParserMixin.parseExpression (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10801:17)
+      at TypeScriptParserMixin.parseReturnStatement (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:13171:28)
+      at TypeScriptParserMixin.parseStatementContent (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:12827:21)
+      at TypeScriptParserMixin.parseStatementContent (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:9529:18)
+      at TypeScriptParserMixin.parseStatementLike (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:12796:17)
+      at TypeScriptParserMixin.parseStatementListItem (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:12776:17)
+      at TypeScriptParserMixin.parseBlockOrModuleBlockBody (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:13345:61)
+      at TypeScriptParserMixin.parseBlockBody (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:13338:10)
+      at TypeScriptParserMixin.parseBlock (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:13326:10)
+      at TypeScriptParserMixin.parseFunctionBody (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:12129:24)
+      at TypeScriptParserMixin.parseFunctionBodyAndFinish (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:12115:10)
+      at TypeScriptParserMixin.parseFunctionBodyAndFinish (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:9193:18)
+14:05:57 [vite] Internal server error: D:\projects\react_demo\frontend\src\pages\agents\config.tsx: Unexpected token, expected "}" (280:6)
+
+  278 |
+  279 | interface CapabilitySectionProps {
+> 280 |   icon: React.ReactNode;
+      |       ^
+  281 |   iconCls: string;
+  282 |   title: string;
+  283 |   desc: string;
+  Plugin: vite:react-babel
+  File: D:/projects/react_demo/frontend/src/pages/agents/config.tsx:280:6
+  292|    iconCls,
+  293|    title,
+  294|    desc,
+     |      ^
+  295|    selected,
+  296|    pool,
+      at constructor (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:369:19)
+      at TypeScriptParserMixin.raise (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:6620:19)
+      at TypeScriptParserMixin.unexpected (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:6640:16)
+      at TypeScriptParserMixin.expect (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:6920:12)
+      at TypeScriptParserMixin.jsxParseExpressionContainer (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:4653:10)
+      at TypeScriptParserMixin.jsxParseElementAt (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:4727:36)
+      at TypeScriptParserMixin.jsxParseElement (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:4765:17)
+      at TypeScriptParserMixin.parseExprAtom (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:4775:19)
+      at TypeScriptParserMixin.parseExprSubscripts (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:11102:23)
+      at TypeScriptParserMixin.parseUpdate (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:11087:21)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:11067:23)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:9858:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10920:61)
+      at TypeScriptParserMixin.parseExprOps (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10925:23)
+      at TypeScriptParserMixin.parseMaybeConditional (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10902:23)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10852:21)
+      at D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:9796:39
+      at TypeScriptParserMixin.tryParse (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:6928:20)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:9796:18)
+      at D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10821:39
+      at TypeScriptParserMixin.allowInAnd (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:12455:12)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10821:17)
+      at TypeScriptParserMixin.parseMaybeAssignAllowInOrVoidPattern (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:12522:17)
+      at TypeScriptParserMixin.parseParenAndDistinguishExpression (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:11701:28)
+      at TypeScriptParserMixin.parseExprAtom (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:11357:23)
+      at TypeScriptParserMixin.parseExprAtom (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:4780:20)
+      at TypeScriptParserMixin.parseExprSubscripts (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:11102:23)
+      at TypeScriptParserMixin.parseUpdate (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:11087:21)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:11067:23)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:9858:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10920:61)
+      at TypeScriptParserMixin.parseExprOps (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10925:23)
+      at TypeScriptParserMixin.parseMaybeConditional (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10902:23)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10852:21)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:9807:20)
+      at TypeScriptParserMixin.parseExpressionBase (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10805:23)
+      at D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10801:39
+      at TypeScriptParserMixin.allowInAnd (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:12450:16)
+      at TypeScriptParserMixin.parseExpression (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10801:17)
+      at TypeScriptParserMixin.parseReturnStatement (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:13171:28)
+      at TypeScriptParserMixin.parseStatementContent (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:12827:21)
+      at TypeScriptParserMixin.parseStatementContent (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:9529:18)
+      at TypeScriptParserMixin.parseStatementLike (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:12796:17)
+      at TypeScriptParserMixin.parseStatementListItem (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:12776:17)
+      at TypeScriptParserMixin.parseBlockOrModuleBlockBody (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:13345:61)
+      at TypeScriptParserMixin.parseBlockBody (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:13338:10)
+      at TypeScriptParserMixin.parseBlock (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:13326:10)
+      at TypeScriptParserMixin.parseFunctionBody (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:12129:24)
+      at TypeScriptParserMixin.parseFunctionBodyAndFinish (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:12115:10)
+      at TypeScriptParserMixin.parseFunctionBodyAndFinish (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:9193:18)
+14:05:58 [vite] Internal server error: D:\projects\react_demo\frontend\src\pages\agents\config.tsx: Unexpected token, expected "}" (280:6)
+
+  278 |
+  279 | interface CapabilitySectionProps {
+> 280 |   icon: React.ReactNode;
+      |       ^
+  281 |   iconCls: string;
+  282 |   title: string;
+  283 |   desc: string;
+  Plugin: vite:react-babel
+  File: D:/projects/react_demo/frontend/src/pages/agents/config.tsx:280:6
+  292|    iconCls,
+  293|    title,
+  294|    desc,
+     |      ^
+  295|    selected,
+  296|    pool,
+      at constructor (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:369:19)
+      at TypeScriptParserMixin.raise (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:6620:19)
+      at TypeScriptParserMixin.unexpected (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:6640:16)
+      at TypeScriptParserMixin.expect (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:6920:12)
+      at TypeScriptParserMixin.jsxParseExpressionContainer (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:4653:10)
+      at TypeScriptParserMixin.jsxParseElementAt (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:4727:36)
+      at TypeScriptParserMixin.jsxParseElement (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:4765:17)
+      at TypeScriptParserMixin.parseExprAtom (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:4775:19)
+      at TypeScriptParserMixin.parseExprSubscripts (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:11102:23)
+      at TypeScriptParserMixin.parseUpdate (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:11087:21)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:11067:23)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:9858:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10920:61)
+      at TypeScriptParserMixin.parseExprOps (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10925:23)
+      at TypeScriptParserMixin.parseMaybeConditional (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10902:23)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10852:21)
+      at D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:9796:39
+      at TypeScriptParserMixin.tryParse (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:6928:20)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:9796:18)
+      at D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10821:39
+      at TypeScriptParserMixin.allowInAnd (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:12455:12)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10821:17)
+      at TypeScriptParserMixin.parseMaybeAssignAllowInOrVoidPattern (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:12522:17)
+      at TypeScriptParserMixin.parseParenAndDistinguishExpression (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:11701:28)
+      at TypeScriptParserMixin.parseExprAtom (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:11357:23)
+      at TypeScriptParserMixin.parseExprAtom (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:4780:20)
+      at TypeScriptParserMixin.parseExprSubscripts (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:11102:23)
+      at TypeScriptParserMixin.parseUpdate (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:11087:21)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:11067:23)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:9858:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10920:61)
+      at TypeScriptParserMixin.parseExprOps (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10925:23)
+      at TypeScriptParserMixin.parseMaybeConditional (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10902:23)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10852:21)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:9807:20)
+      at TypeScriptParserMixin.parseExpressionBase (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10805:23)
+      at D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10801:39
+      at TypeScriptParserMixin.allowInAnd (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:12450:16)
+      at TypeScriptParserMixin.parseExpression (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10801:17)
+      at TypeScriptParserMixin.parseReturnStatement (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:13171:28)
+      at TypeScriptParserMixin.parseStatementContent (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:12827:21)
+      at TypeScriptParserMixin.parseStatementContent (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:9529:18)
+      at TypeScriptParserMixin.parseStatementLike (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:12796:17)
+      at TypeScriptParserMixin.parseStatementListItem (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:12776:17)
+      at TypeScriptParserMixin.parseBlockOrModuleBlockBody (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:13345:61)
+      at TypeScriptParserMixin.parseBlockBody (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:13338:10)
+      at TypeScriptParserMixin.parseBlock (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:13326:10)
+      at TypeScriptParserMixin.parseFunctionBody (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:12129:24)
+      at TypeScriptParserMixin.parseFunctionBodyAndFinish (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:12115:10)
+      at TypeScriptParserMixin.parseFunctionBodyAndFinish (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:9193:18)
+14:05:58 [vite] Internal server error: D:\projects\react_demo\frontend\src\pages\agents\config.tsx: Unexpected token, expected "}" (280:6)
+
+  278 |
+  279 | interface CapabilitySectionProps {
+> 280 |   icon: React.ReactNode;
+      |       ^
+  281 |   iconCls: string;
+  282 |   title: string;
+  283 |   desc: string;
+  Plugin: vite:react-babel
+  File: D:/projects/react_demo/frontend/src/pages/agents/config.tsx:280:6
+  292|    iconCls,
+  293|    title,
+  294|    desc,
+     |      ^
+  295|    selected,
+  296|    pool,
+      at constructor (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:369:19)
+      at TypeScriptParserMixin.raise (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:6620:19)
+      at TypeScriptParserMixin.unexpected (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:6640:16)
+      at TypeScriptParserMixin.expect (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:6920:12)
+      at TypeScriptParserMixin.jsxParseExpressionContainer (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:4653:10)
+      at TypeScriptParserMixin.jsxParseElementAt (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:4727:36)
+      at TypeScriptParserMixin.jsxParseElement (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:4765:17)
+      at TypeScriptParserMixin.parseExprAtom (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:4775:19)
+      at TypeScriptParserMixin.parseExprSubscripts (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:11102:23)
+      at TypeScriptParserMixin.parseUpdate (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:11087:21)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:11067:23)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:9858:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10920:61)
+      at TypeScriptParserMixin.parseExprOps (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10925:23)
+      at TypeScriptParserMixin.parseMaybeConditional (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10902:23)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10852:21)
+      at D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:9796:39
+      at TypeScriptParserMixin.tryParse (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:6928:20)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:9796:18)
+      at D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10821:39
+      at TypeScriptParserMixin.allowInAnd (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:12455:12)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10821:17)
+      at TypeScriptParserMixin.parseMaybeAssignAllowInOrVoidPattern (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:12522:17)
+      at TypeScriptParserMixin.parseParenAndDistinguishExpression (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:11701:28)
+      at TypeScriptParserMixin.parseExprAtom (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:11357:23)
+      at TypeScriptParserMixin.parseExprAtom (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:4780:20)
+      at TypeScriptParserMixin.parseExprSubscripts (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:11102:23)
+      at TypeScriptParserMixin.parseUpdate (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:11087:21)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:11067:23)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:9858:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10920:61)
+      at TypeScriptParserMixin.parseExprOps (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10925:23)
+      at TypeScriptParserMixin.parseMaybeConditional (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10902:23)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10852:21)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:9807:20)
+      at TypeScriptParserMixin.parseExpressionBase (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10805:23)
+      at D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10801:39
+      at TypeScriptParserMixin.allowInAnd (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:12450:16)
+      at TypeScriptParserMixin.parseExpression (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:10801:17)
+      at TypeScriptParserMixin.parseReturnStatement (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:13171:28)
+      at TypeScriptParserMixin.parseStatementContent (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:12827:21)
+      at TypeScriptParserMixin.parseStatementContent (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:9529:18)
+      at TypeScriptParserMixin.parseStatementLike (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:12796:17)
+      at TypeScriptParserMixin.parseStatementListItem (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:12776:17)
+      at TypeScriptParserMixin.parseBlockOrModuleBlockBody (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:13345:61)
+      at TypeScriptParserMixin.parseBlockBody (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:13338:10)
+      at TypeScriptParserMixin.parseBlock (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:13326:10)
+      at TypeScriptParserMixin.parseFunctionBody (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:12129:24)
+      at TypeScriptParserMixin.parseFunctionBodyAndFinish (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:12115:10)
+      at TypeScriptParserMixin.parseFunctionBodyAndFinish (D:\projects\react_demo\frontend\node_modules\@babel\parser\lib\index.js:9193:18)
+14:06:58 [vite] hmr update /src/components/agent/DebugPanel.tsx, /src/index.css
+14:07:18 [vite] hmr update /src/components/agent/DebugPanel.tsx, /src/index.css
+14:07:36 [vite] hmr update /src/components/agent/DebugPanel.tsx, /src/index.css
+14:07:57 [vite] hmr update /src/components/agent/DebugPanel.tsx, /src/index.css
+14:11:35 [vite] hmr update /src/pages/agents/config.tsx, /src/index.css
+14:16:31 [vite] vite.config.ts changed, restarting server...
+14:16:31 [vite] server restarted.
+14:16:32 [vite] hmr update /src/index.css, /src/pages/agents/config.tsx
+14:16:32 [vite] hmr update /src/index.css, /src/pages/resources/index.tsx, /src/pages/agents/config.tsx, /src/pages/agents/list.tsx, /src/pages/chat/index.tsx
+14:16:32 [vite] hmr update /src/index.css, /src/pages/agents/list.tsx, /src/pages/chat/index.tsx, /src/pages/agents/config.tsx
+14:16:32 [vite] hmr update /src/components/layout/Sidebar.tsx, /src/index.css
+14:16:32 [vite] hmr update /src/components/layout/AppLayout.tsx, /src/index.css
+14:16:32 [vite] page reload src/components/agent/AgentStatus.tsx
+14:16:32 [vite] hmr update /src/pages/agents/config.tsx, /src/index.css
+14:16:32 [vite] hmr update /src/pages/agents/list.tsx, /src/index.css
+14:16:32 [vite] hmr update /src/pages/workspace/index.tsx, /src/index.css
+14:16:33 [vite] hmr update /src/pages/resources/index.tsx, /src/index.css
+14:16:33 [vite] hmr update /src/pages/chat/index.tsx, /src/index.css
+14:16:33 [vite] hmr update /src/components/layout/TopNav.tsx, /src/index.css
+14:16:33 [vite] hmr update /src/pages/evaluation/index.tsx, /src/index.css
+14:16:33 [vite] page reload tailwind.config.js
+14:16:33 [vite] hmr update /src/index.css, /src/pages/chat/index.tsx, /src/components/agent/DebugPanel.tsx
+14:16:33 [vite] hmr update /src/components/agent/DebugPanel.tsx, /src/index.css
+14:16:33 [vite] hmr update /src/components/layout/Resizer.tsx, /src/index.css
+15:48:19 [vite] hmr update /src/index.css, /src/pages/agents/list.tsx, /src/pages/chat/index.tsx, /src/pages/agents/config.tsx
+15:48:19 [vite] Internal server error: Failed to resolve import "./request" from "src/api/agents.ts". Does the file exist?
+  Plugin: vite:import-analysis
+  File: D:/projects/react_demo/frontend/src/api/agents.ts:2:17
+  1  |  import http from "./request";
+     |                    ^
+  2  |  function toFrontend(a) {
+  3  |    const status = a.status === "archived" ? "offline" : a.status;
+      at TransformPluginContext._formatError (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49258:41)
+      at TransformPluginContext.error (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49253:16)
+      at normalizeUrl (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64307:23)
+      at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+      at async file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64439:39
+      at async Promise.all (index 0)
+      at async TransformPluginContext.transform (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64366:7)
+      at async PluginContainer.transform (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49099:18)
+      at async loadAndTransform (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:51978:27)
+15:48:19 [vite] Internal server error: Failed to resolve import "./request" from "src/api/agents.ts". Does the file exist?
+  Plugin: vite:import-analysis
+  File: D:/projects/react_demo/frontend/src/api/agents.ts:2:17
+  1  |  import http from "./request";
+     |                    ^
+  2  |  function toFrontend(a) {
+  3  |    const status = a.status === "archived" ? "offline" : a.status;
+      at TransformPluginContext._formatError (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49258:41)
+      at TransformPluginContext.error (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49253:16)
+      at normalizeUrl (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64307:23)
+      at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+      at async file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64439:39
+      at async Promise.all (index 0)
+      at async TransformPluginContext.transform (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64366:7)
+      at async PluginContainer.transform (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49099:18)
+      at async loadAndTransform (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:51978:27)
+15:48:19 [vite] Pre-transform error: Failed to resolve import "./request" from "src/api/agents.ts". Does the file exist?
+15:48:19 [vite] Internal server error: Failed to resolve import "./request" from "src/api/agents.ts". Does the file exist?
+  Plugin: vite:import-analysis
+  File: D:/projects/react_demo/frontend/src/api/agents.ts:2:17
+  1  |  import http from "./request";
+     |                    ^
+  2  |  function toFrontend(a) {
+  3  |    const status = a.status === "archived" ? "offline" : a.status;
+      at TransformPluginContext._formatError (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49258:41)
+      at TransformPluginContext.error (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49253:16)
+      at normalizeUrl (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64307:23)
+      at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+      at async file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64439:39
+      at async Promise.all (index 0)
+      at async TransformPluginContext.transform (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64366:7)
+      at async PluginContainer.transform (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49099:18)
+      at async loadAndTransform (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:51978:27)
+      at async viteTransformMiddleware (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:62106:24)
+15:48:19 [vite] Internal server error: Failed to resolve import "./request" from "src/api/agents.ts". Does the file exist?
+  Plugin: vite:import-analysis
+  File: D:/projects/react_demo/frontend/src/api/agents.ts:2:17
+  1  |  import http from "./request";
+     |                    ^
+  2  |  function toFrontend(a) {
+  3  |    const status = a.status === "archived" ? "offline" : a.status;
+      at TransformPluginContext._formatError (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49258:41)
+      at TransformPluginContext.error (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49253:16)
+      at normalizeUrl (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64307:23)
+      at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+      at async file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64439:39
+      at async Promise.all (index 0)
+      at async TransformPluginContext.transform (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64366:7)
+      at async PluginContainer.transform (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49099:18)
+      at async loadAndTransform (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:51978:27)
+      at async viteTransformMiddleware (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:62106:24)
+15:48:45 [vite] page reload src/utils/request.ts
+15:48:45 [vite] Internal server error: Failed to resolve import "./request" from "src/api/agents.ts". Does the file exist?
+  Plugin: vite:import-analysis
+  File: D:/projects/react_demo/frontend/src/api/agents.ts:2:17
+  1  |  import http from "./request";
+     |                    ^
+  2  |  function toFrontend(a) {
+  3  |    const status = a.status === "archived" ? "offline" : a.status;
+      at TransformPluginContext._formatError (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49258:41)
+      at TransformPluginContext.error (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49253:16)
+      at normalizeUrl (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64307:23)
+      at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+      at async file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64439:39
+      at async Promise.all (index 0)
+      at async TransformPluginContext.transform (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64366:7)
+      at async PluginContainer.transform (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49099:18)
+      at async loadAndTransform (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:51978:27)
+      at async viteTransformMiddleware (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:62106:24)
+15:48:45 [vite] Internal server error: Failed to resolve import "./request" from "src/api/agents.ts". Does the file exist?
+  Plugin: vite:import-analysis
+  File: D:/projects/react_demo/frontend/src/api/agents.ts:2:17
+  1  |  import http from "./request";
+     |                    ^
+  2  |  function toFrontend(a) {
+  3  |    const status = a.status === "archived" ? "offline" : a.status;
+      at TransformPluginContext._formatError (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49258:41)
+      at TransformPluginContext.error (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49253:16)
+      at normalizeUrl (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64307:23)
+      at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+      at async file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64439:39
+      at async Promise.all (index 0)
+      at async TransformPluginContext.transform (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64366:7)
+      at async PluginContainer.transform (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49099:18)
+      at async loadAndTransform (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:51978:27)
+      at async viteTransformMiddleware (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:62106:24)
+15:48:45 [vite] Internal server error: Failed to resolve import "./request" from "src/api/agents.ts". Does the file exist?
+  Plugin: vite:import-analysis
+  File: D:/projects/react_demo/frontend/src/api/agents.ts:2:17
+  1  |  import http from "./request";
+     |                    ^
+  2  |  function toFrontend(a) {
+  3  |    const status = a.status === "archived" ? "offline" : a.status;
+      at TransformPluginContext._formatError (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49258:41)
+      at TransformPluginContext.error (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49253:16)
+      at normalizeUrl (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64307:23)
+      at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+      at async file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64439:39
+      at async Promise.all (index 0)
+      at async TransformPluginContext.transform (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64366:7)
+      at async PluginContainer.transform (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49099:18)
+      at async loadAndTransform (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:51978:27)
+      at async viteTransformMiddleware (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:62106:24)
+15:48:49 [vite] Internal server error: Failed to resolve import "./request" from "src/api/agents.ts". Does the file exist?
+  Plugin: vite:import-analysis
+  File: D:/projects/react_demo/frontend/src/api/agents.ts:2:17
+  1  |  import http from "./request";
+     |                    ^
+  2  |  function toFrontend(a) {
+  3  |    const status = a.status === "archived" ? "offline" : a.status;
+      at TransformPluginContext._formatError (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49258:41)
+      at TransformPluginContext.error (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49253:16)
+      at normalizeUrl (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64307:23)
+      at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+      at async file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64439:39
+      at async Promise.all (index 0)
+      at async TransformPluginContext.transform (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64366:7)
+      at async PluginContainer.transform (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49099:18)
+      at async loadAndTransform (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:51978:27)
+      at async viteTransformMiddleware (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:62106:24)
+15:49:04 [vite] page reload src/utils/request.ts
+15:49:04 [vite] Internal server error: Failed to resolve import "./request" from "src/api/agents.ts". Does the file exist?
+  Plugin: vite:import-analysis
+  File: D:/projects/react_demo/frontend/src/api/agents.ts:2:17
+  1  |  import http from "./request";
+     |                    ^
+  2  |  function toFrontend(a) {
+  3  |    const status = a.status === "archived" ? "offline" : a.status;
+      at TransformPluginContext._formatError (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49258:41)
+      at TransformPluginContext.error (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49253:16)
+      at normalizeUrl (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64307:23)
+      at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+      at async file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64439:39
+      at async Promise.all (index 0)
+      at async TransformPluginContext.transform (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64366:7)
+      at async PluginContainer.transform (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49099:18)
+      at async loadAndTransform (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:51978:27)
+      at async viteTransformMiddleware (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:62106:24)
+15:49:04 [vite] Internal server error: Failed to resolve import "./request" from "src/api/agents.ts". Does the file exist?
+  Plugin: vite:import-analysis
+  File: D:/projects/react_demo/frontend/src/api/agents.ts:2:17
+  1  |  import http from "./request";
+     |                    ^
+  2  |  function toFrontend(a) {
+  3  |    const status = a.status === "archived" ? "offline" : a.status;
+      at TransformPluginContext._formatError (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49258:41)
+      at TransformPluginContext.error (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49253:16)
+      at normalizeUrl (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64307:23)
+      at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+      at async file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64439:39
+      at async Promise.all (index 0)
+      at async TransformPluginContext.transform (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64366:7)
+      at async PluginContainer.transform (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49099:18)
+      at async loadAndTransform (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:51978:27)
+      at async viteTransformMiddleware (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:62106:24)
+15:49:04 [vite] Internal server error: Failed to resolve import "./request" from "src/api/agents.ts". Does the file exist?
+  Plugin: vite:import-analysis
+  File: D:/projects/react_demo/frontend/src/api/agents.ts:2:17
+  1  |  import http from "./request";
+     |                    ^
+  2  |  function toFrontend(a) {
+  3  |    const status = a.status === "archived" ? "offline" : a.status;
+      at TransformPluginContext._formatError (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49258:41)
+      at TransformPluginContext.error (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49253:16)
+      at normalizeUrl (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64307:23)
+      at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+      at async file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64439:39
+      at async Promise.all (index 0)
+      at async TransformPluginContext.transform (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64366:7)
+      at async PluginContainer.transform (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49099:18)
+      at async loadAndTransform (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:51978:27)
+      at async viteTransformMiddleware (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:62106:24)
+15:49:22 [vite] hmr update /src/components/layout/AppLayout.tsx, /src/index.css
+15:49:22 [vite] Internal server error: Failed to resolve import "./request" from "src/api/agents.ts". Does the file exist?
+  Plugin: vite:import-analysis
+  File: D:/projects/react_demo/frontend/src/api/agents.ts:2:17
+  1  |  import http from "./request";
+     |                    ^
+  2  |  function toFrontend(a) {
+  3  |    const status = a.status === "archived" ? "offline" : a.status;
+      at TransformPluginContext._formatError (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49258:41)
+      at TransformPluginContext.error (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49253:16)
+      at normalizeUrl (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64307:23)
+      at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+      at async file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64439:39
+      at async Promise.all (index 0)
+      at async TransformPluginContext.transform (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64366:7)
+      at async PluginContainer.transform (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49099:18)
+      at async loadAndTransform (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:51978:27)
+      at async viteTransformMiddleware (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:62106:24)
+15:49:22 [vite] Internal server error: Failed to resolve import "./request" from "src/api/agents.ts". Does the file exist?
+  Plugin: vite:import-analysis
+  File: D:/projects/react_demo/frontend/src/api/agents.ts:2:17
+  1  |  import http from "./request";
+     |                    ^
+  2  |  function toFrontend(a) {
+  3  |    const status = a.status === "archived" ? "offline" : a.status;
+      at TransformPluginContext._formatError (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49258:41)
+      at TransformPluginContext.error (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49253:16)
+      at normalizeUrl (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64307:23)
+      at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+      at async file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64439:39
+      at async Promise.all (index 0)
+      at async TransformPluginContext.transform (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64366:7)
+      at async PluginContainer.transform (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49099:18)
+      at async loadAndTransform (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:51978:27)
+      at async viteTransformMiddleware (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:62106:24)
+15:49:22 [vite] Internal server error: Failed to resolve import "./request" from "src/api/agents.ts". Does the file exist?
+  Plugin: vite:import-analysis
+  File: D:/projects/react_demo/frontend/src/api/agents.ts:2:17
+  1  |  import http from "./request";
+     |                    ^
+  2  |  function toFrontend(a) {
+  3  |    const status = a.status === "archived" ? "offline" : a.status;
+      at TransformPluginContext._formatError (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49258:41)
+      at TransformPluginContext.error (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49253:16)
+      at normalizeUrl (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64307:23)
+      at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+      at async file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64439:39
+      at async Promise.all (index 0)
+      at async TransformPluginContext.transform (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64366:7)
+      at async PluginContainer.transform (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49099:18)
+      at async loadAndTransform (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:51978:27)
+      at async viteTransformMiddleware (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:62106:24)
+15:49:35 [vite] hmr update /src/index.css, /src/pages/agents/list.tsx, /src/pages/chat/index.tsx, /src/pages/agents/config.tsx, /src/components/layout/AppLayout.tsx
+15:49:35 [vite] Pre-transform error: Failed to resolve import "./request" from "src/api/agents.ts". Does the file exist?
+15:49:35 [vite] Internal server error: Failed to resolve import "./request" from "src/api/agents.ts". Does the file exist?
+  Plugin: vite:import-analysis
+  File: D:/projects/react_demo/frontend/src/api/agents.ts:2:17
+  1  |  import http from "./request";
+     |                    ^
+  2  |  function toFrontend(a) {
+  3  |    const status = a.status === "archived" ? "offline" : a.status;
+      at TransformPluginContext._formatError (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49258:41)
+      at TransformPluginContext.error (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49253:16)
+      at normalizeUrl (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64307:23)
+      at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+      at async file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64439:39
+      at async Promise.all (index 0)
+      at async TransformPluginContext.transform (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64366:7)
+      at async PluginContainer.transform (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49099:18)
+      at async loadAndTransform (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:51978:27)
+      at async viteTransformMiddleware (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:62106:24)
+15:49:35 [vite] Internal server error: Failed to resolve import "./request" from "src/api/agents.ts". Does the file exist?
+  Plugin: vite:import-analysis
+  File: D:/projects/react_demo/frontend/src/api/agents.ts:2:17
+  1  |  import http from "./request";
+     |                    ^
+  2  |  function toFrontend(a) {
+  3  |    const status = a.status === "archived" ? "offline" : a.status;
+      at TransformPluginContext._formatError (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49258:41)
+      at TransformPluginContext.error (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49253:16)
+      at normalizeUrl (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64307:23)
+      at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+      at async file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64439:39
+      at async Promise.all (index 0)
+      at async TransformPluginContext.transform (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64366:7)
+      at async PluginContainer.transform (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49099:18)
+      at async loadAndTransform (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:51978:27)
+      at async viteTransformMiddleware (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:62106:24)
+15:49:35 [vite] Internal server error: Failed to resolve import "./request" from "src/api/agents.ts". Does the file exist?
+  Plugin: vite:import-analysis
+  File: D:/projects/react_demo/frontend/src/api/agents.ts:2:17
+  1  |  import http from "./request";
+     |                    ^
+  2  |  function toFrontend(a) {
+  3  |    const status = a.status === "archived" ? "offline" : a.status;
+      at TransformPluginContext._formatError (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49258:41)
+      at TransformPluginContext.error (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49253:16)
+      at normalizeUrl (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64307:23)
+      at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+      at async file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64439:39
+      at async Promise.all (index 0)
+      at async TransformPluginContext.transform (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64366:7)
+      at async PluginContainer.transform (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49099:18)
+      at async loadAndTransform (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:51978:27)
+      at async viteTransformMiddleware (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:62106:24)
+15:49:51 [vite] hmr update /src/pages/chat/index.tsx, /src/index.css
+15:49:51 [vite] Internal server error: Failed to resolve import "./request" from "src/api/agents.ts". Does the file exist?
+  Plugin: vite:import-analysis
+  File: D:/projects/react_demo/frontend/src/api/agents.ts:2:17
+  1  |  import http from "./request";
+     |                    ^
+  2  |  function toFrontend(a) {
+  3  |    const status = a.status === "archived" ? "offline" : a.status;
+      at TransformPluginContext._formatError (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49258:41)
+      at TransformPluginContext.error (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49253:16)
+      at normalizeUrl (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64307:23)
+      at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+      at async file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64439:39
+      at async Promise.all (index 0)
+      at async TransformPluginContext.transform (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64366:7)
+      at async PluginContainer.transform (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49099:18)
+      at async loadAndTransform (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:51978:27)
+      at async viteTransformMiddleware (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:62106:24)
+15:49:51 [vite] Internal server error: Failed to resolve import "./request" from "src/api/agents.ts". Does the file exist?
+  Plugin: vite:import-analysis
+  File: D:/projects/react_demo/frontend/src/api/agents.ts:2:17
+  1  |  import http from "./request";
+     |                    ^
+  2  |  function toFrontend(a) {
+  3  |    const status = a.status === "archived" ? "offline" : a.status;
+      at TransformPluginContext._formatError (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49258:41)
+      at TransformPluginContext.error (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49253:16)
+      at normalizeUrl (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64307:23)
+      at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+      at async file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64439:39
+      at async Promise.all (index 0)
+      at async TransformPluginContext.transform (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64366:7)
+      at async PluginContainer.transform (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49099:18)
+      at async loadAndTransform (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:51978:27)
+      at async viteTransformMiddleware (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:62106:24)
+15:49:51 [vite] Internal server error: Failed to resolve import "./request" from "src/api/agents.ts". Does the file exist?
+  Plugin: vite:import-analysis
+  File: D:/projects/react_demo/frontend/src/api/agents.ts:2:17
+  1  |  import http from "./request";
+     |                    ^
+  2  |  function toFrontend(a) {
+  3  |    const status = a.status === "archived" ? "offline" : a.status;
+      at TransformPluginContext._formatError (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49258:41)
+      at TransformPluginContext.error (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49253:16)
+      at normalizeUrl (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64307:23)
+      at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+      at async file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64439:39
+      at async Promise.all (index 0)
+      at async TransformPluginContext.transform (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64366:7)
+      at async PluginContainer.transform (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49099:18)
+      at async loadAndTransform (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:51978:27)
+      at async viteTransformMiddleware (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:62106:24)
+15:50:07 [vite] hmr update /src/pages/chat/index.tsx, /src/index.css
+15:50:07 [vite] Pre-transform error: Failed to resolve import "./request" from "src/api/chat.ts". Does the file exist?
+15:50:07 [vite] Internal server error: Failed to resolve import "./request" from "src/api/chat.ts". Does the file exist?
+  Plugin: vite:import-analysis
+  File: D:/projects/react_demo/frontend/src/api/chat.ts:2:41
+  1  |  import http, { API_BASE, getToken } from "./request";
+     |                                            ^
+  2  |  const SESSION_KEY = "agent_demo_session_id";
+  3  |  export function getCachedSessionId() {
+      at TransformPluginContext._formatError (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49258:41)
+      at TransformPluginContext.error (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49253:16)
+      at normalizeUrl (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64307:23)
+      at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+      at async file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64439:39
+      at async Promise.all (index 0)
+      at async TransformPluginContext.transform (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64366:7)
+      at async PluginContainer.transform (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49099:18)
+      at async loadAndTransform (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:51978:27)
+      at async viteTransformMiddleware (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:62106:24)
+15:50:07 [vite] Internal server error: Failed to resolve import "./request" from "src/api/agents.ts". Does the file exist?
+  Plugin: vite:import-analysis
+  File: D:/projects/react_demo/frontend/src/api/agents.ts:2:17
+  1  |  import http from "./request";
+     |                    ^
+  2  |  function toFrontend(a) {
+  3  |    const status = a.status === "archived" ? "offline" : a.status;
+      at TransformPluginContext._formatError (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49258:41)
+      at TransformPluginContext.error (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49253:16)
+      at normalizeUrl (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64307:23)
+      at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+      at async file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64439:39
+      at async Promise.all (index 0)
+      at async TransformPluginContext.transform (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64366:7)
+      at async PluginContainer.transform (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49099:18)
+      at async loadAndTransform (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:51978:27)
+      at async viteTransformMiddleware (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:62106:24)
+15:50:07 [vite] Internal server error: Failed to resolve import "./request" from "src/api/chat.ts". Does the file exist?
+  Plugin: vite:import-analysis
+  File: D:/projects/react_demo/frontend/src/api/chat.ts:2:41
+  1  |  import http, { API_BASE, getToken } from "./request";
+     |                                            ^
+  2  |  const SESSION_KEY = "agent_demo_session_id";
+  3  |  export function getCachedSessionId() {
+      at TransformPluginContext._formatError (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49258:41)
+      at TransformPluginContext.error (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49253:16)
+      at normalizeUrl (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64307:23)
+      at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+      at async file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64439:39
+      at async Promise.all (index 0)
+      at async TransformPluginContext.transform (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64366:7)
+      at async PluginContainer.transform (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49099:18)
+      at async loadAndTransform (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:51978:27)
+      at async viteTransformMiddleware (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:62106:24)
+15:50:07 [vite] Internal server error: Failed to resolve import "./request" from "src/api/agents.ts". Does the file exist?
+  Plugin: vite:import-analysis
+  File: D:/projects/react_demo/frontend/src/api/agents.ts:2:17
+  1  |  import http from "./request";
+     |                    ^
+  2  |  function toFrontend(a) {
+  3  |    const status = a.status === "archived" ? "offline" : a.status;
+      at TransformPluginContext._formatError (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49258:41)
+      at TransformPluginContext.error (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49253:16)
+      at normalizeUrl (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64307:23)
+      at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+      at async file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64439:39
+      at async Promise.all (index 0)
+      at async TransformPluginContext.transform (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64366:7)
+      at async PluginContainer.transform (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49099:18)
+      at async loadAndTransform (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:51978:27)
+      at async viteTransformMiddleware (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:62106:24)
+15:50:07 [vite] Internal server error: Failed to resolve import "./request" from "src/api/chat.ts". Does the file exist?
+  Plugin: vite:import-analysis
+  File: D:/projects/react_demo/frontend/src/api/chat.ts:2:41
+  1  |  import http, { API_BASE, getToken } from "./request";
+     |                                            ^
+  2  |  const SESSION_KEY = "agent_demo_session_id";
+  3  |  export function getCachedSessionId() {
+      at TransformPluginContext._formatError (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49258:41)
+      at TransformPluginContext.error (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49253:16)
+      at normalizeUrl (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64307:23)
+      at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+      at async file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64439:39
+      at async Promise.all (index 0)
+      at async TransformPluginContext.transform (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64366:7)
+      at async PluginContainer.transform (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49099:18)
+      at async loadAndTransform (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:51978:27)
+      at async viteTransformMiddleware (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:62106:24)
+15:50:07 [vite] Internal server error: Failed to resolve import "./request" from "src/api/agents.ts". Does the file exist?
+  Plugin: vite:import-analysis
+  File: D:/projects/react_demo/frontend/src/api/agents.ts:2:17
+  1  |  import http from "./request";
+     |                    ^
+  2  |  function toFrontend(a) {
+  3  |    const status = a.status === "archived" ? "offline" : a.status;
+      at TransformPluginContext._formatError (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49258:41)
+      at TransformPluginContext.error (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49253:16)
+      at normalizeUrl (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64307:23)
+      at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+      at async file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64439:39
+      at async Promise.all (index 0)
+      at async TransformPluginContext.transform (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64366:7)
+      at async PluginContainer.transform (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49099:18)
+      at async loadAndTransform (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:51978:27)
+      at async viteTransformMiddleware (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:62106:24)
+15:50:32 [vite] hmr update /src/pages/chat/index.tsx, /src/index.css
+15:50:32 [vite] Pre-transform error: Failed to resolve import "./request" from "src/api/chat.ts". Does the file exist?
+15:50:32 [vite] Internal server error: Failed to resolve import "./request" from "src/api/chat.ts". Does the file exist?
+  Plugin: vite:import-analysis
+  File: D:/projects/react_demo/frontend/src/api/chat.ts:2:41
+  1  |  import http, { API_BASE, getToken } from "./request";
+     |                                            ^
+  2  |  const SESSION_KEY = "agent_demo_session_id";
+  3  |  export function getCachedSessionId() {
+      at TransformPluginContext._formatError (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49258:41)
+      at TransformPluginContext.error (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49253:16)
+      at normalizeUrl (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64307:23)
+      at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+      at async file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64439:39
+      at async Promise.all (index 0)
+      at async TransformPluginContext.transform (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64366:7)
+      at async PluginContainer.transform (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49099:18)
+      at async loadAndTransform (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:51978:27)
+      at async viteTransformMiddleware (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:62106:24)
+15:50:32 [vite] Internal server error: Failed to resolve import "./request" from "src/api/agents.ts". Does the file exist?
+  Plugin: vite:import-analysis
+  File: D:/projects/react_demo/frontend/src/api/agents.ts:2:17
+  1  |  import http from "./request";
+     |                    ^
+  2  |  function toFrontend(a) {
+  3  |    const status = a.status === "archived" ? "offline" : a.status;
+      at TransformPluginContext._formatError (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49258:41)
+      at TransformPluginContext.error (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49253:16)
+      at normalizeUrl (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64307:23)
+      at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+      at async file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64439:39
+      at async Promise.all (index 0)
+      at async TransformPluginContext.transform (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64366:7)
+      at async PluginContainer.transform (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49099:18)
+      at async loadAndTransform (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:51978:27)
+      at async viteTransformMiddleware (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:62106:24)
+15:50:32 [vite] Internal server error: Failed to resolve import "./request" from "src/api/chat.ts". Does the file exist?
+  Plugin: vite:import-analysis
+  File: D:/projects/react_demo/frontend/src/api/chat.ts:2:41
+  1  |  import http, { API_BASE, getToken } from "./request";
+     |                                            ^
+  2  |  const SESSION_KEY = "agent_demo_session_id";
+  3  |  export function getCachedSessionId() {
+      at TransformPluginContext._formatError (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49258:41)
+      at TransformPluginContext.error (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49253:16)
+      at normalizeUrl (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64307:23)
+      at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+      at async file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64439:39
+      at async Promise.all (index 0)
+      at async TransformPluginContext.transform (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64366:7)
+      at async PluginContainer.transform (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49099:18)
+      at async loadAndTransform (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:51978:27)
+      at async viteTransformMiddleware (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:62106:24)
+15:50:32 [vite] Internal server error: Failed to resolve import "./request" from "src/api/agents.ts". Does the file exist?
+  Plugin: vite:import-analysis
+  File: D:/projects/react_demo/frontend/src/api/agents.ts:2:17
+  1  |  import http from "./request";
+     |                    ^
+  2  |  function toFrontend(a) {
+  3  |    const status = a.status === "archived" ? "offline" : a.status;
+      at TransformPluginContext._formatError (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49258:41)
+      at TransformPluginContext.error (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49253:16)
+      at normalizeUrl (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64307:23)
+      at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+      at async file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64439:39
+      at async Promise.all (index 0)
+      at async TransformPluginContext.transform (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64366:7)
+      at async PluginContainer.transform (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49099:18)
+      at async loadAndTransform (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:51978:27)
+      at async viteTransformMiddleware (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:62106:24)
+15:50:32 [vite] Internal server error: Failed to resolve import "./request" from "src/api/chat.ts". Does the file exist?
+  Plugin: vite:import-analysis
+  File: D:/projects/react_demo/frontend/src/api/chat.ts:2:41
+  1  |  import http, { API_BASE, getToken } from "./request";
+     |                                            ^
+  2  |  const SESSION_KEY = "agent_demo_session_id";
+  3  |  export function getCachedSessionId() {
+      at TransformPluginContext._formatError (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49258:41)
+      at TransformPluginContext.error (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49253:16)
+      at normalizeUrl (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64307:23)
+      at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+      at async file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64439:39
+      at async Promise.all (index 0)
+      at async TransformPluginContext.transform (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64366:7)
+      at async PluginContainer.transform (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49099:18)
+      at async loadAndTransform (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:51978:27)
+      at async viteTransformMiddleware (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:62106:24)
+15:50:32 [vite] Internal server error: Failed to resolve import "./request" from "src/api/agents.ts". Does the file exist?
+  Plugin: vite:import-analysis
+  File: D:/projects/react_demo/frontend/src/api/agents.ts:2:17
+  1  |  import http from "./request";
+     |                    ^
+  2  |  function toFrontend(a) {
+  3  |    const status = a.status === "archived" ? "offline" : a.status;
+      at TransformPluginContext._formatError (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49258:41)
+      at TransformPluginContext.error (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49253:16)
+      at normalizeUrl (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64307:23)
+      at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+      at async file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64439:39
+      at async Promise.all (index 0)
+      at async TransformPluginContext.transform (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64366:7)
+      at async PluginContainer.transform (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49099:18)
+      at async loadAndTransform (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:51978:27)
+      at async viteTransformMiddleware (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:62106:24)
+15:50:32 [vite] Internal server error: Failed to resolve import "./request" from "src/api/chat.ts". Does the file exist?
+  Plugin: vite:import-analysis
+  File: D:/projects/react_demo/frontend/src/api/chat.ts:2:41
+  1  |  import http, { API_BASE, getToken } from "./request";
+     |                                            ^
+  2  |  const SESSION_KEY = "agent_demo_session_id";
+  3  |  export function getCachedSessionId() {
+      at TransformPluginContext._formatError (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49258:41)
+      at TransformPluginContext.error (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49253:16)
+      at normalizeUrl (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64307:23)
+      at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+      at async file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64439:39
+      at async Promise.all (index 0)
+      at async TransformPluginContext.transform (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64366:7)
+      at async PluginContainer.transform (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49099:18)
+      at async loadAndTransform (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:51978:27)
+      at async viteTransformMiddleware (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:62106:24)
+15:51:15 [vite] hmr update /src/index.css, /src/pages/agents/list.tsx, /src/pages/chat/index.tsx, /src/pages/agents/config.tsx, /src/components/layout/AppLayout.tsx
+15:51:15 [vite] Pre-transform error: Failed to resolve import "./request" from "src/api/chat.ts". Does the file exist?
+15:51:15 [vite] Internal server error: Failed to resolve import "./request" from "src/api/chat.ts". Does the file exist?
+  Plugin: vite:import-analysis
+  File: D:/projects/react_demo/frontend/src/api/chat.ts:2:41
+  1  |  import http, { API_BASE, getToken } from "./request";
+     |                                            ^
+  2  |  const SESSION_KEY = "agent_demo_session_id";
+  3  |  export function getCachedSessionId() {
+      at TransformPluginContext._formatError (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49258:41)
+      at TransformPluginContext.error (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49253:16)
+      at normalizeUrl (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64307:23)
+      at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+      at async file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64439:39
+      at async Promise.all (index 0)
+      at async TransformPluginContext.transform (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64366:7)
+      at async PluginContainer.transform (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49099:18)
+      at async loadAndTransform (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:51978:27)
+      at async viteTransformMiddleware (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:62106:24)
+15:51:15 [vite] Internal server error: Failed to resolve import "./request" from "src/api/chat.ts". Does the file exist?
+  Plugin: vite:import-analysis
+  File: D:/projects/react_demo/frontend/src/api/chat.ts:2:41
+  1  |  import http, { API_BASE, getToken } from "./request";
+     |                                            ^
+  2  |  const SESSION_KEY = "agent_demo_session_id";
+  3  |  export function getCachedSessionId() {
+      at TransformPluginContext._formatError (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49258:41)
+      at TransformPluginContext.error (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49253:16)
+      at normalizeUrl (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64307:23)
+      at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+      at async file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64439:39
+      at async Promise.all (index 0)
+      at async TransformPluginContext.transform (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64366:7)
+      at async PluginContainer.transform (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49099:18)
+      at async loadAndTransform (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:51978:27)
+      at async viteTransformMiddleware (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:62106:24)
+15:51:15 [vite] Internal server error: Failed to resolve import "./request" from "src/api/chat.ts". Does the file exist?
+  Plugin: vite:import-analysis
+  File: D:/projects/react_demo/frontend/src/api/chat.ts:2:41
+  1  |  import http, { API_BASE, getToken } from "./request";
+     |                                            ^
+  2  |  const SESSION_KEY = "agent_demo_session_id";
+  3  |  export function getCachedSessionId() {
+      at TransformPluginContext._formatError (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49258:41)
+      at TransformPluginContext.error (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49253:16)
+      at normalizeUrl (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64307:23)
+      at process.processTicksAndRejections (node:internal/process/task_queues:103:5)
+      at async file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64439:39
+      at async Promise.all (index 0)
+      at async TransformPluginContext.transform (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:64366:7)
+      at async PluginContainer.transform (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:49099:18)
+      at async loadAndTransform (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:51978:27)
+      at async viteTransformMiddleware (file:///D:/projects/react_demo/frontend/node_modules/vite/dist/node/chunks/dep-BK3b2jBa.js:62106:24)
+15:51:26 [vite] hmr update /src/index.css, /src/pages/chat/index.tsx
+15:51:36 [vite] hmr update /src/pages/chat/index.tsx, /src/index.css
+15:51:44 [vite] hmr update /src/index.css, /src/pages/agents/list.tsx, /src/pages/chat/index.tsx, /src/pages/agents/config.tsx, /src/components/layout/AppLayout.tsx
+15:55:46 [vite] hmr update /src/index.css, /src/pages/agents/list.tsx, /src/pages/chat/index.tsx, /src/pages/agents/config.tsx, /src/components/layout/AppLayout.tsx
+16:17:58 [vite] vite.config.ts changed, restarting server...
+16:17:58 [vite] server restarted.
+16:17:59 [vite] hmr update /src/index.css, /src/pages/agents/config.tsx
+16:17:59 [vite] hmr update /src/index.css, /src/pages/resources/index.tsx, /src/pages/agents/config.tsx, /src/components/layout/AppLayout.tsx, /src/pages/chat/index.tsx, /src/pages/agents/list.tsx
+16:17:59 [vite] hmr update /src/index.css, /src/components/layout/AppLayout.tsx, /src/pages/agents/config.tsx, /src/pages/chat/index.tsx, /src/pages/agents/list.tsx
+16:18:00 [vite] hmr update /src/components/layout/Sidebar.tsx, /src/index.css
+16:18:00 [vite] hmr update /src/components/layout/AppLayout.tsx, /src/index.css
+16:18:00 [vite] page reload src/components/agent/AgentStatus.tsx
+16:18:00 [vite] hmr update /src/pages/agents/config.tsx, /src/index.css
+16:18:00 [vite] hmr update /src/pages/agents/list.tsx, /src/index.css
+16:18:00 [vite] hmr update /src/pages/workspace/index.tsx, /src/index.css
+16:18:00 [vite] hmr update /src/pages/resources/index.tsx, /src/index.css
+16:18:00 [vite] hmr update /src/pages/chat/index.tsx, /src/index.css
+16:18:00 [vite] hmr update /src/components/layout/TopNav.tsx, /src/index.css
+16:18:00 [vite] hmr update /src/pages/evaluation/index.tsx, /src/index.css
+16:18:00 [vite] page reload tailwind.config.js
+16:18:00 [vite] hmr update /src/index.css, /src/pages/chat/index.tsx, /src/components/agent/DebugPanel.tsx
+16:18:00 [vite] hmr update /src/components/agent/DebugPanel.tsx, /src/index.css
+16:18:00 [vite] hmr update /src/components/layout/Resizer.tsx, /src/index.css
+16:18:01 [vite] hmr update /src/index.css, /src/components/layout/AppLayout.tsx, /src/pages/agents/config.tsx, /src/pages/chat/index.tsx, /src/pages/agents/list.tsx
+16:18:01 [vite] hmr update /src/index.css, /src/components/layout/AppLayout.tsx, /src/pages/agents/config.tsx, /src/pages/chat/index.tsx, /src/pages/agents/list.tsx
+16:18:01 [vite] hmr update /src/index.css, /src/pages/chat/index.tsx
+16:18:01 [vite] page reload src/vite-env.d.ts
+17:12:26 [vite] hmr update /src/index.css, /src/components/layout/AppLayout.tsx, /src/pages/agents/config.tsx, /src/pages/chat/index.tsx, /src/pages/agents/list.tsx

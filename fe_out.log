@@ -1,0 +1,13 @@
+
+> agent-platform-frontend@1.0.0 dev
+> vite
+
+Port 5173 is in use, trying another one...
+
+  VITE v5.4.21  ready in 514 ms
+
+  ➜  Local:   http://localhost:5174/
+  ➜  Network: use --host to expose
+16:17:58 [vite] vite.config.ts changed, restarting server...
+16:17:58 [vite] page reload index.html
+16:17:58 [vite] server restarted.
