@@ -18,10 +18,17 @@ export interface AgentSkill {
   description: string;
 }
 
+export interface AgentTool {
+  id: string;
+  name: string;
+  description: string;
+}
+
 export interface AgentCapabilities {
   knowledgeBases: AgentKnowledge[];
   ontologies: AgentOntology[];
   skills: AgentSkill[];
+  tools: AgentTool[];
 }
 
 export interface Agent {
@@ -32,6 +39,7 @@ export interface Agent {
   version: string;
   description: string;
   systemPrompt: string;
+  promptResourceId?: string;
   capabilities: AgentCapabilities;
   createdAt: string;
   updatedAt: string;

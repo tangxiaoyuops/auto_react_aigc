@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import {
   ArrowLeft,
@@ -12,6 +12,7 @@ import {
   Sparkles,
   Network,
   Wand2,
+  Cog,
 } from 'lucide-react';
 import { useAgentStore, createNewAgent } from '../../stores/agentStore';
 import {
@@ -21,8 +22,9 @@ import {
   type AgentKnowledge,
   type AgentOntology,
   type AgentSkill,
+  type AgentTool,
 } from '../../types/agent';
-import { KNOWLEDGE_POOL, ONTOLOGY_POOL, SKILL_POOL } from '../../mock/agents';
+import { useResourceStore } from '../../stores/resourceStore';
 import DebugPanel from '../../components/agent/DebugPanel';
 import Resizer from '../../components/layout/Resizer';
 
@@ -33,6 +35,26 @@ export default function AgentConfig() {
   const updateAgent = useAgentStore((s) => s.updateAgent);
   const addAgent = useAgentStore((s) => s.addAgent);
   const publishAgent = useAgentStore((s) => s.publishAgent);
+
+  // 能力池：从后端 /resources/pool 动态拉取
+  const pool = useResourceStore((s) => s.pool);
+  const fetchPool = useResourceStore((s) => s.fetchPool);
+  useEffect(() => {
+    if (!pool || Object.keys(pool).length === 0) fetchPool();
+  }, [pool, fetchPool]);
+  const KNOWLEDGE_POOL = pool.knowledge || [];
+  const ONTOLOGY_POOL = pool.ontology || [];
+  const SKILL_POOL = pool.skill || [];
+  const TOOL_POOL = pool.tool || [];
+
+  // 提示词资源（system_prompt 可引用某个 prompt 资源）
+  const loadedPrompt = useResourceStore((s) => s.loaded.prompt);
+  const byType = useResourceStore((s) => s.byType);
+  const fetchByType = useResourceStore((s) => s.fetchByType);
+  const promptResources = byType.prompt || [];
+  useEffect(() => {
+    if (!loadedPrompt) fetchByType('prompt');
+  }, [loadedPrompt, fetchByType]);
 
   // 新建时无 id
   const isNew = !id;
@@ -116,8 +138,15 @@ export default function AgentConfig() {
   const removeSkill = (id: string) =>
     setCap('skills', form.capabilities.skills.filter((s) => s.id !== id));
 
+  const addTool = (tl: AgentTool) => {
+    if (form.capabilities.tools.some((t) => t.id === tl.id)) return;
+    setCap('tools', [...form.capabilities.tools, tl]);
+  };
+  const removeTool = (id: string) =>
+    setCap('tools', form.capabilities.tools.filter((t) => t.id !== id));
+
   return (
-    <div className="p-6 max-w-7xl mx-auto">
+    <div className="p-6">
       {/* 顶部操作栏 */}
       <div className="flex items-center justify-between mb-5">
         <div className="flex items-center gap-3">
@@ -169,7 +198,7 @@ export default function AgentConfig() {
         <div style={{ width: `${leftWidth}px` }} className="shrink-0">
           <div className="space-y-5">
           {/* 基础配置 */}
-          <div className="panel overflow-hidden">
+          <div className="panel overflow-hidden h-[calc(100vh-150px)] min-h-[500px] flex flex-col">
             <div className="px-6 pt-5 pb-3 border-b border-[#f2f3f5]">
               <div className="flex items-center gap-2 text-[15px] font-medium text-[#1d2129] mb-4">
                 <Settings2 size={16} className="text-[#0077ff]" />
@@ -196,16 +225,28 @@ export default function AgentConfig() {
               <div className="text-[12px] text-[#c0c4cc] mt-2">选择 Agent 使用的底层大模型，不同模型的能力与成本有所不同</div>
             </div>
 
-            {/* 提示词 */}
+            {/* 提示词 + 能力（可滚动区域） */}
+            <div className="flex-1 overflow-y-auto min-h-0">
             <div className="px-6 py-5 border-b border-[#f2f3f5]">
               <div className="flex items-center gap-2 text-[15px] font-medium text-[#1d2129] mb-3">
                 <FileText size={16} className="text-[#0077ff]" />
                 提示词
               </div>
               <div className="text-[12px] text-[#86909c] mb-2">系统提示词 / System Prompt</div>
+              <select
+                value={form.promptResourceId || ''}
+                onChange={(e) => setField('promptResourceId', e.target.value || undefined)}
+                className="w-full px-3 py-2 mb-2 border border-[#d9d9d9] rounded-md text-[13px] bg-white focus:outline-none focus:border-[#0077ff] focus:ring-2 focus:ring-[#0077ff]/10 transition-colors"
+              >
+                <option value="">不使用资源（手动填写下方提示词）</option>
+                {promptResources.map((p) => (
+                  <option key={p.id} value={p.id}>{p.name}</option>
+                ))}
+              </select>
               <textarea
                 value={form.systemPrompt}
                 onChange={(e) => setField('systemPrompt', e.target.value)}
+                placeholder={form.promptResourceId ? '已引用提示词资源，此处可留空（运行时将自动载入）' : ''}
                 rows={8}
                 className="w-full px-3.5 py-2.5 border border-[#d9d9d9] rounded-md text-[13px] font-mono text-[#4e5969] focus:outline-none focus:border-[#0077ff] focus:ring-2 focus:ring-[#0077ff]/10 transition-colors leading-relaxed bg-[#fafbfc]"
               />
@@ -257,7 +298,19 @@ export default function AgentConfig() {
                   onAdd={addSkill}
                   onRemove={removeSkill}
                 />
+
+                <CapabilitySection
+                  icon={<Cog size={15} />}
+                  iconCls="bg-emerald-50 text-emerald-600"
+                  title="工具"
+                  desc="为Agent挂载可调用的工具，运行时会自动加载对应工具能力"
+                  selected={form.capabilities.tools}
+                  pool={TOOL_POOL}
+                  onAdd={addTool}
+                  onRemove={removeTool}
+                />
               </div>
+            </div>
             </div>
           </div>
         </div>

@@ -1,5 +1,5 @@
 // Chat / Run API：对接 Control Plane 会话与 SSE
-import http, { API_BASE, getToken } from '../utils/request';
+import http, { API_BASE, getToken, ensureAuth } from '../utils/request';
 
 export interface RunResult {
   run_id: string;
@@ -54,16 +54,32 @@ export async function streamRun(
   onEvent: (type: string, step: any) => void,
   signal?: AbortSignal
 ): Promise<void> {
-  const resp = await fetch(`${API_BASE}/sessions/${sessionId}/stream`, {
-    headers: { Authorization: `Bearer ${getToken()}` },
-    signal,
-  });
+  // 首次请求；若 401（token 失效）则 ensureAuth 刷新后重连一次
+  for (let attempt = 0; attempt < 2; attempt++) {
+    const resp = await fetch(`${API_BASE}/sessions/${sessionId}/stream`, {
+      headers: { Authorization: `Bearer ${getToken()}` },
+      signal,
+    });
 
-  if (!resp.ok || !resp.body) {
-    throw new Error(`stream failed: ${resp.status}`);
+    if (resp.status === 401 && attempt === 0) {
+      const ok = await ensureAuth();
+      if (!ok) throw new Error('stream auth failed');
+      continue; // 用刷新后的 token 重试
+    }
+
+    if (!resp.ok || !resp.body) {
+      throw new Error(`stream failed: ${resp.status}`);
+    }
+    return consumeStream(resp.body, onEvent);
   }
+  throw new Error('stream auth retry exhausted');
+}
 
-  const reader = resp.body.getReader();
+async function consumeStream(
+  body: ReadableStream<Uint8Array>,
+  onEvent: (type: string, step: any) => void
+): Promise<void> {
+  const reader = body.getReader();
   const decoder = new TextDecoder();
   let buffer = '';
 

@@ -27,6 +27,7 @@ class AgentService:
             description=payload.description,
             model=payload.model,
             system_prompt=payload.system_prompt,
+            prompt_resource_id=payload.prompt_resource_id,
             avatar_color=payload.avatar_color,
             status=payload.status or "draft",
             version=1,
@@ -38,6 +39,7 @@ class AgentService:
             knowledge_ids=payload.knowledge_ids or [],
             ontology_ids=payload.ontology_ids or [],
             skill_ids=payload.skill_ids or [],
+            tool_ids=payload.tool_ids or [],
             created_at=datetime.utcnow(),
         )
         self.db.add(agent)
@@ -139,6 +141,7 @@ class AgentService:
             "knowledge": "knowledge_ids",
             "ontology": "ontology_ids",
             "skill": "skill_ids",
+            "tool": "tool_ids",
         }
         field = field_map.get(resource_type)
         if not field:
@@ -148,3 +151,46 @@ class AgentService:
         await self.db.commit()
         await self.db.refresh(agent)
         return agent
+
+    # ---------- RunSpec 装配 ----------
+
+    async def compile_runspec(self, agent: DBAgent) -> dict:
+        """把 Agent 配置编译为可执行 RunSpec（配置态 -> 运行态）。
+
+        - system_prompt：若引用 prompt 资源（prompt_resource_id），
+          优先取资源 meta.content；否则用 Agent 内联 system_prompt。
+        - tools：直接取 tool_ids；skill 携带的工具由认知层 loader 补齐。
+        - skills：skill_ids 透传。
+        """
+        from shared.schemas.runspec import RunSpec
+        from app.db.database import DBResource
+        from sqlalchemy import select
+
+        system_prompt = agent.system_prompt or ""
+        if agent.prompt_resource_id:
+            res = (await self.db.execute(
+                select(DBResource).where(
+                    DBResource.id == agent.prompt_resource_id,
+                    DBResource.user_id == agent.user_id,
+                )
+            )).scalar_one_or_none()
+            if res:
+                content = (res.meta or {}).get("content")
+                if content:
+                    system_prompt = content
+
+        return RunSpec(
+            agent_id=agent.id,
+            name=agent.name,
+            model=agent.model,
+            system_prompt=system_prompt,
+            tools=agent.tool_ids or [],
+            skills=agent.skill_ids or [],
+            knowledge=[
+                {"resource_id": kid, "name": "", "top_k": 5}
+                for kid in (agent.knowledge_ids or [])
+            ],
+            temperature=agent.temperature,
+            max_iterations=agent.max_iterations,
+            timeout=agent.timeout,
+        ).model_dump()

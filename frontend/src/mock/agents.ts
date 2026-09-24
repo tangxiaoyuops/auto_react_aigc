@@ -39,6 +39,9 @@ export const SEED_AGENTS: Agent[] = [
       skills: [
         { id: 'sk2', name: '文档问答技能', description: '知识库问答流程' },
       ],
+      tools: [
+        { id: 'tool_calculator', name: 'Calculator', description: '数学计算' },
+      ],
     },
     createdAt: '2026-09-01T10:00:00',
     updatedAt: '2026-09-18T10:00:00',
@@ -60,6 +63,7 @@ export const SEED_AGENTS: Agent[] = [
       skills: [
         { id: 'sk1', name: '数据分析技能', description: '数据查询与可视化' },
       ],
+      tools: [],
     },
     createdAt: '2026-09-15T09:00:00',
     updatedAt: '2026-09-20T09:30:00',
@@ -78,6 +82,7 @@ export const SEED_AGENTS: Agent[] = [
       skills: [
         { id: 'sk3', name: '报告生成技能', description: '结构化报告生成' },
       ],
+      tools: [],
     },
     createdAt: '2026-08-20T10:00:00',
     updatedAt: '2026-09-10T10:00:00',

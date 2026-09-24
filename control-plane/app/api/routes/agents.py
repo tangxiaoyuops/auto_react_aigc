@@ -25,6 +25,7 @@ def _serialize(agent) -> AgentResponse:
         space_id=agent.space_id,
         model=agent.model,
         system_prompt=agent.system_prompt,
+        prompt_resource_id=agent.prompt_resource_id,
         avatar_color=agent.avatar_color,
         status=agent.status,
         version=agent.version,
@@ -36,6 +37,7 @@ def _serialize(agent) -> AgentResponse:
         knowledge_ids=agent.knowledge_ids or [],
         ontology_ids=agent.ontology_ids or [],
         skill_ids=agent.skill_ids or [],
+        tool_ids=agent.tool_ids or [],
         created_at=agent.created_at,
         updated_at=agent.updated_at,
     )
@@ -176,7 +178,7 @@ async def attach_capabilities(
     current_user: TokenPayload = Depends(get_current_user),
     service: AgentService = Depends(get_agent_service),
 ):
-    """挂载能力资源（知识库/本体/Skill）"""
+    """挂载能力资源（知识库/本体/Skill/工具）"""
     agent = await service.get_agent(current_user.user_id, agent_id)
     if not agent:
         raise HTTPException(status_code=404, detail="Agent not found")
@@ -187,3 +189,17 @@ async def attach_capabilities(
     except ValueError as e:
         raise HTTPException(status_code=400, detail=str(e))
     return _serialize(agent)
+
+
+@router.post("/{agent_id}/compile", response_model=dict)
+async def compile_agent(
+    agent_id: str,
+    current_user: TokenPayload = Depends(get_current_user),
+    service: AgentService = Depends(get_agent_service),
+):
+    """编译 Agent 为 RunSpec（供认知层运行时按配置装配）"""
+    agent = await service.get_agent(current_user.user_id, agent_id)
+    if not agent:
+        raise HTTPException(status_code=404, detail="Agent not found")
+    runspec = await service.compile_runspec(agent)
+    return {"runspec": runspec}

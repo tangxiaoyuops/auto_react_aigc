@@ -144,6 +144,7 @@ export default function DebugPanel({ agentName, agentModel }: DebugPanelProps) {
       });
     } catch (err) {
       // 后端连接失败，回退 mock（模拟执行链路）
+      console.warn('[DebugPanel] 走后端失败，回退 mock —— 原因:', err);
       const reply = mockReply(content);
       const msteps = reply.steps;
       let stepIndex = 0;

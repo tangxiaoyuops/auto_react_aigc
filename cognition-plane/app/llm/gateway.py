@@ -10,15 +10,15 @@ from app.core.config import settings
 
 class LLMGateway:
     """LLM Gateway for managing multiple LLM providers"""
-    
+
     def __init__(self, model: str = None, temperature: float = 0.7):
         self.model = model or settings.DEFAULT_MODEL
         self.temperature = temperature
         self.llm = self._create_llm()
-    
+
     def _create_llm(self) -> BaseChatModel:
         """Create LLM instance based on model name
-        
+
         接入 AIMP Qwen3-5-397B NoThink (OpenAI 兼容，禁用思考) 作为主要真实模型。
         - 配置了 AIMP key 时，所有 OpenAI 兼容请求统一走 AIMP Qwen；
         - 仅当显式请求 claude 且配置了 Anthropic key 才用 claude。
@@ -52,16 +52,25 @@ class LLMGateway:
             temperature=self.temperature,
             openai_api_key=settings.OPENAI_API_KEY
         )
-    
+
     async def ainvoke(self, messages: List[BaseMessage]) -> BaseMessage:
         """Invoke LLM asynchronously"""
         return await self.llm.ainvoke(messages)
-    
+
+    async def ainvoke_with_tools(
+        self,
+        messages: List[BaseMessage],
+        tool_schemas: List[dict],
+    ) -> BaseMessage:
+        """Invoke LLM with tool schemas bound, enabling multi-step tool calling"""
+        llm = self.llm.bind_tools(tool_schemas) if tool_schemas else self.llm
+        return await llm.ainvoke(messages)
+
     async def astream(self, messages: List[BaseMessage]):
         """Stream LLM response"""
         async for chunk in self.llm.astream(messages):
             yield chunk
-    
+
     def bind_tools(self, tools: List[dict]):
         """Bind tools to LLM"""
         return self.llm.bind_tools(tools)

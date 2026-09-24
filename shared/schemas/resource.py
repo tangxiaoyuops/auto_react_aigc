@@ -4,8 +4,8 @@ from datetime import datetime
 from pydantic import BaseModel, Field
 
 
-# 资源类型（与前端 TabKey 对齐）
-RESOURCE_TYPES = ["kb", "skill", "prompt", "ontology", "ds"]
+# 资源类型（与前端 TabKey 对齐；tool 为第 6 类：前端可配置工具）
+RESOURCE_TYPES = ["kb", "skill", "prompt", "ontology", "ds", "tool"]
 
 
 class ResourceCreate(BaseModel):

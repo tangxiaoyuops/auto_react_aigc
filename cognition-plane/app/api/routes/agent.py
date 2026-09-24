@@ -20,6 +20,7 @@ class ExecuteRequest(BaseModel):
     message: str
     model: str = "gpt-4o"
     tools: List[str] = []
+    skills: List[str] = []
     system_prompt: Optional[str] = None
 
 
@@ -29,7 +30,8 @@ async def execute_agent(request: ExecuteRequest):
     # Create agent
     agent = AgentEngine(
         model=request.model,
-        tools=request.tools
+        tools=request.tools,
+        skills=request.skills
     )
     
     # Execute
@@ -55,6 +57,7 @@ async def execute_agent_stream(request: ExecuteRequest):
     agent = AgentEngine(
         model=request.model,
         tools=request.tools,
+        skills=request.skills,
         event_emitter=event_emitter
     )
     

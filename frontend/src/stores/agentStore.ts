@@ -137,6 +137,7 @@ export function createNewAgent(): Agent {
       knowledgeBases: [],
       ontologies: [],
       skills: [],
+      tools: [],
     },
     createdAt: new Date().toISOString(),
     updatedAt: new Date().toISOString(),

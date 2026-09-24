@@ -66,8 +66,39 @@ const DEV_EMAIL = 'test@example.com';
 const DEV_PASSWORD = 'password123';
 const DEV_USERNAME = 'testuser';
 
+// 解析 JWT payload（base64url -> JSON），用于判断 token 是否过期。
+// 纯前端实现，不引入第三方库；解析失败按"未过期"处理（后端 401 会再兜底）。
+function jwtPayload(token: string): { exp?: number } | null {
+  try {
+    const seg = token.split('.')[1];
+    if (!seg) return null;
+    const b64 = seg.replace(/-/g, '+').replace(/_/g, '/');
+    const padded = b64.padEnd(Math.ceil(b64.length / 4) * 4, '=');
+    const json = decodeURIComponent(
+      atob(padded)
+        .split('')
+        .map((c) => '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2))
+        .join('')
+    );
+    return JSON.parse(json);
+  } catch {
+    return null;
+  }
+}
+
+// token 是否仍有效（存在且未过期）。过期则清除并返回 false，触发重新登录。
+export function isTokenValid(): boolean {
+  const token = getToken();
+  if (!token) return false;
+  const payload = jwtPayload(token);
+  if (!payload || typeof payload.exp !== 'number') return true; // 无法解析视为有效
+  return payload.exp * 1000 > Date.now();
+}
+
 export async function ensureAuth(): Promise<boolean> {
-  if (getToken()) return true;
+  // 有 token 但已过期时强制重登（避免 401 重试死循环回退 mock）
+  if (isTokenValid()) return true;
+  clearToken();
 
   // 用裸 fetch 避免依赖拦截器
   const tryLogin = async () => {

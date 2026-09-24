@@ -1,6 +1,6 @@
 // Agent API：对接 Control Plane /api/v1/agents
 import http from '../utils/request';
-import type { Agent } from '../types/agent';
+import type { Agent, AgentTool } from '../types/agent';
 
 // 后端 Agent 字段 → 前端 Agent 字段
 interface ApiAgent {
@@ -9,6 +9,7 @@ interface ApiAgent {
   description?: string;
   model: string;
   system_prompt?: string;
+  prompt_resource_id?: string;
   status: string; // draft/published/archived -> 前端 offline 映射
   version: number;
   temperature: number;
@@ -19,6 +20,7 @@ interface ApiAgent {
   knowledge_ids?: string[];
   ontology_ids?: string[];
   skill_ids?: string[];
+  tool_ids?: string[];
   created_at: string;
   updated_at?: string;
 }
@@ -26,6 +28,10 @@ interface ApiAgent {
 function toFrontend(a: ApiAgent): Agent {
   // 后端 archived 映射为前端 offline（列表页显示"已下线"）
   const status = a.status === 'archived' ? 'offline' : (a.status as Agent['status']);
+  const capTools: AgentTool[] = (a.tool_ids || []).map((id) => {
+    const n = id.replace(/^tool_/, '');
+    return { id, name: n, description: `工具 ${n}` };
+  });
   return {
     id: a.id,
     name: a.name,
@@ -34,10 +40,12 @@ function toFrontend(a: ApiAgent): Agent {
     version: `${a.version || 1}`,
     description: a.description || '',
     systemPrompt: a.system_prompt || '',
+    promptResourceId: a.prompt_resource_id,
     capabilities: {
       knowledgeBases: (a.knowledge_ids || []).map((id) => ({ id, name: `知识库 ${id}`, description: '' })),
       ontologies: (a.ontology_ids || []).map((id) => ({ id, name: `本体 ${id}`, description: '' })),
       skills: (a.skill_ids || []).map((id) => ({ id, name: `Skill ${id}`, description: '' })),
+      tools: capTools,
     },
     createdAt: a.created_at,
     updatedAt: a.updated_at || a.created_at,
@@ -51,12 +59,14 @@ function toBackend(agent: Partial<Agent>): Record<string, unknown> {
     description: agent.description,
     model: agent.model,
     system_prompt: agent.systemPrompt,
+    prompt_resource_id: agent.promptResourceId || null,
     // 前端 status 无 archived，offline 视为未发布
     status: agent.status === 'offline' ? 'draft' : agent.status,
-    // 能力关联：保持原有（保存时不改动，除非显式提供）
+    // 能力关联：保存时带上明确挂载的工具
+    tool_ids: agent.capabilities?.tools?.map((t) => t.id) ?? undefined,
+    skill_ids: agent.capabilities?.skills?.map((s) => s.id) ?? undefined,
     knowledge_ids: undefined,
     ontology_ids: undefined,
-    skill_ids: undefined,
   };
 }
 

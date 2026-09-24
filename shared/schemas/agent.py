@@ -11,6 +11,7 @@ class AgentCreate(BaseModel):
     space_id: Optional[str] = Field(None, description="所属空间 ID")
     model: str = Field("Qwen3.5-397b-a17b", description="底层大模型")
     system_prompt: Optional[str] = Field(None, description="系统提示词")
+    prompt_resource_id: Optional[str] = Field(None, description="引用的提示词资源 ID（二选一：与 system_prompt 互斥）")
     avatar_color: str = Field("#1677ff", description="头像颜色")
     status: str = Field("draft", description="初始状态")
     temperature: float = Field(0.7, description="温度")
@@ -21,6 +22,7 @@ class AgentCreate(BaseModel):
     knowledge_ids: List[str] = Field(default_factory=list, description="知识库资源 ID")
     ontology_ids: List[str] = Field(default_factory=list, description="本体资源 ID")
     skill_ids: List[str] = Field(default_factory=list, description="Skill 资源 ID")
+    tool_ids: List[str] = Field(default_factory=list, description="工具资源 ID")
 
 
 class AgentUpdate(BaseModel):
@@ -28,6 +30,7 @@ class AgentUpdate(BaseModel):
     name: Optional[str] = None
     description: Optional[str] = None
     model: Optional[str] = None
+    prompt_resource_id: Optional[str] = None
     system_prompt: Optional[str] = None
     avatar_color: Optional[str] = None
     status: Optional[str] = None
@@ -39,6 +42,7 @@ class AgentUpdate(BaseModel):
     knowledge_ids: Optional[List[str]] = None
     ontology_ids: Optional[List[str]] = None
     skill_ids: Optional[List[str]] = None
+    tool_ids: Optional[List[str]] = None
 
 
 class AgentAttachRequest(BaseModel):
@@ -55,6 +59,7 @@ class AgentResponse(BaseModel):
     space_id: Optional[str]
     model: str
     system_prompt: Optional[str]
+    prompt_resource_id: Optional[str]
     avatar_color: str
     status: str
     version: int
@@ -66,6 +71,7 @@ class AgentResponse(BaseModel):
     knowledge_ids: List[str]
     ontology_ids: List[str]
     skill_ids: List[str]
+    tool_ids: List[str]
     created_at: datetime
     updated_at: Optional[datetime]
 

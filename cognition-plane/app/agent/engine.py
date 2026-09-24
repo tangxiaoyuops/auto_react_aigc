@@ -1,13 +1,17 @@
 """LangGraph Agent Engine"""
-from typing import TypedDict, Annotated, Sequence
+import json
+from typing import TypedDict, Annotated, Sequence, List
 import operator
-from langchain_core.messages import BaseMessage, HumanMessage, AIMessage
+from langchain_core.messages import BaseMessage, HumanMessage, AIMessage, ToolMessage
 from langgraph.graph import StateGraph, END
 from langgraph.checkpoint.memory import MemorySaver
 import asyncio
 
 from app.llm.gateway import LLMGateway
 from app.tools.executor import ToolExecutor
+from app.tools import builtin as _builtin  # noqa: F401 触发内置工具注册
+from app.skills import builtin as _skills_builtin  # noqa: F401 触发内置 skill 注册
+from app.skills.loader import load_skills
 from app.core.config import settings
 
 
@@ -15,7 +19,7 @@ class AgentState(TypedDict):
     """Agent state"""
     messages: Annotated[Sequence[BaseMessage], operator.add]
     thoughts: Annotated[Sequence[str], operator.add]
-    tool_calls: Annotated[Sequence[dict], operator.add]
+    tool_calls: Sequence[dict]
     observations: Annotated[Sequence[str], operator.add]
     current_thought: str
     next_action: str
@@ -31,10 +35,12 @@ class AgentEngine:
         self,
         model: str = None,
         tools: list = None,
+        skills: list = None,
         event_emitter=None
     ):
         self.model = model or settings.DEFAULT_MODEL
         self.tools = tools or []
+        self.skills = skills or []
         self.event_emitter = event_emitter
         self.llm_gateway = LLMGateway(model=self.model)
         self.tool_executor = ToolExecutor()
@@ -69,6 +75,34 @@ class AgentEngine:
         # Compile
         return workflow.compile(checkpointer=self.checkpointer)
     
+    def _build_tool_schemas(self) -> List[dict]:
+        """返回当前 Agent 应当暴露给模型的工具 schema。
+
+        规则：
+          - 显式 tools 清单（Agent.tool_ids）优先，过滤全局注册表只返回命中项；
+          - skill 通过 collect_tools 携带的工具也加入；
+          - 若两者都为空，则返回全部已注册工具（兼容旧链路，保证可用）。
+        """
+        from app.tools.base import inventory
+        selected: List[str] = []
+
+        # 1) Agent 显式指定的工具（tool_ids）
+        if self.tools:
+            selected.extend(self.tools)
+        # 2) skill 携带的工具
+        if self.skills:
+            skill_tools = load_skills(self.skills).tools
+            for t in skill_tools:
+                if t not in selected:
+                    selected.append(t)
+
+        all_schemas = inventory.schemas()
+        if not selected:
+            return all_schemas
+
+        allowed = set(selected)
+        return [s for s in all_schemas if s["function"]["name"] in allowed]
+
     async def _reasoning_node(self, state: AgentState):
         """Reasoning node"""
         # Emit thought event
@@ -76,10 +110,11 @@ class AgentEngine:
             await self.event_emitter.emit("REASONING_START", {
                 "step": state["iteration"]
             })
-        
-        # Call LLM
-        response = await self.llm_gateway.ainvoke(state["messages"])
-        
+
+        # Call LLM with bound tools so it can request tool calls for multi-step
+        schemas = self._build_tool_schemas()
+        response = await self.llm_gateway.ainvoke_with_tools(state["messages"], schemas)
+
         # Emit reasoning content
         if self.event_emitter:
             await self.event_emitter.emit("REASONING_CONTENT", {
@@ -87,37 +122,43 @@ class AgentEngine:
                 "node_name": "思考",
             })
             await self.event_emitter.emit("REASONING_END", {})
-        
-        # Check for tool calls
+
+        # Check for tool calls -> route to tool executor, keep the AI msg for context
         if hasattr(response, "tool_calls") and response.tool_calls:
             return {
-                "tool_calls": response.tool_calls,
+                "messages": [response],
+                "tool_calls": [
+                    tc.model_dump() if hasattr(tc, "model_dump") else dict(tc)
+                    for tc in response.tool_calls
+                ],
                 "next_action": "tool",
                 "current_thought": response.content
             }
-        else:
-            # Final answer
-            if self.event_emitter:
-                await self.event_emitter.emit("TEXT_MESSAGE_START", {})
-                await self.event_emitter.emit("TEXT_MESSAGE_CONTENT", {
-                    "content": response.content
-                })
-                await self.event_emitter.emit("TEXT_MESSAGE_END", {})
-            
-            return {
-                "messages": [response],
-                "final_answer": response.content,
-                "next_action": "end"
-            }
+
+        # Final answer
+        if self.event_emitter:
+            await self.event_emitter.emit("TEXT_MESSAGE_START", {})
+            await self.event_emitter.emit("TEXT_MESSAGE_CONTENT", {
+                "content": response.content
+            })
+            await self.event_emitter.emit("TEXT_MESSAGE_END", {})
+
+        return {
+            "messages": [response],
+            "final_answer": response.content,
+            "next_action": "end"
+        }
     
     async def _tool_executor_node(self, state: AgentState):
         """Tool executor node"""
         results = []
-        
+        tool_messages = []
+
         for tool_call in state["tool_calls"]:
             tool_name = tool_call.get("name", "")
             tool_args = tool_call.get("args", {})
-            
+            call_id = tool_call.get("id", "")
+
             # Emit tool call start
             if self.event_emitter:
                 await self.event_emitter.emit("TOOL_CALL_START", {
@@ -126,14 +167,14 @@ class AgentEngine:
                     "node_name": tool_name,
                     "status": "running",
                 })
-            
+
             start_ts = asyncio.get_event_loop().time()
-            
+
             # Execute tool
             result = await self.tool_executor.execute(tool_name, tool_args)
-            
+
             duration_ms = int((asyncio.get_event_loop().time() - start_ts) * 1000)
-            
+
             # Emit tool result
             if self.event_emitter:
                 await self.event_emitter.emit("TOOL_RESULT", {
@@ -143,22 +184,29 @@ class AgentEngine:
                     "status": "success" if result.get("success") else "failed",
                     "duration_ms": duration_ms,
                 })
-            
+
             results.append(result)
-        
+            # 回填工具输出，使模型下一轮能基于结果继续推理（真正多轮）
+            tool_messages.append(ToolMessage(
+                content=json.dumps(result, ensure_ascii=False, default=str),
+                tool_call_id=call_id,
+                name=tool_name,
+            ))
+
         # Create observation
         observation = "\n".join([
             f"Tool: {r.get('tool')}\nResult: {r.get('result', r.get('error'))}"
             for r in results
         ])
-        
+
         if self.event_emitter:
             await self.event_emitter.emit("OBSERVATION", {
                 "content": observation,
                 "result": observation,
             })
-        
+
         return {
+            "messages": tool_messages,
             "observations": [observation],
             "iteration": state["iteration"] + 1,
             "next_action": "reasoning"
@@ -190,7 +238,14 @@ class AgentEngine:
         
         if system_prompt:
             from langchain_core.messages import SystemMessage
-            messages.append(SystemMessage(content=system_prompt))
+            final_prompt = system_prompt
+            # 合并 skill 提示词：注入已挂载 Skill 的能力说明
+            if self.skills:
+                bundle = load_skills(self.skills)
+                skill_prompt = bundle.render_system_prompt()
+                if skill_prompt:
+                    final_prompt = final_prompt.rstrip() + skill_prompt
+            messages.append(SystemMessage(content=final_prompt))
         
         messages.append(HumanMessage(content=message))
         

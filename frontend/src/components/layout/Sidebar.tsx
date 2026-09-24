@@ -7,6 +7,8 @@ import {
   Blocks,
   Wand2,
   FileText,
+  Cog,
+  Network,
   Database,
   Table2,
   ClipboardCheck,
@@ -44,6 +46,8 @@ const MENU_GROUPS: MenuGroup[] = [
       { to: '/resources', label: 'Skill管理', icon: Wand2 },
       { to: '/resources?tab=prompt', label: '提示词', icon: FileText },
       { to: '/resources?tab=kb', label: '知识库', icon: Database },
+      { to: '/resources?tab=tool', label: '工具', icon: Cog },
+      { to: '/resources?tab=ontology', label: '本体', icon: Network },
       { to: '/resources?tab=ds', label: '数据源', icon: Table2 },
     ],
   },
@@ -62,16 +66,17 @@ const MENU_GROUPS: MenuGroup[] = [
   },
 ];
 
-function isItemActive(item: MenuItem, pathname: string): boolean {
+function isItemActive(item: MenuItem, pathname: string, search: string): boolean {
   const itemPath = item.to.split('?')[0];
   if (itemPath === '/agents') {
     return pathname === '/agents' || pathname.startsWith('/agents/');
   }
-  return pathname === itemPath;
+  // 资源库多个 tab 用 query 区分，完整匹配（path + query）
+  return (pathname + search) === item.to;
 }
 
 export default function Sidebar() {
-  const { pathname } = useLocation();
+  const { pathname, search } = useLocation();
   const [collapsed, setCollapsed] = useState<Record<string, boolean>>({});
 
   const toggleGroup = (label: string) => {
@@ -117,7 +122,7 @@ export default function Sidebar() {
               {!isCollapsed && (
                 <div className="py-0.5">
                   {group.items.map((item) => {
-                    const active = isItemActive(item, pathname);
+                    const active = isItemActive(item, pathname, search);
                     return (
                       <NavLink
                         key={item.label}

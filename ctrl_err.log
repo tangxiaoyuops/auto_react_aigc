@@ -4,3 +4,8 @@ INFO:     Started reloader process [2316] using StatReload
 INFO:     Started server process [11028]
 INFO:     Waiting for application startup.
 INFO:     Application startup complete.
+WARNING:  StatReload detected changes in 'app\api\routes\resources.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [11028]

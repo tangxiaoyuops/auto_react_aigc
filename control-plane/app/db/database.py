@@ -1,7 +1,7 @@
 """Database configuration"""
 from sqlalchemy.ext.asyncio import AsyncSession, create_async_engine, async_sessionmaker
 from sqlalchemy.orm import declarative_base
-from sqlalchemy import Column, String, DateTime, Integer, Float, Boolean, JSON, Enum as SQLEnum
+from sqlalchemy import Column, String, DateTime, Integer, Float, Boolean, JSON, Enum as SQLEnum, text
 from datetime import datetime
 import uuid
 
@@ -136,10 +136,13 @@ class DBAgent(Base):
     greeting = Column(String)
     suggestion_questions = Column(JSON, default=list)
 
-    # 能力关联: 知识库/本体/Skill (resource id 数组)
+    # 能力关联: 知识库/本体/Skill/工具 (resource id 数组)
     knowledge_ids = Column(JSON, default=list)
     ontology_ids = Column(JSON, default=list)
     skill_ids = Column(JSON, default=list)
+    tool_ids = Column(JSON, default=list)
+    # 引用的提示词资源 ID（可选，优先于 system_prompt 内联内容）
+    prompt_resource_id = Column(String, nullable=True)
 
     extra_data = Column(JSON, default=dict)
     created_at = Column(DateTime, default=datetime.utcnow)
@@ -261,6 +264,47 @@ async def init_db():
     """Initialize database"""
     async with engine.begin() as conn:
         await conn.run_sync(Base.metadata.create_all)
+        # 轻量迁移：为已存在的旧表补齐新增列（create_all 不会改已有表）
+        await _migrate_columns(conn)
+
+
+_MIGRATIONS = {
+    "agents": {
+        "tool_ids": "JSON",
+        "prompt_resource_id": "VARCHAR(255)",
+    },
+}
+
+
+async def _migrate_columns(conn):
+    """幂等地为旧表补充新增列（SQLite / PostgreSQL 兼容）。"""
+    for table, columns in _MIGRATIONS.items():
+        existing = await _existing_columns(conn, table)
+        if existing is None:
+            continue  # 表不存在（create_all 已建过），跳过
+        for col, coltype in columns.items():
+            if col not in existing:
+                await conn.execute(text(f'ALTER TABLE {table} ADD COLUMN {col} {coltype}'))
+
+
+async def _existing_columns(conn, table: str):
+    """返回表已有列名集合；表不存在返回 None。"""
+    dialect = conn.dialect.name
+    try:
+        if dialect == "sqlite":
+            rows = (await conn.execute(text(f'PRAGMA table_info("{table}")'))).fetchall()
+            if not rows:
+                return None
+            return {r[1] for r in rows}
+        # PostgreSQL / 其它
+        rows = (await conn.execute(text(
+            "SELECT column_name FROM information_schema.columns WHERE table_name = :t"
+        ), {"t": table})).fetchall()
+        if not rows:
+            return None
+        return {r[0] for r in rows}
+    except Exception:
+        return None
 
 
 async def get_db() -> AsyncSession:

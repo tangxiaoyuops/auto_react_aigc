@@ -156,6 +156,25 @@ class SessionService:
         result = await db.execute(select(model).where(model.id == obj_id))
         return result.scalar_one_or_none()
 
+    async def _resolve_runspec(
+        self, db: AsyncSession, agent: dict | None
+    ) -> dict | None:
+        """若 run 携带 agent 配置，则按最新 Agent 配置编译 RunSpec。
+
+        agent 传 {id, name} 即可；这里从库取 DBAgent 做装配，
+        使工具/skill/提示词真正来自 Agent 的配置（三端打通）。
+        """
+        if not agent or not agent.get("id"):
+            return None
+        from app.db.database import DBAgent
+        from sqlalchemy import select
+        row = (await db.execute(select(DBAgent).where(DBAgent.id == agent["id"]))).scalar_one_or_none()
+        if not row:
+            return None
+        from app.services.agent_service import AgentService
+        svc = AgentService(db=db)
+        return await svc.compile_runspec(row)
+
     async def _stream_from_cognition(
         self,
         db: AsyncSession,
@@ -166,6 +185,22 @@ class SessionService:
     ):
         """调用 Cognition Plane 流式接口，逐事件转换并广播"""
         agent = (run.extra_data or {}).get("agent") if run.extra_data else None
+        # 有 Agent 时按配置编译 RunSpec，覆盖 session 的缺省模型/工具/skill/提示词
+        runspec = await self._resolve_runspec(db, agent) if agent else None
+
+        payload = {
+            "run_id": run.id,
+            "session_id": session.id,
+            "message": message.content,
+            "model": (runspec or {}).get("model") or session.model,
+            "tools": (runspec or {}).get("tools") or (session.tools or []),
+            "skills": (runspec or {}).get("skills") or (session.skills or []),
+            "system_prompt": (runspec or {}).get("system_prompt") or session.system_prompt,
+        }
+        # 记录已采用的装配结果，便于溯源
+        if agent and runspec:
+            run.extra_data = {**(run.extra_data or {}), "runspec": payload}
+            await db.commit()
 
         try:
             await self.sse_manager.broadcast(run.id, run_start_event(
@@ -182,14 +217,7 @@ class SessionService:
             async with self.http_client.stream(
                 "POST",
                 f"{settings.COGNITION_URL}/api/v1/agent/execute/stream",
-                json={
-                    "run_id": run.id,
-                    "session_id": session.id,
-                    "message": message.content,
-                    "model": session.model,
-                    "tools": session.tools or [],
-                    "system_prompt": session.system_prompt,
-                },
+                json=payload,
                 timeout=300.0,
             ) as response:
                 async for line in response.aiter_lines():

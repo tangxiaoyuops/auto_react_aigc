@@ -60,32 +60,57 @@ async def list_pool(
     current_user: TokenPayload = Depends(get_current_user),
     service: ResourceService = Depends(get_resource_service),
 ):
-    """内置能力池（Agent 配置页添加知识库/本体/Skill 时的可选项）"""
-    pool_ids = {"knowledge": ["kb1", "kb2", "kb3"], "ontology": ["on1", "on2"], "skill": ["sk1", "sk2", "sk3"]}
+    """内置能力池（Agent 配置页添加知识库/本体/Skill 时的可选项）
+
+    优先从库中按类型取池成员（origin='seed'），并附带未入库的内置缺省池，
+    保证新旧前端都能拿到数据。
+    """
+    seeded = await service.list_resources(
+        user_id=current_user.user_id, resource_type=None, keyword=None,
+        page=1, page_size=500,
+    )
+    by_type: dict[str, list] = {"knowledge": [], "ontology": [], "skill": [], "tool": []}
+    for r in seeded:
+        if r.type == "kb":
+            by_type["knowledge"].append({"id": r.id, "name": r.name, "description": r.description or ""})
+        elif r.type == "ontology":
+            by_type["ontology"].append({"id": r.id, "name": r.name, "description": r.description or ""})
+        elif r.type == "skill":
+            by_type["skill"].append({"id": r.id, "name": r.name, "description": r.description or ""})
+        elif r.type == "tool":
+            by_type["tool"].append({"id": r.id, "name": r.name, "description": r.description or ""})
+    # 内置缺省池（离线/无数据兜底）
+    builtin = _builtin_pool()
+    for category, items in by_type.items():
+        known = {i["id"] for i in items}
+        for b in builtin.get(category, []):
+            if b["id"] not in known:
+                items.append(b)
+    return by_type
+
+
+def _builtin_pool():
+    """内置缺省池（与前端 mock/agents.ts 对齐），新装无数据时兜底"""
     return {
-        "knowledge": pool_ids_to_items(pool_ids["knowledge"]),
-        "ontology": pool_ids_to_items(pool_ids["ontology"]),
-        "skill": pool_ids_to_items(pool_ids["skill"]),
+        "knowledge": [
+            {"id": "kb1", "name": "业务知识库", "description": "平台业务规则与流程文档"},
+            {"id": "kb2", "name": "产品文档库", "description": "产品功能说明与使用手册"},
+            {"id": "kb3", "name": "法规政策库", "description": "行业法规与政策文件汇编"},
+        ],
+        "ontology": [
+            {"id": "on1", "name": "业务本体", "description": "领域概念与关系的语义模型"},
+            {"id": "on2", "name": "数据本体", "description": "数据字段与指标语义定义"},
+        ],
+        "skill": [
+            {"id": "sk1", "name": "数据分析技能", "description": "数据查询、聚合与可视化"},
+            {"id": "sk2", "name": "文档问答技能", "description": "基于知识库的多轮问答流程"},
+            {"id": "sk3", "name": "报告生成技能", "description": "自动生成结构化业务报告"},
+        ],
+        "tool": [
+            {"id": "tool_calculator", "name": "Calculator", "description": "数学表达式精确计算"},
+            {"id": "tool_web_search", "name": "Web Search", "description": "联网搜索信息"},
+        ],
     }
-
-
-def pool_ids_to_items(ids):
-    """内置池基础信息（与前端 mock/agents.ts 对齐）"""
-    pool_map = {
-        "kb1": ("业务知识库", "平台业务规则与流程文档"),
-        "kb2": ("产品文档库", "产品功能说明与使用手册"),
-        "kb3": ("法规政策库", "行业法规与政策文件汇编"),
-        "on1": ("业务本体", "领域概念与关系的语义模型"),
-        "on2": ("数据本体", "数据字段与指标语义定义"),
-        "sk1": ("数据分析技能", "数据查询、聚合与可视化"),
-        "sk2": ("文档问答技能", "基于知识库的多轮问答流程"),
-        "sk3": ("报告生成技能", "自动生成结构化业务报告"),
-    }
-    return [
-        {"id": rid, "name": pool_map[rid][0], "description": pool_map[rid][1]}
-        for rid in ids
-        if rid in pool_map
-    ]
 
 
 @router.post("", response_model=ResourceResponse)
