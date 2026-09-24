@@ -4,6 +4,7 @@ import { Bot, Eraser } from 'lucide-react';
 import { useAgentStore } from '../../stores/agentStore';
 import { mockReply, nextMsgId, type Step } from '../../utils/mockChat';
 import { StepTimeline } from '../../components/agent/DebugPanel';
+import Markdown from '../../components/Markdown';
 import { ensureSession, startRun, streamRun } from '../../api/chat';
 
 interface Msg {
@@ -214,7 +215,7 @@ export default function Chat() {
                 </div>
               ) : (
                 <div key={m.id} className="flex justify-start">
-                  <div className="max-w-[85%] w-full">
+                  <div className="max-w-[85%] w-full min-w-0">
                     <div className="flex items-center gap-2 mb-1">
                       <span className="text-[12px] font-medium text-gray-500">
                         {currentAgent?.name || 'Agent'}
@@ -227,9 +228,7 @@ export default function Chat() {
                           正在思考中...
                         </div>
                       ) : (
-                        <div className="whitespace-pre-wrap text-[13px] text-gray-700 leading-relaxed">
-                          {m.content}
-                        </div>
+                        <Markdown content={m.content} className="whitespace-pre-wrap" />
                       )}
 
                       {m.steps && m.steps.length > 0 && (

@@ -17,6 +17,7 @@ import {
 } from 'lucide-react';
 import { mockReply, nextMsgId, type Step } from '../../utils/mockChat';
 import { ensureSession, startRun, streamRun } from '../../api/chat';
+import Markdown from '../Markdown';
 import Resizer from '../layout/Resizer';
 
 interface Msg {
@@ -38,12 +39,45 @@ export default function DebugPanel({ agentName, agentModel }: DebugPanelProps) {
   const [sending, setSending] = useState(false);
   // 当前在右侧详情面板中查看的执行（对应某条 agent 回复）
   const [activeSteps, setActiveSteps] = useState<{ msgId: number; steps: Step[] } | null>(null);
-  // 左侧对话区宽度（px），可拖拽调整，右详情面板自适应
-  const [chatWidth, setChatWidth] = useState(320);
+  // 左侧对话区宽度（px），可拖拽调整（范围更大更灵活）
+  const [chatWidth, setChatWidth] = useState(380);
+  // 右侧执行详情 max-width（px）。默认 9999 = 不限制（flex-1 占满贴右边界）；
+  // 拖右分隔条后改为具体像素上限，实现独立调宽。
+  const [traceWidth, setTraceWidth] = useState(9999);
   const endRef = useRef<HTMLDivElement>(null);
+  // 内部双栏容器，用于把拖拽 delta 换算成绝对 maxWidth + 初始化对话区宽度
+  const dualRef = useRef<HTMLDivElement>(null);
+  // 用户是否手动拖过左栏宽度（拖过后不再自动自适应）
+  const chatDraggedRef = useRef(false);
+
+  // 左对话区宽度自适应：未拖拽时按容器宽度吃满（扣除右栏保底 230 + 两个分隔条 12）
+  useEffect(() => {
+    const el = dualRef.current;
+    if (!el) return;
+    const apply = () => {
+      if (chatDraggedRef.current) return;
+      const w = el.getBoundingClientRect().width;
+      setChatWidth(Math.max(240, Math.min(720, w - 230 - 12)));
+    };
+    apply();
+    const ro = new ResizeObserver(apply);
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, []);
 
   const handleChatResize = (delta: number) => {
-    setChatWidth((w) => Math.min(520, Math.max(240, w + delta)));
+    chatDraggedRef.current = true;
+    setChatWidth((w) => Math.min(720, Math.max(220, w + delta)));
+  };
+
+  const handleTraceResize = (delta: number) => {
+    setTraceWidth((w) => {
+      const base =
+        w >= 9999
+          ? (dualRef.current?.getBoundingClientRect().width || 600) - 20
+          : w;
+      return Math.min(9999, Math.max(230, base + delta));
+    });
   };
 
   useEffect(() => {
@@ -210,9 +244,9 @@ export default function DebugPanel({ agentName, agentModel }: DebugPanelProps) {
       </div>
 
       {/* 内部双栏：左对话 / 右执行详情（中间可拖拽） */}
-      <div className="flex flex-1 min-h-0 overflow-hidden">
+      <div ref={dualRef} className="flex flex-1 min-h-0 overflow-hidden">
         {/* 左：对话 */}
-        <div style={{ width: `${chatWidth}px` }} className="shrink-0 flex flex-col min-w-[240px]">
+        <div style={{ width: `${chatWidth}px` }} className="shrink-0 min-w-[220px] flex flex-col">
           {/* 对话消息区 */}
           <div className="flex-1 overflow-y-auto p-3 bg-[#fafbfc]/60">
             <div className="space-y-3">
@@ -246,7 +280,7 @@ export default function DebugPanel({ agentName, agentModel }: DebugPanelProps) {
                   </div>
                 ) : (
                   <div key={m.id} className="flex justify-start">
-                    <div className="max-w-[92%] w-full">
+                    <div className="max-w-[92%] w-full min-w-0">
                       <div className="flex items-center gap-2 mb-1">
                         <span className="text-[11.5px] font-medium text-[#86909c]">{agentName}</span>
                         {m.streaming && (
@@ -268,9 +302,7 @@ export default function DebugPanel({ agentName, agentModel }: DebugPanelProps) {
                         {m.streaming && !m.content ? (
                           <div className="text-[13px] text-[#4e5969]">正在思考并执行任务...</div>
                         ) : (
-                          <div className="whitespace-pre-wrap text-[13px] text-[#4e5969] leading-relaxed">
-                            {m.content}
-                          </div>
+                          <Markdown content={m.content} className="whitespace-pre-wrap" />
                         )}
 
                         {/* 气泡内仅保留轻量摘要，详细信息在右侧面板 */}
@@ -321,11 +353,14 @@ export default function DebugPanel({ agentName, agentModel }: DebugPanelProps) {
           </form>
         </div>
 
-        {/* 拖拽分隔条 */}
+        {/* 拖拽分隔条（左） */}
         <Resizer onResize={handleChatResize} />
 
-        {/* 右：执行详情 Trace */}
-        <div className="flex-1 min-w-[230px] flex flex-col bg-white">
+        {/* 右：执行详情 Trace（flex-1 占满剩余、贴右边界；max-width 由独立拖拽控制） */}
+        <div
+          className="flex-1 min-w-[230px] flex flex-col bg-white"
+          style={{ maxWidth: `${traceWidth}px` }}
+        >
           {/* Trace 头部 */}
           <div className="flex items-center justify-between px-3.5 py-2.5 border-b border-[#f2f3f5] bg-[#fafbfc] shrink-0">
             <div className="flex items-center gap-2">
@@ -346,7 +381,7 @@ export default function DebugPanel({ agentName, agentModel }: DebugPanelProps) {
           </div>
 
           {/* Trace 内容 */}
-          <div className="flex-1 overflow-y-auto p-3">
+          <div className="flex-1 overflow-x-auto overflow-y-auto p-3">
             {!activeSteps || activeSteps.steps.length === 0 ? (
               <div className="flex flex-col items-center justify-center h-full min-h-[200px] text-center">
                 <div className="w-10 h-10 rounded-full bg-[#f2f3f5] flex items-center justify-center mb-2.5">
@@ -356,7 +391,7 @@ export default function DebugPanel({ agentName, agentModel }: DebugPanelProps) {
                 <p className="text-[10.5px] text-[#c0c4cc] mt-1">发送消息后，Agent 每一步执行过程将在此展示</p>
               </div>
             ) : (
-              <div className="space-y-3">
+              <div className="space-y-3 min-w-0">
                 {/* 概览卡 */}
                 <div className="flex items-center justify-between px-3 py-2 rounded-lg bg-[#fafbfc] border border-[#f0f1f3]">
                   <div className="flex items-center gap-2">
@@ -379,6 +414,9 @@ export default function DebugPanel({ agentName, agentModel }: DebugPanelProps) {
             )}
           </div>
         </div>
+
+        {/* 拖拽分隔条（右）：拖窄时右栏 max-width 变小，右栏随之变窄；拖到上限以上则恢复占满 */}
+        <Resizer onResize={handleTraceResize} />
       </div>
     </div>
   );
@@ -483,7 +521,7 @@ function TraceTimeline({ steps }: { steps: Step[] }) {
 
             {/* 展开的详细内容 */}
             {open && (
-              <div className="ml-[33px] mt-1.5 mb-2 space-y-2">
+              <div className="ml-[33px] mt-1.5 mb-2 space-y-2 min-w-0">
                 {st.detail && (
                   <DetailBlock
                     label={st.nodeType === 'THOUGHT' ? '思考' : '说明'}
@@ -601,7 +639,7 @@ export function StepTimeline({ steps }: { steps: Step[] }) {
               </button>
 
               {open && (
-                <div className="ml-[33px] mt-1.5 mb-2 space-y-2">
+                <div className="ml-[33px] mt-1.5 mb-2 space-y-2 min-w-0">
                   {st.detail && (
                     <DetailBlock label="说明" icon={<ScanSearch size={12} />} text={st.detail} />
                   )}
@@ -638,7 +676,7 @@ function DetailBlock({
 }) {
   return (
     <div
-      className={`px-3 py-2 rounded-md text-[11.5px] leading-relaxed border ${
+      className={`px-3 py-2 rounded-md text-[11.5px] leading-relaxed border break-words min-w-0 ${
         green
           ? 'bg-emerald-50/50 border-emerald-100 text-emerald-700'
           : 'bg-[#fafbfc] border-[#f0f1f3] text-[#4e5969]'
@@ -673,7 +711,7 @@ function CodeBlock({ label, text, accent }: { label: string; text: string; accen
         {label}
       </div>
       <pre
-        className={`px-3 py-2 text-[11px] leading-relaxed font-mono whitespace-pre-wrap ${
+        className={`px-3 py-2 text-[11px] leading-relaxed font-mono whitespace-pre overflow-x-auto ${
           accent ? 'text-violet-700 bg-violet-50/30' : 'text-[#4e5969] bg-white'
         }`}
       >
