@@ -1,0 +1,1416 @@
+16:22:11 [vite] Internal server error: D:\projects\react_demo\auto_react_aigc\frontend\src\components\agent\DebugPanel.tsx: 'import' and 'export' may only appear at the top level. (606:0)
+
+  604 |
+  605 | // chat 页复用：轻量执行时间线（内嵌气泡中）
+> 606 | export function StepTimeline({ steps }: { steps: Step[] }) {
+      | ^
+  607 |   const [expanded, setExpanded] = useState<number[]>(steps.map((_, i) => i));
+  608 |
+  609 |   useEffect(() => {
+  Plugin: vite:react-babel
+  File: D:/projects/react_demo/auto_react_aigc/frontend/src/components/agent/DebugPanel.tsx:606:0
+  604|  
+  605|  // chat 页复用：轻量执行时间线（内嵌气泡中）
+  606|  export function StepTimeline({ steps }: { steps: Step[] }) {
+     |  ^
+  607|    const [expanded, setExpanded] = useState<number[]>(steps.map((_, i) => i));
+  608|  
+      at constructor (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:369:19)
+      at TypeScriptParserMixin.raise (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:6620:19)
+      at TypeScriptParserMixin.parseStatementContent (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12900:18)
+      at TypeScriptParserMixin.parseStatementContent (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9529:18)
+      at TypeScriptParserMixin.parseStatementLike (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12796:17)
+      at TypeScriptParserMixin.parseStatementListItem (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12776:17)
+      at TypeScriptParserMixin.parseBlockOrModuleBlockBody (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:13345:61)
+      at TypeScriptParserMixin.parseBlockBody (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:13338:10)
+      at TypeScriptParserMixin.parseBlock (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:13326:10)
+      at TypeScriptParserMixin.parseFunctionBody (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12129:24)
+      at TypeScriptParserMixin.parseArrowExpression (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12104:10)
+      at TypeScriptParserMixin.parseParenAndDistinguishExpression (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11713:12)
+      at TypeScriptParserMixin.parseExprAtom (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11357:23)
+      at TypeScriptParserMixin.parseExprAtom (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:4780:20)
+      at TypeScriptParserMixin.parseExprSubscripts (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11102:23)
+      at TypeScriptParserMixin.parseUpdate (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11087:21)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11067:23)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9858:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10920:61)
+      at TypeScriptParserMixin.parseExprOps (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10925:23)
+      at TypeScriptParserMixin.parseMaybeConditional (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10902:23)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10852:21)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9807:20)
+      at D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10821:39
+      at TypeScriptParserMixin.allowInAnd (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12455:12)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10821:17)
+      at TypeScriptParserMixin.parseMaybeAssignAllowInOrVoidPattern (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12522:17)
+      at TypeScriptParserMixin.parseExprListItem (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12204:18)
+      at TypeScriptParserMixin.parseCallExpressionArguments (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11278:22)
+      at TypeScriptParserMixin.parseCoverCallAndAsyncArrowHead (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11212:29)
+      at TypeScriptParserMixin.parseSubscript (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11141:19)
+      at TypeScriptParserMixin.parseSubscript (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9293:18)
+      at TypeScriptParserMixin.parseSubscripts (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11115:19)
+      at TypeScriptParserMixin.parseExprSubscripts (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11106:17)
+      at TypeScriptParserMixin.parseUpdate (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11087:21)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11067:23)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9858:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10920:61)
+      at TypeScriptParserMixin.parseExprOps (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10925:23)
+      at TypeScriptParserMixin.parseMaybeConditional (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10902:23)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10852:21)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9807:20)
+      at D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10821:39
+      at TypeScriptParserMixin.allowInAnd (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12450:16)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10821:17)
+      at TypeScriptParserMixin.parseVar (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:13413:91)
+      at TypeScriptParserMixin.parseVarStatement (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:13259:10)
+      at TypeScriptParserMixin.parseVarStatement (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9429:31)
+      at TypeScriptParserMixin.parseStatementContent (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12880:23)
+      at TypeScriptParserMixin.parseStatementContent (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9529:18)
+16:22:11 [vite] Internal server error: D:\projects\react_demo\auto_react_aigc\frontend\src\components\agent\DebugPanel.tsx: 'import' and 'export' may only appear at the top level. (606:0)
+
+  604 |
+  605 | // chat 页复用：轻量执行时间线（内嵌气泡中）
+> 606 | export function StepTimeline({ steps }: { steps: Step[] }) {
+      | ^
+  607 |   const [expanded, setExpanded] = useState<number[]>(steps.map((_, i) => i));
+  608 |
+  609 |   useEffect(() => {
+  Plugin: vite:react-babel
+  File: D:/projects/react_demo/auto_react_aigc/frontend/src/components/agent/DebugPanel.tsx:606:0
+  604|  
+  605|  // chat 页复用：轻量执行时间线（内嵌气泡中）
+  606|  export function StepTimeline({ steps }: { steps: Step[] }) {
+     |  ^
+  607|    const [expanded, setExpanded] = useState<number[]>(steps.map((_, i) => i));
+  608|  
+      at constructor (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:369:19)
+      at TypeScriptParserMixin.raise (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:6620:19)
+      at TypeScriptParserMixin.parseStatementContent (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12900:18)
+      at TypeScriptParserMixin.parseStatementContent (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9529:18)
+      at TypeScriptParserMixin.parseStatementLike (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12796:17)
+      at TypeScriptParserMixin.parseStatementListItem (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12776:17)
+      at TypeScriptParserMixin.parseBlockOrModuleBlockBody (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:13345:61)
+      at TypeScriptParserMixin.parseBlockBody (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:13338:10)
+      at TypeScriptParserMixin.parseBlock (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:13326:10)
+      at TypeScriptParserMixin.parseFunctionBody (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12129:24)
+      at TypeScriptParserMixin.parseArrowExpression (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12104:10)
+      at TypeScriptParserMixin.parseParenAndDistinguishExpression (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11713:12)
+      at TypeScriptParserMixin.parseExprAtom (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11357:23)
+      at TypeScriptParserMixin.parseExprAtom (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:4780:20)
+      at TypeScriptParserMixin.parseExprSubscripts (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11102:23)
+      at TypeScriptParserMixin.parseUpdate (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11087:21)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11067:23)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9858:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10920:61)
+      at TypeScriptParserMixin.parseExprOps (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10925:23)
+      at TypeScriptParserMixin.parseMaybeConditional (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10902:23)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10852:21)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9807:20)
+      at D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10821:39
+      at TypeScriptParserMixin.allowInAnd (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12455:12)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10821:17)
+      at TypeScriptParserMixin.parseMaybeAssignAllowInOrVoidPattern (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12522:17)
+      at TypeScriptParserMixin.parseExprListItem (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12204:18)
+      at TypeScriptParserMixin.parseCallExpressionArguments (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11278:22)
+      at TypeScriptParserMixin.parseCoverCallAndAsyncArrowHead (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11212:29)
+      at TypeScriptParserMixin.parseSubscript (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11141:19)
+      at TypeScriptParserMixin.parseSubscript (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9293:18)
+      at TypeScriptParserMixin.parseSubscripts (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11115:19)
+      at TypeScriptParserMixin.parseExprSubscripts (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11106:17)
+      at TypeScriptParserMixin.parseUpdate (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11087:21)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11067:23)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9858:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10920:61)
+      at TypeScriptParserMixin.parseExprOps (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10925:23)
+      at TypeScriptParserMixin.parseMaybeConditional (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10902:23)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10852:21)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9807:20)
+      at D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10821:39
+      at TypeScriptParserMixin.allowInAnd (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12450:16)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10821:17)
+      at TypeScriptParserMixin.parseVar (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:13413:91)
+      at TypeScriptParserMixin.parseVarStatement (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:13259:10)
+      at TypeScriptParserMixin.parseVarStatement (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9429:31)
+      at TypeScriptParserMixin.parseStatementContent (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12880:23)
+      at TypeScriptParserMixin.parseStatementContent (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9529:18)
+16:22:11 [vite] Internal server error: D:\projects\react_demo\auto_react_aigc\frontend\src\components\agent\DebugPanel.tsx: 'import' and 'export' may only appear at the top level. (606:0)
+
+  604 |
+  605 | // chat 页复用：轻量执行时间线（内嵌气泡中）
+> 606 | export function StepTimeline({ steps }: { steps: Step[] }) {
+      | ^
+  607 |   const [expanded, setExpanded] = useState<number[]>(steps.map((_, i) => i));
+  608 |
+  609 |   useEffect(() => {
+  Plugin: vite:react-babel
+  File: D:/projects/react_demo/auto_react_aigc/frontend/src/components/agent/DebugPanel.tsx:606:0
+  604|  
+  605|  // chat 页复用：轻量执行时间线（内嵌气泡中）
+  606|  export function StepTimeline({ steps }: { steps: Step[] }) {
+     |  ^
+  607|    const [expanded, setExpanded] = useState<number[]>(steps.map((_, i) => i));
+  608|  
+      at constructor (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:369:19)
+      at TypeScriptParserMixin.raise (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:6620:19)
+      at TypeScriptParserMixin.parseStatementContent (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12900:18)
+      at TypeScriptParserMixin.parseStatementContent (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9529:18)
+      at TypeScriptParserMixin.parseStatementLike (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12796:17)
+      at TypeScriptParserMixin.parseStatementListItem (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12776:17)
+      at TypeScriptParserMixin.parseBlockOrModuleBlockBody (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:13345:61)
+      at TypeScriptParserMixin.parseBlockBody (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:13338:10)
+      at TypeScriptParserMixin.parseBlock (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:13326:10)
+      at TypeScriptParserMixin.parseFunctionBody (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12129:24)
+      at TypeScriptParserMixin.parseArrowExpression (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12104:10)
+      at TypeScriptParserMixin.parseParenAndDistinguishExpression (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11713:12)
+      at TypeScriptParserMixin.parseExprAtom (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11357:23)
+      at TypeScriptParserMixin.parseExprAtom (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:4780:20)
+      at TypeScriptParserMixin.parseExprSubscripts (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11102:23)
+      at TypeScriptParserMixin.parseUpdate (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11087:21)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11067:23)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9858:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10920:61)
+      at TypeScriptParserMixin.parseExprOps (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10925:23)
+      at TypeScriptParserMixin.parseMaybeConditional (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10902:23)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10852:21)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9807:20)
+      at D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10821:39
+      at TypeScriptParserMixin.allowInAnd (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12455:12)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10821:17)
+      at TypeScriptParserMixin.parseMaybeAssignAllowInOrVoidPattern (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12522:17)
+      at TypeScriptParserMixin.parseExprListItem (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12204:18)
+      at TypeScriptParserMixin.parseCallExpressionArguments (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11278:22)
+      at TypeScriptParserMixin.parseCoverCallAndAsyncArrowHead (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11212:29)
+      at TypeScriptParserMixin.parseSubscript (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11141:19)
+      at TypeScriptParserMixin.parseSubscript (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9293:18)
+      at TypeScriptParserMixin.parseSubscripts (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11115:19)
+      at TypeScriptParserMixin.parseExprSubscripts (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11106:17)
+      at TypeScriptParserMixin.parseUpdate (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11087:21)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11067:23)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9858:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10920:61)
+      at TypeScriptParserMixin.parseExprOps (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10925:23)
+      at TypeScriptParserMixin.parseMaybeConditional (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10902:23)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10852:21)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9807:20)
+      at D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10821:39
+      at TypeScriptParserMixin.allowInAnd (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12450:16)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10821:17)
+      at TypeScriptParserMixin.parseVar (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:13413:91)
+      at TypeScriptParserMixin.parseVarStatement (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:13259:10)
+      at TypeScriptParserMixin.parseVarStatement (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9429:31)
+      at TypeScriptParserMixin.parseStatementContent (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12880:23)
+      at TypeScriptParserMixin.parseStatementContent (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9529:18)
+16:22:11 [vite] Internal server error: D:\projects\react_demo\auto_react_aigc\frontend\src\components\agent\DebugPanel.tsx: 'import' and 'export' may only appear at the top level. (606:0)
+
+  604 |
+  605 | // chat 页复用：轻量执行时间线（内嵌气泡中）
+> 606 | export function StepTimeline({ steps }: { steps: Step[] }) {
+      | ^
+  607 |   const [expanded, setExpanded] = useState<number[]>(steps.map((_, i) => i));
+  608 |
+  609 |   useEffect(() => {
+  Plugin: vite:react-babel
+  File: D:/projects/react_demo/auto_react_aigc/frontend/src/components/agent/DebugPanel.tsx:606:0
+  604|  
+  605|  // chat 页复用：轻量执行时间线（内嵌气泡中）
+  606|  export function StepTimeline({ steps }: { steps: Step[] }) {
+     |  ^
+  607|    const [expanded, setExpanded] = useState<number[]>(steps.map((_, i) => i));
+  608|  
+      at constructor (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:369:19)
+      at TypeScriptParserMixin.raise (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:6620:19)
+      at TypeScriptParserMixin.parseStatementContent (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12900:18)
+      at TypeScriptParserMixin.parseStatementContent (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9529:18)
+      at TypeScriptParserMixin.parseStatementLike (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12796:17)
+      at TypeScriptParserMixin.parseStatementListItem (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12776:17)
+      at TypeScriptParserMixin.parseBlockOrModuleBlockBody (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:13345:61)
+      at TypeScriptParserMixin.parseBlockBody (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:13338:10)
+      at TypeScriptParserMixin.parseBlock (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:13326:10)
+      at TypeScriptParserMixin.parseFunctionBody (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12129:24)
+      at TypeScriptParserMixin.parseArrowExpression (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12104:10)
+      at TypeScriptParserMixin.parseParenAndDistinguishExpression (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11713:12)
+      at TypeScriptParserMixin.parseExprAtom (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11357:23)
+      at TypeScriptParserMixin.parseExprAtom (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:4780:20)
+      at TypeScriptParserMixin.parseExprSubscripts (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11102:23)
+      at TypeScriptParserMixin.parseUpdate (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11087:21)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11067:23)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9858:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10920:61)
+      at TypeScriptParserMixin.parseExprOps (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10925:23)
+      at TypeScriptParserMixin.parseMaybeConditional (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10902:23)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10852:21)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9807:20)
+      at D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10821:39
+      at TypeScriptParserMixin.allowInAnd (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12455:12)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10821:17)
+      at TypeScriptParserMixin.parseMaybeAssignAllowInOrVoidPattern (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12522:17)
+      at TypeScriptParserMixin.parseExprListItem (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12204:18)
+      at TypeScriptParserMixin.parseCallExpressionArguments (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11278:22)
+      at TypeScriptParserMixin.parseCoverCallAndAsyncArrowHead (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11212:29)
+      at TypeScriptParserMixin.parseSubscript (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11141:19)
+      at TypeScriptParserMixin.parseSubscript (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9293:18)
+      at TypeScriptParserMixin.parseSubscripts (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11115:19)
+      at TypeScriptParserMixin.parseExprSubscripts (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11106:17)
+      at TypeScriptParserMixin.parseUpdate (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11087:21)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11067:23)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9858:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10920:61)
+      at TypeScriptParserMixin.parseExprOps (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10925:23)
+      at TypeScriptParserMixin.parseMaybeConditional (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10902:23)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10852:21)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9807:20)
+      at D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10821:39
+      at TypeScriptParserMixin.allowInAnd (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12450:16)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10821:17)
+      at TypeScriptParserMixin.parseVar (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:13413:91)
+      at TypeScriptParserMixin.parseVarStatement (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:13259:10)
+      at TypeScriptParserMixin.parseVarStatement (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9429:31)
+      at TypeScriptParserMixin.parseStatementContent (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12880:23)
+      at TypeScriptParserMixin.parseStatementContent (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9529:18)
+16:22:11 [vite] Internal server error: D:\projects\react_demo\auto_react_aigc\frontend\src\components\agent\DebugPanel.tsx: 'import' and 'export' may only appear at the top level. (606:0)
+
+  604 |
+  605 | // chat 页复用：轻量执行时间线（内嵌气泡中）
+> 606 | export function StepTimeline({ steps }: { steps: Step[] }) {
+      | ^
+  607 |   const [expanded, setExpanded] = useState<number[]>(steps.map((_, i) => i));
+  608 |
+  609 |   useEffect(() => {
+  Plugin: vite:react-babel
+  File: D:/projects/react_demo/auto_react_aigc/frontend/src/components/agent/DebugPanel.tsx:606:0
+  604|  
+  605|  // chat 页复用：轻量执行时间线（内嵌气泡中）
+  606|  export function StepTimeline({ steps }: { steps: Step[] }) {
+     |  ^
+  607|    const [expanded, setExpanded] = useState<number[]>(steps.map((_, i) => i));
+  608|  
+      at constructor (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:369:19)
+      at TypeScriptParserMixin.raise (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:6620:19)
+      at TypeScriptParserMixin.parseStatementContent (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12900:18)
+      at TypeScriptParserMixin.parseStatementContent (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9529:18)
+      at TypeScriptParserMixin.parseStatementLike (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12796:17)
+      at TypeScriptParserMixin.parseStatementListItem (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12776:17)
+      at TypeScriptParserMixin.parseBlockOrModuleBlockBody (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:13345:61)
+      at TypeScriptParserMixin.parseBlockBody (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:13338:10)
+      at TypeScriptParserMixin.parseBlock (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:13326:10)
+      at TypeScriptParserMixin.parseFunctionBody (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12129:24)
+      at TypeScriptParserMixin.parseArrowExpression (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12104:10)
+      at TypeScriptParserMixin.parseParenAndDistinguishExpression (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11713:12)
+      at TypeScriptParserMixin.parseExprAtom (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11357:23)
+      at TypeScriptParserMixin.parseExprAtom (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:4780:20)
+      at TypeScriptParserMixin.parseExprSubscripts (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11102:23)
+      at TypeScriptParserMixin.parseUpdate (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11087:21)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11067:23)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9858:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10920:61)
+      at TypeScriptParserMixin.parseExprOps (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10925:23)
+      at TypeScriptParserMixin.parseMaybeConditional (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10902:23)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10852:21)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9807:20)
+      at D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10821:39
+      at TypeScriptParserMixin.allowInAnd (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12455:12)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10821:17)
+      at TypeScriptParserMixin.parseMaybeAssignAllowInOrVoidPattern (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12522:17)
+      at TypeScriptParserMixin.parseExprListItem (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12204:18)
+      at TypeScriptParserMixin.parseCallExpressionArguments (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11278:22)
+      at TypeScriptParserMixin.parseCoverCallAndAsyncArrowHead (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11212:29)
+      at TypeScriptParserMixin.parseSubscript (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11141:19)
+      at TypeScriptParserMixin.parseSubscript (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9293:18)
+      at TypeScriptParserMixin.parseSubscripts (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11115:19)
+      at TypeScriptParserMixin.parseExprSubscripts (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11106:17)
+      at TypeScriptParserMixin.parseUpdate (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11087:21)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11067:23)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9858:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10920:61)
+      at TypeScriptParserMixin.parseExprOps (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10925:23)
+      at TypeScriptParserMixin.parseMaybeConditional (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10902:23)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10852:21)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9807:20)
+      at D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10821:39
+      at TypeScriptParserMixin.allowInAnd (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12450:16)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10821:17)
+      at TypeScriptParserMixin.parseVar (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:13413:91)
+      at TypeScriptParserMixin.parseVarStatement (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:13259:10)
+      at TypeScriptParserMixin.parseVarStatement (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9429:31)
+      at TypeScriptParserMixin.parseStatementContent (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12880:23)
+      at TypeScriptParserMixin.parseStatementContent (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9529:18)
+16:22:37 [vite] Internal server error: D:\projects\react_demo\auto_react_aigc\frontend\src\components\agent\DebugPanel.tsx: 'import' and 'export' may only appear at the top level. (611:0)
+
+  609 |
+  610 | // chat 页复用：轻量执行时间线（内嵌气泡中）
+> 611 | export function StepTimeline({ steps }: { steps: Step[] }) {
+      | ^
+  612 |   const [expanded, setExpanded] = useState<number[]>(steps.map((_, i) => i));
+  613 |
+  614 |   useEffect(() => {
+  Plugin: vite:react-babel
+  File: D:/projects/react_demo/auto_react_aigc/frontend/src/components/agent/DebugPanel.tsx:611:0
+  609|  
+  610|  // chat 页复用：轻量执行时间线（内嵌气泡中）
+  611|  export function StepTimeline({ steps }: { steps: Step[] }) {
+     |  ^
+  612|    const [expanded, setExpanded] = useState<number[]>(steps.map((_, i) => i));
+  613|  
+      at constructor (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:369:19)
+      at TypeScriptParserMixin.raise (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:6620:19)
+      at TypeScriptParserMixin.parseStatementContent (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12900:18)
+      at TypeScriptParserMixin.parseStatementContent (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9529:18)
+      at TypeScriptParserMixin.parseStatementLike (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12796:17)
+      at TypeScriptParserMixin.parseStatementListItem (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12776:17)
+      at TypeScriptParserMixin.parseBlockOrModuleBlockBody (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:13345:61)
+      at TypeScriptParserMixin.parseBlockBody (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:13338:10)
+      at TypeScriptParserMixin.parseBlock (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:13326:10)
+      at TypeScriptParserMixin.parseFunctionBody (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12129:24)
+      at TypeScriptParserMixin.parseArrowExpression (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12104:10)
+      at TypeScriptParserMixin.parseParenAndDistinguishExpression (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11713:12)
+      at TypeScriptParserMixin.parseExprAtom (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11357:23)
+      at TypeScriptParserMixin.parseExprAtom (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:4780:20)
+      at TypeScriptParserMixin.parseExprSubscripts (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11102:23)
+      at TypeScriptParserMixin.parseUpdate (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11087:21)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11067:23)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9858:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10920:61)
+      at TypeScriptParserMixin.parseExprOps (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10925:23)
+      at TypeScriptParserMixin.parseMaybeConditional (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10902:23)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10852:21)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9807:20)
+      at D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10821:39
+      at TypeScriptParserMixin.allowInAnd (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12455:12)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10821:17)
+      at TypeScriptParserMixin.parseMaybeAssignAllowInOrVoidPattern (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12522:17)
+      at TypeScriptParserMixin.parseExprListItem (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12204:18)
+      at TypeScriptParserMixin.parseCallExpressionArguments (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11278:22)
+      at TypeScriptParserMixin.parseCoverCallAndAsyncArrowHead (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11212:29)
+      at TypeScriptParserMixin.parseSubscript (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11141:19)
+      at TypeScriptParserMixin.parseSubscript (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9293:18)
+      at TypeScriptParserMixin.parseSubscripts (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11115:19)
+      at TypeScriptParserMixin.parseExprSubscripts (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11106:17)
+      at TypeScriptParserMixin.parseUpdate (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11087:21)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11067:23)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9858:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10920:61)
+      at TypeScriptParserMixin.parseExprOps (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10925:23)
+      at TypeScriptParserMixin.parseMaybeConditional (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10902:23)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10852:21)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9807:20)
+      at D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10821:39
+      at TypeScriptParserMixin.allowInAnd (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12450:16)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10821:17)
+      at TypeScriptParserMixin.parseVar (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:13413:91)
+      at TypeScriptParserMixin.parseVarStatement (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:13259:10)
+      at TypeScriptParserMixin.parseVarStatement (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9429:31)
+      at TypeScriptParserMixin.parseStatementContent (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12880:23)
+      at TypeScriptParserMixin.parseStatementContent (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9529:18)
+16:22:37 [vite] Internal server error: D:\projects\react_demo\auto_react_aigc\frontend\src\components\agent\DebugPanel.tsx: 'import' and 'export' may only appear at the top level. (611:0)
+
+  609 |
+  610 | // chat 页复用：轻量执行时间线（内嵌气泡中）
+> 611 | export function StepTimeline({ steps }: { steps: Step[] }) {
+      | ^
+  612 |   const [expanded, setExpanded] = useState<number[]>(steps.map((_, i) => i));
+  613 |
+  614 |   useEffect(() => {
+  Plugin: vite:react-babel
+  File: D:/projects/react_demo/auto_react_aigc/frontend/src/components/agent/DebugPanel.tsx:611:0
+  609|  
+  610|  // chat 页复用：轻量执行时间线（内嵌气泡中）
+  611|  export function StepTimeline({ steps }: { steps: Step[] }) {
+     |  ^
+  612|    const [expanded, setExpanded] = useState<number[]>(steps.map((_, i) => i));
+  613|  
+      at constructor (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:369:19)
+      at TypeScriptParserMixin.raise (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:6620:19)
+      at TypeScriptParserMixin.parseStatementContent (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12900:18)
+      at TypeScriptParserMixin.parseStatementContent (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9529:18)
+      at TypeScriptParserMixin.parseStatementLike (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12796:17)
+      at TypeScriptParserMixin.parseStatementListItem (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12776:17)
+      at TypeScriptParserMixin.parseBlockOrModuleBlockBody (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:13345:61)
+      at TypeScriptParserMixin.parseBlockBody (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:13338:10)
+      at TypeScriptParserMixin.parseBlock (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:13326:10)
+      at TypeScriptParserMixin.parseFunctionBody (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12129:24)
+      at TypeScriptParserMixin.parseArrowExpression (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12104:10)
+      at TypeScriptParserMixin.parseParenAndDistinguishExpression (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11713:12)
+      at TypeScriptParserMixin.parseExprAtom (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11357:23)
+      at TypeScriptParserMixin.parseExprAtom (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:4780:20)
+      at TypeScriptParserMixin.parseExprSubscripts (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11102:23)
+      at TypeScriptParserMixin.parseUpdate (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11087:21)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11067:23)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9858:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10920:61)
+      at TypeScriptParserMixin.parseExprOps (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10925:23)
+      at TypeScriptParserMixin.parseMaybeConditional (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10902:23)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10852:21)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9807:20)
+      at D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10821:39
+      at TypeScriptParserMixin.allowInAnd (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12455:12)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10821:17)
+      at TypeScriptParserMixin.parseMaybeAssignAllowInOrVoidPattern (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12522:17)
+      at TypeScriptParserMixin.parseExprListItem (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12204:18)
+      at TypeScriptParserMixin.parseCallExpressionArguments (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11278:22)
+      at TypeScriptParserMixin.parseCoverCallAndAsyncArrowHead (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11212:29)
+      at TypeScriptParserMixin.parseSubscript (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11141:19)
+      at TypeScriptParserMixin.parseSubscript (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9293:18)
+      at TypeScriptParserMixin.parseSubscripts (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11115:19)
+      at TypeScriptParserMixin.parseExprSubscripts (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11106:17)
+      at TypeScriptParserMixin.parseUpdate (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11087:21)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11067:23)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9858:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10920:61)
+      at TypeScriptParserMixin.parseExprOps (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10925:23)
+      at TypeScriptParserMixin.parseMaybeConditional (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10902:23)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10852:21)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9807:20)
+      at D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10821:39
+      at TypeScriptParserMixin.allowInAnd (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12450:16)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10821:17)
+      at TypeScriptParserMixin.parseVar (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:13413:91)
+      at TypeScriptParserMixin.parseVarStatement (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:13259:10)
+      at TypeScriptParserMixin.parseVarStatement (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9429:31)
+      at TypeScriptParserMixin.parseStatementContent (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12880:23)
+      at TypeScriptParserMixin.parseStatementContent (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9529:18)
+16:22:37 [vite] Internal server error: D:\projects\react_demo\auto_react_aigc\frontend\src\components\agent\DebugPanel.tsx: 'import' and 'export' may only appear at the top level. (611:0)
+
+  609 |
+  610 | // chat 页复用：轻量执行时间线（内嵌气泡中）
+> 611 | export function StepTimeline({ steps }: { steps: Step[] }) {
+      | ^
+  612 |   const [expanded, setExpanded] = useState<number[]>(steps.map((_, i) => i));
+  613 |
+  614 |   useEffect(() => {
+  Plugin: vite:react-babel
+  File: D:/projects/react_demo/auto_react_aigc/frontend/src/components/agent/DebugPanel.tsx:611:0
+  609|  
+  610|  // chat 页复用：轻量执行时间线（内嵌气泡中）
+  611|  export function StepTimeline({ steps }: { steps: Step[] }) {
+     |  ^
+  612|    const [expanded, setExpanded] = useState<number[]>(steps.map((_, i) => i));
+  613|  
+      at constructor (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:369:19)
+      at TypeScriptParserMixin.raise (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:6620:19)
+      at TypeScriptParserMixin.parseStatementContent (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12900:18)
+      at TypeScriptParserMixin.parseStatementContent (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9529:18)
+      at TypeScriptParserMixin.parseStatementLike (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12796:17)
+      at TypeScriptParserMixin.parseStatementListItem (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12776:17)
+      at TypeScriptParserMixin.parseBlockOrModuleBlockBody (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:13345:61)
+      at TypeScriptParserMixin.parseBlockBody (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:13338:10)
+      at TypeScriptParserMixin.parseBlock (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:13326:10)
+      at TypeScriptParserMixin.parseFunctionBody (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12129:24)
+      at TypeScriptParserMixin.parseArrowExpression (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12104:10)
+      at TypeScriptParserMixin.parseParenAndDistinguishExpression (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11713:12)
+      at TypeScriptParserMixin.parseExprAtom (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11357:23)
+      at TypeScriptParserMixin.parseExprAtom (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:4780:20)
+      at TypeScriptParserMixin.parseExprSubscripts (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11102:23)
+      at TypeScriptParserMixin.parseUpdate (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11087:21)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11067:23)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9858:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10920:61)
+      at TypeScriptParserMixin.parseExprOps (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10925:23)
+      at TypeScriptParserMixin.parseMaybeConditional (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10902:23)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10852:21)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9807:20)
+      at D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10821:39
+      at TypeScriptParserMixin.allowInAnd (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12455:12)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10821:17)
+      at TypeScriptParserMixin.parseMaybeAssignAllowInOrVoidPattern (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12522:17)
+      at TypeScriptParserMixin.parseExprListItem (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12204:18)
+      at TypeScriptParserMixin.parseCallExpressionArguments (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11278:22)
+      at TypeScriptParserMixin.parseCoverCallAndAsyncArrowHead (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11212:29)
+      at TypeScriptParserMixin.parseSubscript (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11141:19)
+      at TypeScriptParserMixin.parseSubscript (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9293:18)
+      at TypeScriptParserMixin.parseSubscripts (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11115:19)
+      at TypeScriptParserMixin.parseExprSubscripts (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11106:17)
+      at TypeScriptParserMixin.parseUpdate (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11087:21)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11067:23)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9858:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10920:61)
+      at TypeScriptParserMixin.parseExprOps (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10925:23)
+      at TypeScriptParserMixin.parseMaybeConditional (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10902:23)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10852:21)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9807:20)
+      at D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10821:39
+      at TypeScriptParserMixin.allowInAnd (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12450:16)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10821:17)
+      at TypeScriptParserMixin.parseVar (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:13413:91)
+      at TypeScriptParserMixin.parseVarStatement (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:13259:10)
+      at TypeScriptParserMixin.parseVarStatement (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9429:31)
+      at TypeScriptParserMixin.parseStatementContent (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12880:23)
+      at TypeScriptParserMixin.parseStatementContent (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9529:18)
+16:22:37 [vite] Internal server error: D:\projects\react_demo\auto_react_aigc\frontend\src\components\agent\DebugPanel.tsx: 'import' and 'export' may only appear at the top level. (611:0)
+
+  609 |
+  610 | // chat 页复用：轻量执行时间线（内嵌气泡中）
+> 611 | export function StepTimeline({ steps }: { steps: Step[] }) {
+      | ^
+  612 |   const [expanded, setExpanded] = useState<number[]>(steps.map((_, i) => i));
+  613 |
+  614 |   useEffect(() => {
+  Plugin: vite:react-babel
+  File: D:/projects/react_demo/auto_react_aigc/frontend/src/components/agent/DebugPanel.tsx:611:0
+  609|  
+  610|  // chat 页复用：轻量执行时间线（内嵌气泡中）
+  611|  export function StepTimeline({ steps }: { steps: Step[] }) {
+     |  ^
+  612|    const [expanded, setExpanded] = useState<number[]>(steps.map((_, i) => i));
+  613|  
+      at constructor (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:369:19)
+      at TypeScriptParserMixin.raise (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:6620:19)
+      at TypeScriptParserMixin.parseStatementContent (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12900:18)
+      at TypeScriptParserMixin.parseStatementContent (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9529:18)
+      at TypeScriptParserMixin.parseStatementLike (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12796:17)
+      at TypeScriptParserMixin.parseStatementListItem (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12776:17)
+      at TypeScriptParserMixin.parseBlockOrModuleBlockBody (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:13345:61)
+      at TypeScriptParserMixin.parseBlockBody (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:13338:10)
+      at TypeScriptParserMixin.parseBlock (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:13326:10)
+      at TypeScriptParserMixin.parseFunctionBody (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12129:24)
+      at TypeScriptParserMixin.parseArrowExpression (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12104:10)
+      at TypeScriptParserMixin.parseParenAndDistinguishExpression (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11713:12)
+      at TypeScriptParserMixin.parseExprAtom (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11357:23)
+      at TypeScriptParserMixin.parseExprAtom (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:4780:20)
+      at TypeScriptParserMixin.parseExprSubscripts (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11102:23)
+      at TypeScriptParserMixin.parseUpdate (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11087:21)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11067:23)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9858:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10920:61)
+      at TypeScriptParserMixin.parseExprOps (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10925:23)
+      at TypeScriptParserMixin.parseMaybeConditional (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10902:23)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10852:21)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9807:20)
+      at D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10821:39
+      at TypeScriptParserMixin.allowInAnd (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12455:12)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10821:17)
+      at TypeScriptParserMixin.parseMaybeAssignAllowInOrVoidPattern (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12522:17)
+      at TypeScriptParserMixin.parseExprListItem (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12204:18)
+      at TypeScriptParserMixin.parseCallExpressionArguments (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11278:22)
+      at TypeScriptParserMixin.parseCoverCallAndAsyncArrowHead (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11212:29)
+      at TypeScriptParserMixin.parseSubscript (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11141:19)
+      at TypeScriptParserMixin.parseSubscript (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9293:18)
+      at TypeScriptParserMixin.parseSubscripts (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11115:19)
+      at TypeScriptParserMixin.parseExprSubscripts (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11106:17)
+      at TypeScriptParserMixin.parseUpdate (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11087:21)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11067:23)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9858:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10920:61)
+      at TypeScriptParserMixin.parseExprOps (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10925:23)
+      at TypeScriptParserMixin.parseMaybeConditional (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10902:23)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10852:21)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9807:20)
+      at D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10821:39
+      at TypeScriptParserMixin.allowInAnd (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12450:16)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10821:17)
+      at TypeScriptParserMixin.parseVar (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:13413:91)
+      at TypeScriptParserMixin.parseVarStatement (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:13259:10)
+      at TypeScriptParserMixin.parseVarStatement (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9429:31)
+      at TypeScriptParserMixin.parseStatementContent (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12880:23)
+      at TypeScriptParserMixin.parseStatementContent (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9529:18)
+16:22:37 [vite] Internal server error: D:\projects\react_demo\auto_react_aigc\frontend\src\components\agent\DebugPanel.tsx: 'import' and 'export' may only appear at the top level. (611:0)
+
+  609 |
+  610 | // chat 页复用：轻量执行时间线（内嵌气泡中）
+> 611 | export function StepTimeline({ steps }: { steps: Step[] }) {
+      | ^
+  612 |   const [expanded, setExpanded] = useState<number[]>(steps.map((_, i) => i));
+  613 |
+  614 |   useEffect(() => {
+  Plugin: vite:react-babel
+  File: D:/projects/react_demo/auto_react_aigc/frontend/src/components/agent/DebugPanel.tsx:611:0
+  609|  
+  610|  // chat 页复用：轻量执行时间线（内嵌气泡中）
+  611|  export function StepTimeline({ steps }: { steps: Step[] }) {
+     |  ^
+  612|    const [expanded, setExpanded] = useState<number[]>(steps.map((_, i) => i));
+  613|  
+      at constructor (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:369:19)
+      at TypeScriptParserMixin.raise (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:6620:19)
+      at TypeScriptParserMixin.parseStatementContent (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12900:18)
+      at TypeScriptParserMixin.parseStatementContent (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9529:18)
+      at TypeScriptParserMixin.parseStatementLike (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12796:17)
+      at TypeScriptParserMixin.parseStatementListItem (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12776:17)
+      at TypeScriptParserMixin.parseBlockOrModuleBlockBody (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:13345:61)
+      at TypeScriptParserMixin.parseBlockBody (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:13338:10)
+      at TypeScriptParserMixin.parseBlock (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:13326:10)
+      at TypeScriptParserMixin.parseFunctionBody (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12129:24)
+      at TypeScriptParserMixin.parseArrowExpression (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12104:10)
+      at TypeScriptParserMixin.parseParenAndDistinguishExpression (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11713:12)
+      at TypeScriptParserMixin.parseExprAtom (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11357:23)
+      at TypeScriptParserMixin.parseExprAtom (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:4780:20)
+      at TypeScriptParserMixin.parseExprSubscripts (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11102:23)
+      at TypeScriptParserMixin.parseUpdate (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11087:21)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11067:23)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9858:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10920:61)
+      at TypeScriptParserMixin.parseExprOps (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10925:23)
+      at TypeScriptParserMixin.parseMaybeConditional (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10902:23)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10852:21)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9807:20)
+      at D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10821:39
+      at TypeScriptParserMixin.allowInAnd (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12455:12)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10821:17)
+      at TypeScriptParserMixin.parseMaybeAssignAllowInOrVoidPattern (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12522:17)
+      at TypeScriptParserMixin.parseExprListItem (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12204:18)
+      at TypeScriptParserMixin.parseCallExpressionArguments (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11278:22)
+      at TypeScriptParserMixin.parseCoverCallAndAsyncArrowHead (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11212:29)
+      at TypeScriptParserMixin.parseSubscript (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11141:19)
+      at TypeScriptParserMixin.parseSubscript (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9293:18)
+      at TypeScriptParserMixin.parseSubscripts (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11115:19)
+      at TypeScriptParserMixin.parseExprSubscripts (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11106:17)
+      at TypeScriptParserMixin.parseUpdate (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11087:21)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11067:23)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9858:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10920:61)
+      at TypeScriptParserMixin.parseExprOps (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10925:23)
+      at TypeScriptParserMixin.parseMaybeConditional (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10902:23)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10852:21)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9807:20)
+      at D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10821:39
+      at TypeScriptParserMixin.allowInAnd (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12450:16)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10821:17)
+      at TypeScriptParserMixin.parseVar (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:13413:91)
+      at TypeScriptParserMixin.parseVarStatement (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:13259:10)
+      at TypeScriptParserMixin.parseVarStatement (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9429:31)
+      at TypeScriptParserMixin.parseStatementContent (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12880:23)
+      at TypeScriptParserMixin.parseStatementContent (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9529:18)
+16:22:55 [vite] Internal server error: D:\projects\react_demo\auto_react_aigc\frontend\src\components\agent\DebugPanel.tsx: 'import' and 'export' may only appear at the top level. (639:0)
+
+  637 |
+  638 | // chat 页复用：轻量执行时间线（内嵌气泡中）
+> 639 | export function StepTimeline({ steps }: { steps: Step[] }) {
+      | ^
+  640 |   const [expanded, setExpanded] = useState<number[]>(steps.map((_, i) => i));
+  641 |
+  642 |   useEffect(() => {
+  Plugin: vite:react-babel
+  File: D:/projects/react_demo/auto_react_aigc/frontend/src/components/agent/DebugPanel.tsx:639:0
+  637|  
+  638|  // chat 页复用：轻量执行时间线（内嵌气泡中）
+  639|  export function StepTimeline({ steps }: { steps: Step[] }) {
+     |  ^
+  640|    const [expanded, setExpanded] = useState<number[]>(steps.map((_, i) => i));
+  641|  
+      at constructor (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:369:19)
+      at TypeScriptParserMixin.raise (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:6620:19)
+      at TypeScriptParserMixin.parseStatementContent (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12900:18)
+      at TypeScriptParserMixin.parseStatementContent (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9529:18)
+      at TypeScriptParserMixin.parseStatementLike (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12796:17)
+      at TypeScriptParserMixin.parseStatementListItem (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12776:17)
+      at TypeScriptParserMixin.parseBlockOrModuleBlockBody (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:13345:61)
+      at TypeScriptParserMixin.parseBlockBody (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:13338:10)
+      at TypeScriptParserMixin.parseBlock (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:13326:10)
+      at TypeScriptParserMixin.parseFunctionBody (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12129:24)
+      at TypeScriptParserMixin.parseArrowExpression (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12104:10)
+      at TypeScriptParserMixin.parseParenAndDistinguishExpression (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11713:12)
+      at TypeScriptParserMixin.parseExprAtom (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11357:23)
+      at TypeScriptParserMixin.parseExprAtom (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:4780:20)
+      at TypeScriptParserMixin.parseExprSubscripts (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11102:23)
+      at TypeScriptParserMixin.parseUpdate (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11087:21)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11067:23)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9858:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10920:61)
+      at TypeScriptParserMixin.parseExprOps (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10925:23)
+      at TypeScriptParserMixin.parseMaybeConditional (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10902:23)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10852:21)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9807:20)
+      at D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10821:39
+      at TypeScriptParserMixin.allowInAnd (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12455:12)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10821:17)
+      at TypeScriptParserMixin.parseMaybeAssignAllowInOrVoidPattern (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12522:17)
+      at TypeScriptParserMixin.parseExprListItem (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12204:18)
+      at TypeScriptParserMixin.parseCallExpressionArguments (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11278:22)
+      at TypeScriptParserMixin.parseCoverCallAndAsyncArrowHead (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11212:29)
+      at TypeScriptParserMixin.parseSubscript (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11141:19)
+      at TypeScriptParserMixin.parseSubscript (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9293:18)
+      at TypeScriptParserMixin.parseSubscripts (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11115:19)
+      at TypeScriptParserMixin.parseExprSubscripts (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11106:17)
+      at TypeScriptParserMixin.parseUpdate (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11087:21)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11067:23)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9858:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10920:61)
+      at TypeScriptParserMixin.parseExprOps (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10925:23)
+      at TypeScriptParserMixin.parseMaybeConditional (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10902:23)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10852:21)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9807:20)
+      at D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10821:39
+      at TypeScriptParserMixin.allowInAnd (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12450:16)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10821:17)
+      at TypeScriptParserMixin.parseVar (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:13413:91)
+      at TypeScriptParserMixin.parseVarStatement (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:13259:10)
+      at TypeScriptParserMixin.parseVarStatement (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9429:31)
+      at TypeScriptParserMixin.parseStatementContent (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12880:23)
+      at TypeScriptParserMixin.parseStatementContent (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9529:18)
+16:22:55 [vite] Internal server error: D:\projects\react_demo\auto_react_aigc\frontend\src\components\agent\DebugPanel.tsx: 'import' and 'export' may only appear at the top level. (639:0)
+
+  637 |
+  638 | // chat 页复用：轻量执行时间线（内嵌气泡中）
+> 639 | export function StepTimeline({ steps }: { steps: Step[] }) {
+      | ^
+  640 |   const [expanded, setExpanded] = useState<number[]>(steps.map((_, i) => i));
+  641 |
+  642 |   useEffect(() => {
+  Plugin: vite:react-babel
+  File: D:/projects/react_demo/auto_react_aigc/frontend/src/components/agent/DebugPanel.tsx:639:0
+  637|  
+  638|  // chat 页复用：轻量执行时间线（内嵌气泡中）
+  639|  export function StepTimeline({ steps }: { steps: Step[] }) {
+     |  ^
+  640|    const [expanded, setExpanded] = useState<number[]>(steps.map((_, i) => i));
+  641|  
+      at constructor (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:369:19)
+      at TypeScriptParserMixin.raise (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:6620:19)
+      at TypeScriptParserMixin.parseStatementContent (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12900:18)
+      at TypeScriptParserMixin.parseStatementContent (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9529:18)
+      at TypeScriptParserMixin.parseStatementLike (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12796:17)
+      at TypeScriptParserMixin.parseStatementListItem (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12776:17)
+      at TypeScriptParserMixin.parseBlockOrModuleBlockBody (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:13345:61)
+      at TypeScriptParserMixin.parseBlockBody (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:13338:10)
+      at TypeScriptParserMixin.parseBlock (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:13326:10)
+      at TypeScriptParserMixin.parseFunctionBody (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12129:24)
+      at TypeScriptParserMixin.parseArrowExpression (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12104:10)
+      at TypeScriptParserMixin.parseParenAndDistinguishExpression (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11713:12)
+      at TypeScriptParserMixin.parseExprAtom (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11357:23)
+      at TypeScriptParserMixin.parseExprAtom (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:4780:20)
+      at TypeScriptParserMixin.parseExprSubscripts (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11102:23)
+      at TypeScriptParserMixin.parseUpdate (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11087:21)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11067:23)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9858:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10920:61)
+      at TypeScriptParserMixin.parseExprOps (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10925:23)
+      at TypeScriptParserMixin.parseMaybeConditional (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10902:23)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10852:21)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9807:20)
+      at D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10821:39
+      at TypeScriptParserMixin.allowInAnd (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12455:12)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10821:17)
+      at TypeScriptParserMixin.parseMaybeAssignAllowInOrVoidPattern (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12522:17)
+      at TypeScriptParserMixin.parseExprListItem (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12204:18)
+      at TypeScriptParserMixin.parseCallExpressionArguments (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11278:22)
+      at TypeScriptParserMixin.parseCoverCallAndAsyncArrowHead (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11212:29)
+      at TypeScriptParserMixin.parseSubscript (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11141:19)
+      at TypeScriptParserMixin.parseSubscript (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9293:18)
+      at TypeScriptParserMixin.parseSubscripts (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11115:19)
+      at TypeScriptParserMixin.parseExprSubscripts (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11106:17)
+      at TypeScriptParserMixin.parseUpdate (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11087:21)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11067:23)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9858:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10920:61)
+      at TypeScriptParserMixin.parseExprOps (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10925:23)
+      at TypeScriptParserMixin.parseMaybeConditional (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10902:23)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10852:21)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9807:20)
+      at D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10821:39
+      at TypeScriptParserMixin.allowInAnd (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12450:16)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10821:17)
+      at TypeScriptParserMixin.parseVar (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:13413:91)
+      at TypeScriptParserMixin.parseVarStatement (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:13259:10)
+      at TypeScriptParserMixin.parseVarStatement (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9429:31)
+      at TypeScriptParserMixin.parseStatementContent (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12880:23)
+      at TypeScriptParserMixin.parseStatementContent (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9529:18)
+16:22:55 [vite] Internal server error: D:\projects\react_demo\auto_react_aigc\frontend\src\components\agent\DebugPanel.tsx: 'import' and 'export' may only appear at the top level. (639:0)
+
+  637 |
+  638 | // chat 页复用：轻量执行时间线（内嵌气泡中）
+> 639 | export function StepTimeline({ steps }: { steps: Step[] }) {
+      | ^
+  640 |   const [expanded, setExpanded] = useState<number[]>(steps.map((_, i) => i));
+  641 |
+  642 |   useEffect(() => {
+  Plugin: vite:react-babel
+  File: D:/projects/react_demo/auto_react_aigc/frontend/src/components/agent/DebugPanel.tsx:639:0
+  637|  
+  638|  // chat 页复用：轻量执行时间线（内嵌气泡中）
+  639|  export function StepTimeline({ steps }: { steps: Step[] }) {
+     |  ^
+  640|    const [expanded, setExpanded] = useState<number[]>(steps.map((_, i) => i));
+  641|  
+      at constructor (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:369:19)
+      at TypeScriptParserMixin.raise (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:6620:19)
+      at TypeScriptParserMixin.parseStatementContent (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12900:18)
+      at TypeScriptParserMixin.parseStatementContent (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9529:18)
+      at TypeScriptParserMixin.parseStatementLike (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12796:17)
+      at TypeScriptParserMixin.parseStatementListItem (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12776:17)
+      at TypeScriptParserMixin.parseBlockOrModuleBlockBody (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:13345:61)
+      at TypeScriptParserMixin.parseBlockBody (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:13338:10)
+      at TypeScriptParserMixin.parseBlock (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:13326:10)
+      at TypeScriptParserMixin.parseFunctionBody (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12129:24)
+      at TypeScriptParserMixin.parseArrowExpression (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12104:10)
+      at TypeScriptParserMixin.parseParenAndDistinguishExpression (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11713:12)
+      at TypeScriptParserMixin.parseExprAtom (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11357:23)
+      at TypeScriptParserMixin.parseExprAtom (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:4780:20)
+      at TypeScriptParserMixin.parseExprSubscripts (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11102:23)
+      at TypeScriptParserMixin.parseUpdate (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11087:21)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11067:23)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9858:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10920:61)
+      at TypeScriptParserMixin.parseExprOps (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10925:23)
+      at TypeScriptParserMixin.parseMaybeConditional (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10902:23)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10852:21)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9807:20)
+      at D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10821:39
+      at TypeScriptParserMixin.allowInAnd (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12455:12)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10821:17)
+      at TypeScriptParserMixin.parseMaybeAssignAllowInOrVoidPattern (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12522:17)
+      at TypeScriptParserMixin.parseExprListItem (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12204:18)
+      at TypeScriptParserMixin.parseCallExpressionArguments (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11278:22)
+      at TypeScriptParserMixin.parseCoverCallAndAsyncArrowHead (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11212:29)
+      at TypeScriptParserMixin.parseSubscript (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11141:19)
+      at TypeScriptParserMixin.parseSubscript (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9293:18)
+      at TypeScriptParserMixin.parseSubscripts (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11115:19)
+      at TypeScriptParserMixin.parseExprSubscripts (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11106:17)
+      at TypeScriptParserMixin.parseUpdate (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11087:21)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11067:23)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9858:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10920:61)
+      at TypeScriptParserMixin.parseExprOps (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10925:23)
+      at TypeScriptParserMixin.parseMaybeConditional (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10902:23)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10852:21)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9807:20)
+      at D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10821:39
+      at TypeScriptParserMixin.allowInAnd (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12450:16)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10821:17)
+      at TypeScriptParserMixin.parseVar (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:13413:91)
+      at TypeScriptParserMixin.parseVarStatement (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:13259:10)
+      at TypeScriptParserMixin.parseVarStatement (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9429:31)
+      at TypeScriptParserMixin.parseStatementContent (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12880:23)
+      at TypeScriptParserMixin.parseStatementContent (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9529:18)
+16:22:55 [vite] Internal server error: D:\projects\react_demo\auto_react_aigc\frontend\src\components\agent\DebugPanel.tsx: 'import' and 'export' may only appear at the top level. (639:0)
+
+  637 |
+  638 | // chat 页复用：轻量执行时间线（内嵌气泡中）
+> 639 | export function StepTimeline({ steps }: { steps: Step[] }) {
+      | ^
+  640 |   const [expanded, setExpanded] = useState<number[]>(steps.map((_, i) => i));
+  641 |
+  642 |   useEffect(() => {
+  Plugin: vite:react-babel
+  File: D:/projects/react_demo/auto_react_aigc/frontend/src/components/agent/DebugPanel.tsx:639:0
+  637|  
+  638|  // chat 页复用：轻量执行时间线（内嵌气泡中）
+  639|  export function StepTimeline({ steps }: { steps: Step[] }) {
+     |  ^
+  640|    const [expanded, setExpanded] = useState<number[]>(steps.map((_, i) => i));
+  641|  
+      at constructor (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:369:19)
+      at TypeScriptParserMixin.raise (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:6620:19)
+      at TypeScriptParserMixin.parseStatementContent (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12900:18)
+      at TypeScriptParserMixin.parseStatementContent (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9529:18)
+      at TypeScriptParserMixin.parseStatementLike (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12796:17)
+      at TypeScriptParserMixin.parseStatementListItem (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12776:17)
+      at TypeScriptParserMixin.parseBlockOrModuleBlockBody (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:13345:61)
+      at TypeScriptParserMixin.parseBlockBody (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:13338:10)
+      at TypeScriptParserMixin.parseBlock (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:13326:10)
+      at TypeScriptParserMixin.parseFunctionBody (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12129:24)
+      at TypeScriptParserMixin.parseArrowExpression (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12104:10)
+      at TypeScriptParserMixin.parseParenAndDistinguishExpression (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11713:12)
+      at TypeScriptParserMixin.parseExprAtom (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11357:23)
+      at TypeScriptParserMixin.parseExprAtom (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:4780:20)
+      at TypeScriptParserMixin.parseExprSubscripts (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11102:23)
+      at TypeScriptParserMixin.parseUpdate (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11087:21)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11067:23)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9858:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10920:61)
+      at TypeScriptParserMixin.parseExprOps (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10925:23)
+      at TypeScriptParserMixin.parseMaybeConditional (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10902:23)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10852:21)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9807:20)
+      at D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10821:39
+      at TypeScriptParserMixin.allowInAnd (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12455:12)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10821:17)
+      at TypeScriptParserMixin.parseMaybeAssignAllowInOrVoidPattern (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12522:17)
+      at TypeScriptParserMixin.parseExprListItem (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12204:18)
+      at TypeScriptParserMixin.parseCallExpressionArguments (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11278:22)
+      at TypeScriptParserMixin.parseCoverCallAndAsyncArrowHead (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11212:29)
+      at TypeScriptParserMixin.parseSubscript (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11141:19)
+      at TypeScriptParserMixin.parseSubscript (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9293:18)
+      at TypeScriptParserMixin.parseSubscripts (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11115:19)
+      at TypeScriptParserMixin.parseExprSubscripts (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11106:17)
+      at TypeScriptParserMixin.parseUpdate (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11087:21)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11067:23)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9858:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10920:61)
+      at TypeScriptParserMixin.parseExprOps (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10925:23)
+      at TypeScriptParserMixin.parseMaybeConditional (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10902:23)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10852:21)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9807:20)
+      at D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10821:39
+      at TypeScriptParserMixin.allowInAnd (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12450:16)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10821:17)
+      at TypeScriptParserMixin.parseVar (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:13413:91)
+      at TypeScriptParserMixin.parseVarStatement (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:13259:10)
+      at TypeScriptParserMixin.parseVarStatement (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9429:31)
+      at TypeScriptParserMixin.parseStatementContent (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12880:23)
+      at TypeScriptParserMixin.parseStatementContent (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9529:18)
+16:22:55 [vite] Internal server error: D:\projects\react_demo\auto_react_aigc\frontend\src\components\agent\DebugPanel.tsx: 'import' and 'export' may only appear at the top level. (639:0)
+
+  637 |
+  638 | // chat 页复用：轻量执行时间线（内嵌气泡中）
+> 639 | export function StepTimeline({ steps }: { steps: Step[] }) {
+      | ^
+  640 |   const [expanded, setExpanded] = useState<number[]>(steps.map((_, i) => i));
+  641 |
+  642 |   useEffect(() => {
+  Plugin: vite:react-babel
+  File: D:/projects/react_demo/auto_react_aigc/frontend/src/components/agent/DebugPanel.tsx:639:0
+  637|  
+  638|  // chat 页复用：轻量执行时间线（内嵌气泡中）
+  639|  export function StepTimeline({ steps }: { steps: Step[] }) {
+     |  ^
+  640|    const [expanded, setExpanded] = useState<number[]>(steps.map((_, i) => i));
+  641|  
+      at constructor (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:369:19)
+      at TypeScriptParserMixin.raise (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:6620:19)
+      at TypeScriptParserMixin.parseStatementContent (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12900:18)
+      at TypeScriptParserMixin.parseStatementContent (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9529:18)
+      at TypeScriptParserMixin.parseStatementLike (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12796:17)
+      at TypeScriptParserMixin.parseStatementListItem (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12776:17)
+      at TypeScriptParserMixin.parseBlockOrModuleBlockBody (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:13345:61)
+      at TypeScriptParserMixin.parseBlockBody (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:13338:10)
+      at TypeScriptParserMixin.parseBlock (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:13326:10)
+      at TypeScriptParserMixin.parseFunctionBody (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12129:24)
+      at TypeScriptParserMixin.parseArrowExpression (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12104:10)
+      at TypeScriptParserMixin.parseParenAndDistinguishExpression (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11713:12)
+      at TypeScriptParserMixin.parseExprAtom (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11357:23)
+      at TypeScriptParserMixin.parseExprAtom (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:4780:20)
+      at TypeScriptParserMixin.parseExprSubscripts (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11102:23)
+      at TypeScriptParserMixin.parseUpdate (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11087:21)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11067:23)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9858:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10920:61)
+      at TypeScriptParserMixin.parseExprOps (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10925:23)
+      at TypeScriptParserMixin.parseMaybeConditional (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10902:23)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10852:21)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9807:20)
+      at D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10821:39
+      at TypeScriptParserMixin.allowInAnd (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12455:12)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10821:17)
+      at TypeScriptParserMixin.parseMaybeAssignAllowInOrVoidPattern (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12522:17)
+      at TypeScriptParserMixin.parseExprListItem (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12204:18)
+      at TypeScriptParserMixin.parseCallExpressionArguments (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11278:22)
+      at TypeScriptParserMixin.parseCoverCallAndAsyncArrowHead (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11212:29)
+      at TypeScriptParserMixin.parseSubscript (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11141:19)
+      at TypeScriptParserMixin.parseSubscript (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9293:18)
+      at TypeScriptParserMixin.parseSubscripts (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11115:19)
+      at TypeScriptParserMixin.parseExprSubscripts (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11106:17)
+      at TypeScriptParserMixin.parseUpdate (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11087:21)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11067:23)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9858:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10920:61)
+      at TypeScriptParserMixin.parseExprOps (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10925:23)
+      at TypeScriptParserMixin.parseMaybeConditional (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10902:23)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10852:21)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9807:20)
+      at D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10821:39
+      at TypeScriptParserMixin.allowInAnd (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12450:16)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10821:17)
+      at TypeScriptParserMixin.parseVar (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:13413:91)
+      at TypeScriptParserMixin.parseVarStatement (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:13259:10)
+      at TypeScriptParserMixin.parseVarStatement (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9429:31)
+      at TypeScriptParserMixin.parseStatementContent (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12880:23)
+      at TypeScriptParserMixin.parseStatementContent (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9529:18)
+16:23:21 [vite] Pre-transform error: D:\projects\react_demo\auto_react_aigc\frontend\src\components\agent\DebugPanel.tsx: 'import' and 'export' may only appear at the top level. (639:0)
+
+  637 |
+  638 | // chat 页复用：轻量执行时间线（内嵌气泡中）
+> 639 | export function StepTimeline({ steps }: { steps: Step[] }) {
+      | ^
+  640 |   const [expanded, setExpanded] = useState<number[]>(steps.map((_, i) => i));
+  641 |
+  642 |   useEffect(() => {
+16:24:04 [vite] Internal server error: D:\projects\react_demo\auto_react_aigc\frontend\src\components\agent\DebugPanel.tsx: Unexpected reserved word 'await'. (189:43)
+
+  187 |     try {
+  188 |       // 使用当前会话（若有）；否则 ensure/sync 一个。发送后刷新会话列表并将当前会话置顶
+> 189 |       let sessionId = currentSessionId || (await ensureSession(agentId, agentModel));
+      |                                            ^
+  190 |       setCurrentSessionId(sessionId);
+  191 |       if (!sessions.some((s) => s.id === sessionId)) {
+  192 |         setSessions((prev) => [{ id: sessionId, model: agentModel, created_at: new Date().toISOString() }, ...prev]);
+  Plugin: vite:react-babel
+  File: D:/projects/react_demo/auto_react_aigc/frontend/src/components/agent/DebugPanel.tsx:189:43
+  187|      try {
+  188|        // 使用当前会话（若有）；否则 ensure/sync 一个。发送后刷新会话列表并将当前会话置顶
+  189|        let sessionId = currentSessionId || (await ensureSession(agentId, agentModel));
+     |                                             ^
+  190|        setCurrentSessionId(sessionId);
+  191|        if (!sessions.some((s) => s.id === sessionId)) {
+      at constructor (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:369:19)
+      at TypeScriptParserMixin.raise (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:6620:19)
+      at TypeScriptParserMixin.checkReservedWord (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12260:12)
+      at TypeScriptParserMixin.checkReservedWord (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9331:13)
+      at TypeScriptParserMixin.parseIdentifierName (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12240:12)
+      at TypeScriptParserMixin.parseIdentifier (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12210:23)
+      at TypeScriptParserMixin.parseExprAtom (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11442:27)
+      at TypeScriptParserMixin.parseExprAtom (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:4780:20)
+      at TypeScriptParserMixin.parseExprSubscripts (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11102:23)
+      at TypeScriptParserMixin.parseUpdate (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11087:21)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11067:23)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9858:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10920:61)
+      at TypeScriptParserMixin.parseExprOps (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10925:23)
+      at TypeScriptParserMixin.parseMaybeConditional (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10902:23)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10852:21)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9807:20)
+      at D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10821:39
+      at TypeScriptParserMixin.allowInAnd (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12455:12)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10821:17)
+      at TypeScriptParserMixin.parseMaybeAssignAllowInOrVoidPattern (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12522:17)
+      at TypeScriptParserMixin.parseParenAndDistinguishExpression (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11701:28)
+      at TypeScriptParserMixin.parseExprAtom (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11357:23)
+      at TypeScriptParserMixin.parseExprAtom (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:4780:20)
+      at TypeScriptParserMixin.parseExprSubscripts (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11102:23)
+      at TypeScriptParserMixin.parseUpdate (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11087:21)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11067:23)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9858:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10920:61)
+      at TypeScriptParserMixin.parseExprOpBaseRightExpr (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11007:34)
+      at TypeScriptParserMixin.parseExprOpRightExpr (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11002:21)
+      at TypeScriptParserMixin.parseExprOp (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10968:27)
+      at TypeScriptParserMixin.parseExprOp (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9327:18)
+      at TypeScriptParserMixin.parseExprOps (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10929:17)
+      at TypeScriptParserMixin.parseMaybeConditional (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10902:23)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10852:21)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9807:20)
+      at D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10821:39
+      at TypeScriptParserMixin.allowInAnd (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12450:16)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10821:17)
+      at TypeScriptParserMixin.parseVar (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:13413:91)
+      at TypeScriptParserMixin.parseVarStatement (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:13259:10)
+      at TypeScriptParserMixin.parseVarStatement (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9429:31)
+      at TypeScriptParserMixin.parseStatementContent (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12880:23)
+      at TypeScriptParserMixin.parseStatementContent (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9529:18)
+      at TypeScriptParserMixin.parseStatementLike (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12796:17)
+      at TypeScriptParserMixin.parseStatementListItem (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12776:17)
+      at TypeScriptParserMixin.parseBlockOrModuleBlockBody (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:13345:61)
+      at TypeScriptParserMixin.parseBlockBody (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:13338:10)
+      at TypeScriptParserMixin.parseBlock (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:13326:10)
+16:24:04 [vite] Internal server error: D:\projects\react_demo\auto_react_aigc\frontend\src\components\agent\DebugPanel.tsx: Unexpected reserved word 'await'. (189:43)
+
+  187 |     try {
+  188 |       // 使用当前会话（若有）；否则 ensure/sync 一个。发送后刷新会话列表并将当前会话置顶
+> 189 |       let sessionId = currentSessionId || (await ensureSession(agentId, agentModel));
+      |                                            ^
+  190 |       setCurrentSessionId(sessionId);
+  191 |       if (!sessions.some((s) => s.id === sessionId)) {
+  192 |         setSessions((prev) => [{ id: sessionId, model: agentModel, created_at: new Date().toISOString() }, ...prev]);
+  Plugin: vite:react-babel
+  File: D:/projects/react_demo/auto_react_aigc/frontend/src/components/agent/DebugPanel.tsx:189:43
+  187|      try {
+  188|        // 使用当前会话（若有）；否则 ensure/sync 一个。发送后刷新会话列表并将当前会话置顶
+  189|        let sessionId = currentSessionId || (await ensureSession(agentId, agentModel));
+     |                                             ^
+  190|        setCurrentSessionId(sessionId);
+  191|        if (!sessions.some((s) => s.id === sessionId)) {
+      at constructor (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:369:19)
+      at TypeScriptParserMixin.raise (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:6620:19)
+      at TypeScriptParserMixin.checkReservedWord (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12260:12)
+      at TypeScriptParserMixin.checkReservedWord (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9331:13)
+      at TypeScriptParserMixin.parseIdentifierName (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12240:12)
+      at TypeScriptParserMixin.parseIdentifier (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12210:23)
+      at TypeScriptParserMixin.parseExprAtom (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11442:27)
+      at TypeScriptParserMixin.parseExprAtom (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:4780:20)
+      at TypeScriptParserMixin.parseExprSubscripts (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11102:23)
+      at TypeScriptParserMixin.parseUpdate (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11087:21)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11067:23)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9858:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10920:61)
+      at TypeScriptParserMixin.parseExprOps (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10925:23)
+      at TypeScriptParserMixin.parseMaybeConditional (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10902:23)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10852:21)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9807:20)
+      at D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10821:39
+      at TypeScriptParserMixin.allowInAnd (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12455:12)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10821:17)
+      at TypeScriptParserMixin.parseMaybeAssignAllowInOrVoidPattern (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12522:17)
+      at TypeScriptParserMixin.parseParenAndDistinguishExpression (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11701:28)
+      at TypeScriptParserMixin.parseExprAtom (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11357:23)
+      at TypeScriptParserMixin.parseExprAtom (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:4780:20)
+      at TypeScriptParserMixin.parseExprSubscripts (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11102:23)
+      at TypeScriptParserMixin.parseUpdate (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11087:21)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11067:23)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9858:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10920:61)
+      at TypeScriptParserMixin.parseExprOpBaseRightExpr (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11007:34)
+      at TypeScriptParserMixin.parseExprOpRightExpr (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11002:21)
+      at TypeScriptParserMixin.parseExprOp (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10968:27)
+      at TypeScriptParserMixin.parseExprOp (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9327:18)
+      at TypeScriptParserMixin.parseExprOps (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10929:17)
+      at TypeScriptParserMixin.parseMaybeConditional (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10902:23)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10852:21)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9807:20)
+      at D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10821:39
+      at TypeScriptParserMixin.allowInAnd (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12450:16)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10821:17)
+      at TypeScriptParserMixin.parseVar (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:13413:91)
+      at TypeScriptParserMixin.parseVarStatement (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:13259:10)
+      at TypeScriptParserMixin.parseVarStatement (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9429:31)
+      at TypeScriptParserMixin.parseStatementContent (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12880:23)
+      at TypeScriptParserMixin.parseStatementContent (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9529:18)
+      at TypeScriptParserMixin.parseStatementLike (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12796:17)
+      at TypeScriptParserMixin.parseStatementListItem (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12776:17)
+      at TypeScriptParserMixin.parseBlockOrModuleBlockBody (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:13345:61)
+      at TypeScriptParserMixin.parseBlockBody (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:13338:10)
+      at TypeScriptParserMixin.parseBlock (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:13326:10)
+16:24:04 [vite] Internal server error: D:\projects\react_demo\auto_react_aigc\frontend\src\components\agent\DebugPanel.tsx: Unexpected reserved word 'await'. (189:43)
+
+  187 |     try {
+  188 |       // 使用当前会话（若有）；否则 ensure/sync 一个。发送后刷新会话列表并将当前会话置顶
+> 189 |       let sessionId = currentSessionId || (await ensureSession(agentId, agentModel));
+      |                                            ^
+  190 |       setCurrentSessionId(sessionId);
+  191 |       if (!sessions.some((s) => s.id === sessionId)) {
+  192 |         setSessions((prev) => [{ id: sessionId, model: agentModel, created_at: new Date().toISOString() }, ...prev]);
+  Plugin: vite:react-babel
+  File: D:/projects/react_demo/auto_react_aigc/frontend/src/components/agent/DebugPanel.tsx:189:43
+  187|      try {
+  188|        // 使用当前会话（若有）；否则 ensure/sync 一个。发送后刷新会话列表并将当前会话置顶
+  189|        let sessionId = currentSessionId || (await ensureSession(agentId, agentModel));
+     |                                             ^
+  190|        setCurrentSessionId(sessionId);
+  191|        if (!sessions.some((s) => s.id === sessionId)) {
+      at constructor (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:369:19)
+      at TypeScriptParserMixin.raise (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:6620:19)
+      at TypeScriptParserMixin.checkReservedWord (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12260:12)
+      at TypeScriptParserMixin.checkReservedWord (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9331:13)
+      at TypeScriptParserMixin.parseIdentifierName (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12240:12)
+      at TypeScriptParserMixin.parseIdentifier (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12210:23)
+      at TypeScriptParserMixin.parseExprAtom (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11442:27)
+      at TypeScriptParserMixin.parseExprAtom (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:4780:20)
+      at TypeScriptParserMixin.parseExprSubscripts (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11102:23)
+      at TypeScriptParserMixin.parseUpdate (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11087:21)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11067:23)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9858:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10920:61)
+      at TypeScriptParserMixin.parseExprOps (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10925:23)
+      at TypeScriptParserMixin.parseMaybeConditional (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10902:23)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10852:21)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9807:20)
+      at D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10821:39
+      at TypeScriptParserMixin.allowInAnd (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12455:12)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10821:17)
+      at TypeScriptParserMixin.parseMaybeAssignAllowInOrVoidPattern (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12522:17)
+      at TypeScriptParserMixin.parseParenAndDistinguishExpression (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11701:28)
+      at TypeScriptParserMixin.parseExprAtom (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11357:23)
+      at TypeScriptParserMixin.parseExprAtom (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:4780:20)
+      at TypeScriptParserMixin.parseExprSubscripts (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11102:23)
+      at TypeScriptParserMixin.parseUpdate (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11087:21)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11067:23)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9858:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10920:61)
+      at TypeScriptParserMixin.parseExprOpBaseRightExpr (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11007:34)
+      at TypeScriptParserMixin.parseExprOpRightExpr (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11002:21)
+      at TypeScriptParserMixin.parseExprOp (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10968:27)
+      at TypeScriptParserMixin.parseExprOp (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9327:18)
+      at TypeScriptParserMixin.parseExprOps (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10929:17)
+      at TypeScriptParserMixin.parseMaybeConditional (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10902:23)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10852:21)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9807:20)
+      at D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10821:39
+      at TypeScriptParserMixin.allowInAnd (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12450:16)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10821:17)
+      at TypeScriptParserMixin.parseVar (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:13413:91)
+      at TypeScriptParserMixin.parseVarStatement (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:13259:10)
+      at TypeScriptParserMixin.parseVarStatement (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9429:31)
+      at TypeScriptParserMixin.parseStatementContent (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12880:23)
+      at TypeScriptParserMixin.parseStatementContent (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9529:18)
+      at TypeScriptParserMixin.parseStatementLike (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12796:17)
+      at TypeScriptParserMixin.parseStatementListItem (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12776:17)
+      at TypeScriptParserMixin.parseBlockOrModuleBlockBody (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:13345:61)
+      at TypeScriptParserMixin.parseBlockBody (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:13338:10)
+      at TypeScriptParserMixin.parseBlock (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:13326:10)
+16:24:04 [vite] Internal server error: D:\projects\react_demo\auto_react_aigc\frontend\src\components\agent\DebugPanel.tsx: Unexpected reserved word 'await'. (189:43)
+
+  187 |     try {
+  188 |       // 使用当前会话（若有）；否则 ensure/sync 一个。发送后刷新会话列表并将当前会话置顶
+> 189 |       let sessionId = currentSessionId || (await ensureSession(agentId, agentModel));
+      |                                            ^
+  190 |       setCurrentSessionId(sessionId);
+  191 |       if (!sessions.some((s) => s.id === sessionId)) {
+  192 |         setSessions((prev) => [{ id: sessionId, model: agentModel, created_at: new Date().toISOString() }, ...prev]);
+  Plugin: vite:react-babel
+  File: D:/projects/react_demo/auto_react_aigc/frontend/src/components/agent/DebugPanel.tsx:189:43
+  187|      try {
+  188|        // 使用当前会话（若有）；否则 ensure/sync 一个。发送后刷新会话列表并将当前会话置顶
+  189|        let sessionId = currentSessionId || (await ensureSession(agentId, agentModel));
+     |                                             ^
+  190|        setCurrentSessionId(sessionId);
+  191|        if (!sessions.some((s) => s.id === sessionId)) {
+      at constructor (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:369:19)
+      at TypeScriptParserMixin.raise (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:6620:19)
+      at TypeScriptParserMixin.checkReservedWord (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12260:12)
+      at TypeScriptParserMixin.checkReservedWord (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9331:13)
+      at TypeScriptParserMixin.parseIdentifierName (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12240:12)
+      at TypeScriptParserMixin.parseIdentifier (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12210:23)
+      at TypeScriptParserMixin.parseExprAtom (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11442:27)
+      at TypeScriptParserMixin.parseExprAtom (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:4780:20)
+      at TypeScriptParserMixin.parseExprSubscripts (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11102:23)
+      at TypeScriptParserMixin.parseUpdate (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11087:21)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11067:23)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9858:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10920:61)
+      at TypeScriptParserMixin.parseExprOps (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10925:23)
+      at TypeScriptParserMixin.parseMaybeConditional (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10902:23)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10852:21)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9807:20)
+      at D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10821:39
+      at TypeScriptParserMixin.allowInAnd (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12455:12)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10821:17)
+      at TypeScriptParserMixin.parseMaybeAssignAllowInOrVoidPattern (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12522:17)
+      at TypeScriptParserMixin.parseParenAndDistinguishExpression (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11701:28)
+      at TypeScriptParserMixin.parseExprAtom (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11357:23)
+      at TypeScriptParserMixin.parseExprAtom (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:4780:20)
+      at TypeScriptParserMixin.parseExprSubscripts (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11102:23)
+      at TypeScriptParserMixin.parseUpdate (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11087:21)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11067:23)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9858:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10920:61)
+      at TypeScriptParserMixin.parseExprOpBaseRightExpr (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11007:34)
+      at TypeScriptParserMixin.parseExprOpRightExpr (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11002:21)
+      at TypeScriptParserMixin.parseExprOp (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10968:27)
+      at TypeScriptParserMixin.parseExprOp (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9327:18)
+      at TypeScriptParserMixin.parseExprOps (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10929:17)
+      at TypeScriptParserMixin.parseMaybeConditional (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10902:23)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10852:21)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9807:20)
+      at D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10821:39
+      at TypeScriptParserMixin.allowInAnd (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12450:16)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10821:17)
+      at TypeScriptParserMixin.parseVar (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:13413:91)
+      at TypeScriptParserMixin.parseVarStatement (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:13259:10)
+      at TypeScriptParserMixin.parseVarStatement (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9429:31)
+      at TypeScriptParserMixin.parseStatementContent (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12880:23)
+      at TypeScriptParserMixin.parseStatementContent (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9529:18)
+      at TypeScriptParserMixin.parseStatementLike (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12796:17)
+      at TypeScriptParserMixin.parseStatementListItem (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12776:17)
+      at TypeScriptParserMixin.parseBlockOrModuleBlockBody (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:13345:61)
+      at TypeScriptParserMixin.parseBlockBody (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:13338:10)
+      at TypeScriptParserMixin.parseBlock (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:13326:10)
+16:24:04 [vite] Internal server error: D:\projects\react_demo\auto_react_aigc\frontend\src\components\agent\DebugPanel.tsx: Unexpected reserved word 'await'. (189:43)
+
+  187 |     try {
+  188 |       // 使用当前会话（若有）；否则 ensure/sync 一个。发送后刷新会话列表并将当前会话置顶
+> 189 |       let sessionId = currentSessionId || (await ensureSession(agentId, agentModel));
+      |                                            ^
+  190 |       setCurrentSessionId(sessionId);
+  191 |       if (!sessions.some((s) => s.id === sessionId)) {
+  192 |         setSessions((prev) => [{ id: sessionId, model: agentModel, created_at: new Date().toISOString() }, ...prev]);
+  Plugin: vite:react-babel
+  File: D:/projects/react_demo/auto_react_aigc/frontend/src/components/agent/DebugPanel.tsx:189:43
+  187|      try {
+  188|        // 使用当前会话（若有）；否则 ensure/sync 一个。发送后刷新会话列表并将当前会话置顶
+  189|        let sessionId = currentSessionId || (await ensureSession(agentId, agentModel));
+     |                                             ^
+  190|        setCurrentSessionId(sessionId);
+  191|        if (!sessions.some((s) => s.id === sessionId)) {
+      at constructor (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:369:19)
+      at TypeScriptParserMixin.raise (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:6620:19)
+      at TypeScriptParserMixin.checkReservedWord (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12260:12)
+      at TypeScriptParserMixin.checkReservedWord (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9331:13)
+      at TypeScriptParserMixin.parseIdentifierName (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12240:12)
+      at TypeScriptParserMixin.parseIdentifier (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12210:23)
+      at TypeScriptParserMixin.parseExprAtom (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11442:27)
+      at TypeScriptParserMixin.parseExprAtom (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:4780:20)
+      at TypeScriptParserMixin.parseExprSubscripts (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11102:23)
+      at TypeScriptParserMixin.parseUpdate (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11087:21)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11067:23)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9858:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10920:61)
+      at TypeScriptParserMixin.parseExprOps (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10925:23)
+      at TypeScriptParserMixin.parseMaybeConditional (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10902:23)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10852:21)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9807:20)
+      at D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10821:39
+      at TypeScriptParserMixin.allowInAnd (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12455:12)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10821:17)
+      at TypeScriptParserMixin.parseMaybeAssignAllowInOrVoidPattern (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12522:17)
+      at TypeScriptParserMixin.parseParenAndDistinguishExpression (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11701:28)
+      at TypeScriptParserMixin.parseExprAtom (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11357:23)
+      at TypeScriptParserMixin.parseExprAtom (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:4780:20)
+      at TypeScriptParserMixin.parseExprSubscripts (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11102:23)
+      at TypeScriptParserMixin.parseUpdate (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11087:21)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11067:23)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9858:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10920:61)
+      at TypeScriptParserMixin.parseExprOpBaseRightExpr (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11007:34)
+      at TypeScriptParserMixin.parseExprOpRightExpr (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11002:21)
+      at TypeScriptParserMixin.parseExprOp (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10968:27)
+      at TypeScriptParserMixin.parseExprOp (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9327:18)
+      at TypeScriptParserMixin.parseExprOps (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10929:17)
+      at TypeScriptParserMixin.parseMaybeConditional (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10902:23)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10852:21)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9807:20)
+      at D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10821:39
+      at TypeScriptParserMixin.allowInAnd (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12450:16)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10821:17)
+      at TypeScriptParserMixin.parseVar (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:13413:91)
+      at TypeScriptParserMixin.parseVarStatement (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:13259:10)
+      at TypeScriptParserMixin.parseVarStatement (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9429:31)
+      at TypeScriptParserMixin.parseStatementContent (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12880:23)
+      at TypeScriptParserMixin.parseStatementContent (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9529:18)
+      at TypeScriptParserMixin.parseStatementLike (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12796:17)
+      at TypeScriptParserMixin.parseStatementListItem (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12776:17)
+      at TypeScriptParserMixin.parseBlockOrModuleBlockBody (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:13345:61)
+      at TypeScriptParserMixin.parseBlockBody (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:13338:10)
+      at TypeScriptParserMixin.parseBlock (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:13326:10)
+16:24:04 [vite] Internal server error: D:\projects\react_demo\auto_react_aigc\frontend\src\components\agent\DebugPanel.tsx: Unexpected reserved word 'await'. (189:43)
+
+  187 |     try {
+  188 |       // 使用当前会话（若有）；否则 ensure/sync 一个。发送后刷新会话列表并将当前会话置顶
+> 189 |       let sessionId = currentSessionId || (await ensureSession(agentId, agentModel));
+      |                                            ^
+  190 |       setCurrentSessionId(sessionId);
+  191 |       if (!sessions.some((s) => s.id === sessionId)) {
+  192 |         setSessions((prev) => [{ id: sessionId, model: agentModel, created_at: new Date().toISOString() }, ...prev]);
+  Plugin: vite:react-babel
+  File: D:/projects/react_demo/auto_react_aigc/frontend/src/components/agent/DebugPanel.tsx:189:43
+  187|      try {
+  188|        // 使用当前会话（若有）；否则 ensure/sync 一个。发送后刷新会话列表并将当前会话置顶
+  189|        let sessionId = currentSessionId || (await ensureSession(agentId, agentModel));
+     |                                             ^
+  190|        setCurrentSessionId(sessionId);
+  191|        if (!sessions.some((s) => s.id === sessionId)) {
+      at constructor (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:369:19)
+      at TypeScriptParserMixin.raise (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:6620:19)
+      at TypeScriptParserMixin.checkReservedWord (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12260:12)
+      at TypeScriptParserMixin.checkReservedWord (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9331:13)
+      at TypeScriptParserMixin.parseIdentifierName (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12240:12)
+      at TypeScriptParserMixin.parseIdentifier (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12210:23)
+      at TypeScriptParserMixin.parseExprAtom (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11442:27)
+      at TypeScriptParserMixin.parseExprAtom (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:4780:20)
+      at TypeScriptParserMixin.parseExprSubscripts (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11102:23)
+      at TypeScriptParserMixin.parseUpdate (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11087:21)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11067:23)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9858:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10920:61)
+      at TypeScriptParserMixin.parseExprOps (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10925:23)
+      at TypeScriptParserMixin.parseMaybeConditional (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10902:23)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10852:21)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9807:20)
+      at D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10821:39
+      at TypeScriptParserMixin.allowInAnd (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12455:12)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10821:17)
+      at TypeScriptParserMixin.parseMaybeAssignAllowInOrVoidPattern (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12522:17)
+      at TypeScriptParserMixin.parseParenAndDistinguishExpression (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11701:28)
+      at TypeScriptParserMixin.parseExprAtom (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11357:23)
+      at TypeScriptParserMixin.parseExprAtom (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:4780:20)
+      at TypeScriptParserMixin.parseExprSubscripts (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11102:23)
+      at TypeScriptParserMixin.parseUpdate (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11087:21)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11067:23)
+      at TypeScriptParserMixin.parseMaybeUnary (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9858:18)
+      at TypeScriptParserMixin.parseMaybeUnaryOrPrivate (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10920:61)
+      at TypeScriptParserMixin.parseExprOpBaseRightExpr (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11007:34)
+      at TypeScriptParserMixin.parseExprOpRightExpr (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:11002:21)
+      at TypeScriptParserMixin.parseExprOp (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10968:27)
+      at TypeScriptParserMixin.parseExprOp (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9327:18)
+      at TypeScriptParserMixin.parseExprOps (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10929:17)
+      at TypeScriptParserMixin.parseMaybeConditional (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10902:23)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10852:21)
+      at TypeScriptParserMixin.parseMaybeAssign (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9807:20)
+      at D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10821:39
+      at TypeScriptParserMixin.allowInAnd (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12450:16)
+      at TypeScriptParserMixin.parseMaybeAssignAllowIn (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:10821:17)
+      at TypeScriptParserMixin.parseVar (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:13413:91)
+      at TypeScriptParserMixin.parseVarStatement (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:13259:10)
+      at TypeScriptParserMixin.parseVarStatement (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9429:31)
+      at TypeScriptParserMixin.parseStatementContent (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12880:23)
+      at TypeScriptParserMixin.parseStatementContent (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:9529:18)
+      at TypeScriptParserMixin.parseStatementLike (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12796:17)
+      at TypeScriptParserMixin.parseStatementListItem (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:12776:17)
+      at TypeScriptParserMixin.parseBlockOrModuleBlockBody (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:13345:61)
+      at TypeScriptParserMixin.parseBlockBody (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:13338:10)
+      at TypeScriptParserMixin.parseBlock (D:\projects\react_demo\auto_react_aigc\frontend\node_modules\@babel\parser\lib\index.js:13326:10)

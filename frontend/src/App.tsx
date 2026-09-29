@@ -4,6 +4,7 @@ import Workspace from './pages/workspace/index';
 import AgentList from './pages/agents/list';
 import AgentConfig from './pages/agents/config';
 import Resources from './pages/resources/index';
+import SkillEditor from './pages/resources/SkillEditor';
 import Chat from './pages/chat/index';
 import Evaluation from './pages/evaluation/index';
 
@@ -18,6 +19,7 @@ export default function App() {
           <Route path="/agents/new" element={<AgentConfig />} />
           <Route path="/agents/:id" element={<AgentConfig />} />
           <Route path="/resources" element={<Resources />} />
+          <Route path="/resources/skill/:id" element={<SkillEditor />} />
           <Route path="/chat" element={<Chat />} />
           <Route path="/evaluation" element={<Evaluation />} />
           <Route path="*" element={<Navigate to="/" replace />} />

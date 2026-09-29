@@ -85,3 +85,42 @@ body {
     @apply hover:bg-[#f7f9fc] transition-colors;
   }
 }
+
+/* Skill 编辑器左侧文件树：加大节点行高与字号
+   （放在 @layer 之外，确保优先级高于 antd 组件默认样式） */
+.skill-file-tree {
+  font-size: 14px;
+}
+.skill-file-tree .ant-tree-treenode {
+  padding: 3px 0;
+  width: 100%;
+}
+.skill-file-tree .ant-tree-node-content-wrapper {
+  min-height: 32px;
+  line-height: 32px;
+  border-radius: 6px;
+  padding: 0 8px;
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+.skill-file-tree .ant-tree-node-content-wrapper-normal {
+  min-width: 0;
+}
+.skill-file-tree .ant-tree-switcher {
+  line-height: 32px;
+}
+.skill-file-tree .ant-tree-title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.skill-file-tree .ant-tree-title > span {
+  width: 100%;
+}
+.skill-file-tree .ant-tree-node-selected {
+  background: #e8f3ff !important;
+}
+.skill-file-tree .ant-tree-node-selected .ant-tree-title {
+  color: #0077ff;
+  font-weight: 500;
+}

@@ -11,8 +11,27 @@ from app.llm.gateway import LLMGateway
 from app.tools.executor import ToolExecutor
 from app.tools import builtin as _builtin  # noqa: F401 触发内置工具注册
 from app.skills import builtin as _skills_builtin  # noqa: F401 触发内置 skill 注册
-from app.skills.loader import load_skills
+from app.skills.loader import load_skills_async
 from app.core.config import settings
+
+# 跨请求共享的检查点（内存态）。每个 AgentEngine 都用它，保证同一 thread_id
+# （即 session_id）的多轮消息跨请求累积，MemorySaver 仅在进程内存中保留。
+_SHARED_CHECKPOINTER = MemorySaver()
+
+# 多轮对话引导：当存在会话历史时追加到系统提示词末尾，帮助模型回溯指代、延续话题。
+# 解决常见痛点：用户说「你出的题」「刚才那个」「拿错了」等口语化指代时，
+# 模型却像没读过前文、另起炉灶。明确要求模型先回看历史再作答。
+_MULTITURN_GUIDE = """
+
+【多轮对话注意事项】
+以下是本次对话的历史记录。你和用户正处于同一段连续对话中，请注意：
+1. 用户说到的「你出的题」「刚才」「上面那个」「那个问题」「你拿错了」等指代，
+   通常指的是**历史记录中你之前说过/做过的事情**，请先回溯历史找出所指内容，
+   再在此基础上回应，不要把它当成全新的话题。
+2. 如果用户指出之前某个题目/结论/答案存在问题，请承认并针对**那个具体题目**
+   纠正或继续，而不是另出一道不相关的题目。
+3. 保持人设和说话风格前后一致，回应与当前场景（用户正在做的事）匹配。
+"""
 
 
 class AgentState(TypedDict):
@@ -44,7 +63,8 @@ class AgentEngine:
         self.event_emitter = event_emitter
         self.llm_gateway = LLMGateway(model=self.model)
         self.tool_executor = ToolExecutor()
-        self.checkpointer = MemorySaver()
+        # 模块级单例，保证多轮会话在跨请求间仍能共享同一检查点（记忆持久）
+        self.checkpointer = _SHARED_CHECKPOINTER
         
         # Build workflow graph
         self.graph = self._build_graph()
@@ -75,7 +95,7 @@ class AgentEngine:
         # Compile
         return workflow.compile(checkpointer=self.checkpointer)
     
-    def _build_tool_schemas(self) -> List[dict]:
+    async def _build_tool_schemas(self) -> List[dict]:
         """返回当前 Agent 应当暴露给模型的工具 schema。
 
         规则：
@@ -89,19 +109,33 @@ class AgentEngine:
         # 1) Agent 显式指定的工具（tool_ids）
         if self.tools:
             selected.extend(self.tools)
-        # 2) skill 携带的工具
+        # 2) skill 携带的工具；有 skill 时自动注入 run_skill_script（执行该 skill 的脚本）
+        skill_tool_schemas: List[dict] = []
         if self.skills:
-            skill_tools = load_skills(self.skills).tools
+            bundle = await load_skills_async(self.skills)
+            skill_tools = bundle.tools
             for t in skill_tools:
                 if t not in selected:
                     selected.append(t)
+            if "run_skill_script" not in selected:
+                selected.append("run_skill_script")
+            # 自定义 skill 的专属脚本工具（skill_name 预绑定，schema 直接可用）
+            for td in bundle.tool_defs:
+                skill_tool_schemas.append(td.to_schema())
+                # 注册到本引擎的执行器，使工具可被执行
+                self.tool_executor.register_tool(td.name, td.fn)
 
         all_schemas = inventory.schemas()
         if not selected:
-            return all_schemas
+            return all_schemas + skill_tool_schemas
 
         allowed = set(selected)
-        return [s for s in all_schemas if s["function"]["name"] in allowed]
+        filtered = [s for s in all_schemas if s["function"]["name"] in allowed]
+        # 追加专属 skill 工具（即使全局注册表没有）
+        for s in skill_tool_schemas:
+            if s["function"]["name"] not in allowed:
+                filtered.append(s)
+        return filtered
 
     async def _reasoning_node(self, state: AgentState):
         """Reasoning node"""
@@ -112,7 +146,7 @@ class AgentEngine:
             })
 
         # Call LLM with bound tools so it can request tool calls for multi-step
-        schemas = self._build_tool_schemas()
+        schemas = await self._build_tool_schemas()
         response = await self.llm_gateway.ainvoke_with_tools(state["messages"], schemas)
 
         # Emit reasoning content
@@ -226,30 +260,50 @@ class AgentEngine:
         self,
         message: str,
         system_prompt: str = None,
-        thread_id: str = None
+        thread_id: str = None,
+        history: list = None
     ):
         """Execute agent"""
         # 兜底 mock 模式：无 LLM API Key 时输出模拟 Trace，保证链路可跑通
         if settings.MOCK_MODE:
             return await self._run_mock(message)
 
-        # Build initial messages
+        # 组装 messages：优先使用 control-plane 传入的会话历史（DB 持久化），
+        # 而非依赖进程内 MemorySaver，保证多轮对话在扩容/重启后依然完整。
         messages = []
-        
+
+        # 1) System 提示词 + Skill 提示词（每轮都注入，确保能力上下文固定）
         if system_prompt:
             from langchain_core.messages import SystemMessage
             final_prompt = system_prompt
-            # 合并 skill 提示词：注入已挂载 Skill 的能力说明
             if self.skills:
-                bundle = load_skills(self.skills)
+                bundle = await load_skills_async(self.skills)
                 skill_prompt = bundle.render_system_prompt()
                 if skill_prompt:
                     final_prompt = final_prompt.rstrip() + skill_prompt
+            # 多轮对话：含历史时追加引导，帮助模型回溯指代、延续话题
+            if history:
+                final_prompt = final_prompt.rstrip() + _MULTITURN_GUIDE
             messages.append(SystemMessage(content=final_prompt))
-        
+
+        # 2) 会话历史（历史的 user/assistant 交替消息）
+        if history:
+            for turn in history:
+                role = (turn or {}).get("role")
+                content = (turn or {}).get("content", "")
+                if not content:
+                    continue
+                if role == "user":
+                    messages.append(HumanMessage(content=content))
+                elif role == "assistant":
+                    messages.append(AIMessage(content=content))
+                else:
+                    # 未知 role 兜底为人类消息，避免丢上下文
+                    messages.append(HumanMessage(content=content))
+
+        # 3) 本轮用户消息
         messages.append(HumanMessage(content=message))
-        
-        # Initial state
+
         initial_state = {
             "messages": messages,
             "thoughts": [],
@@ -259,14 +313,18 @@ class AgentEngine:
             "next_action": "",
             "iteration": 0,
             "max_iterations": settings.MAX_ITERATIONS,
-            "final_answer": ""
+            "final_answer": "",
         }
-        
-        # Run graph
+
+        await self._emit_note(
+            "上下文",
+            f"已加载 {len(messages) - 1} 条对话消息（含历史 {len(history or [])} 条），据此延续上下文。",
+        )
+
+        # Run graph（checkpointer 仍启用，作为额外兜底）
         config = {"configurable": {"thread_id": thread_id or "default"}}
-        
         final_state = await self.graph.ainvoke(initial_state, config)
-        
+
         return final_state["final_answer"]
 
     async def _run_mock(self, message: str) -> str:

@@ -111,7 +111,7 @@ export const useAgentStore = create<AgentState>((set, get) => ({
   },
 }));
 
-// 仅拷贝前端关注字段，避免覆盖 capabilities
+// 仅拷贝前端关注字段，保留 capabilities / systemPrompt / promptResourceId，避免保存后能力回退
 function toPartial(agent: Agent): Partial<Agent> {
   return {
     name: agent.name,
@@ -119,6 +119,9 @@ function toPartial(agent: Agent): Partial<Agent> {
     model: agent.model,
     status: agent.status,
     version: agent.version,
+    systemPrompt: agent.systemPrompt,
+    promptResourceId: agent.promptResourceId,
+    capabilities: agent.capabilities,
   };
 }
 

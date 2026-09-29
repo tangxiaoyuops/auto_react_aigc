@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import {
   BookOpen,
   Network,
@@ -51,6 +51,7 @@ const EMPTY_FORM: FormState = { id: null, name: '', description: '', content: ''
 
 export default function Resources() {
   const [params, setParams] = useSearchParams();
+  const navigate = useNavigate();
   const queryTab = params.get('tab') as string | null;
   const validTab: ResourceType =
     queryTab && TABS.some((t) => t.key === queryTab) ? (queryTab as ResourceType) : 'kb';
@@ -185,14 +186,18 @@ export default function Resources() {
                 </div>
                 <div className="flex opacity-0 group-hover:opacity-100 transition-opacity">
                   <button
-                    onClick={() =>
+                    onClick={() => {
+                      if (tab === 'skill') {
+                        navigate(`/resources/skill/${item.id}`);
+                        return;
+                      }
                       setForm({
                         id: item.id,
                         name: item.name,
                         description: item.description || '',
                         content: (item.meta?.content as string) || '',
-                      })
-                    }
+                      });
+                    }}
                     className="w-8 h-8 rounded-md text-[#c0c4cc] hover:text-[#0077ff] hover:bg-[#f2f3f5] flex items-center justify-center"
                     title="编辑"
                   >

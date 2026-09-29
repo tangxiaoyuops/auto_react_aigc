@@ -22,6 +22,7 @@ class ExecuteRequest(BaseModel):
     tools: List[str] = []
     skills: List[str] = []
     system_prompt: Optional[str] = None
+    history: List[dict] = []
 
 
 @router.post("/execute")
@@ -38,7 +39,8 @@ async def execute_agent(request: ExecuteRequest):
     result = await agent.run(
         message=request.message,
         system_prompt=request.system_prompt,
-        thread_id=request.run_id
+        thread_id=request.run_id,
+        history=request.history,
     )
     
     return {
@@ -68,7 +70,8 @@ async def execute_agent_stream(request: ExecuteRequest):
             agent.run(
                 message=request.message,
                 system_prompt=request.system_prompt,
-                thread_id=request.run_id
+                thread_id=request.run_id,
+                history=request.history,
             )
         )
         

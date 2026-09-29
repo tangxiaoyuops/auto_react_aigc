@@ -1,0 +1,22 @@
+# Phase 1 验证：headless 注入自定义业务工具 + 默认 AIMP 模型
+- insert:
+    - id: business-data-plugin
+      name: 'D:/projects/deepseek_harness学习/deepseek-harness/scratch-plugin/src/business-data-plugin.ts'
+    - id: llm-pi-ai
+      name: '@deepseek-ai/dsh-llm-pi-ai'
+      config:
+        providers:
+          aimp-qwen:
+            apiKeyEnv: AIMP_OPENAI_API_KEY
+            api: openai-completions
+            baseURL: https://aimpapi.midea.com/t-aigc/d-dban-qwen3-5-397b-a17b/v1
+            models:
+              - id: qwen3-5-397b-a17b
+            compat:
+              supportsDeveloperRole: false
+              maxTokensField: max_tokens
+    - id: agent-default-model
+      name: '@deepseek-ai/dsh-agent-default-model'
+      config:
+        provider: aimp-qwen
+        model: qwen3-5-397b-a17b

@@ -16,7 +16,15 @@ import {
   XCircle,
 } from 'lucide-react';
 import { mockReply, nextMsgId, type Step } from '../../utils/mockChat';
-import { ensureSession, startRun, streamRun } from '../../api/chat';
+import {
+  ensureSession,
+  startRun,
+  streamRun,
+  listSessions,
+  createSession,
+  getSessionMessages,
+  type SessionListItem,
+} from '../../api/chat';
 import Markdown from '../Markdown';
 import Resizer from '../layout/Resizer';
 
@@ -29,14 +37,18 @@ interface Msg {
 }
 
 interface DebugPanelProps {
+  agentId: string;
   agentName: string;
   agentModel: string;
 }
 
-export default function DebugPanel({ agentName, agentModel }: DebugPanelProps) {
+export default function DebugPanel({ agentId, agentName, agentModel }: DebugPanelProps) {
   const [messages, setMessages] = useState<Msg[]>([]);
   const [input, setInput] = useState('');
   const [sending, setSending] = useState(false);
+  // 会话列表（按当前 Agent 隔离）与当前会话
+  const [sessions, setSessions] = useState<SessionListItem[]>([]);
+  const [currentSessionId, setCurrentSessionId] = useState('');
   // 当前在右侧详情面板中查看的执行（对应某条 agent 回复）
   const [activeSteps, setActiveSteps] = useState<{ msgId: number; steps: Step[] } | null>(null);
   // 左侧对话区宽度（px），可拖拽调整（范围更大更灵活）
@@ -90,6 +102,50 @@ export default function DebugPanel({ agentName, agentModel }: DebugPanelProps) {
     setActiveSteps(null);
   }, [sending]);
 
+  // 加载当前 Agent 的调试会话列表（按 agent 隔离）
+  const loadSessions = useCallback(async () => {
+    const items = await listSessions(agentId);
+    setSessions(items);
+    if (items.length === 0) {
+      setCurrentSessionId('');
+      return;
+    }
+    // 优先选缓存中的当前会话；否则退回最新
+    setCurrentSessionId((cur) => (cur && items.some((s) => s.id === cur) ? cur : items[0].id));
+  }, [agentId]);
+
+  useEffect(() => {
+    loadSessions();
+  }, [loadSessions]);
+
+  // 加载指定会话的历史消息回显到对话区
+  const switchSession = useCallback(
+    async (sessionId: string) => {
+      if (!sessionId || sending) return;
+      setCurrentSessionId(sessionId);
+      const history = await getSessionMessages(sessionId);
+      setMessages(
+        history.map((m) => ({
+          id: nextMsgId(),
+          role: m.role === 'assistant' ? ('assistant' as const) : ('user' as const),
+          content: m.content || '',
+        }))
+      );
+      setActiveSteps(null);
+    },
+    [sending]
+  );
+
+  // 新建会话：后端创建 + 清空对话区
+  const newSession = useCallback(async () => {
+    if (sending) return;
+    const sid = await createSession(agentId, 'Agent 调试会话', agentModel);
+    setSessions((prev) => [{ id: sid, model: agentModel, created_at: new Date().toISOString() }, ...prev]);
+    setCurrentSessionId(sid);
+    setMessages([]);
+    setActiveSteps(null);
+  }, [agentId, agentModel, sending]);
+
   const viewTrace = useCallback(
     (msg: Msg | null) => {
       if (!msg || !msg.steps || msg.steps.length === 0) {
@@ -133,8 +189,13 @@ export default function DebugPanel({ agentName, agentModel }: DebugPanelProps) {
     let finalContent = '';
 
     try {
-      const sessionId = await ensureSession(agentModel);
-      await startRun(sessionId, content, { id: agentName, name: agentName });
+      // 使用当前会话（若有）；否则 ensure/sync 一个。发送后刷新会话列表并将当前会话置顶
+      let sessionId = currentSessionId || (await ensureSession(agentId, agentModel));
+      setCurrentSessionId(sessionId);
+      if (!sessions.some((s) => s.id === sessionId)) {
+        setSessions((prev) => [{ id: sessionId, model: agentModel, created_at: new Date().toISOString() }, ...prev]);
+      }
+      await startRun(sessionId, content, { id: agentId, name: agentName });
 
       // 单条消息内聚合并实时更新 steps
       const updateSteps = (newSteps: Step[]) => {
@@ -167,8 +228,9 @@ export default function DebugPanel({ agentName, agentModel }: DebugPanelProps) {
         } else if (type === 'tool_call_end') {
           appendStep({ nodeType: 'TOOL', nodeName: step.nodeName || '工具', title: `${step.nodeName || '工具'} 完成`, result: step.result || '', duration: step.duration, status: 'success' });
         } else if (type === 'result') {
+          // SSE 按增量分块推送，需累加而非覆盖，实现打字机式的流式增长
           if (step.detail || step.title) {
-            finalContent = step.detail || step.title || '';
+            finalContent += step.detail || step.title || '';
             appendStep({ nodeType: 'RESULT', nodeName: step.nodeName || '结果', title: step.title || '完成', detail: step.detail || '', status: 'success' });
           }
         } else if (type === 'error') {
@@ -210,15 +272,45 @@ export default function DebugPanel({ agentName, agentModel }: DebugPanelProps) {
       return;
     }
 
-    // 后端路径收尾
-    await new Promise((r) => setTimeout(r, 200));
-    setMessages((prev) =>
-      prev.map((m) =>
-        m.id === botMsgId ? { ...m, content: finalContent || m.content, streaming: false, steps: steps.length ? steps : m.steps } : m
-      )
-    );
-    setActiveSteps({ msgId: botMsgId, steps });
-    setSending(false);
+    // 后端路径收尾：打字机式逐步揭示最终回答（后端通常一次性给出整段，
+    // 这里在前端做平滑的流式 reveal，模拟 typed 输出效果）
+    const full = finalContent || '';
+    await new Promise((r) => setTimeout(r, 120));
+    if (full) {
+      const total = full.length;
+      const stepChars = Math.max(1, Math.round(total / 90)); // ~90 帧走完
+      let i = 0;
+      const revealTimer = window.setInterval(() => {
+        i = Math.min(total, i + stepChars);
+        setMessages((prev) =>
+          prev.map((m) =>
+            m.id === botMsgId ? { ...m, content: full.slice(0, i), streaming: true } : m
+          )
+        );
+        if (i >= total) {
+          window.clearInterval(revealTimer);
+          setMessages((prev) =>
+            prev.map((m) =>
+              m.id === botMsgId
+                ? { ...m, content: full, streaming: false, steps: steps.length ? steps : m.steps }
+                : m
+            )
+          );
+          setActiveSteps({ msgId: botMsgId, steps });
+          setSending(false);
+        }
+      }, 16);
+    } else {
+      setMessages((prev) =>
+        prev.map((m) =>
+          m.id === botMsgId
+            ? { ...m, content: full || m.content, streaming: false, steps: steps.length ? steps : m.steps }
+            : m
+        )
+      );
+      setActiveSteps({ msgId: botMsgId, steps });
+      setSending(false);
+    }
   };
 
   return (
@@ -234,13 +326,41 @@ export default function DebugPanel({ agentName, agentModel }: DebugPanelProps) {
             <div className="text-[11px] text-[#86909c]">使用当前配置实时测试</div>
           </div>
         </div>
-        <button
-          onClick={reset}
-          disabled={sending}
-          className="flex items-center gap-1 px-2.5 py-1.5 text-[12px] text-[#86909c] hover:text-[#4e5969] border border-[#e5e6eb] rounded-md disabled:opacity-50 transition-colors"
-        >
-          <Eraser size={13} /> 清空
-        </button>
+        <div className="flex items-center gap-2">
+          {/* 会话选择（按当前 Agent 隔离的历史调试会话） */}
+          <select
+            value={currentSessionId}
+            disabled={sending}
+            onChange={(e) => switchSession(e.target.value)}
+            title="当前调试会话"
+            className="max-w-[160px] px-2 py-1.5 text-[11.5px] text-[#4e5969] border border-[#e5e6eb] rounded-md bg-white focus:outline-none focus:border-[#0077ff] focus:ring-2 focus:ring-[#0077ff]/10 transition-colors disabled:opacity-50"
+          >
+            {sessions.length === 0 && <option value="">无会话</option>}
+            {sessions.map((s) => (
+              <option key={s.id} value={s.id}>
+                {s.title || s.id.slice(0, 8)}
+              </option>
+            ))}
+          </select>
+
+          {/* 新建会话 */}
+          <button
+            onClick={newSession}
+            disabled={sending}
+            className="flex items-center gap-1 px-2.5 py-1.5 text-[12px] text-[#0077ff] hover:text-[#0066dd] border border-[#bfd9ff] bg-[#e8f3ff] rounded-md disabled:opacity-50 transition-colors"
+            title="新开一个调试会话"
+          >
+            <MessageSquare size={13} /> 新建
+          </button>
+
+          <button
+            onClick={reset}
+            disabled={sending}
+            className="flex items-center gap-1 px-2.5 py-1.5 text-[12px] text-[#86909c] hover:text-[#4e5969] border border-[#e5e6eb] rounded-md disabled:opacity-50 transition-colors"
+          >
+            <Eraser size={13} /> 清空
+          </button>
+        </div>
       </div>
 
       {/* 内部双栏：左对话 / 右执行详情（中间可拖拽） */}
@@ -302,7 +422,7 @@ export default function DebugPanel({ agentName, agentModel }: DebugPanelProps) {
                         {m.streaming && !m.content ? (
                           <div className="text-[13px] text-[#4e5969]">正在思考并执行任务...</div>
                         ) : (
-                          <Markdown content={m.content} className="whitespace-pre-wrap" />
+                          <Markdown content={m.content} className="whitespace-normal" />
                         )}
 
                         {/* 气泡内仅保留轻量摘要，详细信息在右侧面板 */}

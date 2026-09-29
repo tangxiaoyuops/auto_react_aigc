@@ -10,6 +10,7 @@ class CreateSessionRequest(BaseModel):
     tools: List[str] = Field(default_factory=list, description="Enabled tools")
     skills: List[str] = Field(default_factory=list, description="Enabled skills")
     system_prompt: Optional[str] = Field(None, description="Custom system prompt")
+    agent_id: Optional[str] = Field(None, description="关联的 Agent ID（用于按 Agent 隔离调试会话）")
 
 
 class SendMessageRequest(BaseModel):

@@ -5,7 +5,7 @@ from fastapi.responses import StreamingResponse
 import asyncio
 
 from app.core.config import settings
-from app.api.routes import agent, health
+from app.api.routes import agent, health, skill_gen
 from app.services.event_emitter import EventEmitter
 
 
@@ -28,6 +28,7 @@ app.add_middleware(
 # Include routers
 app.include_router(health.router, tags=["Health"])
 app.include_router(agent.router, prefix="/api/v1/agent", tags=["Agent"])
+app.include_router(skill_gen.router, prefix="/api/v1/skill", tags=["Skill AI"])
 
 
 @app.get("/")

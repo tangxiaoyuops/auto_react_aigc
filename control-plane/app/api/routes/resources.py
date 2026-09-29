@@ -1,10 +1,14 @@
-"""Resource 路由：5 类资源统一 CRUD"""
+"""Resource 路由：5 类资源统一 CRUD + Skill 文件树读写"""
 from fastapi import APIRouter, Depends, HTTPException
+from pydantic import BaseModel
+from typing import Dict
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.db.database import get_db
+from app.core.config import settings
 from app.core.security import get_current_user, TokenPayload
 from app.services.resource_service import ResourceService
+from app.services.skill_file_service import SkillFileStore
 from shared.schemas.resource import (
     RESOURCE_TYPES, ResourceCreate, ResourceUpdate, ResourceResponse,
 )
@@ -14,6 +18,21 @@ router = APIRouter()
 
 def get_resource_service(db: AsyncSession = Depends(get_db)) -> ResourceService:
     return ResourceService(db=db)
+
+
+def get_skill_file_store(db: AsyncSession = Depends(get_db)) -> SkillFileStore:
+    return SkillFileStore(db=db)
+
+
+class SkillFilesUpdate(BaseModel):
+    """整体覆盖 Skill 文件树"""
+    files: Dict[str, str]
+
+
+class SkillRunRequest(BaseModel):
+    """运行 Skill 脚本请求"""
+    script: str
+    args: list = None
 
 
 def _serialize(r) -> ResourceResponse:
@@ -124,6 +143,113 @@ async def create_resource(
         raise HTTPException(status_code=400, detail=f"非法资源类型: {payload.type}")
     resource = await service.create_resource(user_id=current_user.user_id, payload=payload)
     return _serialize(resource)
+
+
+# ---------- Skill 文件树（Cursor/Claude 风格 files） ----------
+
+def _internal_key() -> str:
+    """内部服务间访问密钥（认知层加载 Skill 包时使用，派生自 SECRET_KEY）。"""
+    import hashlib
+    return hashlib.sha256((settings.SECRET_KEY + ":skill-package").encode()).hexdigest()[:32]
+
+
+@router.get("/skills/{resource_id}/package")
+async def get_skill_package(
+    resource_id: str,
+    internal_key: str = None,
+    store: SkillFileStore = Depends(get_skill_file_store),
+):
+    """内部接口：按 Skill 资源 ID 返回完整文件树包（供认知层 load_skills 拉取）。
+
+    认证：使用派生自 SECRET_KEY 的 internal_key（query 参数），
+    仅服务间内部调用，不暴露给浏览器前端。
+    """
+    if internal_key != _internal_key():
+        raise HTTPException(status_code=403, detail="invalid internal key")
+    resource = await store.get_resource_for_internal(resource_id)
+    if not resource:
+        raise HTTPException(status_code=404, detail="Skill not found")
+    if resource.type != "skill":
+        raise HTTPException(status_code=400, detail="仅 Skill 资源支持文件树包")
+    return {
+        "id": resource.id,
+        "name": resource.name,
+        "description": resource.description,
+        "files": store.get_files(resource),
+    }
+
+
+@router.get("/skills/{resource_id}/files")
+async def list_skill_files(
+    resource_id: str,
+    current_user: TokenPayload = Depends(get_current_user),
+    store: SkillFileStore = Depends(get_skill_file_store),
+):
+    """返回 Skill 文件树（path -> content）。仅 skill 类型资源可用。"""
+    resource = await store.get_resource(current_user.user_id, resource_id)
+    if not resource:
+        raise HTTPException(status_code=404, detail="Resource not found")
+    if resource.type != "skill":
+        raise HTTPException(status_code=400, detail="仅 Skill 资源支持文件树")
+    return {"resource_id": resource_id, "files": store.get_files(resource)}
+
+
+@router.get("/skills/{resource_id}/files/{file_path:path}")
+async def get_skill_file(
+    resource_id: str,
+    file_path: str,
+    current_user: TokenPayload = Depends(get_current_user),
+    store: SkillFileStore = Depends(get_skill_file_store),
+):
+    """读取单个 Skill 文件内容。"""
+    resource = await store.get_resource(current_user.user_id, resource_id)
+    if not resource or resource.type != "skill":
+        raise HTTPException(status_code=404, detail="Resource not found")
+    content = store.get_file_content(resource, file_path)
+    if content is None:
+        raise HTTPException(status_code=404, detail=f"文件不存在: {file_path}")
+    return {"path": file_path, "content": content}
+
+
+@router.put("/skills/{resource_id}/files")
+async def update_skill_files(
+    resource_id: str,
+    payload: SkillFilesUpdate,
+    current_user: TokenPayload = Depends(get_current_user),
+    store: SkillFileStore = Depends(get_skill_file_store),
+):
+    """整体覆盖 Skill 文件树（并落盘 scripts/*.py 到磁盘工作区）。"""
+    resource = await store.get_resource(current_user.user_id, resource_id)
+    if not resource:
+        raise HTTPException(status_code=404, detail="Resource not found")
+    if resource.type != "skill":
+        raise HTTPException(status_code=400, detail="仅 Skill 资源支持文件树")
+    # 校验路径，杜绝穿越
+    for p in payload.files:
+        if ".." in p.replace("\\", "/").split("/"):
+            raise HTTPException(status_code=400, detail=f"非法路径: {p}")
+    files = await store.write_files(resource, payload.files)
+    return {"resource_id": resource_id, "files": files}
+
+
+@router.post("/skills/{resource_id}/run")
+async def run_skill_script_endpoint(
+    resource_id: str,
+    payload: SkillRunRequest,
+    current_user: TokenPayload = Depends(get_current_user),
+    store: SkillFileStore = Depends(get_skill_file_store),
+):
+    """编辑器「运行」：执行 Skill 的 Python 脚本（同步落盘后 subprocess 隔离执行）。
+
+    与 Cognition 层 run_skill_script 工具共用同一套磁盘工作区与安全校验。
+    """
+    resource = await store.get_resource(current_user.user_id, resource_id)
+    if not resource or resource.type != "skill":
+        raise HTTPException(status_code=404, detail="Skill not found")
+    # 确保脚本已落盘（编辑器可能在保存前直接运行）
+    store._sync_scripts_to_disk(resource.id, resource.name, store.get_files(resource))
+    from app.services.skill_file_service import run_skill_script_async
+    return await run_skill_script_async(resource.name, payload.script, payload.args or [])
 
 
 @router.get("/{resource_id}", response_model=ResourceResponse)

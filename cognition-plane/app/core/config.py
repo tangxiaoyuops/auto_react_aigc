@@ -45,7 +45,14 @@ class Settings(BaseSettings):
     
     # Redis
     REDIS_URL: str = "redis://localhost:6379/1"
-    
+
+    # Control Plane（内部服务，用于按 skill_id 拉取自定义 Skill 文件树包）
+    CONTROL_PLANE_URL: str = "http://localhost:8080"
+    CONTROL_PLANE_INTERNAL_KEY: str = ""
+
+    # 与 control-plane 共享的密钥（派生 skill 包访问密钥）
+    SECRET_KEY: str = "dev-secret-key-change-in-production"
+
     # Database
     DATABASE_URL: str = "postgresql+asyncpg://postgres:password@localhost:5432/agent_platform"
     

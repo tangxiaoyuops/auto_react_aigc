@@ -74,6 +74,36 @@ export const resourcesApi = {
   async remove(id: string): Promise<void> {
     await http.delete(`/resources/${id}`);
   },
+
+  // ===== Skill 文件树（文件夹式 Skill） =====
+  async getSkillFiles(id: string): Promise<Record<string, string>> {
+    const { data } = await http.get(`/resources/skills/${id}/files`);
+    return data.files || {};
+  },
+  async getSkillFile(id: string, path: string): Promise<string> {
+    const { data } = await http.get(`/resources/skills/${id}/files/${path}`);
+    return data.content || '';
+  },
+  async updateSkillFiles(id: string, files: Record<string, string>): Promise<Record<string, string>> {
+    const { data } = await http.put(`/resources/skills/${id}/files`, { files });
+    return data.files || {};
+  },
+  async runSkillScript(id: string, script: string, args: string[] = []): Promise<any> {
+    const { data } = await http.post(`/resources/skills/${id}/run`, { script, args });
+    return data;
+  },
+
+  // ===== AI 辅助生成 / 改写 Skill =====
+  async assistSkill(params: {
+    action: 'generate' | 'rewrite';
+    description: string;
+    current_files?: Record<string, string>;
+    target?: string;
+    name_hint?: string;
+  }): Promise<{ files: Record<string, string> }> {
+    const { data } = await http.post('/skill/assist', params, { timeout: 120000 });
+    return data;
+  },
 };
 
 // 各类资源 Tab 元信息（供前端统一渲染）

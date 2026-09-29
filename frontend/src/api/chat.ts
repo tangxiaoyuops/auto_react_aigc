@@ -6,36 +6,82 @@ export interface RunResult {
   status: string;
 }
 
-// 创建/获取调试会话（复用单会话模式，有则用，无则建）
-const SESSION_KEY = 'agent_demo_session_id';
-
-export function getCachedSessionId(): string | null {
-  return localStorage.getItem(SESSION_KEY);
+// 创建/获取调试会话（按 Agent 隔离，有则用，无则建）
+// key 依 agentId 区分，避免多个 Agent 的调试会话混在一起。
+function sessionKey(agentId: string): string {
+  return `agent_demo_session_id:${agentId || 'default'}`;
 }
-export function cacheSessionId(sid: string) {
-  localStorage.setItem(SESSION_KEY, sid);
+function getCachedSessionId(agentId: string): string | null {
+  try {
+    return localStorage.getItem(sessionKey(agentId));
+  } catch {
+    return null;
+  }
+}
+function cacheSessionId(agentId: string, sid: string) {
+  try {
+    localStorage.setItem(sessionKey(agentId), sid);
+  } catch {
+    /* ignore */
+  }
 }
 
-export async function ensureSession(model = 'Qwen3.5-397b-a17b'): Promise<string> {
-  const cached = getCachedSessionId();
-  // 缓存存在时先验证其仍有效（后端可能重建/清理，避免用失效 id 触发 404）
+export interface SessionListItem {
+  id: string;
+  title?: string;
+  model?: string;
+  created_at?: string;
+  updated_at?: string;
+}
+
+export async function listSessions(agentId: string): Promise<SessionListItem[]> {
+  try {
+    const { data } = await http.get(`/sessions`, { params: { agent_id: agentId, page_size: 50 } });
+    return (data?.sessions || data || []) as SessionListItem[];
+  } catch {
+    return [];
+  }
+}
+
+export async function createSession(
+  agentId: string,
+  title = 'Agent 调试会话',
+  model = 'Qwen3.5-397b-a17b'
+): Promise<string> {
+  const { data } = await http.post('/sessions', {
+    title,
+    model,
+    agent_id: agentId,
+  });
+  cacheSessionId(agentId, data.id);
+  return data.id;
+}
+
+// 取某 session 的调试会话 id（有缓存且有则用，否则按 agent 新建）
+export async function ensureSession(agentId: string, model = 'Qwen3.5-397b-a17b'): Promise<string> {
+  const cached = getCachedSessionId(agentId);
   if (cached) {
     try {
       await http.get(`/sessions/${cached}`);
       return cached;
     } catch {
-      // 缓存 session 已失效，清除并重建
-      localStorage.removeItem(SESSION_KEY);
+      try {
+        localStorage.removeItem(sessionKey(agentId));
+      } catch {
+        /* ignore */
+      }
     }
   }
-
-  const { data } = await http.post('/sessions', { title: 'Agent 调试会话', model });
-  setSessionId(data.id);
-  return data.id;
+  return createSession(agentId, 'Agent 调试会话', model);
 }
 
-function setSessionId(sid: string) {
-  localStorage.setItem(SESSION_KEY, sid);
+export async function getSessionMessages(sessionId: string): Promise<Array<{ role: string; content: string; id?: string }>> {
+  try {
+    const { data } = await http.get(`/sessions/${sessionId}/messages`, { params: { limit: 200 } });
+    return (data?.messages || []) as Array<{ role: string; content: string; id?: string }>;
+  } catch {
+    return [];
+  }
 }
 
 // 发送消息启动 Run

@@ -1,0 +1,29 @@
+INFO:     Will watch for changes in these directories: ['D:\\projects\\react_demo\\auto_react_aigc\\cognition-plane']
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     Started reloader process [24080] using StatReload
+D:\Users\ex_tangxy17\AppData\Roaming\Python\Python310\site-packages\langgraph\cache\base\__init__.py:8: LangChainPendingDeprecationWarning: The default value of `allowed_objects` will change in a future version. Pass an explicit value (e.g., allowed_objects='messages' or allowed_objects='core') to suppress this warning.
+  from langgraph.checkpoint.serde.jsonplus import JsonPlusSerializer
+INFO:     Started server process [23788]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+[ENGINE-DEBUG] history=[{'role': 'user', 'content': '记住我的名字是小花生，我喜欢吃芒果。'}, {'role': 'assistant', 'content': '好的小花生！我记住了，你喜欢芒果。'}] -> messages_count=4
+[ENGINE-DEBUG] history=[] -> messages_count=2
+[ENGINE-DEBUG] history=[{'role': 'user', 'content': '记住我的名字叫小橘，我喜欢吃西瓜。'}, {'role': 'assistant', 'content': '好的，小橘！我已经记住了你的名字和你喜欢吃西瓜。🍉 有什么我可以帮你的吗？'}] -> messages_count=4
+[ENGINE-DEBUG] history=[] -> messages_count=2
+[ENGINE-DEBUG] history=[{'role': 'user', 'content': '记住我的名字叫小西，我喜欢吃橙子。'}, {'role': 'assistant', 'content': '好的，小西！我已经记住了，你叫小西，而且你喜欢吃橙子。🍊'}] -> messages_count=4
+[ENGINE-DEBUG] history=[{'role': 'user', 'content': '记住我的名字叫小西，我喜欢吃橙子。'}, {'role': 'assistant', 'content': '好的，小西！我已经记住了，你叫小西，而且你喜欢吃橙子。'}] -> messages_count=4
+[ENGINE-DEBUG] history=[] -> messages_count=2
+[ENGINE-DEBUG] history=[{'role': 'user', 'content': '记住我的名字叫小叮当，我喜欢吃苹果。'}, {'role': 'assistant', 'content': '好的，小叮当！我已经记住了你的名字，也记住了你喜欢吃苹果。🍎\n\n有什么我可以帮你的吗？'}] -> messages_count=4
+WARNING:  StatReload detected changes in 'app\agent\engine.py'. Reloading...
+[ENGINE-DEBUG] history=[{'role': 'user', 'content': '我叫小叮当。'}, {'role': 'assistant', 'content': '好的小叮当！'}] -> messages_count=4
+INFO:     Shutting down
+INFO:     Waiting for connections to close. (CTRL+C to force quit)
+[ENGINE-DEBUG] history=[{'role': 'user', 'content': '帮我看看 紫光股份股票  看看当前价格和成交量 适不适合买'}, {'role': 'user', 'content': '你好'}, {'role': 'user', 'content': '你有哪些skill技能'}, {'role': 'user', 'content': '你有哪些skill技能？？？'}, {'role': 'user', 'content': '你有哪些skill技能'}, {'role': 'user', 'content': '你有哪些skill技能'}, {'role': 'user', 'content': '你有哪些skill技能'}, {'role': 'user', 'content': '你有哪些skill技能'}, {'role': 'user', 'content': '你好'}, {'role': 'user', 'content': '你会啥？'}, {'role': 'user', 'content': '你帮我做一个明阳电气的调研报告 并给我以md格式 保存到桌面'}, {'role': 'user', 'content': '你有哪些skill'}, {'role': 'user', 'content': '你有什么技能'}, {'role': 'user', 'content': '你有什么技能'}, {'role': 'user', 'content': '你能看到我挂载给你的skill嘛 有哪些？'}, {'role': 'user', 'content': '你有哪些skill?'}, {'role': 'user', 'content': '用 httpqacheck 技能检查 http://example.com 可用性'}, {'role': 'user', 'content': '用数学老师skill 给我出个数学题'}, {'role': 'user', 'content': '做不出来'}] -> messages_count=21
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [23788]
+D:\Users\ex_tangxy17\AppData\Roaming\Python\Python310\site-packages\langgraph\cache\base\__init__.py:8: LangChainPendingDeprecationWarning: The default value of `allowed_objects` will change in a future version. Pass an explicit value (e.g., allowed_objects='messages' or allowed_objects='core') to suppress this warning.
+  from langgraph.checkpoint.serde.jsonplus import JsonPlusSerializer
+INFO:     Started server process [34412]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.

@@ -94,6 +94,42 @@ export default function AgentConfig() {
     );
   };
 
+  // pool 加载后，把占位名（Skill <id> / 知识库 <id> / 本体 <id> / 工具 <id>）补全为真实名字
+  const pools = {
+    skills: SKILL_POOL,
+    knowledgeBases: KNOWLEDGE_POOL,
+    ontologies: ONTOLOGY_POOL,
+    tools: TOOL_POOL,
+  };
+  useEffect(() => {
+    if (!form) return;
+    let changed = false;
+    const nextCap = { ...form.capabilities };
+    (Object.keys(pools) as (keyof AgentCapabilities)[]).forEach((key) => {
+      const list = nextCap[key] || [];
+      const nameById = new Map((pools[key] || []).map((s: any) => [s.id, s.name]));
+      const descById = new Map((pools[key] || []).map((s: any) => [s.id, s.description]));
+      const mapped = list.map((item) => {
+        const real = nameById.get(item.id);
+        const realDesc = descById.get(item.id);
+        const patch: Record<string, unknown> = {};
+        if (real && item.name !== real) {
+          patch.name = real;
+        }
+        if (realDesc !== undefined && item.description !== realDesc) {
+          patch.description = realDesc;
+        }
+        return Object.keys(patch).length ? { ...item, ...patch } : item;
+      });
+      if (mapped.some((m, i) => m !== list[i])) {
+        nextCap[key] = mapped as any;
+        changed = true;
+      }
+    });
+    if (changed) setForm((prev) => (prev ? { ...prev, capabilities: nextCap } : prev));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [SKILL_POOL, KNOWLEDGE_POOL, ONTOLOGY_POOL, TOOL_POOL, form?.capabilities]);
+
   const handleSave = () => {
     if (isNew) {
       addAgent(form);
@@ -322,7 +358,7 @@ export default function AgentConfig() {
         {/* 右栏：对话调试（剩余空间自适应） */}
         <div className="flex-1 min-w-0 lg:sticky lg:top-6">
           <div className="panel overflow-hidden h-[calc(100vh-150px)] min-h-[500px]">
-            <DebugPanel agentName={form.name} agentModel={form.model} />
+            <DebugPanel agentId={form.id} agentName={form.name} agentModel={form.model} />
           </div>
         </div>
       </div>

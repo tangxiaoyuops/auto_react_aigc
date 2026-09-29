@@ -8,6 +8,7 @@ from sqlalchemy import select
 
 from app.db.database import DBResource
 from shared.schemas.resource import ResourceCreate, ResourceUpdate
+from shared.schemas.skill_file import default_files
 
 
 class ResourceService:
@@ -17,19 +18,29 @@ class ResourceService:
         self.db = db
 
     async def create_resource(self, user_id: str, payload: ResourceCreate) -> DBResource:
+        meta = payload.meta or {}
+        # Skill 资源：初始化默认文件树（与 Cursor 风格的 SKILL.md + 参考文件）
+        if payload.type == "skill":
+            files = meta.get("files")
+            if not files:
+                meta = {**meta, "files": default_files(payload.name, payload.description or "")}
         resource = DBResource(
             id=str(uuid4()),
             user_id=user_id,
             type=payload.type,
             name=payload.name,
             description=payload.description,
-            meta=payload.meta or {},
+            meta=meta,
             origin="custom",
             created_at=datetime.utcnow(),
         )
         self.db.add(resource)
         await self.db.commit()
         await self.db.refresh(resource)
+        # 把脚本同步到磁盘工作区（供 run_skill_script 执行）
+        if payload.type == "skill":
+            from app.services.skill_file_service import SkillFileStore
+            SkillFileStore(db=self.db)._sync_scripts_to_disk(resource.id, resource.name, meta.get("files") or {})
         return resource
 
     async def list_resources(
@@ -68,6 +79,9 @@ class ResourceService:
         return resource
 
     async def delete_resource(self, resource: DBResource) -> None:
+        if resource.type == "skill":
+            from app.services.skill_file_service import SkillFileStore
+            SkillFileStore(db=self.db).cleanup_skips(resource.name)
         await self.db.delete(resource)
         await self.db.commit()
 

@@ -65,8 +65,8 @@ function toBackend(agent: Partial<Agent>): Record<string, unknown> {
     // 能力关联：保存时带上明确挂载的工具
     tool_ids: agent.capabilities?.tools?.map((t) => t.id) ?? undefined,
     skill_ids: agent.capabilities?.skills?.map((s) => s.id) ?? undefined,
-    knowledge_ids: undefined,
-    ontology_ids: undefined,
+    knowledge_ids: agent.capabilities?.knowledgeBases?.map((k) => k.id) ?? undefined,
+    ontology_ids: agent.capabilities?.ontologies?.map((o) => o.id) ?? undefined,
   };
 }
 

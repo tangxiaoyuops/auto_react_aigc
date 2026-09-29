@@ -1,0 +1,69 @@
+INFO:     Will watch for changes in these directories: ['D:\\projects\\react_demo\\auto_react_aigc\\cognition-plane']
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     Started reloader process [48440] using StatReload
+D:\Users\ex_tangxy17\AppData\Roaming\Python\Python310\site-packages\langgraph\cache\base\__init__.py:8: LangChainPendingDeprecationWarning: The default value of `allowed_objects` will change in a future version. Pass an explicit value (e.g., allowed_objects='messages' or allowed_objects='core') to suppress this warning.
+  from langgraph.checkpoint.serde.jsonplus import JsonPlusSerializer
+INFO:     Started server process [49204]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+[HISTORY] len=0 roles=[] :: sys_msg=yes
+[LLM-MSG] roles=['SystemMessage', 'HumanMessage'] ntools=3
+[HISTORY] len=2 roles=['user', 'assistant'] :: sys_msg=yes
+[LLM-MSG] roles=['SystemMessage', 'HumanMessage', 'AIMessage', 'HumanMessage'] ntools=3
+WARNING:  StatReload detected changes in 'app\agent\engine.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [49204]
+D:\Users\ex_tangxy17\AppData\Roaming\Python\Python310\site-packages\langgraph\cache\base\__init__.py:8: LangChainPendingDeprecationWarning: The default value of `allowed_objects` will change in a future version. Pass an explicit value (e.g., allowed_objects='messages' or allowed_objects='core') to suppress this warning.
+  from langgraph.checkpoint.serde.jsonplus import JsonPlusSerializer
+INFO:     Started server process [6456]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+Exception in thread Thread-3 (_readerthread):
+Traceback (most recent call last):
+  File "D:\Users\ex_tangxy17\.conda\envs\aigc_gragh_v1\lib\threading.py", line 1016, in _bootstrap_inner
+    self.run()
+  File "D:\Users\ex_tangxy17\.conda\envs\aigc_gragh_v1\lib\threading.py", line 953, in run
+    self._target(*self._args, **self._kwargs)
+  File "D:\Users\ex_tangxy17\.conda\envs\aigc_gragh_v1\lib\subprocess.py", line 1515, in _readerthread
+    buffer.append(fh.read())
+UnicodeDecodeError: 'gbk' codec can't decode byte 0x9a in position 60: illegal multibyte sequence
+Exception in thread Thread-5 (_readerthread):
+Traceback (most recent call last):
+  File "D:\Users\ex_tangxy17\.conda\envs\aigc_gragh_v1\lib\threading.py", line 1016, in _bootstrap_inner
+    self.run()
+  File "D:\Users\ex_tangxy17\.conda\envs\aigc_gragh_v1\lib\threading.py", line 953, in run
+    self._target(*self._args, **self._kwargs)
+  File "D:\Users\ex_tangxy17\.conda\envs\aigc_gragh_v1\lib\subprocess.py", line 1515, in _readerthread
+    buffer.append(fh.read())
+UnicodeDecodeError: 'gbk' codec can't decode byte 0xaf in position 138: illegal multibyte sequence
+WARNING:  StatReload detected changes in 'app\api\routes\agent.py'. Reloading...
+INFO:     Shutting down
+INFO:     Waiting for connections to close. (CTRL+C to force quit)
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [6456]
+D:\Users\ex_tangxy17\AppData\Roaming\Python\Python310\site-packages\langgraph\cache\base\__init__.py:8: LangChainPendingDeprecationWarning: The default value of `allowed_objects` will change in a future version. Pass an explicit value (e.g., allowed_objects='messages' or allowed_objects='core') to suppress this warning.
+  from langgraph.checkpoint.serde.jsonplus import JsonPlusSerializer
+INFO:     Started server process [39856]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+Exception in thread Thread-1 (_readerthread):
+Traceback (most recent call last):
+  File "D:\Users\ex_tangxy17\.conda\envs\aigc_gragh_v1\lib\threading.py", line 1016, in _bootstrap_inner
+    self.run()
+  File "D:\Users\ex_tangxy17\.conda\envs\aigc_gragh_v1\lib\threading.py", line 953, in run
+    self._target(*self._args, **self._kwargs)
+  File "D:\Users\ex_tangxy17\.conda\envs\aigc_gragh_v1\lib\subprocess.py", line 1515, in _readerthread
+    buffer.append(fh.read())
+UnicodeDecodeError: 'gbk' codec can't decode byte 0x9a in position 60: illegal multibyte sequence
+Exception in thread Thread-3 (_readerthread):
+Traceback (most recent call last):
+  File "D:\Users\ex_tangxy17\.conda\envs\aigc_gragh_v1\lib\threading.py", line 1016, in _bootstrap_inner
+    self.run()
+  File "D:\Users\ex_tangxy17\.conda\envs\aigc_gragh_v1\lib\threading.py", line 953, in run
+    self._target(*self._args, **self._kwargs)
+  File "D:\Users\ex_tangxy17\.conda\envs\aigc_gragh_v1\lib\subprocess.py", line 1515, in _readerthread
+    buffer.append(fh.read())
+UnicodeDecodeError: 'gbk' codec can't decode byte 0x9a in position 95: illegal multibyte sequence

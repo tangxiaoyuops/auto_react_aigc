@@ -56,6 +56,12 @@ const routes: RouteRecordRaw[] = [
         meta: { title: '资源详情' },
       },
       {
+        path: 'resources/skill/:id/editor',
+        name: 'SkillEditor',
+        component: () => import('@/views/resource/skill-editor.vue'),
+        meta: { title: 'Skill 编辑器' },
+      },
+      {
         path: 'evaluation',
         name: 'Evaluation',
         component: () => import('@/views/evaluation/index.vue'),

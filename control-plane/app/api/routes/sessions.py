@@ -57,7 +57,8 @@ async def create_session(
         model=request.model,
         tools=request.tools,
         skills=request.skills,
-        system_prompt=request.system_prompt
+        system_prompt=request.system_prompt,
+        agent_id=request.agent_id
     )
     
     return SessionResponse(
@@ -77,14 +78,16 @@ async def create_session(
 async def list_sessions(
     page: int = 1,
     page_size: int = 20,
+    agent_id: str = None,
     current_user: TokenPayload = Depends(get_current_user),
     service: SessionService = Depends(get_session_service)
 ):
-    """List user's sessions"""
+    """List user's sessions (optionally filtered by agent)"""
     sessions = await service.list_sessions(
         user_id=current_user.user_id,
         page=page,
-        page_size=page_size
+        page_size=page_size,
+        agent_id=agent_id
     )
     
     return SessionListResponse(

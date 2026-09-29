@@ -212,6 +212,11 @@ function handleCreate() {
 }
 
 function handleEdit(row: any) {
+  // Skill 进入文件树编辑器；其余资源走通用编辑弹窗
+  if (row.type === 'skill' || activeTab.value === 'skill') {
+    router.push(`/resources/skill/${row.id}/editor`)
+    return
+  }
   isEdit.value = true
   editId.value = row.id
   dialogTitle.value = `编辑${tabLabel.value}`

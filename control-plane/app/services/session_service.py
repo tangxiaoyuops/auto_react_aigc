@@ -17,6 +17,7 @@ from app.db.database import AsyncSessionLocal, DBMessage, DBSession, DBRun
 from app.services.event_recorder import EventRecorder
 from app.services.sse_manager import SSEManager
 from app.services.sse_protocol import (
+    EVT_RESULT,
     error_event,
     result_event,
     run_end_event,
@@ -54,6 +55,7 @@ class SessionService:
         tools: List[str] = None,
         skills: List[str] = None,
         system_prompt: str = None,
+        agent_id: str = None,
     ) -> DBSession:
         session = DBSession(
             id=str(uuid4()),
@@ -63,6 +65,7 @@ class SessionService:
             tools=tools or [],
             skills=skills or [],
             system_prompt=system_prompt,
+            extra_data={"agent_id": agent_id} if agent_id else ({}),
             status="active",
             created_at=datetime.utcnow(),
         )
@@ -82,15 +85,24 @@ class SessionService:
         user_id: str,
         page: int = 1,
         page_size: int = 20,
+        agent_id: str = None,
     ) -> List[DBSession]:
         offset = (page - 1) * page_size
-        result = await self.db.execute(
+        query = (
             select(DBSession)
             .where(DBSession.user_id == user_id)
             .where(DBSession.status != "deleted")
             .order_by(DBSession.created_at.desc())
-            .offset(offset)
-            .limit(page_size)
+        )
+        if agent_id:
+            # SQLite JSON 字段无法用 == 直接匹配嵌套键，拉取后按 extra_data 过滤
+            all_rows = (await self.db.execute(query)).scalars().all()
+            return [
+                s for s in all_rows
+                if (s.extra_data or {}).get("agent_id") == agent_id
+            ][offset:offset + page_size]
+        result = await self.db.execute(
+            query.offset(offset).limit(page_size)
         )
         return result.scalars().all()
 
@@ -188,6 +200,21 @@ class SessionService:
         # 有 Agent 时按配置编译 RunSpec，覆盖 session 的缺省模型/工具/skill/提示词
         runspec = await self._resolve_runspec(db, agent) if agent else None
 
+        # 组装会话历史（DB 持久化），传递给 Cognition 以支持真正的多轮记忆。
+        # 排除当前这轮 user 消息本身；仅保留 user/assistant 且非空的消息。
+        hist_rows = await db.execute(
+            select(DBMessage)
+            .where(DBMessage.session_id == session.id)
+            .order_by(DBMessage.created_at.asc())
+        )
+        history = [
+            {"role": m.role, "content": m.content}
+            for m in hist_rows.scalars().all()
+            if m.id != message.id
+            and m.role in ("user", "assistant")
+            and (m.content or "").strip()
+        ]
+
         payload = {
             "run_id": run.id,
             "session_id": session.id,
@@ -196,6 +223,7 @@ class SessionService:
             "tools": (runspec or {}).get("tools") or (session.tools or []),
             "skills": (runspec or {}).get("skills") or (session.skills or []),
             "system_prompt": (runspec or {}).get("system_prompt") or session.system_prompt,
+            "history": history,
         }
         # 记录已采用的装配结果，便于溯源
         if agent and runspec:
@@ -220,6 +248,7 @@ class SessionService:
                 json=payload,
                 timeout=300.0,
             ) as response:
+                bot_reply_parts = []
                 async for line in response.aiter_lines():
                     if not line.startswith("data: "):
                         continue
@@ -227,11 +256,28 @@ class SessionService:
                     if not raw:
                         continue
                     sse_event = self._to_trace_event(raw)
+                    # 累积最终 assistant 回复文本，便于持久化为 DBMessage 供多轮复用
+                    if sse_event.get("type") == EVT_RESULT:
+                        text = (sse_event.get("content") or {}).get("detail", "")
+                        if text:
+                            bot_reply_parts.append(text)
                     await recorder.record(
                         run_id=run.id, session_id=session.id,
                         event_type=sse_event["type"], content=sse_event["content"],
                     )
                     await self.sse_manager.broadcast(run.id, sse_event)
+
+            # 将本轮 assistant 回复持久化为消息，保证后续多轮可回取完整历史
+            bot_reply = "".join(bot_reply_parts).strip()
+            if bot_reply:
+                self.db.add(DBMessage(
+                    id=str(uuid4()),
+                    session_id=session.id,
+                    role="assistant",
+                    content=bot_reply,
+                    created_at=datetime.utcnow(),
+                ))
+                await self.db.commit()
 
             run.status = "completed"
             run.completed_at = datetime.utcnow()

@@ -66,6 +66,11 @@ class LLMGateway:
         llm = self.llm.bind_tools(tool_schemas) if tool_schemas else self.llm
         return await llm.ainvoke(messages)
 
+    async def ainvoke_json(self, messages: List[BaseMessage]) -> BaseMessage:
+        """Invoke LLM forcing structured JSON object output."""
+        llm = self.llm.bind(response_format={"type": "json_object"})
+        return await llm.ainvoke(messages)
+
     async def astream(self, messages: List[BaseMessage]):
         """Stream LLM response"""
         async for chunk in self.llm.astream(messages):

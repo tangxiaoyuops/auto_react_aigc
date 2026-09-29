@@ -73,15 +73,12 @@ export const useResourceStore = create<ResourceState>((set, get) => ({
       const pool = await resourcesApi.pool();
       set({ pool });
     } catch (e) {
-      console.warn('fetchPool failed, fallback to builtin:', e);
-      set({
-        pool: {
-          knowledge: toOffline('kb').map((i) => ({ id: i.id, name: i.name, description: i.description || '' })),
-          skill: toOffline('skill').map((i) => ({ id: i.id, name: i.name, description: i.description || '' })),
-          ontology: toOffline('ontology').map((i) => ({ id: i.id, name: i.name, description: i.description || '' })),
-          tool: toOffline('tool').map((i) => ({ id: i.id, name: i.name, description: i.description || '' })),
-        },
-      });
+      // 失败时保持 pool 为空（不写入 mock、不触发新对象导致重试循环），
+      // 稍后自动重试一次；避免“曾失败一次就永久显示 mock 候选池”的假象。
+      console.warn('fetchPool failed, will retry in 3s:', e);
+      setTimeout(() => {
+        if (Object.keys(get().pool).length === 0) get().fetchPool();
+      }, 3000);
     }
   },
 

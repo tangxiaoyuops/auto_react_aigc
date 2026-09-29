@@ -1,0 +1,44 @@
+
+  VITE v5.4.21  ready in 523 ms
+
+  ➜  Local:   http://localhost:5175/
+  ➜  Network: http://10.34.212.53:5175/
+  ➜  Network: http://172.30.224.1:5175/
+17:20:49 [vite] hmr update /src/index.css, /src/components/layout/AppLayout.tsx, /src/pages/chat/index.tsx, /src/pages/agents/list.tsx, /src/pages/agents/config.tsx
+17:21:00 [vite] hmr update /src/index.css, /src/components/layout/AppLayout.tsx, /src/pages/chat/index.tsx, /src/pages/agents/list.tsx, /src/pages/agents/config.tsx
+17:21:15 [vite] hmr update /src/pages/agents/config.tsx, /src/index.css
+18:25:56 [vite] hmr update /src/index.css, /src/pages/resources/index.tsx, /src/pages/agents/config.tsx
+18:26:21 [vite] hmr update /src/index.css, /src/pages/resources/index.tsx, /src/pages/agents/config.tsx
+18:26:37 [vite] hmr update /src/index.css, /src/pages/resources/index.tsx, /src/pages/agents/config.tsx
+09:53:36 [vite] hmr update /src/index.css, /src/components/layout/AppLayout.tsx, /src/pages/chat/index.tsx, /src/pages/agents/list.tsx, /src/pages/agents/config.tsx
+09:53:36 [vite] hmr update /src/index.css, /src/components/layout/AppLayout.tsx, /src/pages/chat/index.tsx, /src/pages/agents/list.tsx, /src/pages/agents/config.tsx
+09:53:37 [vite] hmr update /src/index.css, /src/pages/resources/index.tsx, /src/pages/agents/config.tsx
+16:09:35 [vite] hmr update /src/index.css, /src/components/layout/AppLayout.tsx, /src/pages/chat/index.tsx, /src/pages/agents/list.tsx, /src/pages/agents/config.tsx
+16:09:35 [vite] hmr update /src/index.css, /src/components/layout/AppLayout.tsx, /src/pages/chat/index.tsx, /src/pages/agents/list.tsx, /src/pages/agents/config.tsx
+16:09:35 [vite] hmr update /src/index.css, /src/pages/resources/index.tsx, /src/pages/agents/config.tsx
+16:09:55 [vite] hmr update /src/index.css, /src/components/layout/AppLayout.tsx, /src/pages/chat/index.tsx, /src/pages/agents/list.tsx, /src/pages/agents/config.tsx
+16:09:55 [vite] hmr update /src/index.css, /src/components/layout/AppLayout.tsx, /src/pages/chat/index.tsx, /src/pages/agents/list.tsx, /src/pages/agents/config.tsx
+16:09:56 [vite] hmr update /src/index.css, /src/pages/resources/index.tsx, /src/pages/agents/config.tsx
+16:21:36 [vite] hmr update /src/index.css, /src/pages/chat/index.tsx, /src/components/agent/DebugPanel.tsx
+16:21:46 [vite] hmr update /src/components/agent/DebugPanel.tsx, /src/index.css
+16:21:54 [vite] hmr update /src/components/agent/DebugPanel.tsx, /src/index.css
+16:22:11 [vite] hmr update /src/components/agent/DebugPanel.tsx, /src/index.css
+16:22:37 [vite] hmr update /src/components/agent/DebugPanel.tsx, /src/index.css
+16:22:55 [vite] hmr update /src/components/agent/DebugPanel.tsx, /src/index.css
+16:23:21 [vite] hmr update /src/pages/chat/index.tsx, /src/index.css
+16:24:04 [vite] hmr update /src/components/agent/DebugPanel.tsx, /src/index.css
+16:24:19 [vite] hmr update /src/components/agent/DebugPanel.tsx, /src/index.css
+16:25:01 [vite] hmr update /src/pages/resources/SkillEditor.tsx, /src/index.css
+16:25:18 [vite] hmr update /src/pages/resources/SkillEditor.tsx, /src/index.css
+16:25:25 [vite] hmr update /src/pages/resources/SkillEditor.tsx, /src/index.css
+16:26:20 [vite] hmr update /src/pages/resources/SkillEditor.tsx, /src/index.css
+16:26:27 [vite] hmr update /src/pages/resources/SkillEditor.tsx, /src/index.css
+17:02:20 [vite] hmr update /src/components/Markdown.tsx, /src/index.css
+17:02:22 [vite] ✨ new dependencies optimized: react-markdown, remark-gfm, remark-math, rehype-katex, rehype-highlight
+17:02:22 [vite] ✨ optimized dependencies changed. reloading
+17:02:31 [vite] hmr update /src/components/Markdown.tsx, /src/index.css
+17:02:54 [vite] hmr update /src/components/agent/DebugPanel.tsx, /src/index.css
+17:03:35 [vite] hmr update /src/components/agent/DebugPanel.tsx, /src/index.css
+17:04:05 [vite] hmr update /src/components/Markdown.tsx, /src/index.css
+17:04:40 [vite] hmr update /src/components/agent/DebugPanel.tsx, /src/index.css
+17:04:47 [vite] hmr update /src/pages/chat/index.tsx, /src/index.css

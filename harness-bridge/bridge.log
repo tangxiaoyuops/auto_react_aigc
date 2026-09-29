@@ -1,0 +1,24 @@
+INFO:     127.0.0.1:65022 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65221 - "POST /api/v1/agent/execute/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:65258 - "POST /api/v1/agent/execute/stream HTTP/1.1" 422 Unprocessable Entity
+INFO:     127.0.0.1:65301 - "POST /api/v1/agent/execute/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59661 - "GET /api/v1/resources/pool HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:61343 - "POST /api/v1/agent/execute/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:62790 - "POST /api/v1/agent/execute/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:63709 - "GET /api/v1 HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:63716 - "POST /api/v1/skill/assist HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:63783 - "GET /openapi.json HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50227 - "POST /api/v1/agent/execute/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50428 - "POST /api/v1/agent/execute/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50705 - "POST /api/v1/agent/execute/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50881 - "POST /api/v1/agent/execute/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50942 - "POST /api/v1/agent/execute/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51110 - "POST /api/v1/agent/execute/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53479 - "POST /api/v1/agent/execute/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54647 - "POST /api/v1/agent/execute/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56423 - "HEAD /docs HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56472 - "GET /openapi.json HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56521 - "GET /openapi.json HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56819 - "POST /api/v1/agent/execute/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58106 - "POST /api/v1/agent/execute/stream HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58244 - "POST /api/v1/agent/execute/stream HTTP/1.1" 200 OK

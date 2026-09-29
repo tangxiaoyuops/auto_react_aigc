@@ -5,7 +5,7 @@ from contextlib import asynccontextmanager
 
 from app.core.config import settings
 from app.db.database import init_db
-from app.api.routes import sessions, messages, runs, auth, tools, agents, resources, spaces, evaluations
+from app.api.routes import sessions, messages, runs, auth, tools, agents, resources, spaces, evaluations, assist
 from app.services.sse_manager import SSEManager
 
 # Global instances
@@ -104,6 +104,7 @@ app.include_router(agents.router, prefix="/api/v1/agents", tags=["Agents"])
 app.include_router(resources.router, prefix="/api/v1/resources", tags=["Resources"])
 app.include_router(spaces.router, prefix="/api/v1/spaces", tags=["Spaces"])
 app.include_router(evaluations.router, prefix="/api/v1/evaluations", tags=["Evaluations"])
+app.include_router(assist.router, prefix="/api/v1", tags=["Skill AI"])
 
 
 @app.get("/health")

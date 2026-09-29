@@ -63,8 +63,8 @@ export default function Chat() {
     let finalContent = '';
 
     try {
-      const sessionId = await ensureSession(currentAgent?.model);
-      await startRun(sessionId, content);
+      const sessionId = await ensureSession(selectedAgentId, currentAgent?.model);
+      await startRun(sessionId, content, currentAgent);
 
       // 单个消息内聚合并实时更新 steps
       const updateSteps = (newSteps: Step[]) => {
@@ -228,7 +228,7 @@ export default function Chat() {
                           正在思考中...
                         </div>
                       ) : (
-                        <Markdown content={m.content} className="whitespace-pre-wrap" />
+                        <Markdown content={m.content} className="whitespace-normal" />
                       )}
 
                       {m.steps && m.steps.length > 0 && (
